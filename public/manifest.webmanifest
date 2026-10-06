@@ -1,0 +1,21 @@
+{
+  "id": "/",
+  "name": "EduQuest — Học vui, chơi giỏi",
+  "short_name": "EduQuest",
+  "description": "Biến mỗi bài học thành một chuyến phiêu lưu vui nhộn.",
+  "lang": "vi",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f7f8fc",
+  "theme_color": "#f7f8fc",
+  "icons": [
+    {
+      "src": "./icons/eduquest.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

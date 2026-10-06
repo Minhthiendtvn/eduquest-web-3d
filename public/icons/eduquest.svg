@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7888ff"/>
+      <stop offset="1" stop-color="#5057ce"/>
+    </linearGradient>
+    <linearGradient id="planet" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#c3f68f"/>
+      <stop offset="1" stop-color="#61d1a8"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#sky)"/>
+  <circle cx="385" cy="125" r="20" fill="#fff4a3"/>
+  <path d="m385 82 10 33-10 33-10-33zM342 125l33-10 33 10-33 10z" fill="#fff4a3"/>
+  <ellipse cx="256" cy="282" rx="174" ry="64" transform="rotate(-18 256 282)" fill="none" stroke="#e3c7ff" stroke-width="22"/>
+  <circle cx="256" cy="256" r="116" fill="url(#planet)"/>
+  <path d="M179 265c17 30 47 46 77 46s60-16 77-46" fill="none" stroke="#38516b" stroke-linecap="round" stroke-width="14"/>
+  <ellipse cx="218" cy="230" rx="10" ry="16" fill="#38516b"/>
+  <ellipse cx="294" cy="230" rx="10" ry="16" fill="#38516b"/>
+  <circle cx="113" cy="389" r="13" fill="#ffd28a"/>
+  <path d="m399 361 8 24 24 8-24 8-8 24-8-24-24-8 24-8z" fill="#fff4a3"/>
+</svg>
