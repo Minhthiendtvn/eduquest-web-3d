@@ -5,6 +5,7 @@ RewriteEngine On
   Require all denied
 </FilesMatch>
 
+RewriteRule ^eduquest-install(/|$) - [F,L]
 RewriteCond %{REQUEST_URI} !^/api(?:/|$)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

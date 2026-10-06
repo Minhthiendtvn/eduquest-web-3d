@@ -92,62 +92,59 @@ ports and backups.
 
 ## Deploy on Vietnix NVMe Hosting with cPanel and MySQL
 
-This deployment uses PHP 8.1 or newer with `PDO_MYSQL`, and a MySQL/MariaDB
-database supported by your cPanel plan. Confirm those PHP extensions and
-versions in **cPanel → Select PHP Version** (or ask Vietnix support) before
-uploading. Node.js and PostgreSQL are not needed on the hosting account.
+The cPanel deployment uses PHP 8.1+ with `PDO_MYSQL` and MySQL/MariaDB.
+Node.js is only needed on the computer that builds the upload package; the
+hosting account does not need Node.js or PHP CLI.
 
-1. In cPanel **MySQL Databases**, create a database and a database user, assign
+1. In cPanel **MySQL Databases**, create a database and database user, assign
    the user **All Privileges**, and note the exact prefixed database name,
-   username, and password.
-2. Build the API-required static site locally so the browser never falls back
-   to local demo accounts and shipped curriculum excludes answer keys:
-
-   ```sh
-   npm ci
-   ```
-
-   PowerShell:
+   username, and password. In cPanel, confirm PHP 8.1+ and `PDO_MYSQL` are
+   enabled under **Select PHP Version → Extensions**. Enable SSL/HTTPS for the
+   domain before setup.
+2. On the computer with the source, build the hosting package. In PowerShell:
 
    ```powershell
+   cd "C:\path\to\eduquest-web-3d"
+   npm.cmd ci
    $env:VITE_REQUIRE_API = "true"
    npm.cmd run build
    Remove-Item Env:VITE_REQUIRE_API
    ```
 
-   Upload the **contents** of `dist/` to `public_html/` (including its
-   `.htaccess`), and upload the repository's `api/` directory to
-   `public_html/api/`. Do not upload the `database/` setup files into
-   `public_html`.
-3. Copy `api/config.example.php` to `eduquest-config.php` in your account
-   directory, one level above `public_html`. Set the MySQL credentials, choose
-   a unique initial admin username and password (at least 14 characters), and
-   leave `secure_cookies` enabled when the site uses HTTPS. The config contains
-   secrets and must remain outside the web root.
-4. Upload the `database/` directory to a private setup directory in your
-   account, for example `~/eduquest-setup/database/`. In **cPanel → Terminal**,
-   run `php ~/eduquest-setup/database/install.php`. It creates the MySQL tables,
-   imports the starter subjects/topics/questions, and creates the first admin.
-   The script is CLI-only and will not run through a browser. If your plan does
-   not include Terminal/PHP CLI access, ask Vietnix support to run it; do not
-   move it into `public_html`. Keep the private setup directory backed up, or
-   remove it after successful installation.
-5. Open `https://your-domain.example/api/health` and confirm it returns JSON
-   with `"status":"ok"`. Sign in with the initial admin account, verify learner
-   registration and game progress, then change or remove the temporary setup
-   password from the private config file. Changing that config value does not
-   change the password hash already stored in MySQL.
+   The build creates `dist/`, containing the site, `install.php`, and protected
+   temporary installer data. The API-required build prevents demo-mode
+   accounts and excludes answer keys from shipped frontend content.
+3. In cPanel **File Manager**, open `public_html`. Back it up first if it
+   already contains a website. Upload the **contents** of local `dist/`
+   (including `.htaccess`) into `public_html`. Then upload the repository's
+   `api/` directory into `public_html/api/`. The browser installer and its
+   temporary data are included in `dist`; do not upload `.env` or the private
+   configuration example.
+4. Open `https://your-domain.example/install.php`. Enter the MySQL details
+   from step 1, choose an admin username and a unique password of at least 14
+   characters, then click **Kiểm tra và cài đặt**. The installer creates the
+   schema, imports starter curriculum, creates the first administrator, and
+   writes `eduquest-config.php` one directory above `public_html`. It stores
+   the admin password as a hash in MySQL and does not save that password in
+   the config. Installer data is blocked from web requests and deleted after
+   successful installation; if `install.php` remains, delete it manually.
+5. Open `https://your-domain.example/api/health` and confirm the JSON response
+   contains `"status":"ok"`. Sign in with the admin credentials and test
+   registration and game progress. Take regular database backups from
+   phpMyAdmin and store them outside `public_html`.
 
-The root `.htaccess` routes client-side page navigation to `index.html`; the
-`api/.htaccess` sends API routes to PHP. If cPanel returns HTTP 500 immediately
-after upload, inspect **Metrics → Errors** and ask Vietnix whether its Apache
-configuration permits the `.htaccess` directives. Serve the site over HTTPS:
-the `__Host-` authentication cookie is intentionally secure-only. Take regular
-database backups from phpMyAdmin and store them outside `public_html`.
+If the installer reports that PHP `PDO_MYSQL` is missing, enable that PHP
+extension in cPanel or ask Vietnix support. If it cannot write the private
+config file, ask support to allow the website's PHP user to write to the
+account directory, or have support place the generated config there. If
+cPanel returns HTTP 500, inspect **Metrics → Errors** and ask whether the
+hosting configuration permits `.htaccess` rewrites. Serve the site over HTTPS:
+the login cookie is intentionally marked secure.
 
-This PHP/MySQL route is separate from the Docker/Node/PostgreSQL setup described
-above. Do not run both APIs against the same database; they use different
-database engines.
+The command-line `database/install.php` remains available for accounts that
+provide PHP CLI, but it is not required for the browser-based cPanel setup.
+This PHP/MySQL route is separate from Docker/Node/PostgreSQL; the two APIs use
+different database engines and must not share the same database.
 
 ## Run the static demo locally
 
