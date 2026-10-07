@@ -71,13 +71,13 @@ test("covers the core subjects offered to secondary students", () => {
 
 test("adds a playable starter topic to every subject", () => {
   const topics = subjects.flatMap((subject) => subject.topics);
-  assert.equal(topics.length, 100);
+  assert.equal(topics.length, 130);
   for (const topicId of addedTopicIds) {
     assert.ok(topics.some((topic) => topic.id === topicId), `${topicId} exists`);
   }
 });
 
-for (const grade of [6, 7, 8, 9]) {
+for (const grade of [6, 7, 8, 9, 10, 11, 12]) {
   test(`grade ${grade} has ten clearly labelled topics and fifty original questions`, () => {
     const topics = subjects.flatMap((subject) => subject.topics)
       .filter((topic) => topic.id.startsWith(`grade-${grade}-`));

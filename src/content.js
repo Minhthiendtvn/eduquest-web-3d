@@ -1150,6 +1150,93 @@ const gradeNineTopics = {
   ],
 };
 
+const gradeTenTopics = {
+  math: [
+    createStarterTopic("grade-10-sets", "Lớp 10 · Mệnh đề và tập hợp", "Phủ định, giao, hợp và khoảng số thực", ["∩", "∪", "10"], [
+      ["Phủ định của mệnh đề “Mọi số nguyên đều là số chẵn” là gì?", "Có ít nhất một số nguyên không phải số chẵn", ["Mọi số nguyên đều là số lẻ", "Không có số nguyên nào", "Mọi số chẵn đều là số nguyên"], "Phủ định của “mọi phần tử có tính chất” là “tồn tại ít nhất một phần tử không có tính chất đó”."],
+      ["Cho A = {1, 2, 3} và B = {2, 3, 4}. Giao của A và B là gì?", "{2, 3}", ["{1, 4}", "{1, 2, 3, 4}", "{1, 2}"], "Giao chứa những phần tử thuộc cả hai tập hợp: 2 và 3."],
+      ["Cho A = {1, 2} và B = {2, 3}. Hợp của A và B là gì?", "{1, 2, 3}", ["{2}", "{1, 3}", "{1, 2, 2, 3}"], "Hợp chứa các phần tử thuộc ít nhất một tập; mỗi phần tử chỉ liệt kê một lần."],
+      ["Khoảng (−1; 3] chứa số nào sau đây?", "3", ["−1", "4", "−2"], "Dấu ngoặc tròn loại −1, dấu ngoặc vuông nhận 3; các số trong khoảng thỏa −1 < x ≤ 3."],
+      ["Cho A = {1, 2, 3, 4} và B = {2, 4}. Hiệu A \\ B là gì?", "{1, 3}", ["{2, 4}", "{1, 2, 3, 4}", "Tập rỗng"], "Hiệu A \\ B gồm các phần tử thuộc A nhưng không thuộc B, tức 1 và 3."],
+    ]),
+    createStarterTopic("grade-10-quadratic-functions", "Lớp 10 · Hàm số bậc hai", "Đỉnh parabol, trục đối xứng và dấu tam thức", ["x²", "↗", "10"], [
+      ["Đỉnh của parabol y = x² − 4x + 3 là điểm nào?", "(2; −1)", ["(−2; −1)", "(2; 3)", "(0; 3)"], "Viết y = (x − 2)² − 1, nên đỉnh là (2; −1)."],
+      ["Trục đối xứng của parabol y = x² + 2x − 3 là đường nào?", "x = −1", ["x = 1", "y = −1", "x = −3"], "Hoành độ đỉnh bằng −b/(2a) = −2/2 = −1; trục đối xứng là x = −1."],
+      ["Hàm số y = (x − 1)² + 2 có giá trị nhỏ nhất bằng bao nhiêu?", "2", ["1", "0", "−2"], "Bình phương luôn không âm, nên y ≥ 2; dấu bằng xảy ra khi x = 1."],
+      ["Tam thức x² − 4 âm khi nào?", "−2 < x < 2", ["x < −2 hoặc x > 2", "Mọi số thực x", "Chỉ x = 2"], "x² − 4 < 0 tương đương x² < 4, tức −2 < x < 2."],
+      ["Đồ thị y = −x² có bề lõm hướng nào?", "Xuống dưới", ["Lên trên", "Sang phải", "Sang trái"], "Hệ số của x² âm nên parabol có bề lõm hướng xuống dưới."],
+    ]),
+    createStarterTopic("grade-10-vectors", "Lớp 10 · Vectơ và tọa độ", "Tọa độ, độ dài và tích vô hướng", ["→", "Oxy", "10"], [
+      ["Cho A(1; 2), B(4; 6). Vectơ AB có tọa độ nào?", "(3; 4)", ["(5; 8)", "(−3; −4)", "(4; 3)"], "Lấy tọa độ điểm cuối trừ điểm đầu: AB = (4 − 1; 6 − 2) = (3; 4)."],
+      ["Vectơ có tọa độ (3; 4) có độ dài bao nhiêu?", "5", ["7", "25", "1"], "Độ dài bằng căn bậc hai của 3² + 4² = 25, tức 5."],
+      ["Cho u = (1; 2), v = (3; −1). Tọa độ u + v là gì?", "(4; 1)", ["(2; −3)", "(3; −2)", "(4; 3)"], "Cộng từng tọa độ: (1 + 3; 2 − 1) = (4; 1)."],
+      ["Tích vô hướng của u = (1; 2) và v = (2; −1) bằng bao nhiêu?", "0", ["4", "−4", "2"], "Tích vô hướng bằng 1 × 2 + 2 × (−1) = 0; hai vectơ này vuông góc."],
+      ["Trung điểm của A(0; 2) và B(4; 6) có tọa độ nào?", "(2; 4)", ["(4; 8)", "(2; 2)", "(0; 4)"], "Lấy trung bình các tọa độ tương ứng: ((0 + 4)/2; (2 + 6)/2) = (2; 4)."],
+    ]),
+  ],
+  science: [
+    createStarterTopic("grade-10-mechanics", "Lớp 10 · Cơ học", "Gia tốc, lực, công và động năng", ["⚙", "F", "10"], [
+      ["Vận tốc tăng đều từ 2 m/s lên 10 m/s trong 4 s theo cùng một chiều. Gia tốc là bao nhiêu?", "2 m/s²", ["3 m/s²", "8 m/s²", "0,5 m/s²"], "Gia tốc bằng độ biến thiên vận tốc chia thời gian: (10 − 2)/4 = 2 m/s²."],
+      ["Vật khối lượng 2 kg chịu hợp lực 6 N. Độ lớn gia tốc là bao nhiêu?", "3 m/s²", ["12 m/s²", "4 m/s²", "0,33 m/s²"], "Theo định luật II Newton, F = ma nên a = 6/2 = 3 m/s²."],
+      ["Lực không đổi 10 N kéo vật đi 3 m cùng hướng với lực. Công của lực là bao nhiêu?", "30 J", ["13 J", "3 J", "0 J"], "Khi lực cùng hướng chuyển dời, công bằng lực nhân quãng đường: 10 × 3 = 30 J."],
+      ["Vật khối lượng 2 kg chuyển động với tốc độ 3 m/s. Động năng là bao nhiêu?", "9 J", ["6 J", "18 J", "3 J"], "Động năng bằng một nửa khối lượng nhân bình phương tốc độ: 0,5 × 2 × 3² = 9 J."],
+      ["Cặp lực trong định luật III Newton tác dụng lên đâu?", "Hai vật khác nhau", ["Cùng một vật", "Chỉ vật có khối lượng lớn hơn", "Không tác dụng lên vật nào"], "Hai vật tương tác tác dụng lực lên nhau; cặp lực có cùng độ lớn, ngược chiều và đặt lên hai vật khác nhau."],
+    ]),
+    createStarterTopic("grade-10-atomic-chemistry", "Lớp 10 · Nguyên tử và liên kết", "Hạt cơ bản, số hiệu nguyên tử và liên kết hóa học", ["⚛", "e", "10"], [
+      ["Hạt nào trong nguyên tử mang điện tích dương?", "Proton", ["Electron", "Neutron", "Cả electron và neutron"], "Proton mang điện tích dương, electron mang điện tích âm và neutron không mang điện."],
+      ["Số hiệu nguyên tử Z bằng số hạt nào trong hạt nhân?", "Số proton", ["Số neutron", "Tổng proton và neutron", "Số electron lớp ngoài cùng"], "Số hiệu nguyên tử xác định số proton trong hạt nhân và nhận diện nguyên tố."],
+      ["Nguyên tử trung hòa có 11 proton thì có bao nhiêu electron?", "11", ["10", "12", "22"], "Nguyên tử trung hòa có tổng điện tích bằng 0, nên số electron bằng số proton."],
+      ["Hai nguyên tử đồng vị của cùng một nguyên tố khác nhau về điều gì?", "Số neutron", ["Số proton", "Số hiệu nguyên tử", "Tên nguyên tố"], "Đồng vị có cùng số proton nhưng khác số neutron, nên có số khối khác nhau."],
+      ["Liên kết cộng hóa trị thường được hình thành bằng cách nào?", "Các nguyên tử dùng chung một hay nhiều cặp electron", ["Chỉ dùng chung proton", "Xóa toàn bộ hạt nhân", "Chỉ trao đổi neutron"], "Liên kết cộng hóa trị hình thành nhờ một hay nhiều cặp electron dùng chung giữa các nguyên tử."],
+    ]),
+  ],
+  literature: [
+    createStarterTopic("grade-10-literature", "Lớp 10 · Văn học và văn bản", "Thần thoại, sử thi và phân tích tác phẩm", ["📖", "✎", "10"], [
+      ["Thần thoại thường phản ánh điều gì?", "Cách người xưa hình dung nguồn gốc thế giới và các hiện tượng", ["Chỉ dữ liệu dự báo thời tiết", "Chỉ hướng dẫn sử dụng máy", "Chỉ bảng giá hàng hóa"], "Thần thoại dùng trí tưởng tượng và hình tượng thần linh để lí giải thế giới, con người theo quan niệm thời cổ."],
+      ["Nhân vật trung tâm của sử thi thường mang đặc điểm nào?", "Người anh hùng tiêu biểu cho lí tưởng và sức mạnh cộng đồng", ["Chỉ là người bán hàng bất kì", "Không có hành động nào", "Luôn là người kể ngoài câu chuyện"], "Sử thi thường kể những sự kiện lớn, đề cao người anh hùng và các giá trị của cộng đồng."],
+      ["Chủ đề của tác phẩm là gì?", "Vấn đề chính về đời sống được tác phẩm đặt ra", ["Chỉ tên nhà xuất bản", "Chỉ số trang", "Mọi từ xuất hiện trong bài"], "Chủ đề là vấn đề trung tâm được thể hiện qua nhân vật, sự kiện, hình ảnh và cách tổ chức tác phẩm."],
+      ["Khi phân tích tác dụng một hình ảnh thơ, nên làm gì?", "Đặt hình ảnh trong ngữ cảnh và giải thích ý nghĩa, cảm xúc gợi ra", ["Chỉ đếm số chữ", "Tách khỏi mọi câu xung quanh", "Chỉ chép định nghĩa trong từ điển"], "Ngữ cảnh giúp hiểu hình ảnh góp phần thể hiện cảm xúc, chủ đề và nét nghệ thuật như thế nào."],
+      ["Một văn bản thông tin đáng tin cậy cần đặc điểm nào?", "Thông tin có thể kiểm chứng và nguồn được nêu rõ", ["Chỉ có tiêu đề gây sốc", "Không cần ngày xuất bản", "Chỉ dựa vào lời đồn"], "Nguồn rõ ràng và thông tin kiểm chứng được giúp người đọc đánh giá độ tin cậy; vẫn cần xem thời điểm và mục đích viết."],
+    ]),
+  ],
+  english: [
+    createStarterTopic("grade-10-english", "Lớp 10 · English for learning", "Câu bị động, hiện tại hoàn thành và động từ nguyên mẫu", ["ABC", "🌱", "10"], [
+      ["Điền từ: English ___ in many countries.", "is spoken", ["speaks", "is speaking", "spoken"], "Câu bị động hiện tại đơn dùng am/is/are + quá khứ phân từ; English đi với is spoken."],
+      ["Điền từ: We ___ here since 2020.", "have lived", ["live yesterday", "are live", "has lived"], "Since 2020 chỉ mốc bắt đầu kéo dài đến hiện tại; với we dùng have lived."],
+      ["Điền từ: She decided ___ a new language.", "to learn", ["learning", "learns", "learned"], "Sau decide dùng động từ nguyên mẫu có to: decided to learn."],
+      ["Điền từ: This task ___ by Friday. It is required.", "must be completed", ["must completed", "must completing", "must be complete by someone yesterday"], "Bị động với động từ khuyết thiếu dùng modal + be + quá khứ phân từ: must be completed."],
+      ["Điền từ: They were studying when the phone ___.", "rang", ["ring", "was ring", "has ringing"], "Hành động ngắn xen vào hành động đang diễn ra trong quá khứ thường dùng quá khứ đơn: rang."],
+    ]),
+  ],
+  history: [
+    createStarterTopic("grade-10-civilizations", "Lớp 10 · Văn minh và di sản", "Thành tựu văn minh, tư liệu và bảo tồn", ["🏛", "📜", "10"], [
+      ["Chữ hình nêm gắn với nền văn minh cổ đại nào?", "Lưỡng Hà", ["La Mã", "Văn Lang", "Maya"], "Chữ hình nêm được người Sumer phát triển ở Lưỡng Hà và thường được ghi trên bảng đất sét."],
+      ["Giấy, kĩ thuật in, thuốc súng và la bàn thường được nhắc đến như thành tựu của nền văn minh nào?", "Trung Hoa", ["Ai Cập", "Hy Lạp", "La Mã"], "Đây là bốn phát minh thường được nhắc đến của Trung Hoa, có ảnh hưởng lớn đến nhiều khu vực."],
+      ["Thời kì Phục hưng ở châu Âu nổi bật với xu hướng nào?", "Đề cao con người và phát triển văn học, nghệ thuật, khoa học", ["Từ bỏ mọi hoạt động nghệ thuật", "Ngừng tìm hiểu tự nhiên", "Chỉ duy trì kinh tế tự cấp tự túc"], "Phục hưng khơi dậy giá trị văn hóa cổ điển và tinh thần nhân văn, thúc đẩy sáng tạo, nghiên cứu."],
+      ["Vì sao cần đối chiếu nhiều nguồn tư liệu khi nghiên cứu lịch sử?", "Để kiểm tra thông tin và nhận diện góc nhìn, giới hạn của nguồn", ["Để mọi nguồn tự động đúng", "Để bỏ qua bằng chứng", "Để chỉ chọn nguồn hợp ý mình"], "Nguồn tư liệu có bối cảnh, mục đích và giới hạn; đối chiếu giúp hình thành nhận định có cơ sở hơn."],
+      ["Hành động nào phù hợp khi tham quan di tích?", "Tuân thủ hướng dẫn và không làm hư hại hiện vật", ["Khắc tên lên tường", "Tự lấy hiện vật làm kỉ niệm", "Di chuyển đồ trưng bày tùy ý"], "Tôn trọng quy định và bảo vệ hiện vật giúp giữ gìn di sản cho cộng đồng và các thế hệ sau."],
+    ]),
+  ],
+  geography: [
+    createStarterTopic("grade-10-physical-geography", "Lớp 10 · Địa lí tự nhiên", "Khí quyển, nước, địa hình và môi trường", ["🌍", "🌦", "10"], [
+      ["Phần lớn hiện tượng thời tiết diễn ra ở tầng khí quyển nào?", "Tầng đối lưu", ["Tầng bình lưu", "Tầng nhiệt", "Tầng ngoài"], "Tầng đối lưu chứa phần lớn hơi nước và diễn ra hầu hết các hiện tượng như mây, mưa, gió."],
+      ["Trong vòng tuần hoàn nước, quá trình nào đưa nước lỏng thành hơi nước?", "Bốc hơi", ["Ngưng tụ", "Đóng băng", "Dòng chảy mặt"], "Bốc hơi chuyển nước từ thể lỏng sang thể khí; ngưng tụ là quá trình ngược lại."],
+      ["Nội lực có thể gây ra hiện tượng nào?", "Động đất và hoạt động núi lửa", ["Chỉ bốc hơi nước", "Chỉ xói mòn do mưa", "Chỉ vận chuyển cát do gió"], "Nội lực có nguồn năng lượng từ bên trong Trái Đất, góp phần gây biến dạng vỏ, động đất và núi lửa."],
+      ["Phong hóa được hiểu là quá trình nào?", "Phá hủy và biến đổi đá tại chỗ", ["Chỉ di chuyển đất đá đến nơi khác", "Chỉ hình thành mây", "Chỉ chuyển động của đại dương"], "Phong hóa làm đá bị phá hủy hoặc biến đổi tại chỗ; vận chuyển là quá trình đưa vật liệu đến nơi khác."],
+      ["Yếu tố nào giúp giảm xói mòn đất trên sườn dốc?", "Duy trì lớp phủ thực vật", ["Chặt sạch cây", "Để đất trống trong mùa mưa", "Loại bỏ mọi rễ cây"], "Thực vật làm giảm tác động của giọt mưa, rễ giữ đất và lớp phủ giúp hạn chế dòng chảy mặt."],
+    ]),
+  ],
+  informatics: [
+    createStarterTopic("grade-10-python-basics", "Lớp 10 · Lập trình Python", "Biến, kiểu dữ liệu, điều kiện và vòng lặp", ["🐍", "01", "10"], [
+      ["Trong Python, sau x = 3 rồi x = x + 2, x có giá trị nào?", "5", ["3", "2", "6"], "Lệnh thứ hai lấy giá trị hiện tại của x cộng 2 rồi gán lại cho x."],
+      ["Kết quả của 7 // 2 trong Python là bao nhiêu?", "3", ["3,5", "1", "14"], "Với hai số nguyên dương, // cho thương nguyên làm tròn xuống; 7 chia 2 có thương nguyên là 3."],
+      ["Biểu thức nào trong Python kiểm tra x có bằng 10 hay không?", "x == 10", ["x = 10", "x => 10", "x :=: 10"], "== dùng để so sánh bằng; = dùng để gán giá trị."],
+      ["range(4) tạo dãy giá trị nào khi duyệt bằng vòng lặp?", "0, 1, 2, 3", ["1, 2, 3, 4", "0, 1, 2, 3, 4", "Chỉ 4"], "range(4) bắt đầu từ 0, tăng 1 và dừng trước 4."],
+      ["Hàm input() trong Python trả về kiểu dữ liệu nào?", "Chuỗi kí tự (str)", ["Luôn là số nguyên (int)", "Luôn là số thực (float)", "Luôn là giá trị đúng/sai (bool)"], "input() trả về chuỗi; muốn tính toán với số cần chuyển kiểu phù hợp và xử lí dữ liệu không hợp lệ."],
+    ]),
+  ],
+};
+
 for (const [subjectId, topics] of Object.entries(gradeSixTopics)) {
   for (const topic of topics) topic.level = "LỚP 6";
   curriculumExtensions[subjectId].push(...topics);
@@ -1167,6 +1254,195 @@ for (const [subjectId, topics] of Object.entries(gradeEightTopics)) {
 
 for (const [subjectId, topics] of Object.entries(gradeNineTopics)) {
   for (const topic of topics) topic.level = "LỚP 9";
+  curriculumExtensions[subjectId].push(...topics);
+}
+
+const gradeElevenTopics = {
+  math: [
+    createStarterTopic("grade-11-trigonometry", "Lớp 11 · Lượng giác", "Góc, giá trị lượng giác và phương trình cơ bản", ["sin", "π", "11"], [
+      ["Góc 180° tương ứng với bao nhiêu radian?", "π rad", ["2π rad", "π/2 rad", "π/4 rad"], "Một vòng tròn là 360° hay 2π rad, nên nửa vòng là 180° hay π rad."],
+      ["Giá trị của sin(π/6) là bao nhiêu?", "1/2", ["0", "1", "√3/2"], "π/6 rad tương ứng 30°; sin 30° = 1/2."],
+      ["Đẳng thức nào đúng với mọi góc x?", "sin²x + cos²x = 1", ["sin x + cos x = 1", "sin²x − cos²x = 1", "sin x = cos x"], "Đây là hệ thức lượng giác cơ bản, suy ra từ tọa độ điểm trên đường tròn đơn vị."],
+      ["Chu kì dương nhỏ nhất của hàm số y = sin x là bao nhiêu?", "2π", ["π", "π/2", "4π"], "sin(x + 2π) = sin x; 2π là chu kì dương nhỏ nhất."],
+      ["Trong đoạn [0; 2π], phương trình cos x = 1 có những nghiệm nào?", "0 và 2π", ["Chỉ π", "π/2 và 3π/2", "π và 2π"], "cos x = 1 khi x là bội nguyên của 2π; trong đoạn đã cho có 0 và 2π."],
+    ]),
+    createStarterTopic("grade-11-sequences", "Lớp 11 · Dãy số", "Cấp số cộng, cấp số nhân và tổng các số hạng", ["uₙ", "Σ", "11"], [
+      ["Cấp số cộng có số hạng đầu 2 và công sai 3. Số hạng thứ tư là bao nhiêu?", "11", ["8", "14", "6"], "Số hạng thứ tư bằng 2 + (4 − 1) × 3 = 11."],
+      ["Dãy 5, 9, 13, 17, ... là cấp số cộng có công sai bao nhiêu?", "4", ["5", "9", "2"], "Hiệu mỗi số hạng với số đứng trước đều bằng 4."],
+      ["Tổng năm số hạng đầu của cấp số cộng 1, 3, 5, 7, 9, ... là bao nhiêu?", "25", ["20", "30", "45"], "Tổng bằng 5 × (1 + 9)/2 = 25."],
+      ["Cấp số nhân có số hạng đầu 3 và công bội 2. Số hạng thứ tư là bao nhiêu?", "24", ["12", "18", "48"], "Số hạng thứ tư bằng 3 × 2³ = 24."],
+      ["Dãy 81, 27, 9, 3, ... là cấp số nhân có công bội bao nhiêu?", "1/3", ["3", "−3", "−1/3"], "Tỉ số một số hạng với số đứng trước là 27/81 = 1/3."],
+    ]),
+    createStarterTopic("grade-11-derivatives", "Lớp 11 · Đạo hàm cơ bản", "Tốc độ thay đổi và hệ số góc tiếp tuyến", ["f′", "x²", "11"], [
+      ["Đạo hàm của hàm số y = x² là gì?", "2x", ["x", "x²", "2"], "Theo quy tắc đạo hàm lũy thừa, đạo hàm của x² là 2x."],
+      ["Đạo hàm của hàm số y = 3x + 5 là bao nhiêu?", "3", ["5", "3x", "8"], "Đạo hàm của 3x là 3, còn đạo hàm của hằng số 5 là 0."],
+      ["Đạo hàm của hàm số hằng y = 7 là bao nhiêu?", "0", ["7", "1", "7x"], "Hàm hằng không thay đổi theo x nên có đạo hàm bằng 0."],
+      ["Hệ số góc tiếp tuyến của đồ thị y = x² tại điểm có hoành độ x = 2 là bao nhiêu?", "4", ["2", "1", "8"], "Hệ số góc tiếp tuyến bằng giá trị đạo hàm tại điểm đó: y′(2) = 2 × 2 = 4."],
+      ["Vật có vị trí s(t) = t² mét, với t tính bằng giây. Vận tốc tức thời tại t = 3 s là bao nhiêu?", "6 m/s", ["9 m/s", "3 m/s", "2 m/s"], "Vận tốc tức thời là đạo hàm của vị trí theo thời gian: v(t) = 2t, nên v(3) = 6 m/s."],
+    ]),
+  ],
+  science: [
+    createStarterTopic("grade-11-oscillations-and-waves", "Lớp 11 · Dao động và sóng", "Chu kì, tần số, bước sóng và dao động điều hòa", ["〰", "Hz", "11"], [
+      ["Một dao động có chu kì 0,5 s. Tần số là bao nhiêu?", "2 Hz", ["0,5 Hz", "5 Hz", "0,25 Hz"], "Tần số là nghịch đảo chu kì: f = 1/T = 1/0,5 = 2 Hz."],
+      ["Sóng có tốc độ 12 m/s và tần số 3 Hz. Bước sóng là bao nhiêu?", "4 m", ["36 m", "9 m", "0,25 m"], "Bước sóng bằng tốc độ truyền sóng chia tần số: 12/3 = 4 m."],
+      ["Trong dao động điều hòa, biên độ là gì?", "Độ lệch lớn nhất khỏi vị trí cân bằng", ["Thời gian thực hiện một dao động", "Số dao động trong một giây", "Quãng đường trong mọi khoảng thời gian"], "Biên độ đặc trưng cho độ lệch cực đại, không phải chu kì hay tần số."],
+      ["Trong dao động điều hòa, tốc độ của vật lớn nhất khi nào?", "Khi qua vị trí cân bằng", ["Khi ở vị trí biên", "Khi gia tốc có độ lớn cực đại", "Khi li độ có độ lớn cực đại"], "Tại vị trí cân bằng, thế năng nhỏ nhất và động năng lớn nhất nên tốc độ đạt cực đại."],
+      ["Một sóng cơ truyền năng lượng nhưng các phần tử môi trường chủ yếu làm gì?", "Dao động quanh vị trí cân bằng", ["Đi cùng sóng mãi về một phía", "Biến mất sau mỗi chu kì", "Không chuyển động trong mọi trường hợp"], "Sóng cơ lan truyền dao động và năng lượng; các phần tử môi trường dao động quanh vị trí cân bằng."],
+    ]),
+    createStarterTopic("grade-11-chemical-equilibrium", "Lớp 11 · Cân bằng và dung dịch", "Cân bằng động, pH và phản ứng axit–bazơ", ["⇌", "pH", "11"], [
+      ["Ở trạng thái cân bằng hóa học, tốc độ phản ứng thuận và nghịch có quan hệ gì?", "Bằng nhau", ["Phản ứng thuận luôn nhanh hơn", "Phản ứng nghịch luôn nhanh hơn", "Cả hai bắt buộc bằng không"], "Cân bằng hóa học là cân bằng động: hai phản ứng vẫn diễn ra với tốc độ bằng nhau."],
+      ["Với phản ứng thuận tỏa nhiệt, tăng nhiệt độ làm cân bằng chuyển dịch theo chiều nào?", "Chiều nghịch", ["Chiều thuận", "Không thể chuyển dịch", "Luôn tạo thêm mọi sản phẩm"], "Tăng nhiệt độ ưu tiên chiều thu nhiệt, tức chiều nghịch trong trường hợp này."],
+      ["Ở 25°C, dung dịch có pH = 3 được phân loại thế nào?", "Có tính axit", ["Trung tính", "Có tính bazơ", "Không chứa ion nào"], "Ở 25°C, dung dịch có pH nhỏ hơn 7 có tính axit."],
+      ["Theo thuyết Brønsted–Lowry, bazơ là chất có khả năng làm gì?", "Nhận proton", ["Chỉ nhường electron", "Luôn giải phóng khí ôxi", "Chỉ cho neutron"], "Theo thuyết này, axit cho proton còn bazơ nhận proton."],
+      ["Sản phẩm của phản ứng HCl + NaOH → ... là gì?", "NaCl và H₂O", ["Na và Cl₂", "H₂ và O₂", "Chỉ NaCl"], "Đây là phản ứng trung hòa giữa axit và bazơ: HCl + NaOH → NaCl + H₂O."],
+    ]),
+  ],
+  literature: [
+    createStarterTopic("grade-11-literature", "Lớp 11 · Nghệ thuật kể chuyện", "Điểm nhìn, tình huống truyện và lập luận văn học", ["📖", "✎", "11"], [
+      ["Điểm nhìn trần thuật giúp xác định điều gì?", "Vị trí và góc độ quan sát, kể lại câu chuyện", ["Chỉ kích thước trang sách", "Chỉ số lượng chương", "Chỉ tên nhà xuất bản"], "Điểm nhìn chi phối thông tin người đọc biết và cách sự kiện, nhân vật được cảm nhận."],
+      ["Người kể chuyện và tác giả có quan hệ thế nào?", "Không nên mặc nhiên đồng nhất hai vai trò", ["Luôn là cùng một người trong mọi tác phẩm", "Không bao giờ liên quan đến nhau", "Người kể luôn là nhân vật chính"], "Người kể là một vai trò trong văn bản do tác giả xây dựng; không thể tự động coi lời kể là lời tác giả."],
+      ["Một tình huống truyện có thể góp phần làm gì?", "Bộc lộ tính cách và lựa chọn của nhân vật", ["Chỉ tăng số trang", "Xóa mọi xung đột", "Thay thế toàn bộ lời kể"], "Tình huống đặt nhân vật vào hoàn cảnh cụ thể, giúp thể hiện tính cách, quan hệ và chủ đề."],
+      ["Khi nhận xét giọng điệu một bài thơ, nên dựa vào đâu?", "Từ ngữ, nhịp điệu và cách biểu đạt cảm xúc", ["Chỉ màu bìa sách", "Chỉ giá bán", "Chỉ độ dài tên tác giả"], "Giọng điệu được thể hiện qua lựa chọn ngôn từ, nhịp và thái độ, cảm xúc trong văn bản."],
+      ["Lập luận phân tích văn học thuyết phục cần gì?", "Nhận định rõ, dẫn chứng phù hợp và giải thích có cơ sở", ["Chỉ khẳng định mà không có dẫn chứng", "Chỉ kể lại cốt truyện", "Chỉ nêu sở thích không liên quan"], "Dẫn chứng phải được phân tích để cho thấy vì sao chúng hỗ trợ nhận định."],
+    ]),
+  ],
+  english: [
+    createStarterTopic("grade-11-english", "Lớp 11 · English development", "Thì hoàn thành, danh động từ và cấu trúc nhấn mạnh", ["ABC", "💬", "11"], [
+      ["Điền từ: She ___ for two hours and is still working.", "has been studying", ["study", "have been studying", "was study"], "Hiện tại hoàn thành tiếp diễn nhấn mạnh quá trình bắt đầu trong quá khứ và vẫn tiếp tục; she đi với has."],
+      ["Điền từ: They suggested ___ a break.", "taking", ["take", "to taking", "takes"], "Sau suggest có thể dùng danh động từ: suggested taking a break."],
+      ["Điền từ: It was Lan ___ helped me yesterday.", "who", ["where", "when", "whose"], "Cấu trúc nhấn mạnh It was ... who ... dùng who để nhấn mạnh người thực hiện hành động."],
+      ["Điền từ: By the time we arrived, the film ___ already ___.", "had / started", ["has / start", "was / start", "have / started"], "Quá khứ hoàn thành diễn tả hành động xảy ra trước một thời điểm hoặc hành động khác trong quá khứ."],
+      ["Điền từ: This is the first student ___ the task.", "to finish", ["finish", "finishes", "to finishing"], "Sau the first + danh từ, có thể dùng to-infinitive để bổ nghĩa: the first student to finish."],
+    ]),
+  ],
+  history: [
+    createStarterTopic("grade-11-history", "Lớp 11 · Cải cách và độc lập", "Cải cách ở Việt Nam và phong trào độc lập Đông Nam Á", ["📜", "🕊", "11"], [
+      ["Cuộc cải cách đầu thế kỉ XV gắn với nhân vật nào?", "Hồ Quý Ly", ["Lê Lợi", "Ngô Quyền", "Nguyễn Huệ"], "Hồ Quý Ly tiến hành những cải cách về chính trị, kinh tế, văn hóa và quân sự cuối thế kỉ XIV, đầu thế kỉ XV."],
+      ["Vị vua nào gắn với cải cách hành chính quan trọng của Đại Việt trong thế kỉ XV?", "Lê Thánh Tông", ["Gia Long", "Minh Mạng", "Lý Nam Đế"], "Lê Thánh Tông thực hiện cải cách nhằm củng cố bộ máy nhà nước và tổ chức quản lí lãnh thổ."],
+      ["Cải cách hành chính chia cả nước thành các tỉnh dưới triều Nguyễn gắn nổi bật với vua nào?", "Minh Mạng", ["Quang Trung", "Trần Nhân Tông", "Lê Đại Hành"], "Minh Mạng tổ chức lại hệ thống hành chính địa phương trong các năm 1831–1832."],
+      ["Quốc gia Đông Nam Á nào tuyên bố độc lập ngày 17/8/1945?", "Indonesia", ["Việt Nam", "Lào", "Philippines"], "Indonesia tuyên bố độc lập ngày 17/8/1945, trong làn sóng đấu tranh giải phóng dân tộc sau chiến tranh."],
+      ["Khi đánh giá một cuộc cải cách lịch sử, cần xem xét điều gì?", "Bối cảnh, mục tiêu, nội dung, kết quả và hạn chế", ["Chỉ tên người thực hiện", "Chỉ một khẩu hiệu", "Chỉ kết quả được kể từ một nguồn"], "Đánh giá nhiều mặt và đối chiếu tư liệu giúp tránh nhận xét một chiều hoặc tách khỏi hoàn cảnh lịch sử."],
+    ]),
+  ],
+  geography: [
+    createStarterTopic("grade-11-world-economy", "Lớp 11 · Kinh tế thế giới", "Toàn cầu hóa, liên kết khu vực và chỉ số phát triển", ["🌍", "📊", "11"], [
+      ["Biểu hiện nào gắn với toàn cầu hóa kinh tế?", "Gia tăng trao đổi hàng hóa, đầu tư và liên kết sản xuất quốc tế", ["Mọi quốc gia ngừng thương mại", "Chỉ sản xuất để tự dùng", "Không còn dòng vốn quốc tế"], "Toàn cầu hóa kinh tế thể hiện qua sự gắn kết ngày càng mạnh của các nền kinh tế."],
+      ["ASEAN là tổ chức liên kết của khu vực nào?", "Đông Nam Á", ["Bắc Âu", "Nam Mỹ", "Bắc Phi"], "ASEAN là Hiệp hội các quốc gia Đông Nam Á, thúc đẩy hợp tác giữa các thành viên."],
+      ["GDP bình quân đầu người được tính cơ bản bằng cách nào?", "GDP chia cho số dân", ["Số dân chia cho GDP", "GDP nhân với số dân", "Chỉ lấy kim ngạch xuất khẩu"], "Chỉ số được tính bằng GDP chia dân số trong cùng kì; không phản ánh đầy đủ phân phối thu nhập."],
+      ["Chỉ số HDI kết hợp các phương diện chủ yếu nào?", "Sức khỏe, giáo dục và mức sống", ["Chỉ sản lượng thép", "Chỉ diện tích lãnh thổ", "Chỉ tổng số sân bay"], "HDI tổng hợp các chỉ tiêu đại diện cho tuổi thọ, giáo dục và thu nhập, phản ánh phát triển con người."],
+      ["Một thách thức của hội nhập kinh tế đối với doanh nghiệp là gì?", "Cạnh tranh mạnh hơn và yêu cầu nâng cao năng lực", ["Không cần đổi mới công nghệ", "Luôn được bảo đảm lợi nhuận", "Không cần tuân thủ tiêu chuẩn"], "Hội nhập mở cơ hội thị trường nhưng cũng tăng cạnh tranh, đòi hỏi nâng chất lượng và năng suất."],
+    ]),
+  ],
+  informatics: [
+    createStarterTopic("grade-11-databases", "Lớp 11 · Cơ sở dữ liệu", "Bảng, khóa, truy vấn và bảo vệ dữ liệu", ["SQL", "🔑", "11"], [
+      ["Trong bảng dữ liệu quan hệ, một hàng thường biểu diễn điều gì?", "Một bản ghi", ["Toàn bộ cơ sở dữ liệu", "Một hệ quản trị", "Chỉ tên bảng"], "Một hàng chứa các giá trị thuộc tính của một bản ghi; cột biểu diễn thuộc tính."],
+      ["Khóa chính có vai trò gì?", "Phân biệt duy nhất từng bản ghi trong bảng", ["Cho phép mọi hàng cùng một mã", "Chỉ đổi màu bảng", "Lưu mọi mật khẩu dưới dạng văn bản"], "Giá trị khóa chính phải duy nhất và không rỗng để nhận diện bản ghi."],
+      ["Khóa ngoại giúp thực hiện điều gì?", "Liên kết dữ liệu giữa các bảng", ["Xóa mọi quan hệ giữa bảng", "Chỉ sắp xếp màu chữ", "Thay thế toàn bộ bản ghi"], "Khóa ngoại tham chiếu khóa của bảng liên quan, hỗ trợ liên kết và toàn vẹn dữ liệu."],
+      ["Trong SQL, lệnh nào dùng để truy vấn dữ liệu?", "SELECT", ["DELETE", "DROP", "INSERT"], "SELECT đọc dữ liệu; DELETE xóa hàng, DROP xóa đối tượng và INSERT thêm hàng."],
+      ["Biện pháp nào giúp bảo vệ dữ liệu và khôi phục khi xảy ra sự cố?", "Phân quyền phù hợp và sao lưu định kì", ["Cho mọi người quyền quản trị", "Không bao giờ sao lưu", "Công khai thông tin cá nhân"], "Phân quyền hạn chế truy cập ngoài ý muốn; bản sao lưu được bảo vệ và kiểm tra hỗ trợ khôi phục."],
+    ]),
+  ],
+};
+
+for (const [subjectId, topics] of Object.entries(gradeTenTopics)) {
+  for (const topic of topics) topic.level = "LỚP 10";
+  curriculumExtensions[subjectId].push(...topics);
+}
+
+const gradeTwelveTopics = {
+  math: [
+    createStarterTopic("grade-12-function-analysis", "Lớp 12 · Khảo sát hàm số", "Đơn điệu, cực trị và tiệm cận", ["f′", "↗", "12"], [
+      ["Nếu f′(x) > 0 với mọi x trên một khoảng thì hàm số có tính chất gì trên khoảng đó?", "Đồng biến", ["Nghịch biến", "Luôn là hàm hằng", "Không xác định"], "Đạo hàm dương trên khoảng cho biết hàm số đồng biến trên khoảng đó."],
+      ["Hàm số y = x² − 4x + 5 đạt giá trị nhỏ nhất tại x bằng bao nhiêu?", "2", ["−2", "4", "0"], "Viết y = (x − 2)² + 1; giá trị nhỏ nhất đạt được khi x = 2."],
+      ["Đồ thị y = 1/(x − 3) có tiệm cận đứng nào?", "x = 3", ["y = 3", "x = 0", "y = 0"], "Khi x tiến đến 3 từ hai phía, giá trị hàm tăng hoặc giảm không bị chặn, nên x = 3 là tiệm cận đứng."],
+      ["Đồ thị y = (2x + 1)/(x + 1) có tiệm cận ngang nào?", "y = 2", ["x = −1", "y = 1", "y = 0"], "Khi x tiến ra vô cực, tỉ số hai đa thức cùng bậc tiến đến tỉ số hệ số bậc cao nhất là 2."],
+      ["Khi đi qua x₀, đạo hàm đổi dấu từ dương sang âm. Hàm số liên tục tại x₀ có dạng cực trị nào?", "Cực đại tại x₀", ["Cực tiểu tại x₀", "Không thể có cực trị", "Luôn có tiệm cận đứng"], "Hàm số tăng trước x₀ rồi giảm sau x₀, nên đạt cực đại tại điểm đó."],
+    ]),
+    createStarterTopic("grade-12-integrals", "Lớp 12 · Nguyên hàm và tích phân", "Nguyên hàm cơ bản và diện tích hình phẳng", ["∫", "x²", "12"], [
+      ["Một nguyên hàm của f(x) = 2x là hàm nào?", "F(x) = x²", ["F(x) = 2", "F(x) = x", "F(x) = 2x²"], "Đạo hàm của x² bằng 2x. Mọi nguyên hàm có dạng x² + C."],
+      ["Tích phân của hàm f(x) = 2 trên đoạn [0; 3] bằng bao nhiêu?", "6", ["2", "3", "0"], "Tích phân hàm hằng bằng giá trị hằng nhân độ dài đoạn: 2 × (3 − 0) = 6."],
+      ["Tích phân của f(x) = x trên đoạn [0; 2] bằng bao nhiêu?", "2", ["4", "1", "0"], "Nguyên hàm là x²/2; lấy giá trị tại 2 trừ giá trị tại 0 được 2."],
+      ["Một nguyên hàm của f(x) = cos x là hàm nào?", "F(x) = sin x", ["F(x) = −sin x", "F(x) = cos x", "F(x) = −cos x"], "Đạo hàm của sin x là cos x, nên sin x là một nguyên hàm."],
+      ["Diện tích dưới đồ thị y = x, phía trên trục hoành, từ x = 0 đến x = 3 là bao nhiêu?", "4,5 đơn vị diện tích", ["9 đơn vị diện tích", "3 đơn vị diện tích", "6 đơn vị diện tích"], "Miền là tam giác vuông có đáy và chiều cao đều bằng 3; diện tích là 3 × 3/2 = 4,5."],
+    ]),
+    createStarterTopic("grade-12-space-coordinates", "Lớp 12 · Tọa độ không gian", "Điểm, vectơ, mặt phẳng và mặt cầu trong Oxyz", ["Oxyz", "→", "12"], [
+      ["Cho A(1; 2; 3), B(3; 5; 7). Vectơ AB có tọa độ nào?", "(2; 3; 4)", ["(4; 7; 10)", "(−2; −3; −4)", "(3; 2; 4)"], "Lấy từng tọa độ của B trừ tọa độ tương ứng của A: (3 − 1; 5 − 2; 7 − 3)."],
+      ["Khoảng cách từ O(0; 0; 0) đến A(1; 2; 2) bằng bao nhiêu?", "3", ["5", "9", "√5"], "Khoảng cách bằng căn bậc hai của 1² + 2² + 2² = 9, tức 3."],
+      ["Mặt phẳng 2x − y + 3z − 4 = 0 nhận vectơ nào làm vectơ pháp tuyến?", "(2; −1; 3)", ["(2; 1; 3)", "(−4; 2; −1)", "(0; 0; 0)"], "Vectơ có tọa độ là các hệ số của x, y, z là một vectơ pháp tuyến của mặt phẳng."],
+      ["Mặt cầu (x − 1)² + (y + 2)² + z² = 9 có tâm nào?", "(1; −2; 0)", ["(−1; 2; 0)", "(1; 2; 3)", "(0; 0; 9)"], "So với dạng (x − a)² + (y − b)² + (z − c)² = R², tâm là (a; b; c) = (1; −2; 0)."],
+      ["Mặt cầu x² + y² + z² = 16 có bán kính bao nhiêu?", "4", ["16", "8", "2"], "Bình phương bán kính bằng 16 nên bán kính là số dương 4."],
+    ]),
+  ],
+  science: [
+    createStarterTopic("grade-12-thermal-physics", "Lớp 12 · Nhiệt học và khí", "Nhiệt lượng, nhiệt độ và khí lí tưởng", ["🌡", "Q", "12"], [
+      ["Theo công thức chuyển đổi trong hệ SI, 0°C tương ứng với nhiệt độ nào?", "273,15 K", ["0 K", "100 K", "−273,15 K"], "Nhiệt độ kelvin bằng nhiệt độ Celsius cộng 273,15."],
+      ["Làm nóng 1 kg nước thêm 10°C, với nhiệt dung riêng 4.200 J/(kg·K), bỏ qua thất thoát. Nhiệt lượng là bao nhiêu?", "42.000 J", ["4.200 J", "420 J", "420.000 J"], "Q = mcΔT = 1 × 4.200 × 10 = 42.000 J; độ tăng 10°C tương ứng 10 K."],
+      ["Một lượng khí lí tưởng có nhiệt độ không đổi. Thể tích giảm còn một nửa thì áp suất thay đổi thế nào?", "Tăng gấp đôi", ["Giảm một nửa", "Không đổi", "Tăng gấp bốn"], "Với lượng khí và nhiệt độ không đổi, pV không đổi; thể tích giảm một nửa thì áp suất tăng gấp đôi."],
+      ["Trong phương trình pV = nRT, n biểu thị đại lượng nào?", "Số mol khí", ["Khối lượng riêng", "Nhiệt độ Celsius", "Tốc độ phân tử"], "n là lượng chất tính bằng mol; T phải tính bằng kelvin."],
+      ["Khi nước tinh khiết đang sôi ở áp suất không đổi, nhiệt lượng cấp thêm chủ yếu dùng để làm gì?", "Chuyển nước lỏng thành hơi", ["Luôn tăng nhiệt độ liên tục", "Làm nước đông đặc", "Biến nước thành kim loại"], "Trong quá trình sôi ở áp suất không đổi, nhiệt độ giữ gần như không đổi; nhiệt lượng dùng cho chuyển thể."],
+    ]),
+    createStarterTopic("grade-12-organic-chemistry", "Lớp 12 · Hóa học hữu cơ", "Ester, carbohydrate, amino acid và polymer", ["⚗", "C", "12"], [
+      ["Phản ứng giữa axit cacboxylic và ancol, trong điều kiện thích hợp, thường tạo sản phẩm nào?", "Ester và nước", ["Chỉ kim loại", "Chỉ ôxi", "Muối ăn và hiđrô"], "Phản ứng ester hóa giữa axit cacboxylic và ancol tạo ester và nước, thường có xúc tác axit."],
+      ["Glucose thuộc nhóm chất nào?", "Monosaccharide", ["Protein", "Chất béo", "Polymer tổng hợp"], "Glucose là monosaccharide, không bị thủy phân thành carbohydrate đơn giản hơn."],
+      ["Thủy phân hoàn toàn tinh bột trong điều kiện phù hợp thu được chất nào?", "Glucose", ["Ethanol trực tiếp", "Amino acid", "Glycerol"], "Tinh bột được tạo từ các đơn vị glucose; thủy phân hoàn toàn cho glucose."],
+      ["Amino acid thường chứa đồng thời các nhóm chức nào?", "Nhóm amino và nhóm carboxyl", ["Chỉ nhóm ester", "Chỉ nhóm aldehyde", "Chỉ liên kết đôi C=C"], "Amino acid có nhóm amino và nhóm carboxyl; cấu trúc này góp phần tạo tính chất axit–bazơ."],
+      ["Polyethylene được tạo ra bằng phản ứng trùng hợp monomer nào?", "Ethylene (CH₂=CH₂)", ["Methane (CH₄)", "Ethanol (C₂H₅OH)", "Axit axetic (CH₃COOH)"], "Các phân tử ethylene tham gia trùng hợp tạo chuỗi có mắt xích –CH₂–CH₂–."],
+    ]),
+  ],
+  literature: [
+    createStarterTopic("grade-12-literature", "Lớp 12 · Phân tích và so sánh", "So sánh tác phẩm, biểu tượng và lập luận", ["📖", "✎", "12"], [
+      ["Khi so sánh hai tác phẩm, nên bắt đầu bằng việc nào?", "Xác định tiêu chí và vấn đề cần so sánh", ["Chỉ đếm số trang", "Khẳng định tác phẩm nào hay hơn mà không phân tích", "Bỏ qua nội dung"], "Tiêu chí rõ ràng giúp so sánh có hệ thống về chủ đề, nhân vật, hình ảnh hoặc cách thể hiện."],
+      ["Một biểu tượng nghệ thuật thường có đặc điểm nào?", "Gợi ý nghĩa vượt ra ngoài hình ảnh cụ thể", ["Chỉ có một nghĩa từ điển trong mọi tác phẩm", "Không phụ thuộc ngữ cảnh", "Chỉ là lỗi in"], "Biểu tượng gợi nhiều lớp ý nghĩa; cần giải thích dựa trên ngữ cảnh và chi tiết của tác phẩm."],
+      ["Khi bàn về một ý kiến trái chiều trong bài nghị luận, cách nào phù hợp?", "Trình bày công bằng và phản hồi bằng lí lẽ, bằng chứng", ["Công kích người đưa ý kiến", "Cố tình xuyên tạc ý kiến", "Bỏ mọi bằng chứng"], "Phản biện tập trung vào nội dung lập luận, không tấn công cá nhân hay làm sai lệch quan điểm."],
+      ["Phân tích bối cảnh sáng tác có thể giúp ích gì?", "Hiểu thêm điều kiện lịch sử, văn hóa liên quan đến tác phẩm", ["Thay thế hoàn toàn việc đọc văn bản", "Bảo đảm mọi cách hiểu đều giống nhau", "Chỉ xác định giá sách"], "Bối cảnh hỗ trợ diễn giải nhưng không thay thế bằng chứng và phân tích ngay trong văn bản."],
+      ["Kết luận của bài phân tích văn học nên làm gì?", "Khái quát nhận định và ý nghĩa rút ra từ phần phân tích", ["Đưa hàng loạt luận điểm mới chưa giải thích", "Chép lại toàn bộ tác phẩm", "Chỉ liệt kê số đoạn"], "Kết luận tổng hợp kết quả phân tích, tránh mở thêm vấn đề lớn chưa được triển khai."],
+    ]),
+  ],
+  english: [
+    createStarterTopic("grade-12-english", "Lớp 12 · English advanced practice", "Điều kiện quá khứ, động từ khuyết thiếu và liên kết câu", ["ABC", "💬", "12"], [
+      ["Điền từ: If I had known, I ___ you.", "would have helped", ["will help", "would help yesterday", "have helping"], "Điều kiện loại ba dùng if + quá khứ hoàn thành và would have + quá khứ phân từ."],
+      ["Điền từ: You ___ have told me earlier. Now it is too late.", "should", ["must to", "can to", "ought"], "Should have + quá khứ phân từ diễn tả điều đáng lẽ nên làm trong quá khứ."],
+      ["Điền từ: ___ the heavy rain, they continued working.", "Despite", ["Although", "Because", "However"], "Despite đi với cụm danh từ, ở đây là the heavy rain; although thường mở đầu một mệnh đề."],
+      ["Điền từ: The more you practise, ___ you become.", "the more confident", ["more confident", "the most confident", "most confidently"], "Cấu trúc so sánh kép the more ..., the more ... diễn tả hai mức độ thay đổi cùng nhau."],
+      ["Điền từ: She asked me where I ___.", "lived", ["do live", "did I live", "am live"], "Câu hỏi gián tiếp dùng trật tự chủ ngữ trước động từ; trong ngữ cảnh tường thuật này, live lùi thành lived."],
+    ]),
+  ],
+  history: [
+    createStarterTopic("grade-12-postwar-history", "Lớp 12 · Thế giới và Việt Nam sau 1945", "Chiến tranh lạnh, đổi mới và hội nhập", ["📜", "🌍", "12"], [
+      ["Chiến tranh lạnh chủ yếu gắn với đối đầu giữa hai nước nào?", "Hoa Kỳ và Liên Xô", ["Việt Nam và Lào", "Anh và Ai Cập", "Nhật Bản và Brazil"], "Hoa Kỳ và Liên Xô là hai trung tâm đối đầu chủ yếu, gắn với các liên minh và cạnh tranh trên nhiều lĩnh vực."],
+      ["Hiệp hội các quốc gia Đông Nam Á (ASEAN) được thành lập năm nào?", "1967", ["1945", "1954", "1995"], "ASEAN thành lập năm 1967 tại Bangkok với năm thành viên ban đầu."],
+      ["Đại hội nào của Đảng Cộng sản Việt Nam mở đầu đường lối Đổi mới năm 1986?", "Đại hội VI", ["Đại hội III", "Đại hội IV", "Đại hội VII"], "Đại hội VI năm 1986 đề ra đường lối Đổi mới, trước hết là đổi mới tư duy kinh tế."],
+      ["Việt Nam gia nhập ASEAN vào năm nào?", "1995", ["1967", "1975", "2007"], "Việt Nam trở thành thành viên ASEAN ngày 28/7/1995."],
+      ["Ngày 30/4/1975 gắn với sự kiện nào?", "Giải phóng Sài Gòn, kết thúc cuộc kháng chiến chống Mỹ, cứu nước", ["Thành lập ASEAN", "Bắt đầu Đổi mới", "Việt Nam gia nhập WTO"], "Chiến dịch Hồ Chí Minh kết thúc thắng lợi ngày 30/4/1975, mở đường hoàn thành thống nhất đất nước về mặt nhà nước."],
+    ]),
+  ],
+  geography: [
+    createStarterTopic("grade-12-vietnam-development", "Lớp 12 · Phát triển kinh tế Việt Nam", "Cơ cấu kinh tế, vùng sản xuất và phát triển bền vững", ["🇻🇳", "📊", "12"], [
+      ["Hoạt động nào thuộc công nghiệp chế biến, chế tạo?", "Chế biến thủy sản", ["Đánh bắt cá", "Trồng cà phê", "Vận tải hành khách"], "Chế biến thủy sản biến nguyên liệu thành sản phẩm; đánh bắt và trồng trọt thuộc khu vực nông, lâm, thủy sản."],
+      ["Điều kiện nào thuận lợi cho phát triển thủy điện?", "Sông có lưu lượng và độ chênh cao phù hợp", ["Địa hình hoàn toàn bằng phẳng và không có sông", "Chỉ có đất màu mỡ", "Chỉ có bãi biển rộng"], "Thủy điện khai thác năng lượng dòng nước; lưu lượng và độ chênh cao là các điều kiện quan trọng."],
+      ["Đồng bằng sông Cửu Long cần đặc biệt thích ứng với nguy cơ nào?", "Xâm nhập mặn và biến đổi chế độ nước", ["Băng vĩnh cửu mở rộng", "Tuyết lở quanh năm", "Núi lửa phun khắp vùng"], "Vùng thấp ven biển chịu ảnh hưởng của nước biển, dòng chảy thượng nguồn và biến đổi khí hậu, cần quản lí nước và sản xuất thích ứng."],
+      ["Yếu tố nào góp phần nâng cao giá trị xuất khẩu nông sản?", "Chất lượng, chế biến và khả năng truy xuất nguồn gốc", ["Chỉ tăng lượng mà bỏ tiêu chuẩn", "Giảm mọi kiểm tra chất lượng", "Không quan tâm thị trường"], "Chế biến, chất lượng và truy xuất nguồn gốc giúp đáp ứng yêu cầu thị trường và tăng giá trị sản phẩm."],
+      ["Phát triển bền vững đòi hỏi kết hợp các mặt nào?", "Kinh tế, xã hội và môi trường", ["Chỉ tăng sản lượng", "Chỉ lợi nhuận ngắn hạn", "Chỉ diện tích đô thị"], "Phát triển bền vững cân bằng tăng trưởng, tiến bộ xã hội và bảo vệ môi trường cho hiện tại và tương lai."],
+    ]),
+  ],
+  informatics: [
+    createStarterTopic("grade-12-web-and-ai", "Lớp 12 · Web và trí tuệ nhân tạo", "HTML, CSS, AI và sử dụng công nghệ có trách nhiệm", ["HTML", "AI", "12"], [
+      ["HTML chủ yếu dùng để làm gì trên trang web?", "Mô tả cấu trúc và nội dung", ["Chỉ lưu mật khẩu an toàn", "Thay thế mọi cơ sở dữ liệu", "Chỉ truyền điện"], "HTML đánh dấu các thành phần như tiêu đề, đoạn văn, liên kết và biểu mẫu."],
+      ["CSS chủ yếu điều khiển điều gì?", "Cách trình bày và bố cục trang web", ["Số proton của nguyên tử", "Toàn bộ dữ liệu tài khoản trên máy chủ", "Mọi kết nối phần cứng"], "CSS quy định kiểu hiển thị như màu sắc, cỡ chữ, khoảng cách và bố cục."],
+      ["Thuộc tính alt của ảnh có vai trò gì?", "Cung cấp văn bản thay thế phù hợp cho nội dung ảnh", ["Luôn tự tăng độ phân giải ảnh", "Mã hóa toàn bộ trang", "Thay thế tên miền"], "Văn bản thay thế giúp người dùng trình đọc màn hình hiểu ảnh có ý nghĩa; ảnh trang trí có thể dùng alt rỗng."],
+      ["Nhận định nào đúng về nội dung do AI tạo ra?", "Có thể sai và cần kiểm chứng trước khi sử dụng", ["Luôn đúng tuyệt đối", "Luôn có quyền sử dụng mọi dữ liệu", "Không cần người chịu trách nhiệm"], "AI có thể tạo thông tin sai hoặc thiếu căn cứ; cần kiểm tra nguồn, độ chính xác và tính phù hợp."],
+      ["Khi dùng dữ liệu cá nhân để phát triển hệ thống AI, cần chú ý điều gì?", "Quyền riêng tư, sự đồng ý và quy định bảo vệ dữ liệu", ["Thu thập mọi dữ liệu bí mật tùy ý", "Công khai dữ liệu nhạy cảm", "Bỏ qua mục đích sử dụng"], "Dữ liệu cá nhân cần được xử lí đúng mục đích, có cơ sở phù hợp và biện pháp bảo vệ."],
+    ]),
+  ],
+};
+
+for (const [subjectId, topics] of Object.entries(gradeElevenTopics)) {
+  for (const topic of topics) topic.level = "LỚP 11";
+  curriculumExtensions[subjectId].push(...topics);
+}
+
+for (const [subjectId, topics] of Object.entries(gradeTwelveTopics)) {
+  for (const topic of topics) topic.level = "LỚP 12";
   curriculumExtensions[subjectId].push(...topics);
 }
 

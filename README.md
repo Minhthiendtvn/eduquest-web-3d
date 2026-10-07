@@ -187,7 +187,7 @@ omit answer keys from the shipped curriculum bundle and learner API response.
 
 ### Starter content and references
 
-The starter catalogue now has 100 playable topics across 14 subject areas,
+The starter catalogue now has 130 playable topics across 14 subject areas,
 including three additional topics per subject compared with the initial
 catalogue; Mathematics and Science have six topics each, while the other
 subjects have four before the grade-specific additions. Every topic has an original
@@ -204,8 +204,19 @@ reactions, pressure/human biology, literature, English, modern History,
 Vietnamese Geography, and algorithms/digital information. Ten topics labelled
 **Lớp 9** add 50 questions on roots, equations/systems, circles,
 electricity/energy, genetics, literature, English, twentieth-century History,
-Vietnamese population/economy, and digital problem-solving. These are introductory
-practice sets, not complete grade-6–9 curricula or textbook-specific sequences.
+Vietnamese population/economy, and digital problem-solving. Ten topics labelled
+**Lớp 10** add 50 questions on sets/logic, quadratic functions, vectors,
+mechanics, atomic chemistry, literature, English, civilizations/heritage,
+physical Geography, and Python basics. Physics and Chemistry practice sets
+remain grouped under the prototype's Science subject.
+Ten topics labelled **Lớp 11** add 50 questions on trigonometry, sequences,
+derivatives, oscillations/waves, chemical equilibrium, literature, English,
+historical reforms/independence, the world economy, and databases.
+Ten topics labelled **Lớp 12** add 50 questions on function analysis,
+integrals, spatial coordinates, thermal physics, organic chemistry, literature,
+English, post-1945 History, Vietnamese economic development, and web/AI basics.
+These are introductory practice sets, not complete grade-6–12 curricula or
+textbook-specific sequences.
 The questions and explanations are original practice material informed by the
 curriculum and reference materials below; they are not a replacement for the
 current grade-specific textbooks or teacher guidance.
