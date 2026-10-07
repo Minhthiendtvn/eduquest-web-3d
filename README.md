@@ -184,6 +184,36 @@ Learner progress is calculated and stored on the server; game answer keys are
 not sent to the browser before the learner answers. Self-hosted builds also
 omit answer keys from the shipped curriculum bundle and learner API response.
 
+### Starter content and references
+
+The starter catalogue now has 60 playable topics across 14 subject areas,
+including three additional topics per subject compared with the initial
+catalogue; Mathematics and Science have six topics each, while the other
+subjects have four. Every topic has an original five-question quiz and matching
+game.
+The questions and explanations are original practice material informed by the
+curriculum and reference materials below; they are not a replacement for the
+current grade-specific textbooks or teacher guidance.
+
+- [Vietnam Ministry of Education and Training, Circular 32/2018/TT-BGDDT
+  (official legal-document portal)](https://vbpl.vn/van-ban/chi-tiet/thong-tu-so-32-2018-tt-bgddt-ban-hanh-chuong-trinh-giao-duc-pho-thong--146721)
+  — overall general-education curriculum and subject programmes.
+- [Khan Academy: Statistics and probability](https://www.khanacademy.org/math/statistics-probability)
+  — reference for the new mathematics topic.
+- [Khan Academy: High school biology](https://www.khanacademy.org/science/hs-bio)
+  — reference for ecosystem concepts in the new science topic.
+- [British Council: General Education English Language Curriculum, grades
+  3–12 (Ministry curriculum translation)](https://www.britishcouncil.org/sites/default/files/english_language_grade_3_12_2018-eng_translation.pdf)
+  — reference for English learning outcomes and grammar coverage.
+
+To apply the updated starter content to an existing cPanel/MySQL installation,
+first export and back up its current curriculum from **Quản trị → Dữ liệu & sao
+lưu**. Then import `database/mysql-starter-curriculum.json` using **Nhập tệp môn
+học JSON**. This import replaces the shared curriculum with the file contents;
+review and merge any custom topics before importing. It does not rerun the
+installer or modify learner progress. New installations receive this content
+automatically.
+
 The included subject areas make a broad pilot menu, not a complete
 grade-by-grade curriculum. Review, local demo backup/restore, and GitHub Pages
 remain available in static mode; static mode is not suitable for real student

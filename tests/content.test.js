@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import { matchSets, subjects } from "../src/content.js";
 
 const expectedSubjects = [
@@ -19,8 +20,68 @@ const expectedSubjects = [
   "career-experience",
 ];
 
+const addedTopicIds = [
+  "statistics-and-chance",
+  "ecosystems-and-energy",
+  "poetry-and-images",
+  "english-present-perfect",
+  "dai-viet-civilization",
+  "map-skills-and-scale",
+  "algorithms-and-code",
+  "energy-and-sustainable-design",
+  "smart-spending",
+  "fitness-foundations",
+  "music-notation-and-dynamics",
+  "perspective-and-space",
+  "fire-safety-and-evacuation",
+  "career-exploration",
+  "ratios-and-percentages",
+  "linear-equations",
+  "matter-and-mixtures",
+  "earth-moon-and-seasons",
+  "narrative-perspective",
+  "argument-and-evidence",
+  "english-future-plans",
+  "english-modal-advice",
+  "ancient-cultures-of-viet-nam",
+  "vietnam-in-the-twentieth-century",
+  "population-and-settlement",
+  "climate-and-climate-change",
+  "data-and-spreadsheets",
+  "networks-and-online-safety",
+  "structures-and-mechanisms",
+  "food-and-agricultural-technology",
+  "rights-and-responsibilities",
+  "needs-wants-and-saving",
+  "team-sports-and-fair-play",
+  "healthy-training-habits",
+  "instruments-and-timbre",
+  "melody-harmony-and-rhythm",
+  "color-wheel-and-contrast",
+  "texture-and-printmaking",
+  "earthquake-preparedness",
+  "first-aid-and-emergency-help",
+  "study-planning-and-time",
+  "strengths-and-transferable-skills",
+];
+
 test("covers the core subjects offered to secondary students", () => {
   assert.deepEqual(subjects.map((subject) => subject.id), expectedSubjects);
+});
+
+test("adds a playable starter topic to every subject", () => {
+  const topics = subjects.flatMap((subject) => subject.topics);
+  assert.equal(topics.length, 60);
+  for (const topicId of addedTopicIds) {
+    assert.ok(topics.some((topic) => topic.id === topicId), `${topicId} exists`);
+  }
+});
+
+test("MySQL installer curriculum stays in sync with the starter content", () => {
+  const mysqlCurriculum = JSON.parse(
+    readFileSync(new URL("../database/mysql-starter-curriculum.json", import.meta.url), "utf8"),
+  );
+  assert.deepEqual(mysqlCurriculum, subjects);
 });
 
 test("every subject and topic has unique IDs", () => {
@@ -49,6 +110,8 @@ test("every topic has complete quiz and matching content", () => {
         assert.ok(Number.isInteger(question.correct) && question.correct >= 0 && question.correct < question.answers.length, `${topic.id} question ${index + 1} correct answer`);
         assert.ok(question.explanation.trim(), `${topic.id} question ${index + 1} explanation`);
       }
+      const correctAnswers = topic.questions.map((question) => question.answers[question.correct]);
+      assert.equal(new Set(correctAnswers).size, correctAnswers.length, `${topic.id} matching answers must be distinct`);
 
       const pairs = matchSets[topic.id];
       assert.ok(pairs, `${topic.id} matching content`);
