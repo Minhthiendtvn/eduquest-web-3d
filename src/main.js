@@ -369,8 +369,16 @@ function renderHome() {
 
     <section class="learning-section" id="subjects" aria-labelledby="topics-title">
       <div class="section-heading">
-        <div><p class="section-overline">CHỌN ĐƯỜNG PHIÊU LƯU</p><h2 id="topics-title">Khám phá chủ đề</h2><p class="section-subtitle">Chọn một chủ đề để bắt đầu cuộc chơi của bạn.</p></div>
-        <label class="subject-filter"><span>Môn học</span><select data-action="subject" aria-label="Chọn môn học">${subjects.map((subject) => `<option value="${subject.id}" ${state.selectedSubject === subject.id ? "selected" : ""}>${escapeHtml(subject.name)}</option>`).join("")}</select></label>
+        <div><p class="section-overline">CHỌN ĐƯỜNG PHIÊU LƯU</p><h2 id="topics-title">Khám phá chủ đề</h2><p class="section-subtitle">Chọn môn học, rồi chọn chủ đề để bắt đầu cuộc chơi.</p></div>
+      </div>
+      <div class="subject-picker" role="group" aria-label="Chọn môn học">
+        ${subjects.map((subject) => `
+          <button class="subject-picker-option ${state.selectedSubject === subject.id ? "is-selected" : ""}" type="button" data-action="subject-picker" data-subject="${subject.id}" data-subject-picker="${subject.id}" aria-pressed="${state.selectedSubject === subject.id}">
+            ${subjectMark(subject, "subject-mark--small")}
+            <span>${escapeHtml(subject.name)}</span>
+            <small>${subject.topics.length} chủ đề</small>
+          </button>
+        `).join("")}
       </div>
       <div class="topic-grid">
         ${selected.topics.map((topic, index) => `
@@ -1487,6 +1495,14 @@ app.addEventListener("click", async (event) => {
     render();
     document.querySelector('.subject-filter select')?.focus({ preventScroll: true });
     scrollToElement(document.querySelector("#subjects"));
+  } else if (action === "subject-picker") {
+    state.selectedSubject = control.dataset.subject;
+    state.screen = "home";
+    state.notice = "";
+    render();
+    const selectedOption = [...document.querySelectorAll("[data-subject-picker]")]
+      .find((option) => option.dataset.subjectPicker === state.selectedSubject);
+    selectedOption?.focus({ preventScroll: true });
   } else if (action === "explore") {
     state.screen = "home";
     render();
