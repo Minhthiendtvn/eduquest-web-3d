@@ -168,6 +168,14 @@ database creates the initial administrator on first startup.
 
 - `src/content.js` contains the starter subjects, topics, questions, answers,
   explanations, and matching pairs.
+- `src/library-content.js` contains 98 independently authored introductory
+  reading lessons: one per existing subject for each grade from 6 to 12.
+  Each lesson has core knowledge, an example, and a reflection task.
+- `src/library.js` renders **Không gian học tập → Thư viện**, with grade/subject
+  filters, accent-insensitive search, reading view, and links to subject practice.
+  Reading does not award XP. This catalogue is bundled in both demo and
+  API-required builds; it does not require a database import. Library content
+  is maintained in source, not through the quiz curriculum editor.
 - `src/main.js` renders the responsive learner experience and orchestrates
   navigation, play, results, and progress.
 - `src/admin.js` contains curriculum validation and the local/server
@@ -186,6 +194,13 @@ not sent to the browser before the learner answers. Self-hosted builds also
 omit answer keys from the shipped curriculum bundle and learner API response.
 
 ### Starter content and references
+
+The learning library is not a reproduction or lesson-by-lesson summary of any
+textbook series, and does not cover the full curriculum. Optional THPT subjects
+and THCS safety resources under National Defense are labelled as supplementary.
+Science groups Physics, Chemistry, and Biology; Civics includes introductory
+Economics and Law at THPT. Match the material to classroom requirements with
+a teacher before using it as a formal course.
 
 The starter catalogue now has 130 playable topics across 14 subject areas,
 including three additional topics per subject compared with the initial

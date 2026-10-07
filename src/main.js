@@ -4,6 +4,8 @@ import { apiRequest, setCsrfToken } from "./api.js";
 import { calculateExperienceReward, getExperienceLevel as calculateExperienceLevel } from "./progress.js";
 import { adjustTextSize, applyTextSize, readTextSize, TEXT_SIZE_KEY, TEXT_SIZE_LEVELS } from "./text-size.js";
 import "./styles.css";
+import { escapeHtml } from "./html.js";
+import { renderLibrary } from "./library.js";
 
 const STORAGE_KEY = "eduquest-progress-v1";
 const managedCurriculum = loadManagedCurriculum(localStorage, starterSubjects);
@@ -143,6 +145,10 @@ function getCurrentStreak() {
 
 const state = {
   screen: "home",
+  libraryGrade: "",
+  librarySubjectId: "",
+  libraryQuery: "",
+  libraryLessonId: "",
   booting: true,
   currentUser: null,
   authError: "",
@@ -212,16 +218,6 @@ const icon = (name, size = 20) => {
   return `<svg aria-hidden="true" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${paths[name] ?? ""}</svg>`;
 };
 
-function escapeHtml(value) {
-  return String(value).replace(/[&<>"']/g, (character) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;",
-  })[character]);
-}
-
 function getSubject(id = state.selectedSubject) {
   return subjects.find((subject) => subject.id === id) ?? subjects[0];
 }
@@ -264,6 +260,7 @@ function renderSidebar() {
           ${icon("home")}<span>Trang chủ</span>
         </a>
         <a class="nav-link" href="#subjects" data-action="explore" aria-label="Khám phá">${icon("compass")}<span>Khám phá</span><span class="nav-new">MỚI</span></a>
+        <button class="nav-link ${state.screen === "library" ? "is-active" : ""}" type="button" data-action="library" aria-label="Thư viện học tập" ${state.screen === "library" ? 'aria-current="page"' : ""}>${icon("compass")}<span>Thư viện</span></button>
         <a class="nav-link ${state.screen === "progress" ? "is-active" : ""}" href="#progress" data-action="progress" aria-label="Tiến độ của bạn">${icon("chart")}<span>Tiến độ của bạn</span></a>
         <button class="nav-link ${state.screen === "profile" ? "is-active" : ""}" type="button" data-action="profile" aria-label="Hồ sơ học tập">${icon("user")}<span>Hồ sơ</span></button>
         ${canAdmin ? `<button class="nav-link ${state.screen === "admin" ? "is-active" : ""}" type="button" data-action="admin" aria-label="Quản trị">${icon("chart")}<span>Quản trị</span></button>` : ""}
@@ -298,7 +295,7 @@ function renderTopbar() {
   const streak = getCurrentStreak();
   return `
     <header class="topbar">
-      <div class="breadcrumb"><span>Không gian học tập</span>${icon("chevron", 14)}<strong>${state.screen === "play" ? "Thử thách" : state.screen === "result" ? "Kết quả" : state.screen === "progress" ? "Tiến độ của bạn" : state.screen === "profile" ? "Hồ sơ học tập" : state.screen === "admin" ? "Quản trị" : "Trang chủ"}</strong></div>
+      <div class="breadcrumb"><span>Không gian học tập</span>${icon("chevron", 14)}<strong>${state.screen === "library" ? "Thư viện học tập" : state.screen === "play" ? "Thử thách" : state.screen === "result" ? "Kết quả" : state.screen === "progress" ? "Tiến độ của bạn" : state.screen === "profile" ? "Hồ sơ học tập" : state.screen === "admin" ? "Quản trị" : "Trang chủ"}</strong></div>
       <div class="topbar-actions">
         <div class="streak-pill" aria-label="Chuỗi ${streak} ngày học liên tiếp">
           <span aria-hidden="true">🔥</span><strong>${streak}</strong><span>${streak === 1 ? "ngày" : "ngày liên tiếp"}</span>
@@ -717,7 +714,15 @@ function render() {
     app.innerHTML = `<main class="auth-screen"><section class="auth-card"><div class="brand-mark"><span>e</span><span>q</span></div><p class="section-overline">KHÔNG KẾT NỐI ĐƯỢC</p><h1>EduQuest chưa thể tải dữ liệu</h1><p>${escapeHtml(state.authError || "Hãy thử tải lại trang sau.")}</p><button class="button button--primary" type="button" data-action="retry-connection">Thử kết nối lại</button></section></main>`;
     return;
   }
-  const screen = state.screen === "play"
+  const screen = state.screen === "library"
+    ? renderLibrary({
+      subjects,
+      grade: state.libraryGrade || state.progress.grade,
+      subjectId: state.librarySubjectId,
+      query: state.libraryQuery,
+      lessonId: state.libraryLessonId,
+    })
+    : state.screen === "play"
     ? renderPlay()
     : state.screen === "result"
       ? renderResult()
@@ -1302,7 +1307,18 @@ app.addEventListener("click", async (event) => {
   if (!control) return;
   const { action } = control.dataset;
 
-  if (action === "retry-connection") {
+  if (action === "library" || action === "library-back" || action === "library-reset" || action === "library-lesson") {
+    state.screen = "library";
+    state.notice = "";
+    state.libraryLessonId = action === "library-lesson" ? control.dataset.lessonId : "";
+    if (action === "library-reset") {
+      state.librarySubjectId = "";
+      state.libraryQuery = "";
+    }
+    render();
+    scrollToTop();
+    document.querySelector(state.libraryLessonId ? "#library-lesson-title" : "#library-title")?.focus({ preventScroll: true });
+  } else if (action === "retry-connection") {
     state.booting = true;
     state.authError = "";
     render();
@@ -1591,6 +1607,18 @@ app.addEventListener("click", async (event) => {
 });
 
 app.addEventListener("change", async (event) => {
+  if (event.target.matches("#library-grade, #library-subject")) {
+    const form = document.querySelector("#library-filter-form");
+    const data = new FormData(form);
+    state.libraryGrade = data.get("grade");
+    state.librarySubjectId = data.get("subjectId");
+    state.libraryQuery = String(data.get("query")).trim();
+    state.libraryLessonId = "";
+    const focusedId = event.target.id;
+    render();
+    document.getElementById(focusedId)?.focus({ preventScroll: true });
+    return;
+  }
   if (event.target.matches('select[data-action="subject"]')) {
     state.selectedSubject = event.target.value;
     state.screen = "home";
@@ -1716,6 +1744,17 @@ app.addEventListener("input", (event) => {
 });
 
 app.addEventListener("submit", async (event) => {
+  if (event.target.id === "library-filter-form") {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    state.libraryGrade = data.get("grade");
+    state.librarySubjectId = data.get("subjectId");
+    state.libraryQuery = String(data.get("query")).trim();
+    state.libraryLessonId = "";
+    render();
+    document.querySelector("#library-query")?.focus({ preventScroll: true });
+    return;
+  }
   if (event.target.id === "register-form") {
     event.preventDefault();
     if (state.authBusy) return;
