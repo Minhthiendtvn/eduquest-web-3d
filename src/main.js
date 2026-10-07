@@ -166,6 +166,9 @@ const state = {
   adminTopicId: subjects[0].topics[0]?.id ?? "",
   adminCreatingTopic: false,
   adminQuestionFilter: "",
+  installAvailable: false,
+  installInstalled: false,
+  showInstallHelp: false,
   adminNotice: managedCurriculum.invalid ? "Không thể đọc nội dung tùy chỉnh; đã nạp lại nội dung mẫu." : "",
   selectedSubject: "math",
   topicId: "algebra",
@@ -301,6 +304,28 @@ function renderTopbar() {
         <button class="icon-button help-button" type="button" aria-label="Xem mẹo học tập" data-action="tip">${icon("sparkles")}</button>
       </div>
     </header>`;
+}
+
+function renderInstallPrompt() {
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const isStandalone = window.matchMedia("(display-mode: standalone)").matches
+    || navigator.standalone === true;
+  if (!isAndroid || isStandalone || state.installInstalled) return "";
+
+  return `
+    <aside class="install-banner" aria-labelledby="install-banner-title">
+      <span class="install-banner-icon" aria-hidden="true">📲</span>
+      <div class="install-banner-copy">
+        <strong id="install-banner-title">Mang EduQuest theo bạn</strong>
+        <span>Cài lên màn hình chính để mở nhanh như ứng dụng.</span>
+        ${state.showInstallHelp
+          ? `<small>Trên Chrome Android: nhấn ⋮ rồi chọn “Cài đặt ứng dụng” hoặc “Thêm vào màn hình chính”.</small>`
+          : ""}
+      </div>
+      <button class="button button--primary install-banner-button" type="button" data-action="${state.installAvailable ? "install-app" : "install-help"}">
+        ${state.installAvailable ? "Cài ứng dụng" : state.showInstallHelp ? "Ẩn hướng dẫn" : "Cách cài"}
+      </button>
+    </aside>`;
 }
 
 function renderIllustration() {
@@ -708,7 +733,7 @@ function render() {
               selectedClassId: state.selectedAdminClassId,
             })
           : renderHome();
-  app.innerHTML = `<div class="app-shell">${renderSidebar()}<main class="main-area" id="main-content" tabindex="-1"><div class="main-inner">${renderTopbar()}${screen}  <footer class="site-footer"><span>© ${new Date().getFullYear()} EduQuest</span><span>Học vui, lớn khôn mỗi ngày <span aria-hidden="true">✿</span></span></footer></div></main></div>${state.notice ? `<div class="toast" role="status">${icon("sparkles", 17)}${state.notice}</div>` : ""}`;
+  app.innerHTML = `<div class="app-shell">${renderSidebar()}<main class="main-area" id="main-content" tabindex="-1"><div class="main-inner">${renderTopbar()}${renderInstallPrompt()}${screen}  <footer class="site-footer"><span>© ${new Date().getFullYear()} EduQuest</span><span>Học vui, lớn khôn mỗi ngày <span aria-hidden="true">✿</span></span></footer></div></main></div>${state.notice ? `<div class="toast" role="status">${icon("sparkles", 17)}${state.notice}</div>` : ""}`;
 }
 
 function shuffle(items) {
@@ -1270,6 +1295,22 @@ app.addEventListener("click", async (event) => {
     state.authError = "";
     render();
     await initializeApplication();
+  } else if (action === "install-help") {
+    state.showInstallHelp = !state.showInstallHelp;
+    render();
+  } else if (action === "install-app") {
+    if (!deferredInstallPrompt) {
+      state.installAvailable = false;
+      state.showInstallHelp = true;
+      render();
+      return;
+    }
+    await deferredInstallPrompt.prompt();
+    const choice = await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+    state.installAvailable = false;
+    state.showInstallHelp = choice.outcome !== "accepted";
+    render();
   } else if (action === "auth-mode") {
     state.authMode = control.dataset.mode === "register" ? "register" : "login";
     state.authError = "";
@@ -1960,6 +2001,23 @@ app.addEventListener("drop", async (event) => {
 });
 
 void initializeApplication();
+
+let deferredInstallPrompt = null;
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+  state.installAvailable = true;
+  render();
+});
+
+window.addEventListener("appinstalled", () => {
+  deferredInstallPrompt = null;
+  state.installAvailable = false;
+  state.installInstalled = true;
+  state.showInstallHelp = false;
+  state.notice = "EduQuest đã được cài đặt trên thiết bị của bạn.";
+  render();
+});
 
 if (import.meta.env.PROD && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {

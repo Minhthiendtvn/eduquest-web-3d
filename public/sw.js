@@ -15,6 +15,8 @@ self.addEventListener("install", (event) => {
     await cache.addAll([
       `${APP_ROOT}manifest.webmanifest`,
       `${APP_ROOT}icons/eduquest.svg`,
+      `${APP_ROOT}icons/eduquest-192.png`,
+      `${APP_ROOT}icons/eduquest-512.png`,
       ...assets,
     ]);
     await self.skipWaiting();

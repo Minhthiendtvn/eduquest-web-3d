@@ -239,3 +239,8 @@ when changes reach `main` (or when the workflow is started manually). In the
 repository's **Settings → Pages**, set the build and deployment source to
 **GitHub Actions**. The first successful deployment is available at
 `https://minhthiendtvn.github.io/eduquest-web-3d/`.
+
+On Android, open the published site over HTTPS in Chrome. Use **Cài ứng dụng**
+when EduQuest offers it, or open Chrome's **⋮** menu and choose **Cài đặt ứng
+dụng** / **Thêm vào màn hình chính**. The install option requires the site to
+load successfully with its web app manifest and service worker.
