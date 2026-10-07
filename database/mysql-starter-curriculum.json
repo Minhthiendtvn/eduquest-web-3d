@@ -406,6 +406,834 @@
             "explanation": "Gọi số cần tìm là x: x + 12 = 30 nên x = 18."
           }
         ]
+      },
+      {
+        "id": "grade-6-natural-numbers",
+        "title": "Lớp 6 · Số tự nhiên",
+        "description": "Lũy thừa, thứ tự phép tính và tính chia hết",
+        "level": "LỚP 6",
+        "duration": "5 phút",
+        "art": [
+          "6",
+          "∑",
+          "÷"
+        ],
+        "questions": [
+          {
+            "prompt": "Giá trị của 2³ là bao nhiêu?",
+            "answers": [
+              "8",
+              "6",
+              "9",
+              "16"
+            ],
+            "correct": 0,
+            "explanation": "2³ = 2 × 2 × 2 = 8, không phải 2 × 3."
+          },
+          {
+            "prompt": "Tính 18 − 6 ÷ 3.",
+            "answers": [
+              "16",
+              "4",
+              "12",
+              "6"
+            ],
+            "correct": 0,
+            "explanation": "Thực hiện phép chia trước: 6 ÷ 3 = 2, rồi tính 18 − 2 = 16."
+          },
+          {
+            "prompt": "Trong các số sau, số nào chia hết cho cả 2 và 5?",
+            "answers": [
+              "120",
+              "125",
+              "122",
+              "123"
+            ],
+            "correct": 0,
+            "explanation": "Số chia hết cho cả 2 và 5 có chữ số tận cùng là 0."
+          },
+          {
+            "prompt": "Số nào sau đây là số nguyên tố?",
+            "answers": [
+              "13",
+              "1",
+              "9",
+              "15"
+            ],
+            "correct": 0,
+            "explanation": "13 chỉ có hai ước dương là 1 và 13. Số 1 không phải số nguyên tố."
+          },
+          {
+            "prompt": "Ước chung lớn nhất của 12 và 18 là bao nhiêu?",
+            "answers": [
+              "6",
+              "3",
+              "12",
+              "36"
+            ],
+            "correct": 0,
+            "explanation": "Các ước chung dương là 1, 2, 3, 6; lớn nhất là 6."
+          }
+        ]
+      },
+      {
+        "id": "grade-6-integers",
+        "title": "Lớp 6 · Số nguyên",
+        "description": "So sánh số âm và tính toán trên trục số",
+        "level": "LỚP 6",
+        "duration": "5 phút",
+        "art": [
+          "−",
+          "0",
+          "+"
+        ],
+        "questions": [
+          {
+            "prompt": "Số đối của −7 là số nào?",
+            "answers": [
+              "7",
+              "−7",
+              "0",
+              "1/7"
+            ],
+            "correct": 0,
+            "explanation": "Hai số đối nhau có tổng bằng 0: −7 + 7 = 0."
+          },
+          {
+            "prompt": "Trong các số sau, số nào lớn nhất?",
+            "answers": [
+              "2",
+              "−8",
+              "−1",
+              "0"
+            ],
+            "correct": 0,
+            "explanation": "Trên trục số, 2 nằm bên phải các số −8, −1 và 0 nên lớn nhất."
+          },
+          {
+            "prompt": "Tính (−4) + 9.",
+            "answers": [
+              "5",
+              "−5",
+              "13",
+              "−13"
+            ],
+            "correct": 0,
+            "explanation": "Hai số khác dấu: lấy 9 − 4 = 5, kết quả mang dấu của số có giá trị tuyệt đối lớn hơn."
+          },
+          {
+            "prompt": "Nhiệt độ từ −2°C tăng thêm 6°C. Nhiệt độ mới là bao nhiêu?",
+            "answers": [
+              "4°C",
+              "−8°C",
+              "8°C",
+              "−4°C"
+            ],
+            "correct": 0,
+            "explanation": "Nhiệt độ mới là −2 + 6 = 4°C."
+          },
+          {
+            "prompt": "Tính (−3) × (−5).",
+            "answers": [
+              "15",
+              "−15",
+              "−8",
+              "8"
+            ],
+            "correct": 0,
+            "explanation": "Tích hai số nguyên âm là số dương; 3 × 5 = 15."
+          }
+        ]
+      },
+      {
+        "id": "grade-6-geometry",
+        "title": "Lớp 6 · Hình học cơ bản",
+        "description": "Chu vi, diện tích và những hình quen thuộc",
+        "level": "LỚP 6",
+        "duration": "5 phút",
+        "art": [
+          "□",
+          "△",
+          "6"
+        ],
+        "questions": [
+          {
+            "prompt": "Hình chữ nhật dài 8 cm, rộng 3 cm có diện tích bao nhiêu?",
+            "answers": [
+              "24 cm²",
+              "11 cm²",
+              "22 cm²",
+              "48 cm²"
+            ],
+            "correct": 0,
+            "explanation": "Diện tích hình chữ nhật bằng chiều dài nhân chiều rộng: 8 × 3 = 24 cm²."
+          },
+          {
+            "prompt": "Hình vuông cạnh 5 cm có chu vi bao nhiêu?",
+            "answers": [
+              "20 cm",
+              "10 cm",
+              "25 cm",
+              "15 cm"
+            ],
+            "correct": 0,
+            "explanation": "Chu vi hình vuông bằng 4 lần cạnh: 4 × 5 = 20 cm."
+          },
+          {
+            "prompt": "Tam giác đều có đặc điểm nào?",
+            "answers": [
+              "Ba cạnh bằng nhau",
+              "Chỉ hai cạnh bằng nhau",
+              "Có bốn cạnh",
+              "Luôn có một góc vuông"
+            ],
+            "correct": 0,
+            "explanation": "Tam giác đều có ba cạnh bằng nhau và ba góc bằng nhau."
+          },
+          {
+            "prompt": "Đoạn thẳng AB dài 10 cm. M là trung điểm của AB. AM dài bao nhiêu?",
+            "answers": [
+              "5 cm",
+              "10 cm",
+              "20 cm",
+              "2 cm"
+            ],
+            "correct": 0,
+            "explanation": "Trung điểm nằm giữa hai đầu mút và chia đoạn thẳng thành hai phần bằng nhau: AM = 10 ÷ 2 = 5 cm."
+          },
+          {
+            "prompt": "Hình bình hành có đáy 7 cm và chiều cao tương ứng 4 cm. Diện tích là bao nhiêu?",
+            "answers": [
+              "28 cm²",
+              "11 cm²",
+              "22 cm²",
+              "14 cm²"
+            ],
+            "correct": 0,
+            "explanation": "Diện tích hình bình hành bằng đáy nhân chiều cao tương ứng: 7 × 4 = 28 cm²."
+          }
+        ]
+      },
+      {
+        "id": "grade-7-rational-numbers",
+        "title": "Lớp 7 · Số hữu tỉ",
+        "description": "Phân số, số thập phân và giá trị tuyệt đối",
+        "level": "LỚP 7",
+        "duration": "5 phút",
+        "art": [
+          "½",
+          "±",
+          "7"
+        ],
+        "questions": [
+          {
+            "prompt": "Tính −1/2 + 3/4.",
+            "answers": [
+              "1/4",
+              "−1/4",
+              "1/2",
+              "5/4"
+            ],
+            "correct": 0,
+            "explanation": "Quy đồng −1/2 = −2/4, nên −2/4 + 3/4 = 1/4."
+          },
+          {
+            "prompt": "Giá trị tuyệt đối của −2,5 là bao nhiêu?",
+            "answers": [
+              "2,5",
+              "−2,5",
+              "0",
+              "5"
+            ],
+            "correct": 0,
+            "explanation": "Giá trị tuyệt đối là khoảng cách từ điểm biểu diễn số đó đến 0 trên trục số, nên luôn không âm."
+          },
+          {
+            "prompt": "Tính (−2/3) × (3/4).",
+            "answers": [
+              "−1/2",
+              "1/2",
+              "−2/7",
+              "−3/2"
+            ],
+            "correct": 0,
+            "explanation": "Nhân tử với tử, mẫu với mẫu: −6/12 = −1/2."
+          },
+          {
+            "prompt": "Viết 0,75 dưới dạng phân số tối giản.",
+            "answers": [
+              "3/4",
+              "7/5",
+              "1/4",
+              "3/5"
+            ],
+            "correct": 0,
+            "explanation": "0,75 = 75/100; chia cả tử và mẫu cho 25 được 3/4."
+          },
+          {
+            "prompt": "Tính (−3)².",
+            "answers": [
+              "9",
+              "−9",
+              "−6",
+              "6"
+            ],
+            "correct": 0,
+            "explanation": "Bình phương cả số −3: (−3) × (−3) = 9."
+          }
+        ]
+      },
+      {
+        "id": "grade-7-proportionality",
+        "title": "Lớp 7 · Đại lượng tỉ lệ",
+        "description": "Tỉ lệ thuận, tỉ lệ nghịch và bài toán thực tế",
+        "level": "LỚP 7",
+        "duration": "5 phút",
+        "art": [
+          "↗",
+          "∝",
+          "7"
+        ],
+        "questions": [
+          {
+            "prompt": "Nếu y = 3x thì y tỉ lệ thuận với x theo hệ số nào?",
+            "answers": [
+              "3",
+              "1/3",
+              "0",
+              "−3"
+            ],
+            "correct": 0,
+            "explanation": "Công thức y = kx biểu thị tỉ lệ thuận; ở đây k = 3."
+          },
+          {
+            "prompt": "Bốn quyển vở cùng loại giá 28.000đ. Sáu quyển giá bao nhiêu?",
+            "answers": [
+              "42.000đ",
+              "36.000đ",
+              "48.000đ",
+              "56.000đ"
+            ],
+            "correct": 0,
+            "explanation": "Một quyển giá 28.000 ÷ 4 = 7.000đ; sáu quyển giá 6 × 7.000 = 42.000đ."
+          },
+          {
+            "prompt": "Nếu xy = 12 và x = 3 thì y bằng bao nhiêu?",
+            "answers": [
+              "4",
+              "9",
+              "15",
+              "36"
+            ],
+            "correct": 0,
+            "explanation": "Thay x = 3 vào xy = 12: 3y = 12 nên y = 4."
+          },
+          {
+            "prompt": "Hai người làm xong việc trong 6 giờ. Bốn người có năng suất như nhau làm việc đó trong bao lâu, nếu không cản trở nhau?",
+            "answers": [
+              "3 giờ",
+              "12 giờ",
+              "6 giờ",
+              "2 giờ"
+            ],
+            "correct": 0,
+            "explanation": "Khối lượng việc không đổi: 2 × 6 = 12 giờ-người; chia cho 4 người được 3 giờ."
+          },
+          {
+            "prompt": "Cho a/2 = b/3 và a + b = 20. Giá trị của a là bao nhiêu?",
+            "answers": [
+              "8",
+              "12",
+              "10",
+              "4"
+            ],
+            "correct": 0,
+            "explanation": "Đặt a = 2k, b = 3k thì 5k = 20, nên k = 4 và a = 8."
+          }
+        ]
+      },
+      {
+        "id": "grade-7-angles-and-triangles",
+        "title": "Lớp 7 · Góc và tam giác",
+        "description": "Góc đối đỉnh, đường song song và tam giác cân",
+        "level": "LỚP 7",
+        "duration": "5 phút",
+        "art": [
+          "△",
+          "∠",
+          "7"
+        ],
+        "questions": [
+          {
+            "prompt": "Hai góc đối đỉnh, một góc bằng 65°. Góc còn lại bằng bao nhiêu?",
+            "answers": [
+              "65°",
+              "115°",
+              "25°",
+              "130°"
+            ],
+            "correct": 0,
+            "explanation": "Hai góc đối đỉnh có số đo bằng nhau."
+          },
+          {
+            "prompt": "Hai góc kề bù, một góc bằng 120°. Góc còn lại bằng bao nhiêu?",
+            "answers": [
+              "60°",
+              "120°",
+              "30°",
+              "240°"
+            ],
+            "correct": 0,
+            "explanation": "Tổng hai góc kề bù bằng 180°, nên góc còn lại là 180° − 120° = 60°."
+          },
+          {
+            "prompt": "Một tam giác có hai góc bằng 40° và 60°. Góc thứ ba bằng bao nhiêu?",
+            "answers": [
+              "80°",
+              "100°",
+              "70°",
+              "90°"
+            ],
+            "correct": 0,
+            "explanation": "Tổng ba góc trong tam giác bằng 180°: 180° − 40° − 60° = 80°."
+          },
+          {
+            "prompt": "Tam giác cân có góc ở đỉnh bằng 40°. Mỗi góc ở đáy bằng bao nhiêu?",
+            "answers": [
+              "70°",
+              "40°",
+              "140°",
+              "80°"
+            ],
+            "correct": 0,
+            "explanation": "Hai góc ở đáy bằng nhau và có tổng 180° − 40° = 140°, nên mỗi góc bằng 70°."
+          },
+          {
+            "prompt": "Một đường thẳng cắt hai đường thẳng song song. Hai góc đồng vị có quan hệ gì?",
+            "answers": [
+              "Bằng nhau",
+              "Luôn bù nhau",
+              "Luôn bằng 90°",
+              "Luôn hơn kém nhau 10°"
+            ],
+            "correct": 0,
+            "explanation": "Khi một đường thẳng cắt hai đường thẳng song song, các cặp góc đồng vị bằng nhau."
+          }
+        ]
+      },
+      {
+        "id": "grade-8-polynomials",
+        "title": "Lớp 8 · Đa thức và hằng đẳng thức",
+        "description": "Thu gọn biểu thức và phân tích đa thức",
+        "level": "LỚP 8",
+        "duration": "5 phút",
+        "art": [
+          "x²",
+          "＝",
+          "8"
+        ],
+        "questions": [
+          {
+            "prompt": "Thu gọn 3x + 2x − x.",
+            "answers": [
+              "4x",
+              "6x",
+              "5x",
+              "4x²"
+            ],
+            "correct": 0,
+            "explanation": "Các hạng tử đồng dạng có hệ số cộng được với nhau: 3 + 2 − 1 = 4."
+          },
+          {
+            "prompt": "Khai triển (x + 2)².",
+            "answers": [
+              "x² + 4x + 4",
+              "x² + 4",
+              "x² + 2x + 4",
+              "x² − 4x + 4"
+            ],
+            "correct": 0,
+            "explanation": "Bình phương một tổng bằng bình phương số thứ nhất, cộng hai lần tích, cộng bình phương số thứ hai."
+          },
+          {
+            "prompt": "Phân tích x² − 9 thành nhân tử.",
+            "answers": [
+              "(x − 3)(x + 3)",
+              "(x − 9)(x + 9)",
+              "(x − 3)²",
+              "x(x − 9)"
+            ],
+            "correct": 0,
+            "explanation": "Dùng hiệu hai bình phương: x² − 3² = (x − 3)(x + 3)."
+          },
+          {
+            "prompt": "Phân tích 2x² + 6x bằng cách đặt nhân tử chung.",
+            "answers": [
+              "2x(x + 3)",
+              "2(x + 3)",
+              "x(2x + 3)",
+              "2x(x + 6)"
+            ],
+            "correct": 0,
+            "explanation": "Hai hạng tử có nhân tử chung 2x: 2x² + 6x = 2x(x + 3)."
+          },
+          {
+            "prompt": "Tính giá trị của x² − 2x + 1 khi x = 4.",
+            "answers": [
+              "9",
+              "17",
+              "7",
+              "15"
+            ],
+            "correct": 0,
+            "explanation": "Biểu thức bằng (x − 1)²; thay x = 4 được 3² = 9."
+          }
+        ]
+      },
+      {
+        "id": "grade-8-linear-equations",
+        "title": "Lớp 8 · Phương trình và hàm số",
+        "description": "Giải phương trình bậc nhất và tính giá trị hàm số",
+        "level": "LỚP 8",
+        "duration": "5 phút",
+        "art": [
+          "y",
+          "↗",
+          "8"
+        ],
+        "questions": [
+          {
+            "prompt": "Giải phương trình 3x − 7 = 8.",
+            "answers": [
+              "x = 5",
+              "x = 1",
+              "x = −5",
+              "x = 15"
+            ],
+            "correct": 0,
+            "explanation": "Cộng 7 vào hai vế được 3x = 15; chia hai vế cho 3 được x = 5."
+          },
+          {
+            "prompt": "Giải phương trình 2(x + 1) = x + 6.",
+            "answers": [
+              "x = 4",
+              "x = 2",
+              "x = 6",
+              "x = 8"
+            ],
+            "correct": 0,
+            "explanation": "Khai triển: 2x + 2 = x + 6. Trừ x rồi trừ 2 ở hai vế được x = 4."
+          },
+          {
+            "prompt": "Cho hàm số y = 2x + 1. Khi x = 3 thì y bằng bao nhiêu?",
+            "answers": [
+              "7",
+              "6",
+              "9",
+              "5"
+            ],
+            "correct": 0,
+            "explanation": "Thay x = 3 vào công thức: y = 2 × 3 + 1 = 7."
+          },
+          {
+            "prompt": "Điểm nào thuộc đồ thị hàm số y = x − 2?",
+            "answers": [
+              "(3; 1)",
+              "(3; 2)",
+              "(0; 2)",
+              "(2; 2)"
+            ],
+            "correct": 0,
+            "explanation": "Tại x = 3, y = 3 − 2 = 1 nên điểm (3; 1) thuộc đồ thị."
+          },
+          {
+            "prompt": "Hệ số góc của đường thẳng y = −2x + 3 là bao nhiêu?",
+            "answers": [
+              "−2",
+              "3",
+              "2",
+              "−3"
+            ],
+            "correct": 0,
+            "explanation": "Đường thẳng y = ax + b có hệ số góc a; ở đây a = −2."
+          }
+        ]
+      },
+      {
+        "id": "grade-8-triangle-geometry",
+        "title": "Lớp 8 · Tam giác và tứ giác",
+        "description": "Định lí Pythagore, đường trung bình và hình bình hành",
+        "level": "LỚP 8",
+        "duration": "5 phút",
+        "art": [
+          "△",
+          "□",
+          "8"
+        ],
+        "questions": [
+          {
+            "prompt": "Tam giác vuông có hai cạnh góc vuông dài 3 cm và 4 cm. Cạnh huyền dài bao nhiêu?",
+            "answers": [
+              "5 cm",
+              "7 cm",
+              "1 cm",
+              "25 cm"
+            ],
+            "correct": 0,
+            "explanation": "Theo định lí Pythagore, bình phương cạnh huyền bằng 3² + 4² = 25, nên cạnh huyền dài 5 cm."
+          },
+          {
+            "prompt": "Đường trung bình của tam giác song song với cạnh thứ ba dài 12 cm. Đường trung bình dài bao nhiêu?",
+            "answers": [
+              "6 cm",
+              "12 cm",
+              "24 cm",
+              "18 cm"
+            ],
+            "correct": 0,
+            "explanation": "Đoạn nối trung điểm hai cạnh của tam giác song song và bằng một nửa cạnh thứ ba: 12 ÷ 2 = 6 cm."
+          },
+          {
+            "prompt": "Tổng số đo các góc trong của một tứ giác là bao nhiêu?",
+            "answers": [
+              "360°",
+              "180°",
+              "270°",
+              "540°"
+            ],
+            "correct": 0,
+            "explanation": "Một đường chéo chia tứ giác thành hai tam giác, mỗi tam giác có tổng góc 180°."
+          },
+          {
+            "prompt": "Hai đường chéo của hình bình hành có tính chất nào?",
+            "answers": [
+              "Cắt nhau tại trung điểm của mỗi đường",
+              "Luôn bằng nhau",
+              "Luôn vuông góc",
+              "Không bao giờ cắt nhau"
+            ],
+            "correct": 0,
+            "explanation": "Trong hình bình hành, hai đường chéo chia đôi nhau; chúng không nhất thiết bằng nhau hoặc vuông góc."
+          },
+          {
+            "prompt": "Hai tam giác đồng dạng có tỉ số các cạnh tương ứng là 2:1. Tỉ số chu vi theo cùng thứ tự là bao nhiêu?",
+            "answers": [
+              "2:1",
+              "4:1",
+              "1:2",
+              "1:1"
+            ],
+            "correct": 0,
+            "explanation": "Các cạnh tương ứng cùng gấp hai lần, nên tổng độ dài các cạnh cũng gấp hai lần."
+          }
+        ]
+      },
+      {
+        "id": "grade-9-roots",
+        "title": "Lớp 9 · Căn thức",
+        "description": "Căn bậc hai, căn bậc ba và điều kiện xác định",
+        "level": "LỚP 9",
+        "duration": "5 phút",
+        "art": [
+          "√",
+          "x",
+          "9"
+        ],
+        "questions": [
+          {
+            "prompt": "Căn bậc hai số học của 81 là bao nhiêu?",
+            "answers": [
+              "9",
+              "−9",
+              "18",
+              "162"
+            ],
+            "correct": 0,
+            "explanation": "Căn bậc hai số học là số không âm có bình phương bằng số đã cho: 9² = 81."
+          },
+          {
+            "prompt": "Rút gọn √50.",
+            "answers": [
+              "5√2",
+              "25√2",
+              "2√5",
+              "5"
+            ],
+            "correct": 0,
+            "explanation": "50 = 25 × 2 nên √50 = √25 × √2 = 5√2."
+          },
+          {
+            "prompt": "Biểu thức √(x − 3) xác định trong tập số thực khi nào?",
+            "answers": [
+              "x ≥ 3",
+              "x > 0",
+              "x ≤ 3",
+              "Mọi số thực x"
+            ],
+            "correct": 0,
+            "explanation": "Biểu thức dưới căn bậc hai phải không âm: x − 3 ≥ 0, tức x ≥ 3."
+          },
+          {
+            "prompt": "Tính √((-4)²).",
+            "answers": [
+              "4",
+              "−4",
+              "16",
+              "−16"
+            ],
+            "correct": 0,
+            "explanation": "Căn bậc hai số học của bình phương một số bằng giá trị tuyệt đối của số đó: |−4| = 4."
+          },
+          {
+            "prompt": "Căn bậc ba của −8 là bao nhiêu?",
+            "answers": [
+              "−2",
+              "2",
+              "−4",
+              "4"
+            ],
+            "correct": 0,
+            "explanation": "Vì (−2)³ = −8 nên căn bậc ba của −8 là −2."
+          }
+        ]
+      },
+      {
+        "id": "grade-9-equations",
+        "title": "Lớp 9 · Hệ và phương trình",
+        "description": "Hệ hai ẩn, phương trình bậc hai và bài toán thực tế",
+        "level": "LỚP 9",
+        "duration": "5 phút",
+        "art": [
+          "x,y",
+          "＝",
+          "9"
+        ],
+        "questions": [
+          {
+            "prompt": "Hệ x + y = 7 và x − y = 1 có nghiệm nào?",
+            "answers": [
+              "x = 4, y = 3",
+              "x = 3, y = 4",
+              "x = 5, y = 2",
+              "x = 7, y = 1"
+            ],
+            "correct": 0,
+            "explanation": "Cộng hai phương trình được 2x = 8, nên x = 4; thay vào x + y = 7 được y = 3."
+          },
+          {
+            "prompt": "Phương trình x² − 9 = 0 có những nghiệm nào?",
+            "answers": [
+              "x = −3 hoặc x = 3",
+              "Chỉ x = 3",
+              "Chỉ x = −3",
+              "x = −9 hoặc x = 9"
+            ],
+            "correct": 0,
+            "explanation": "x² = 9 có hai nghiệm là −3 và 3, vì bình phương của cả hai đều bằng 9."
+          },
+          {
+            "prompt": "Biệt thức của phương trình x² − 5x + 6 = 0 là bao nhiêu?",
+            "answers": [
+              "1",
+              "25",
+              "49",
+              "−1"
+            ],
+            "correct": 0,
+            "explanation": "Với a = 1, b = −5, c = 6: biệt thức bằng b² − 4ac = 25 − 24 = 1."
+          },
+          {
+            "prompt": "Nghiệm của phương trình x² − 5x + 6 = 0 là gì?",
+            "answers": [
+              "x = 2 hoặc x = 3",
+              "x = −2 hoặc x = −3",
+              "x = 1 hoặc x = 6",
+              "x = 0 hoặc x = 5"
+            ],
+            "correct": 0,
+            "explanation": "Phân tích x² − 5x + 6 = (x − 2)(x − 3), nên một trong hai nhân tử phải bằng 0."
+          },
+          {
+            "prompt": "Hai vé người lớn và một vé trẻ em giá 100.000đ. Vé trẻ em giá 20.000đ. Một vé người lớn giá bao nhiêu?",
+            "answers": [
+              "40.000đ",
+              "30.000đ",
+              "50.000đ",
+              "80.000đ"
+            ],
+            "correct": 0,
+            "explanation": "Hai vé người lớn giá 100.000 − 20.000 = 80.000đ; mỗi vé giá 40.000đ."
+          }
+        ]
+      },
+      {
+        "id": "grade-9-circles",
+        "title": "Lớp 9 · Đường tròn",
+        "description": "Bán kính, tiếp tuyến, góc và chu vi",
+        "level": "LỚP 9",
+        "duration": "5 phút",
+        "art": [
+          "○",
+          "π",
+          "9"
+        ],
+        "questions": [
+          {
+            "prompt": "Đường tròn có bán kính 5 cm. Đường kính dài bao nhiêu?",
+            "answers": [
+              "10 cm",
+              "5 cm",
+              "2,5 cm",
+              "25 cm"
+            ],
+            "correct": 0,
+            "explanation": "Đường kính bằng hai lần bán kính: 2 × 5 = 10 cm."
+          },
+          {
+            "prompt": "Tiếp tuyến của đường tròn có quan hệ gì với bán kính tại tiếp điểm?",
+            "answers": [
+              "Vuông góc",
+              "Song song",
+              "Luôn tạo góc 45°",
+              "Trùng nhau"
+            ],
+            "correct": 0,
+            "explanation": "Tiếp tuyến vuông góc với bán kính đi qua tiếp điểm."
+          },
+          {
+            "prompt": "Một góc nội tiếp chắn nửa đường tròn có số đo bao nhiêu?",
+            "answers": [
+              "90°",
+              "45°",
+              "180°",
+              "360°"
+            ],
+            "correct": 0,
+            "explanation": "Góc nội tiếp bằng một nửa số đo cung bị chắn; nửa đường tròn có số đo 180°."
+          },
+          {
+            "prompt": "Chu vi đường tròn bán kính 3 cm là bao nhiêu?",
+            "answers": [
+              "6π cm",
+              "3π cm",
+              "9π cm",
+              "12π cm"
+            ],
+            "correct": 0,
+            "explanation": "Chu vi đường tròn bằng 2πr; thay r = 3 được 6π cm."
+          },
+          {
+            "prompt": "Diện tích hình tròn bán kính 4 cm là bao nhiêu?",
+            "answers": [
+              "16π cm²",
+              "8π cm²",
+              "4π cm²",
+              "32π cm²"
+            ],
+            "correct": 0,
+            "explanation": "Diện tích hình tròn bằng πr²; với r = 4, diện tích là 16π cm²."
+          }
+        ]
       }
     ]
   },
@@ -816,6 +1644,558 @@
             "explanation": "Độ nghiêng trục làm thay đổi góc chiếu và thời gian nhận ánh sáng ở mỗi bán cầu trong năm."
           }
         ]
+      },
+      {
+        "id": "grade-6-measurement",
+        "title": "Lớp 6 · Đo lường và chất",
+        "description": "Dụng cụ đo, các thể của chất và hỗn hợp",
+        "level": "LỚP 6",
+        "duration": "5 phút",
+        "art": [
+          "🌡",
+          "⚖",
+          "💧"
+        ],
+        "questions": [
+          {
+            "prompt": "Dụng cụ nào dùng để đo nhiệt độ?",
+            "answers": [
+              "Nhiệt kế",
+              "Thước kẻ",
+              "Đồng hồ bấm giây",
+              "Cân"
+            ],
+            "correct": 0,
+            "explanation": "Nhiệt kế dùng để đo nhiệt độ; cần chọn loại phù hợp với vật cần đo."
+          },
+          {
+            "prompt": "Đơn vị khối lượng trong hệ SI là gì?",
+            "answers": [
+              "Kilôgam (kg)",
+              "Mét (m)",
+              "Giây (s)",
+              "Lít (L)"
+            ],
+            "correct": 0,
+            "explanation": "Kilôgam là đơn vị khối lượng trong hệ SI; mét đo chiều dài và giây đo thời gian."
+          },
+          {
+            "prompt": "Nước đá chuyển thành nước lỏng là hiện tượng gì?",
+            "answers": [
+              "Nóng chảy",
+              "Đông đặc",
+              "Ngưng tụ",
+              "Sôi"
+            ],
+            "correct": 0,
+            "explanation": "Nóng chảy là quá trình chất chuyển từ thể rắn sang thể lỏng."
+          },
+          {
+            "prompt": "Cách nào phù hợp để tách cát không tan khỏi nước?",
+            "answers": [
+              "Lọc",
+              "Dùng nam châm",
+              "Khuấy liên tục",
+              "Thêm nước"
+            ],
+            "correct": 0,
+            "explanation": "Giấy lọc giữ lại hạt cát, còn nước đi qua; cách này tách chất rắn không tan khỏi chất lỏng."
+          },
+          {
+            "prompt": "Khi hòa tan hoàn toàn muối ăn trong nước, ta thu được gì?",
+            "answers": [
+              "Dung dịch muối",
+              "Chất tinh khiết",
+              "Hỗn hợp cát và nước",
+              "Muối ở thể khí"
+            ],
+            "correct": 0,
+            "explanation": "Dung dịch muối là hỗn hợp đồng nhất gồm muối hòa tan và nước, không phải chất tinh khiết."
+          }
+        ]
+      },
+      {
+        "id": "grade-6-cells",
+        "title": "Lớp 6 · Tế bào và sự sống",
+        "description": "Khám phá tế bào và tổ chức cơ thể",
+        "level": "LỚP 6",
+        "duration": "5 phút",
+        "art": [
+          "🌱",
+          "🔬",
+          "6"
+        ],
+        "questions": [
+          {
+            "prompt": "Đơn vị cấu tạo và chức năng cơ bản của cơ thể sống là gì?",
+            "answers": [
+              "Tế bào",
+              "Cơ quan",
+              "Hệ cơ quan",
+              "Bộ xương"
+            ],
+            "correct": 0,
+            "explanation": "Tế bào là đơn vị cấu tạo và chức năng cơ bản của cơ thể sống."
+          },
+          {
+            "prompt": "Dụng cụ nào giúp quan sát nhiều loại tế bào rất nhỏ?",
+            "answers": [
+              "Kính hiển vi",
+              "La bàn",
+              "Kính thiên văn",
+              "Cân điện tử"
+            ],
+            "correct": 0,
+            "explanation": "Kính hiển vi phóng đại hình ảnh, giúp quan sát những tế bào không nhìn rõ bằng mắt thường."
+          },
+          {
+            "prompt": "Cấu trúc nào bao bọc tế bào và kiểm soát sự trao đổi chất với môi trường?",
+            "answers": [
+              "Màng tế bào",
+              "Lục lạp",
+              "Nhân tế bào",
+              "Không bào"
+            ],
+            "correct": 0,
+            "explanation": "Màng tế bào bao bọc tế bào và tham gia kiểm soát các chất đi vào, đi ra."
+          },
+          {
+            "prompt": "Ở tế bào lá cây xanh, bào quan nào thực hiện quang hợp?",
+            "answers": [
+              "Lục lạp",
+              "Nhân",
+              "Màng tế bào",
+              "Không bào"
+            ],
+            "correct": 0,
+            "explanation": "Lục lạp chứa diệp lục và là nơi thực hiện quang hợp trong tế bào lá cây xanh."
+          },
+          {
+            "prompt": "Nhóm tế bào cùng thực hiện một chức năng tạo thành cấp tổ chức nào?",
+            "answers": [
+              "Mô",
+              "Cơ thể",
+              "Hệ cơ quan",
+              "Quần thể"
+            ],
+            "correct": 0,
+            "explanation": "Ở cơ thể đa bào, các tế bào cùng thực hiện một chức năng tạo thành mô; các mô phối hợp tạo cơ quan."
+          }
+        ]
+      },
+      {
+        "id": "grade-7-speed-and-sound",
+        "title": "Lớp 7 · Tốc độ và âm thanh",
+        "description": "Đo chuyển động và tìm hiểu nguồn âm",
+        "level": "LỚP 7",
+        "duration": "5 phút",
+        "art": [
+          "⏱",
+          "♪",
+          "7"
+        ],
+        "questions": [
+          {
+            "prompt": "Một người đi 120 m trong 30 s. Tốc độ trung bình là bao nhiêu?",
+            "answers": [
+              "4 m/s",
+              "40 m/s",
+              "0,25 m/s",
+              "150 m/s"
+            ],
+            "correct": 0,
+            "explanation": "Tốc độ bằng quãng đường chia thời gian: 120 ÷ 30 = 4 m/s."
+          },
+          {
+            "prompt": "Xe đạp đi với tốc độ 12 km/h trong 2 giờ. Quãng đường là bao nhiêu?",
+            "answers": [
+              "24 km",
+              "6 km",
+              "14 km",
+              "12 km"
+            ],
+            "correct": 0,
+            "explanation": "Quãng đường bằng tốc độ nhân thời gian: 12 × 2 = 24 km."
+          },
+          {
+            "prompt": "Khi dây đàn phát ra âm thanh, dây đàn đang làm gì?",
+            "answers": [
+              "Dao động",
+              "Đứng yên hoàn toàn",
+              "Tan chảy",
+              "Phát sáng"
+            ],
+            "correct": 0,
+            "explanation": "Nguồn âm là vật dao động; dây đàn dao động làm môi trường xung quanh truyền âm."
+          },
+          {
+            "prompt": "Âm có tần số lớn hơn thường được nghe như thế nào?",
+            "answers": [
+              "Cao hơn",
+              "Trầm hơn",
+              "Luôn to hơn",
+              "Luôn nhỏ hơn"
+            ],
+            "correct": 0,
+            "explanation": "Độ cao của âm phụ thuộc vào tần số: tần số càng lớn thì âm càng cao, không đồng nghĩa âm to hơn."
+          },
+          {
+            "prompt": "Âm không truyền được trong môi trường nào?",
+            "answers": [
+              "Chân không",
+              "Không khí",
+              "Nước",
+              "Thép"
+            ],
+            "correct": 0,
+            "explanation": "Âm cần môi trường vật chất để truyền; chân không không có môi trường vật chất truyền âm."
+          }
+        ]
+      },
+      {
+        "id": "grade-7-plant-metabolism",
+        "title": "Lớp 7 · Trao đổi chất ở thực vật",
+        "description": "Quang hợp, hô hấp và vận chuyển nước",
+        "level": "LỚP 7",
+        "duration": "5 phút",
+        "art": [
+          "🌿",
+          "☀",
+          "7"
+        ],
+        "questions": [
+          {
+            "prompt": "Hai nguyên liệu chính cây sử dụng trong quang hợp là gì?",
+            "answers": [
+              "Nước và khí cacbon điôxít",
+              "Ôxi và đường",
+              "Nitơ và muối ăn",
+              "Tinh bột và ôxi"
+            ],
+            "correct": 0,
+            "explanation": "Nhờ năng lượng ánh sáng và diệp lục, cây dùng nước và CO₂ để tạo chất hữu cơ, giải phóng ôxi."
+          },
+          {
+            "prompt": "Quang hợp chuyển năng lượng ánh sáng thành dạng năng lượng nào?",
+            "answers": [
+              "Năng lượng hóa học trong chất hữu cơ",
+              "Chỉ năng lượng âm thanh",
+              "Chỉ điện năng",
+              "Năng lượng của gió"
+            ],
+            "correct": 0,
+            "explanation": "Năng lượng ánh sáng được tích lũy dưới dạng năng lượng hóa học trong chất hữu cơ do quang hợp tạo ra."
+          },
+          {
+            "prompt": "Bộ phận nào của rễ tăng diện tích tiếp xúc để hấp thụ nước và muối khoáng?",
+            "answers": [
+              "Lông hút",
+              "Cánh hoa",
+              "Quả",
+              "Hạt phấn"
+            ],
+            "correct": 0,
+            "explanation": "Lông hút làm tăng diện tích tiếp xúc của rễ với đất, hỗ trợ hấp thụ nước và muối khoáng."
+          },
+          {
+            "prompt": "Phần lớn nước cây hấp thụ được thoát ra ngoài qua đâu?",
+            "answers": [
+              "Khí khổng ở lá",
+              "Cánh hoa",
+              "Hạt",
+              "Vỏ quả"
+            ],
+            "correct": 0,
+            "explanation": "Thoát hơi nước chủ yếu diễn ra qua khí khổng ở lá, góp phần tạo lực hút nước từ rễ lên."
+          },
+          {
+            "prompt": "Vai trò chính của hô hấp tế bào ở thực vật là gì?",
+            "answers": [
+              "Giải phóng năng lượng từ chất hữu cơ",
+              "Chỉ tạo màu xanh cho lá",
+              "Hấp thụ mọi ánh sáng",
+              "Làm cây ngừng trao đổi chất"
+            ],
+            "correct": 0,
+            "explanation": "Hô hấp tế bào phân giải chất hữu cơ, giải phóng năng lượng phục vụ hoạt động sống của cây."
+          }
+        ]
+      },
+      {
+        "id": "grade-8-chemical-reactions",
+        "title": "Lớp 8 · Phản ứng hóa học",
+        "description": "Biến đổi chất, bảo toàn khối lượng và dung dịch",
+        "level": "LỚP 8",
+        "duration": "5 phút",
+        "art": [
+          "⚗",
+          "→",
+          "8"
+        ],
+        "questions": [
+          {
+            "prompt": "Hiện tượng nào là biến đổi hóa học?",
+            "answers": [
+              "Sắt bị gỉ",
+              "Nước đá tan",
+              "Cắt giấy thành mảnh nhỏ",
+              "Nước bay hơi"
+            ],
+            "correct": 0,
+            "explanation": "Sắt bị gỉ tạo chất mới; các hiện tượng còn lại không làm xuất hiện chất mới."
+          },
+          {
+            "prompt": "Trong phản ứng hóa học xảy ra trong hệ kín, tổng khối lượng các chất thay đổi thế nào?",
+            "answers": [
+              "Được bảo toàn",
+              "Luôn tăng gấp đôi",
+              "Luôn giảm một nửa",
+              "Luôn bằng không"
+            ],
+            "correct": 0,
+            "explanation": "Tổng khối lượng chất tham gia bằng tổng khối lượng sản phẩm, khi tính đầy đủ các chất trong hệ kín."
+          },
+          {
+            "prompt": "Trong phương trình 2H₂ + O₂ → 2H₂O, hệ số đứng trước O₂ là bao nhiêu?",
+            "answers": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "correct": 0,
+            "explanation": "Không ghi hệ số nghĩa là hệ số 1; hai vế đều có 4 nguyên tử H và 2 nguyên tử O."
+          },
+          {
+            "prompt": "Hòa tan 10 g muối vào 90 g nước. Nồng độ phần trăm của dung dịch là bao nhiêu?",
+            "answers": [
+              "10%",
+              "9%",
+              "11,1%",
+              "90%"
+            ],
+            "correct": 0,
+            "explanation": "Khối lượng dung dịch là 100 g; nồng độ phần trăm bằng 10 ÷ 100 × 100% = 10%."
+          },
+          {
+            "prompt": "Chất xúc tác có tác dụng nào đối với phản ứng?",
+            "answers": [
+              "Làm tăng tốc độ phản ứng mà không bị tiêu hao sau phản ứng",
+              "Luôn làm mất toàn bộ sản phẩm",
+              "Thay thế mọi chất phản ứng",
+              "Luôn làm phản ứng dừng lại"
+            ],
+            "correct": 0,
+            "explanation": "Chất xúc tác làm tăng tốc độ phản ứng và không bị tiêu hao sau phản ứng."
+          }
+        ]
+      },
+      {
+        "id": "grade-8-pressure-and-body",
+        "title": "Lớp 8 · Áp suất và cơ thể người",
+        "description": "Áp lực, tiêu hóa và tuần hoàn",
+        "level": "LỚP 8",
+        "duration": "5 phút",
+        "art": [
+          "⚖",
+          "🫀",
+          "8"
+        ],
+        "questions": [
+          {
+            "prompt": "Áp lực 100 N tác dụng vuông góc lên diện tích 0,5 m². Áp suất là bao nhiêu?",
+            "answers": [
+              "200 Pa",
+              "50 Pa",
+              "100 Pa",
+              "0,005 Pa"
+            ],
+            "correct": 0,
+            "explanation": "Áp suất bằng áp lực chia diện tích bị ép: 100 ÷ 0,5 = 200 Pa."
+          },
+          {
+            "prompt": "Trong cùng một chất lỏng đứng yên, áp suất tăng khi nào?",
+            "answers": [
+              "Khi độ sâu tăng",
+              "Khi độ sâu giảm",
+              "Chỉ khi đổi màu chất lỏng",
+              "Khi đổi tên bình chứa"
+            ],
+            "correct": 0,
+            "explanation": "Áp suất chất lỏng tăng theo độ sâu, với cùng khối lượng riêng và gia tốc trọng trường."
+          },
+          {
+            "prompt": "Phần lớn chất dinh dưỡng được hấp thụ ở cơ quan nào?",
+            "answers": [
+              "Ruột non",
+              "Thực quản",
+              "Ruột già",
+              "Khoang miệng"
+            ],
+            "correct": 0,
+            "explanation": "Ruột non có bề mặt hấp thụ lớn nhờ nếp gấp, lông ruột và vi nhung mao."
+          },
+          {
+            "prompt": "Thành phần máu nào chủ yếu vận chuyển ôxi?",
+            "answers": [
+              "Hồng cầu",
+              "Bạch cầu",
+              "Tiểu cầu",
+              "Chỉ nước trong huyết tương"
+            ],
+            "correct": 0,
+            "explanation": "Hemoglobin trong hồng cầu gắn với ôxi, giúp vận chuyển ôxi từ phổi đến mô."
+          },
+          {
+            "prompt": "Cơ quan nào bơm máu trong hệ tuần hoàn?",
+            "answers": [
+              "Tim",
+              "Dạ dày",
+              "Gan",
+              "Thận"
+            ],
+            "correct": 0,
+            "explanation": "Tim co bóp tạo lực đẩy máu đi qua các mạch máu, duy trì tuần hoàn."
+          }
+        ]
+      },
+      {
+        "id": "grade-9-electricity-and-energy",
+        "title": "Lớp 9 · Điện và năng lượng",
+        "description": "Định luật Ohm, mạch điện và công suất",
+        "level": "LỚP 9",
+        "duration": "5 phút",
+        "art": [
+          "⚡",
+          "Ω",
+          "9"
+        ],
+        "questions": [
+          {
+            "prompt": "Điện trở 6 Ω có hiệu điện thế 12 V giữa hai đầu. Cường độ dòng điện là bao nhiêu?",
+            "answers": [
+              "2 A",
+              "0,5 A",
+              "6 A",
+              "72 A"
+            ],
+            "correct": 0,
+            "explanation": "Theo định luật Ohm: I = U/R = 12/6 = 2 A."
+          },
+          {
+            "prompt": "Hai điện trở 3 Ω và 5 Ω mắc nối tiếp có điện trở tương đương bao nhiêu?",
+            "answers": [
+              "8 Ω",
+              "2 Ω",
+              "15 Ω",
+              "1,875 Ω"
+            ],
+            "correct": 0,
+            "explanation": "Mắc nối tiếp: điện trở tương đương bằng tổng các điện trở, 3 + 5 = 8 Ω."
+          },
+          {
+            "prompt": "Hai điện trở bằng nhau, mỗi điện trở 6 Ω, mắc song song. Điện trở tương đương là bao nhiêu?",
+            "answers": [
+              "3 Ω",
+              "12 Ω",
+              "6 Ω",
+              "36 Ω"
+            ],
+            "correct": 0,
+            "explanation": "Hai điện trở bằng nhau mắc song song có điện trở tương đương bằng một nửa mỗi điện trở: 6/2 = 3 Ω."
+          },
+          {
+            "prompt": "Thiết bị hoạt động với hiệu điện thế 12 V và dòng điện 0,5 A. Công suất điện là bao nhiêu?",
+            "answers": [
+              "6 W",
+              "24 W",
+              "12,5 W",
+              "0,04 W"
+            ],
+            "correct": 0,
+            "explanation": "Công suất điện P = UI = 12 × 0,5 = 6 W."
+          },
+          {
+            "prompt": "Thiết bị công suất 100 W hoạt động trong 2 giờ. Điện năng tiêu thụ là bao nhiêu?",
+            "answers": [
+              "0,2 kWh",
+              "200 kWh",
+              "2 kWh",
+              "0,02 kWh"
+            ],
+            "correct": 0,
+            "explanation": "100 W = 0,1 kW; điện năng bằng công suất nhân thời gian: 0,1 × 2 = 0,2 kWh."
+          }
+        ]
+      },
+      {
+        "id": "grade-9-genetics",
+        "title": "Lớp 9 · Di truyền cơ bản",
+        "description": "DNA, gene, nhiễm sắc thể và biến dị",
+        "level": "LỚP 9",
+        "duration": "5 phút",
+        "art": [
+          "DNA",
+          "🧬",
+          "9"
+        ],
+        "questions": [
+          {
+            "prompt": "Phân tử nào chủ yếu lưu giữ thông tin di truyền trong tế bào?",
+            "answers": [
+              "DNA",
+              "Nước",
+              "Tinh bột",
+              "Chất béo dự trữ"
+            ],
+            "correct": 0,
+            "explanation": "Thông tin di truyền được lưu trong trình tự các nucleotide của DNA."
+          },
+          {
+            "prompt": "Gene được hiểu là gì ở mức cơ bản?",
+            "answers": [
+              "Một đoạn DNA mang thông tin mã hóa một sản phẩm xác định",
+              "Một tế bào hoàn chỉnh",
+              "Toàn bộ cơ thể",
+              "Chỉ một phân tử nước"
+            ],
+            "correct": 0,
+            "explanation": "Gene là đoạn DNA chứa thông tin để tạo sản phẩm xác định, như một chuỗi polypeptide hoặc RNA."
+          },
+          {
+            "prompt": "Trong DNA, adenine (A) liên kết bổ sung với base nào?",
+            "answers": [
+              "Thymine (T)",
+              "Guanine (G)",
+              "Cytosine (C)",
+              "Uracil (U)"
+            ],
+            "correct": 0,
+            "explanation": "Trong DNA, A liên kết với T và G liên kết với C theo nguyên tắc bổ sung."
+          },
+          {
+            "prompt": "Tế bào sinh dưỡng người bình thường có bao nhiêu nhiễm sắc thể?",
+            "answers": [
+              "46",
+              "23",
+              "44",
+              "48"
+            ],
+            "correct": 0,
+            "explanation": "Tế bào sinh dưỡng người bình thường có 46 nhiễm sắc thể, xếp thành 23 cặp."
+          },
+          {
+            "prompt": "Sự thay đổi trong trình tự nucleotide của gene được gọi là gì?",
+            "answers": [
+              "Đột biến gene",
+              "Quang hợp",
+              "Thoát hơi nước",
+              "Tiêu hóa"
+            ],
+            "correct": 0,
+            "explanation": "Đột biến gene làm thay đổi trình tự nucleotide; tác động có thể khác nhau tùy vị trí và điều kiện."
+          }
+        ]
       }
     ]
   },
@@ -1101,6 +2481,282 @@
             ],
             "correct": 0,
             "explanation": "Kết luận thường tổng hợp ý chính và khép lại lập luận nhất quán với nội dung bài viết."
+          }
+        ]
+      },
+      {
+        "id": "grade-6-literature",
+        "title": "Lớp 6 · Đọc hiểu và tiếng Việt",
+        "description": "Truyện dân gian, từ ngữ và biện pháp tu từ",
+        "level": "LỚP 6",
+        "duration": "5 phút",
+        "art": [
+          "📖",
+          "✎",
+          "6"
+        ],
+        "questions": [
+          {
+            "prompt": "Truyện kể về nhân vật và sự kiện lịch sử, thường có yếu tố kì ảo, thuộc thể loại nào?",
+            "answers": [
+              "Truyền thuyết",
+              "Bản tin",
+              "Văn bản hướng dẫn",
+              "Thơ tự do"
+            ],
+            "correct": 0,
+            "explanation": "Truyền thuyết thường kể về nhân vật, sự kiện liên quan đến lịch sử và thể hiện cách nhìn của nhân dân qua yếu tố kì ảo."
+          },
+          {
+            "prompt": "Người kể xưng “tôi” và tham gia câu chuyện đang kể ở ngôi nào?",
+            "answers": [
+              "Ngôi thứ nhất",
+              "Ngôi thứ ba",
+              "Không có ngôi kể",
+              "Ngôi thứ hai"
+            ],
+            "correct": 0,
+            "explanation": "Ở ngôi thứ nhất, người kể thường xưng tôi và kể từ trải nghiệm, hiểu biết của mình."
+          },
+          {
+            "prompt": "Trong câu “Mặt hồ như một tấm gương”, biện pháp tu từ nổi bật là gì?",
+            "answers": [
+              "So sánh",
+              "Nhân hóa",
+              "Điệp ngữ",
+              "Nói giảm nói tránh"
+            ],
+            "correct": 0,
+            "explanation": "Từ “như” nối hai hình ảnh mặt hồ và tấm gương để làm nổi bật sự tương đồng."
+          },
+          {
+            "prompt": "Câu nào sử dụng nhân hóa?",
+            "answers": [
+              "Chú mèo đang suy nghĩ về bữa tối",
+              "Con mèo có bộ lông vàng",
+              "Con mèo nặng ba kilôgam",
+              "Con mèo nằm dưới bàn"
+            ],
+            "correct": 0,
+            "explanation": "Gọi mèo là “chú” và gán hành động suy nghĩ về bữa tối như con người là nhân hóa."
+          },
+          {
+            "prompt": "Từ nào sau đây là từ láy?",
+            "answers": [
+              "Lấp lánh",
+              "Bàn ghế",
+              "Sách vở",
+              "Quần áo"
+            ],
+            "correct": 0,
+            "explanation": "“Lấp lánh” có sự lặp lại âm đầu; các từ còn lại được tạo bởi những tiếng có nghĩa kết hợp với nhau."
+          }
+        ]
+      },
+      {
+        "id": "grade-7-literature",
+        "title": "Lớp 7 · Đọc và cảm nhận",
+        "description": "Ngụ ngôn, thơ và cách liên kết văn bản",
+        "level": "LỚP 7",
+        "duration": "5 phút",
+        "art": [
+          "📖",
+          "✎",
+          "7"
+        ],
+        "questions": [
+          {
+            "prompt": "Truyện ngụ ngôn thường hướng người đọc đến điều gì?",
+            "answers": [
+              "Bài học về cách sống và ứng xử",
+              "Chỉ dẫn lắp máy",
+              "Thông báo thời tiết",
+              "Bảng thống kê dân số"
+            ],
+            "correct": 0,
+            "explanation": "Truyện ngụ ngôn thường dùng câu chuyện ngắn, đôi khi mượn chuyện loài vật, để gửi gắm bài học."
+          },
+          {
+            "prompt": "Một dòng thơ năm chữ thường có bao nhiêu tiếng?",
+            "answers": [
+              "Năm tiếng",
+              "Bốn tiếng",
+              "Sáu tiếng",
+              "Bảy tiếng"
+            ],
+            "correct": 0,
+            "explanation": "Thơ năm chữ thường có năm tiếng trong mỗi dòng; “chữ” ở đây được hiểu theo tiếng."
+          },
+          {
+            "prompt": "Trong câu “Lan đọc sách. Bạn ấy ghi lại những ý quan trọng”, “bạn ấy” thay cho ai?",
+            "answers": [
+              "Lan",
+              "Cuốn sách",
+              "Những ý quan trọng",
+              "Người viết sách"
+            ],
+            "correct": 0,
+            "explanation": "“Bạn ấy” thay cho Lan, giúp tránh lặp tên và liên kết hai câu."
+          },
+          {
+            "prompt": "Câu “Ôi, khu vườn đẹp quá!” chủ yếu thể hiện điều gì?",
+            "answers": [
+              "Cảm xúc ngạc nhiên, thích thú",
+              "Một yêu cầu",
+              "Một câu hỏi về địa điểm",
+              "Một phép tính"
+            ],
+            "correct": 0,
+            "explanation": "Từ “ôi”, “quá” và dấu chấm than thể hiện cảm xúc của người nói."
+          },
+          {
+            "prompt": "Khi viết đoạn văn nêu cảm nhận về thơ, cách nào thuyết phục hơn?",
+            "answers": [
+              "Nêu cảm nhận và dẫn hình ảnh, từ ngữ phù hợp trong bài",
+              "Chỉ chép lại toàn bài thơ",
+              "Nhận xét không liên quan đến bài",
+              "Chỉ nêu số dòng thơ"
+            ],
+            "correct": 0,
+            "explanation": "Cảm nhận nên gắn với dẫn chứng cụ thể và giải thích tác dụng của hình ảnh, từ ngữ."
+          }
+        ]
+      },
+      {
+        "id": "grade-8-literature",
+        "title": "Lớp 8 · Văn bản và lập luận",
+        "description": "Nhận biết luận điểm, bằng chứng và sắc thái từ ngữ",
+        "level": "LỚP 8",
+        "duration": "5 phút",
+        "art": [
+          "📖",
+          "✎",
+          "8"
+        ],
+        "questions": [
+          {
+            "prompt": "Trong văn bản nghị luận, luận điểm là gì?",
+            "answers": [
+              "Ý kiến chính người viết muốn làm rõ",
+              "Danh sách tên nhân vật",
+              "Mọi dấu câu trong bài",
+              "Chỉ tiêu đề của bài"
+            ],
+            "correct": 0,
+            "explanation": "Luận điểm thể hiện ý kiến hoặc quan điểm; lí lẽ và bằng chứng giúp làm rõ, thuyết phục người đọc."
+          },
+          {
+            "prompt": "Bằng chứng nào phù hợp nhất cho luận điểm “Cần giảm rác nhựa ở trường”?",
+            "answers": [
+              "Số liệu khảo sát lượng rác nhựa trong trường",
+              "Lịch chiếu phim cuối tuần",
+              "Dự báo giá vàng",
+              "Tên một bài hát"
+            ],
+            "correct": 0,
+            "explanation": "Bằng chứng phải liên quan trực tiếp đến luận điểm; số liệu cần có nguồn và cách thu thập đáng tin cậy."
+          },
+          {
+            "prompt": "Trong câu “Bạn ấy chạy nhanh như gió”, biện pháp tu từ nổi bật là gì?",
+            "answers": [
+              "So sánh",
+              "Nhân hóa",
+              "Điệp ngữ",
+              "Liệt kê"
+            ],
+            "correct": 0,
+            "explanation": "Từ “như” nối tốc độ chạy với gió, làm nổi bật sự nhanh nhẹn."
+          },
+          {
+            "prompt": "Từ nào có sắc thái trang trọng hơn, thường dùng khi nói về người đã mất?",
+            "answers": [
+              "Từ trần",
+              "Chết",
+              "Ăn",
+              "Chạy"
+            ],
+            "correct": 0,
+            "explanation": "“Từ trần” mang sắc thái trang trọng; lựa chọn từ cần phù hợp ngữ cảnh và thái độ giao tiếp."
+          },
+          {
+            "prompt": "Khi tóm tắt một văn bản, việc nào quan trọng nhất?",
+            "answers": [
+              "Giữ ý chính và diễn đạt ngắn gọn, trung thành với văn bản",
+              "Thêm chi tiết không có trong bản gốc",
+              "Chép mọi câu nguyên văn",
+              "Chỉ ghi cảm xúc cá nhân"
+            ],
+            "correct": 0,
+            "explanation": "Tóm tắt cần giữ nội dung cốt lõi, không tự thêm hoặc làm sai lệch thông tin."
+          }
+        ]
+      },
+      {
+        "id": "grade-9-literature",
+        "title": "Lớp 9 · Đọc hiểu và nghị luận",
+        "description": "Luận đề, trích dẫn và lời kể",
+        "level": "LỚP 9",
+        "duration": "5 phút",
+        "art": [
+          "📖",
+          "✎",
+          "9"
+        ],
+        "questions": [
+          {
+            "prompt": "Trong bài nghị luận, luận đề là gì?",
+            "answers": [
+              "Vấn đề chính được bàn luận trong toàn bài",
+              "Chỉ một dấu câu",
+              "Tên mọi nhân vật",
+              "Một ví dụ bất kì"
+            ],
+            "correct": 0,
+            "explanation": "Luận đề là vấn đề bao quát; các luận điểm triển khai những khía cạnh của vấn đề đó."
+          },
+          {
+            "prompt": "Khi trích nguyên văn lời một tác giả, cách nào phù hợp?",
+            "answers": [
+              "Giữ đúng lời trích, đánh dấu phần trích và ghi nguồn",
+              "Đổi lời trích nhưng vẫn gọi là nguyên văn",
+              "Bỏ nguồn để người đọc đoán",
+              "Gán câu nói cho người khác"
+            ],
+            "correct": 0,
+            "explanation": "Trích dẫn trực tiếp cần chính xác và ghi nguồn để người đọc kiểm tra, đồng thời tôn trọng tác giả."
+          },
+          {
+            "prompt": "Câu nào sử dụng lời dẫn trực tiếp?",
+            "answers": [
+              "Lan nói: “Mình sẽ đến thư viện.”",
+              "Lan nói rằng bạn sẽ đến thư viện.",
+              "Lan dự định đến thư viện.",
+              "Theo Lan, thư viện rất yên tĩnh."
+            ],
+            "correct": 0,
+            "explanation": "Lời dẫn trực tiếp giữ nguyên lời nhân vật, thường dùng dấu hai chấm và dấu ngoặc kép."
+          },
+          {
+            "prompt": "Chi tiết nghệ thuật có thể giúp người đọc hiểu điều gì?",
+            "answers": [
+              "Đặc điểm nhân vật và ý nghĩa của tác phẩm",
+              "Chỉ số trang của sách",
+              "Chỉ giá bán của sách",
+              "Chỉ năm in"
+            ],
+            "correct": 0,
+            "explanation": "Chi tiết được lựa chọn có thể khắc họa nhân vật, tạo tình huống và góp phần thể hiện chủ đề."
+          },
+          {
+            "prompt": "Khi phân tích một nhân vật, bằng chứng nào phù hợp?",
+            "answers": [
+              "Lời nói, hành động và suy nghĩ được thể hiện trong văn bản",
+              "Tin đồn về người đọc",
+              "Thông tin không liên quan đến truyện",
+              "Cảm nhận không có căn cứ"
+            ],
+            "correct": 0,
+            "explanation": "Phân tích cần dựa vào chi tiết trong văn bản và giải thích chúng cho thấy đặc điểm nào của nhân vật."
           }
         ]
       }
@@ -1390,6 +3046,282 @@
             "explanation": "“Don’t have to” nghĩa là không bắt buộc, khác với “mustn’t” là bị cấm."
           }
         ]
+      },
+      {
+        "id": "grade-6-english",
+        "title": "Lớp 6 · English everyday",
+        "description": "Hiện tại đơn, đồ vật và sinh hoạt hằng ngày",
+        "level": "LỚP 6",
+        "duration": "5 phút",
+        "art": [
+          "ABC",
+          "🏫",
+          "6"
+        ],
+        "questions": [
+          {
+            "prompt": "Điền từ: She ___ to school every day.",
+            "answers": [
+              "goes",
+              "go",
+              "going",
+              "are"
+            ],
+            "correct": 0,
+            "explanation": "Ở hiện tại đơn, chủ ngữ she đi với động từ goes."
+          },
+          {
+            "prompt": "Điền từ: There ___ two books on the desk.",
+            "answers": [
+              "are",
+              "is",
+              "am",
+              "be"
+            ],
+            "correct": 0,
+            "explanation": "Two books là danh từ số nhiều nên dùng there are."
+          },
+          {
+            "prompt": "Từ nào chỉ đồ dùng để viết?",
+            "answers": [
+              "pencil",
+              "window",
+              "chair",
+              "door"
+            ],
+            "correct": 0,
+            "explanation": "Pencil nghĩa là bút chì; window là cửa sổ, chair là ghế và door là cửa ra vào."
+          },
+          {
+            "prompt": "Điền từ: We ___ football now.",
+            "answers": [
+              "are playing",
+              "plays",
+              "play yesterday",
+              "is playing"
+            ],
+            "correct": 0,
+            "explanation": "Now cho biết hành động đang diễn ra; với chủ ngữ we, dùng are + động từ thêm -ing."
+          },
+          {
+            "prompt": "Câu hỏi nào dùng để hỏi giờ?",
+            "answers": [
+              "What time is it?",
+              "What is your name?",
+              "Where do you live?",
+              "How old are you?"
+            ],
+            "correct": 0,
+            "explanation": "What time is it? nghĩa là Mấy giờ rồi? Các câu còn lại hỏi tên, nơi ở và tuổi."
+          }
+        ]
+      },
+      {
+        "id": "grade-7-english",
+        "title": "Lớp 7 · English experiences",
+        "description": "Sở thích, quá khứ đơn và thói quen lành mạnh",
+        "level": "LỚP 7",
+        "duration": "5 phút",
+        "art": [
+          "ABC",
+          "🎵",
+          "7"
+        ],
+        "questions": [
+          {
+            "prompt": "Điền từ: I enjoy ___ books in my free time.",
+            "answers": [
+              "reading",
+              "read",
+              "reads",
+              "to reading"
+            ],
+            "correct": 0,
+            "explanation": "Sau enjoy, dùng động từ dạng -ing: enjoy reading."
+          },
+          {
+            "prompt": "Điền từ: We ___ the museum yesterday.",
+            "answers": [
+              "visited",
+              "visit",
+              "visits",
+              "visiting"
+            ],
+            "correct": 0,
+            "explanation": "Yesterday chỉ thời gian trong quá khứ; visit là động từ có quy tắc, thêm -ed thành visited."
+          },
+          {
+            "prompt": "Điền từ: She ___ to school yesterday because she was ill.",
+            "answers": [
+              "did not go",
+              "does not go",
+              "did not went",
+              "not goes"
+            ],
+            "correct": 0,
+            "explanation": "Phủ định quá khứ đơn dùng did not + động từ nguyên mẫu: did not go."
+          },
+          {
+            "prompt": "Điền từ: There isn't ___ milk left in the bottle.",
+            "answers": [
+              "any",
+              "many",
+              "a",
+              "an"
+            ],
+            "correct": 0,
+            "explanation": "Trong câu phủ định này dùng any với danh từ không đếm được milk; many dùng với danh từ đếm được số nhiều."
+          },
+          {
+            "prompt": "Lời khuyên nào phù hợp với câu “I feel tired after staying up late”?",
+            "answers": [
+              "You should get enough sleep.",
+              "You should stay up later.",
+              "You should skip every meal.",
+              "You should never rest."
+            ],
+            "correct": 0,
+            "explanation": "Get enough sleep nghĩa là ngủ đủ giấc, là lời khuyên phù hợp khi mệt vì thức khuya."
+          }
+        ]
+      },
+      {
+        "id": "grade-8-english",
+        "title": "Lớp 8 · English in context",
+        "description": "Quá khứ tiếp diễn, so sánh và câu điều kiện",
+        "level": "LỚP 8",
+        "duration": "5 phút",
+        "art": [
+          "ABC",
+          "🌦",
+          "8"
+        ],
+        "questions": [
+          {
+            "prompt": "Điền từ: At 8 p.m. yesterday, I ___ my homework.",
+            "answers": [
+              "was doing",
+              "am doing",
+              "does",
+              "were doing"
+            ],
+            "correct": 0,
+            "explanation": "Hành động đang diễn ra tại một thời điểm trong quá khứ dùng quá khứ tiếp diễn; I đi với was."
+          },
+          {
+            "prompt": "Điền từ: This road is ___ than that road.",
+            "answers": [
+              "wider",
+              "wide",
+              "widest",
+              "more wider"
+            ],
+            "correct": 0,
+            "explanation": "Wide là tính từ ngắn; so sánh hơn dùng wider và không thêm more."
+          },
+          {
+            "prompt": "Điền từ: If it rains tomorrow, we ___ at home.",
+            "answers": [
+              "will stay",
+              "stayed",
+              "stays",
+              "staying"
+            ],
+            "correct": 0,
+            "explanation": "Câu điều kiện loại một dùng hiện tại đơn ở mệnh đề if và will + động từ nguyên mẫu ở mệnh đề chính."
+          },
+          {
+            "prompt": "Điền từ: He speaks English ___ than before.",
+            "answers": [
+              "more fluently",
+              "fluent",
+              "most fluent",
+              "fluently more"
+            ],
+            "correct": 0,
+            "explanation": "Fluently là trạng từ; dạng so sánh hơn là more fluently."
+          },
+          {
+            "prompt": "Điền từ: ___ she was tired, she finished her homework.",
+            "answers": [
+              "Although",
+              "Because",
+              "So",
+              "Therefore"
+            ],
+            "correct": 0,
+            "explanation": "Although thể hiện tương phản: mặc dù mệt, cô ấy vẫn hoàn thành bài tập."
+          }
+        ]
+      },
+      {
+        "id": "grade-9-english",
+        "title": "Lớp 9 · English connections",
+        "description": "Mệnh đề quan hệ, câu ước và lời nói gián tiếp",
+        "level": "LỚP 9",
+        "duration": "5 phút",
+        "art": [
+          "ABC",
+          "💬",
+          "9"
+        ],
+        "questions": [
+          {
+            "prompt": "Điền từ: The girl ___ won the prize is my friend.",
+            "answers": [
+              "who",
+              "which",
+              "where",
+              "when"
+            ],
+            "correct": 0,
+            "explanation": "Who thay cho người và làm chủ ngữ trong mệnh đề quan hệ này."
+          },
+          {
+            "prompt": "Điền từ: This is the book ___ I bought yesterday.",
+            "answers": [
+              "which",
+              "who",
+              "where",
+              "when"
+            ],
+            "correct": 0,
+            "explanation": "Which dùng cho vật; ở đây thay cho the book trong mệnh đề quan hệ."
+          },
+          {
+            "prompt": "Điền từ: I wish I ___ taller.",
+            "answers": [
+              "were",
+              "am",
+              "will be",
+              "being"
+            ],
+            "correct": 0,
+            "explanation": "Câu ước trái với hiện tại thường dùng dạng quá khứ; were là cách dùng chuẩn trong câu này."
+          },
+          {
+            "prompt": "Tường thuật ngay sau đó, lùi thì theo cách thông thường: He said, “I am tired.”",
+            "answers": [
+              "He said that he was tired.",
+              "He said that I am tired.",
+              "He said that he is tiring.",
+              "He said that he were tired."
+            ],
+            "correct": 0,
+            "explanation": "Đổi I thành he và lùi am thành was khi tường thuật theo cách thông thường với said."
+          },
+          {
+            "prompt": "Điền từ: If I had more free time, I ___ a new language.",
+            "answers": [
+              "would learn",
+              "will learn",
+              "learns",
+              "learning"
+            ],
+            "correct": 0,
+            "explanation": "Điều kiện loại hai dùng quá khứ đơn trong mệnh đề if và would + động từ nguyên mẫu ở mệnh đề chính."
+          }
+        ]
       }
     ]
   },
@@ -1675,6 +3607,282 @@
             ],
             "correct": 0,
             "explanation": "Đối chiếu nguồn giúp kiểm tra độ tin cậy, bối cảnh và cách diễn giải sự kiện."
+          }
+        ]
+      },
+      {
+        "id": "grade-6-ancient-history",
+        "title": "Lớp 6 · Thế giới cổ đại",
+        "description": "Tư liệu lịch sử và những nền văn minh đầu tiên",
+        "level": "LỚP 6",
+        "duration": "5 phút",
+        "art": [
+          "🏺",
+          "📜",
+          "6"
+        ],
+        "questions": [
+          {
+            "prompt": "Một chiếc trống đồng cổ là loại tư liệu nào?",
+            "answers": [
+              "Tư liệu hiện vật",
+              "Tư liệu truyền miệng",
+              "Bản dự báo thời tiết",
+              "Tư liệu chữ viết"
+            ],
+            "correct": 0,
+            "explanation": "Trống đồng là vật còn lưu lại từ quá khứ, thuộc tư liệu hiện vật."
+          },
+          {
+            "prompt": "Một thế kỉ có bao nhiêu năm?",
+            "answers": [
+              "100 năm",
+              "10 năm",
+              "50 năm",
+              "1.000 năm"
+            ],
+            "correct": 0,
+            "explanation": "Một thế kỉ bằng 100 năm; một thiên niên kỉ bằng 1.000 năm."
+          },
+          {
+            "prompt": "Nền văn minh Ai Cập cổ đại hình thành gắn với con sông nào?",
+            "answers": [
+              "Sông Nin",
+              "Sông Hồng",
+              "Sông Hoàng Hà",
+              "Sông Mê Công"
+            ],
+            "correct": 0,
+            "explanation": "Sông Nin cung cấp nước và phù sa, tạo điều kiện cho nông nghiệp và văn minh Ai Cập cổ đại."
+          },
+          {
+            "prompt": "Lưỡng Hà cổ đại nằm giữa hai con sông nào?",
+            "answers": [
+              "Ti-grơ và Ơ-phrat",
+              "Nin và Hồng",
+              "Ấn và Hằng",
+              "Hoàng Hà và Trường Giang"
+            ],
+            "correct": 0,
+            "explanation": "Tên Lưỡng Hà có nghĩa là vùng đất giữa hai sông, ở đây là Ti-grơ và Ơ-phrat."
+          },
+          {
+            "prompt": "Người đứng đầu nhà nước Văn Lang được gọi là gì?",
+            "answers": [
+              "Hùng Vương",
+              "Pharaon",
+              "Hoàng đế La Mã",
+              "Tổng thống"
+            ],
+            "correct": 0,
+            "explanation": "Theo truyền thống lịch sử, người đứng đầu nhà nước Văn Lang được gọi là Hùng Vương."
+          }
+        ]
+      },
+      {
+        "id": "grade-7-medieval-history",
+        "title": "Lớp 7 · Lịch sử trung đại",
+        "description": "Tây Âu và các triều đại Việt Nam",
+        "level": "LỚP 7",
+        "duration": "5 phút",
+        "art": [
+          "🏰",
+          "📜",
+          "7"
+        ],
+        "questions": [
+          {
+            "prompt": "Trong lãnh địa phong kiến Tây Âu, lực lượng lao động chủ yếu là ai?",
+            "answers": [
+              "Nông nô",
+              "Lãnh chúa",
+              "Thương nhân đường biển",
+              "Vua"
+            ],
+            "correct": 0,
+            "explanation": "Nông nô là lực lượng sản xuất chủ yếu trong lãnh địa, phải thực hiện nghĩa vụ với lãnh chúa."
+          },
+          {
+            "prompt": "Ai lên ngôi vua và lập ra triều Lý năm 1009?",
+            "answers": [
+              "Lý Công Uẩn",
+              "Đinh Bộ Lĩnh",
+              "Trần Cảnh",
+              "Lê Lợi"
+            ],
+            "correct": 0,
+            "explanation": "Lý Công Uẩn lên ngôi năm 1009, mở đầu triều Lý."
+          },
+          {
+            "prompt": "Năm 1010, Lý Công Uẩn dời đô từ Hoa Lư đến đâu?",
+            "answers": [
+              "Đại La, đổi tên là Thăng Long",
+              "Phú Xuân",
+              "Gia Định",
+              "Lam Sơn"
+            ],
+            "correct": 0,
+            "explanation": "Năm 1010, nhà vua dời đô ra Đại La và đổi tên thành Thăng Long."
+          },
+          {
+            "prompt": "Nhà Trần đã ba lần kháng chiến chống quân xâm lược nào trong thế kỉ XIII?",
+            "answers": [
+              "Mông – Nguyên",
+              "Minh",
+              "Thanh",
+              "Tống"
+            ],
+            "correct": 0,
+            "explanation": "Quân dân nhà Trần chống các cuộc xâm lược Mông – Nguyên vào các năm 1258, 1285 và 1287–1288."
+          },
+          {
+            "prompt": "Người lãnh đạo cuộc khởi nghĩa Lam Sơn là ai?",
+            "answers": [
+              "Lê Lợi",
+              "Lý Thường Kiệt",
+              "Ngô Quyền",
+              "Quang Trung"
+            ],
+            "correct": 0,
+            "explanation": "Lê Lợi lãnh đạo khởi nghĩa Lam Sơn chống quân Minh, bắt đầu năm 1418."
+          }
+        ]
+      },
+      {
+        "id": "grade-8-modern-history",
+        "title": "Lớp 8 · Những chuyển biến lịch sử",
+        "description": "Cách mạng công nghiệp và Việt Nam thế kỉ XVIII–XIX",
+        "level": "LỚP 8",
+        "duration": "5 phút",
+        "art": [
+          "🏭",
+          "📜",
+          "8"
+        ],
+        "questions": [
+          {
+            "prompt": "Cách mạng công nghiệp lần thứ nhất bắt đầu ở nước nào?",
+            "answers": [
+              "Anh",
+              "Nhật Bản",
+              "Việt Nam",
+              "Ai Cập"
+            ],
+            "correct": 0,
+            "explanation": "Cách mạng công nghiệp lần thứ nhất khởi đầu ở Anh trong nửa sau thế kỉ XVIII."
+          },
+          {
+            "prompt": "Phát minh nào gắn với việc James Watt cải tiến và thúc đẩy cơ giới hóa?",
+            "answers": [
+              "Máy hơi nước",
+              "Máy tính điện tử",
+              "Điện thoại thông minh",
+              "Động cơ phản lực"
+            ],
+            "correct": 0,
+            "explanation": "James Watt cải tiến máy hơi nước, giúp nó được sử dụng hiệu quả hơn trong sản xuất và giao thông."
+          },
+          {
+            "prompt": "Năm 1789, Quang Trung đánh bại quân xâm lược nào?",
+            "answers": [
+              "Quân Thanh",
+              "Quân Minh",
+              "Quân Tống",
+              "Quân Mông – Nguyên"
+            ],
+            "correct": 0,
+            "explanation": "Chiến thắng Ngọc Hồi – Đống Đa năm 1789 đánh bại quân Thanh."
+          },
+          {
+            "prompt": "Ai lập ra triều Nguyễn năm 1802?",
+            "answers": [
+              "Nguyễn Ánh",
+              "Nguyễn Huệ",
+              "Lê Lợi",
+              "Lý Công Uẩn"
+            ],
+            "correct": 0,
+            "explanation": "Nguyễn Ánh lên ngôi năm 1802, lấy niên hiệu Gia Long và lập triều Nguyễn."
+          },
+          {
+            "prompt": "Năm 1858, liên quân Pháp – Tây Ban Nha mở đầu cuộc tấn công Việt Nam tại đâu?",
+            "answers": [
+              "Đà Nẵng",
+              "Hà Nội",
+              "Huế",
+              "Cần Thơ"
+            ],
+            "correct": 0,
+            "explanation": "Liên quân Pháp – Tây Ban Nha tấn công Đà Nẵng năm 1858, mở đầu cuộc xâm lược Việt Nam của Pháp."
+          }
+        ]
+      },
+      {
+        "id": "grade-9-twentieth-century",
+        "title": "Lớp 9 · Lịch sử thế kỉ XX",
+        "description": "Những mốc lịch sử thế giới và Việt Nam",
+        "level": "LỚP 9",
+        "duration": "5 phút",
+        "art": [
+          "📜",
+          "🕊",
+          "9"
+        ],
+        "questions": [
+          {
+            "prompt": "Chiến tranh thế giới thứ hai diễn ra trong khoảng thời gian nào?",
+            "answers": [
+              "1939–1945",
+              "1914–1918",
+              "1929–1933",
+              "1954–1975"
+            ],
+            "correct": 0,
+            "explanation": "Chiến tranh thế giới thứ hai bắt đầu năm 1939 và kết thúc năm 1945."
+          },
+          {
+            "prompt": "Liên hợp quốc được thành lập vào năm nào?",
+            "answers": [
+              "1945",
+              "1919",
+              "1930",
+              "1954"
+            ],
+            "correct": 0,
+            "explanation": "Liên hợp quốc ra đời năm 1945 nhằm góp phần duy trì hòa bình và an ninh quốc tế."
+          },
+          {
+            "prompt": "Đảng Cộng sản Việt Nam được thành lập vào năm nào?",
+            "answers": [
+              "1930",
+              "1911",
+              "1925",
+              "1945"
+            ],
+            "correct": 0,
+            "explanation": "Hội nghị hợp nhất đầu năm 1930 thành lập Đảng Cộng sản Việt Nam."
+          },
+          {
+            "prompt": "Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập ngày nào?",
+            "answers": [
+              "2/9/1945",
+              "19/8/1945",
+              "7/5/1954",
+              "30/4/1975"
+            ],
+            "correct": 0,
+            "explanation": "Ngày 2/9/1945, tại Quảng trường Ba Đình, Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập."
+          },
+          {
+            "prompt": "Chiến thắng Điện Biên Phủ kết thúc vào ngày nào?",
+            "answers": [
+              "7/5/1954",
+              "2/9/1945",
+              "19/12/1946",
+              "30/4/1975"
+            ],
+            "correct": 0,
+            "explanation": "Chiến dịch Điện Biên Phủ kết thúc thắng lợi ngày 7/5/1954."
           }
         ]
       }
@@ -1964,6 +4172,282 @@
             "explanation": "Bổ sung nước, tránh nắng gắt và tuân theo hướng dẫn y tế giúp giảm nguy cơ sốc nhiệt."
           }
         ]
+      },
+      {
+        "id": "grade-6-earth-and-maps",
+        "title": "Lớp 6 · Trái Đất và bản đồ",
+        "description": "Phương hướng, tọa độ và chuyển động Trái Đất",
+        "level": "LỚP 6",
+        "duration": "5 phút",
+        "art": [
+          "🌍",
+          "🧭",
+          "6"
+        ],
+        "questions": [
+          {
+            "prompt": "Đường chia Trái Đất thành bán cầu Bắc và bán cầu Nam là gì?",
+            "answers": [
+              "Xích đạo",
+              "Kinh tuyến gốc",
+              "Chí tuyến Bắc",
+              "Vòng cực Nam"
+            ],
+            "correct": 0,
+            "explanation": "Xích đạo là vĩ tuyến 0°, chia Trái Đất thành bán cầu Bắc và bán cầu Nam."
+          },
+          {
+            "prompt": "Kinh tuyến gốc có giá trị kinh độ bao nhiêu?",
+            "answers": [
+              "0°",
+              "90° Bắc",
+              "180°",
+              "90° Nam"
+            ],
+            "correct": 0,
+            "explanation": "Kinh tuyến gốc có kinh độ 0° và đi qua Greenwich; kinh độ biểu thị vị trí về phía đông hoặc tây."
+          },
+          {
+            "prompt": "Trái Đất tự quay quanh trục theo hướng nào?",
+            "answers": [
+              "Từ tây sang đông",
+              "Từ đông sang tây",
+              "Từ bắc xuống nam",
+              "Từ nam lên bắc"
+            ],
+            "correct": 0,
+            "explanation": "Trái Đất tự quay từ tây sang đông, nên ta thấy Mặt Trời có chuyển động biểu kiến từ đông sang tây."
+          },
+          {
+            "prompt": "Trái Đất hoàn thành một vòng tự quay quanh trục trong khoảng bao lâu?",
+            "answers": [
+              "24 giờ",
+              "12 giờ",
+              "30 ngày",
+              "365 ngày"
+            ],
+            "correct": 0,
+            "explanation": "Một vòng tự quay của Trái Đất kéo dài khoảng 24 giờ, tạo nhịp ngày và đêm."
+          },
+          {
+            "prompt": "Bản đồ tỉ lệ 1:100.000 có khoảng cách 1 cm. Khoảng cách thực tế là bao nhiêu?",
+            "answers": [
+              "1 km",
+              "100 m",
+              "10 km",
+              "100 km"
+            ],
+            "correct": 0,
+            "explanation": "1 cm trên bản đồ ứng với 100.000 cm ngoài thực tế, tức 1.000 m hay 1 km."
+          }
+        ]
+      },
+      {
+        "id": "grade-7-continents",
+        "title": "Lớp 7 · Khám phá các châu lục",
+        "description": "Địa hình, khí hậu và tự nhiên châu Âu, châu Á, châu Phi",
+        "level": "LỚP 7",
+        "duration": "5 phút",
+        "art": [
+          "🌍",
+          "🗺",
+          "7"
+        ],
+        "questions": [
+          {
+            "prompt": "Châu lục nào có diện tích đất liền lớn nhất?",
+            "answers": [
+              "Châu Á",
+              "Châu Âu",
+              "Châu Phi",
+              "Châu Đại Dương"
+            ],
+            "correct": 0,
+            "explanation": "Châu Á có diện tích lớn nhất trong các châu lục."
+          },
+          {
+            "prompt": "Dãy núi nào thường được dùng làm một phần ranh giới tự nhiên giữa châu Âu và châu Á?",
+            "answers": [
+              "U-ran",
+              "An-đét",
+              "An-pơ",
+              "Hi-ma-lay-a"
+            ],
+            "correct": 0,
+            "explanation": "Dãy U-ran là một phần ranh giới quy ước giữa châu Âu và châu Á."
+          },
+          {
+            "prompt": "Hoang mạc lớn ở phía bắc châu Phi là hoang mạc nào?",
+            "answers": [
+              "Xa-ha-ra",
+              "Gô-bi",
+              "A-ta-ca-ma",
+              "Ca-la-ha-ri"
+            ],
+            "correct": 0,
+            "explanation": "Xa-ha-ra nằm ở Bắc Phi; Ca-la-ha-ri nằm ở phần phía nam châu Phi."
+          },
+          {
+            "prompt": "Khí hậu Địa Trung Hải điển hình có mùa hạ như thế nào?",
+            "answers": [
+              "Nóng và khô",
+              "Rất lạnh và nhiều tuyết",
+              "Mưa quanh năm không đổi",
+              "Luôn dưới 0°C"
+            ],
+            "correct": 0,
+            "explanation": "Khí hậu Địa Trung Hải có mùa hạ nóng, khô và mùa đông tương đối ấm, có mưa."
+          },
+          {
+            "prompt": "Khu vực nào ở châu Phi có rừng mưa xích đạo rộng lớn?",
+            "answers": [
+              "Lưu vực sông Công-gô",
+              "Trung tâm Xa-ha-ra",
+              "Ven Bắc Băng Dương",
+              "Đỉnh núi phủ băng quanh năm"
+            ],
+            "correct": 0,
+            "explanation": "Lưu vực Công-gô gần xích đạo có khí hậu nóng ẩm, thuận lợi cho rừng mưa xích đạo."
+          }
+        ]
+      },
+      {
+        "id": "grade-8-vietnam-geography",
+        "title": "Lớp 8 · Thiên nhiên Việt Nam",
+        "description": "Địa hình, khí hậu và sông ngòi",
+        "level": "LỚP 8",
+        "duration": "5 phút",
+        "art": [
+          "🇻🇳",
+          "🗺",
+          "8"
+        ],
+        "questions": [
+          {
+            "prompt": "Lãnh thổ đất liền Việt Nam nằm chủ yếu trong đới khí hậu nào?",
+            "answers": [
+              "Nhiệt đới",
+              "Hàn đới",
+              "Ôn đới lạnh",
+              "Cực"
+            ],
+            "correct": 0,
+            "explanation": "Việt Nam nằm trong vùng nội chí tuyến bán cầu Bắc; khí hậu còn chịu ảnh hưởng của gió mùa và biển."
+          },
+          {
+            "prompt": "Địa hình đồi núi chiếm khoảng bao nhiêu diện tích đất liền Việt Nam?",
+            "answers": [
+              "Ba phần tư",
+              "Một phần tư",
+              "Một phần mười",
+              "Toàn bộ"
+            ],
+            "correct": 0,
+            "explanation": "Đồi núi chiếm khoảng ba phần tư diện tích đất liền, nhưng chủ yếu là đồi núi thấp."
+          },
+          {
+            "prompt": "Khí hậu Việt Nam có đặc điểm nổi bật nào?",
+            "answers": [
+              "Nhiệt đới ẩm gió mùa",
+              "Khô hạn quanh năm trên toàn lãnh thổ",
+              "Băng giá quanh năm",
+              "Không có sự phân hóa"
+            ],
+            "correct": 0,
+            "explanation": "Khí hậu nhìn chung nóng ẩm, chịu ảnh hưởng của gió mùa và phân hóa theo vùng, độ cao, mùa."
+          },
+          {
+            "prompt": "Phần lớn các sông ở Việt Nam có chế độ nước như thế nào?",
+            "answers": [
+              "Thay đổi theo mùa mưa và mùa khô",
+              "Không bao giờ thay đổi",
+              "Chỉ có nước vào mùa đông",
+              "Luôn đóng băng"
+            ],
+            "correct": 0,
+            "explanation": "Lượng mưa theo mùa làm sông thường có mùa lũ và mùa cạn, thời điểm có thể khác nhau giữa các vùng."
+          },
+          {
+            "prompt": "Loại đất phổ biến ở vùng đồi núi nhiệt đới nước ta là gì?",
+            "answers": [
+              "Đất feralit",
+              "Đất băng vĩnh cửu",
+              "Chỉ đất phù sa mới",
+              "Chỉ cát biển"
+            ],
+            "correct": 0,
+            "explanation": "Đất feralit phổ biến ở vùng đồi núi nhiệt đới; điều kiện nóng ẩm thúc đẩy phong hóa và tích lũy ôxit sắt, nhôm."
+          }
+        ]
+      },
+      {
+        "id": "grade-9-vietnam-economy",
+        "title": "Lớp 9 · Dân cư và kinh tế Việt Nam",
+        "description": "Ngành kinh tế, vùng sản xuất và đô thị hóa",
+        "level": "LỚP 9",
+        "duration": "5 phút",
+        "art": [
+          "🇻🇳",
+          "📊",
+          "9"
+        ],
+        "questions": [
+          {
+            "prompt": "Vùng nào là vùng sản xuất lúa lớn nhất Việt Nam?",
+            "answers": [
+              "Đồng bằng sông Cửu Long",
+              "Tây Nguyên",
+              "Bắc Trung Bộ",
+              "Trung du và miền núi Bắc Bộ"
+            ],
+            "correct": 0,
+            "explanation": "Đồng bằng sông Cửu Long có diện tích canh tác rộng và điều kiện thuận lợi, là vùng sản xuất lúa lớn nhất nước."
+          },
+          {
+            "prompt": "Cây công nghiệp nào gắn nổi bật với vùng Tây Nguyên?",
+            "answers": [
+              "Cà phê",
+              "Lúa nước",
+              "Rau ôn đới trên toàn vùng",
+              "Cây cói"
+            ],
+            "correct": 0,
+            "explanation": "Tây Nguyên nổi bật về cà phê nhờ đất bazan và điều kiện khí hậu phù hợp ở nhiều khu vực."
+          },
+          {
+            "prompt": "Hoạt động nào thuộc khu vực dịch vụ?",
+            "answers": [
+              "Vận tải hành khách",
+              "Trồng lúa",
+              "Khai thác than",
+              "Sản xuất xi măng"
+            ],
+            "correct": 0,
+            "explanation": "Vận tải là dịch vụ; trồng lúa thuộc nông nghiệp, khai thác than và sản xuất xi măng thuộc công nghiệp."
+          },
+          {
+            "prompt": "Đô thị hóa thường gắn với thay đổi nào?",
+            "answers": [
+              "Tăng vai trò của đô thị và tỉ lệ dân cư đô thị",
+              "Mọi thành phố biến thành làng",
+              "Toàn bộ dân cư chỉ làm nông",
+              "Không thay đổi phân bố dân cư"
+            ],
+            "correct": 0,
+            "explanation": "Đô thị hóa gắn với sự phát triển đô thị, gia tăng dân cư đô thị và lan tỏa lối sống đô thị."
+          },
+          {
+            "prompt": "Biện pháp nào giúp phát triển nghề cá bền vững?",
+            "answers": [
+              "Bảo vệ nguồn lợi và không sử dụng cách đánh bắt hủy diệt",
+              "Đánh bắt bằng chất nổ",
+              "Khai thác mọi cá con",
+              "Phá rừng ngập mặn để tăng đánh bắt"
+            ],
+            "correct": 0,
+            "explanation": "Bảo vệ môi trường sống, tuân thủ quy định khai thác và tránh đánh bắt hủy diệt giúp duy trì nguồn lợi."
+          }
+        ]
       }
     ]
   },
@@ -2249,6 +4733,282 @@
             ],
             "correct": 0,
             "explanation": "Cập nhật thường chứa bản sửa lỗi, cải thiện khả năng tương thích và bảo vệ thiết bị."
+          }
+        ]
+      },
+      {
+        "id": "grade-6-digital-basics",
+        "title": "Lớp 6 · Thông tin và máy tính",
+        "description": "Dữ liệu, thiết bị và tìm kiếm thông tin",
+        "level": "LỚP 6",
+        "duration": "5 phút",
+        "art": [
+          "💻",
+          "01",
+          "6"
+        ],
+        "questions": [
+          {
+            "prompt": "Máy tính biểu diễn dữ liệu bằng các kí hiệu nào?",
+            "answers": [
+              "0 và 1",
+              "Chỉ chữ A",
+              "Chỉ số 9",
+              "Chỉ dấu cộng"
+            ],
+            "correct": 0,
+            "explanation": "Dữ liệu trong máy tính được biểu diễn bằng dãy bit, mỗi bit có giá trị 0 hoặc 1."
+          },
+          {
+            "prompt": "Thiết bị nào chủ yếu dùng để nhập kí tự vào máy tính?",
+            "answers": [
+              "Bàn phím",
+              "Màn hình",
+              "Máy in",
+              "Loa"
+            ],
+            "correct": 0,
+            "explanation": "Bàn phím là thiết bị vào, dùng để nhập chữ, số và lệnh."
+          },
+          {
+            "prompt": "Thiết bị nào xuất hình ảnh từ máy tính để người dùng xem?",
+            "answers": [
+              "Màn hình",
+              "Chuột",
+              "Bàn phím",
+              "Máy quét"
+            ],
+            "correct": 0,
+            "explanation": "Màn hình là thiết bị ra, hiển thị hình ảnh và kết quả xử lí."
+          },
+          {
+            "prompt": "Để tìm thông tin về các hành tinh, từ khóa nào phù hợp nhất?",
+            "answers": [
+              "các hành tinh trong hệ Mặt Trời",
+              "bài hay",
+              "mọi thứ",
+              "trang đẹp"
+            ],
+            "correct": 0,
+            "explanation": "Từ khóa cụ thể, liên quan trực tiếp đến điều cần tìm giúp thu hẹp kết quả tìm kiếm."
+          },
+          {
+            "prompt": "Các tệp liên quan đến cùng một bài học nên được tổ chức thế nào?",
+            "answers": [
+              "Lưu trong thư mục có tên rõ ràng",
+              "Đặt tất cả cùng một tên",
+              "Xóa phần mở rộng của mọi tệp",
+              "Lưu ngẫu nhiên không cần nhớ vị trí"
+            ],
+            "correct": 0,
+            "explanation": "Thư mục có tên rõ ràng giúp nhóm tệp theo nội dung và tìm lại dễ dàng."
+          }
+        ]
+      },
+      {
+        "id": "grade-7-spreadsheets",
+        "title": "Lớp 7 · Bảng tính cơ bản",
+        "description": "Ô dữ liệu, công thức và hàm tính toán",
+        "level": "LỚP 7",
+        "duration": "5 phút",
+        "art": [
+          "📊",
+          "A1",
+          "7"
+        ],
+        "questions": [
+          {
+            "prompt": "Địa chỉ ô ở cột B, hàng 3 được viết như thế nào?",
+            "answers": [
+              "B3",
+              "3B",
+              "BB",
+              "B:3"
+            ],
+            "correct": 0,
+            "explanation": "Địa chỉ ô gồm tên cột trước, số hàng sau: B3."
+          },
+          {
+            "prompt": "Công thức trong phần mềm bảng tính thường bắt đầu bằng kí hiệu nào?",
+            "answers": [
+              "=",
+              "?",
+              "#",
+              "!"
+            ],
+            "correct": 0,
+            "explanation": "Dấu bằng cho biết nội dung nhập là công thức cần tính toán."
+          },
+          {
+            "prompt": "Ô A1 chứa 5 và A2 chứa 7. Công thức =A1+A2 cho kết quả nào?",
+            "answers": [
+              "12",
+              "57",
+              "2",
+              "35"
+            ],
+            "correct": 0,
+            "explanation": "Công thức cộng giá trị hai ô: 5 + 7 = 12."
+          },
+          {
+            "prompt": "Hàm nào tính tổng các ô từ A1 đến A3?",
+            "answers": [
+              "SUM(A1:A3)",
+              "MAX(A1:A3)",
+              "MIN(A1:A3)",
+              "AVERAGE(A1:A3)"
+            ],
+            "correct": 0,
+            "explanation": "SUM tính tổng; dấu hai chấm xác định vùng ô liên tiếp từ A1 đến A3."
+          },
+          {
+            "prompt": "Hàm AVERAGE(B1:B3) dùng để làm gì với dữ liệu số trong vùng ô?",
+            "answers": [
+              "Tính trung bình cộng",
+              "Tìm số lớn nhất",
+              "Tìm số nhỏ nhất",
+              "Chỉ đếm ô trống"
+            ],
+            "correct": 0,
+            "explanation": "AVERAGE tính trung bình cộng của các giá trị số trong vùng ô được chọn."
+          }
+        ]
+      },
+      {
+        "id": "grade-8-algorithms",
+        "title": "Lớp 8 · Thuật toán và dữ liệu số",
+        "description": "Biến, điều kiện, vòng lặp và đánh giá thông tin",
+        "level": "LỚP 8",
+        "duration": "5 phút",
+        "art": [
+          "💻",
+          "↻",
+          "8"
+        ],
+        "questions": [
+          {
+            "prompt": "Trong chương trình, biến được dùng chủ yếu để làm gì?",
+            "answers": [
+              "Lưu giá trị có thể thay đổi khi chương trình chạy",
+              "Chỉ trang trí màn hình",
+              "Thay thế toàn bộ máy tính",
+              "Chỉ lưu một ảnh không bao giờ đổi"
+            ],
+            "correct": 0,
+            "explanation": "Biến có tên để lưu và truy cập giá trị; chương trình có thể cập nhật giá trị đó."
+          },
+          {
+            "prompt": "Cấu trúc “nếu ... thì ...” thuộc loại cấu trúc nào?",
+            "answers": [
+              "Rẽ nhánh",
+              "Chỉ tuần tự",
+              "Chỉ lặp vô hạn",
+              "Lưu trữ tệp"
+            ],
+            "correct": 0,
+            "explanation": "Rẽ nhánh lựa chọn thao tác dựa trên điều kiện đúng hay sai."
+          },
+          {
+            "prompt": "Đặt tổng = 0, rồi cộng 1 vào tổng trong 5 lần lặp. Giá trị cuối là bao nhiêu?",
+            "answers": [
+              "5",
+              "0",
+              "1",
+              "10"
+            ],
+            "correct": 0,
+            "explanation": "Mỗi lần tăng thêm 1; sau năm lần, tổng bằng 0 + 5 = 5."
+          },
+          {
+            "prompt": "Để thực hiện cùng một thao tác 10 lần, cấu trúc nào phù hợp nhất?",
+            "answers": [
+              "Vòng lặp",
+              "Chỉ một lệnh điều kiện",
+              "Đổi tên tệp",
+              "Tắt chương trình"
+            ],
+            "correct": 0,
+            "explanation": "Vòng lặp cho phép lặp lại một nhóm lệnh theo số lần hoặc điều kiện."
+          },
+          {
+            "prompt": "Khi gặp thông tin gây nghi ngờ trên mạng, nên làm gì trước khi chia sẻ?",
+            "answers": [
+              "Kiểm tra tác giả, thời điểm và đối chiếu nguồn đáng tin cậy",
+              "Chia sẻ ngay vì tiêu đề hấp dẫn",
+              "Chỉ dựa vào số lượt thích",
+              "Bỏ qua nguồn xuất bản"
+            ],
+            "correct": 0,
+            "explanation": "Đánh giá nguồn và kiểm chứng thông tin giúp tránh lan truyền nội dung sai hoặc đã lỗi thời."
+          }
+        ]
+      },
+      {
+        "id": "grade-9-digital-problem-solving",
+        "title": "Lớp 9 · Giải quyết vấn đề số",
+        "description": "Mô phỏng, kiểm thử và lựa chọn công cụ",
+        "level": "LỚP 9",
+        "duration": "5 phút",
+        "art": [
+          "💻",
+          "✓",
+          "9"
+        ],
+        "questions": [
+          {
+            "prompt": "Phần mềm mô phỏng có ích khi nào?",
+            "answers": [
+              "Khi cần quan sát mô hình của hiện tượng khó thực hiện trực tiếp",
+              "Khi muốn bỏ qua mọi bằng chứng",
+              "Khi muốn đảm bảo mọi mô hình đều chính xác tuyệt đối",
+              "Khi không cần đặt câu hỏi"
+            ],
+            "correct": 0,
+            "explanation": "Mô phỏng giúp thử nghiệm trên mô hình, nhưng kết quả phụ thuộc giả định và giới hạn của mô hình."
+          },
+          {
+            "prompt": "Trước khi chọn công cụ số để làm bài tập, nên xác định điều gì?",
+            "answers": [
+              "Mục tiêu, dữ liệu và yêu cầu của bài",
+              "Chỉ màu biểu tượng",
+              "Chỉ số lượt tải",
+              "Chỉ quảng cáo của công cụ"
+            ],
+            "correct": 0,
+            "explanation": "Hiểu yêu cầu giúp chọn công cụ phù hợp, thay vì dùng công cụ nổi tiếng nhưng không đáp ứng nhiệm vụ."
+          },
+          {
+            "prompt": "Vì sao cần kiểm thử chương trình bằng nhiều trường hợp?",
+            "answers": [
+              "Để phát hiện lỗi và kiểm tra kết quả trong các tình huống khác nhau",
+              "Để chứng minh chương trình không thể có lỗi",
+              "Để thay thế việc hiểu bài toán",
+              "Để tránh xem kết quả"
+            ],
+            "correct": 0,
+            "explanation": "Một trường hợp chạy đúng chưa bảo đảm mọi trường hợp đều đúng; cần thử dữ liệu điển hình và các trường hợp biên."
+          },
+          {
+            "prompt": "Khi làm việc nhóm trên tài liệu trực tuyến, cách quản lí quyền nào phù hợp?",
+            "answers": [
+              "Chỉ cấp quyền cần thiết cho đúng người",
+              "Cho mọi người trên mạng quyền sửa",
+              "Công khai mọi dữ liệu cá nhân",
+              "Chia sẻ mật khẩu tài khoản"
+            ],
+            "correct": 0,
+            "explanation": "Phân quyền phù hợp giúp cộng tác hiệu quả và hạn chế sửa đổi hoặc truy cập ngoài ý muốn."
+          },
+          {
+            "prompt": "Muốn so sánh doanh thu các tháng, loại biểu đồ nào thường phù hợp?",
+            "answers": [
+              "Biểu đồ cột",
+              "Một ảnh trang trí không có dữ liệu",
+              "Chỉ biểu tượng cảm xúc",
+              "Sơ đồ thư mục"
+            ],
+            "correct": 0,
+            "explanation": "Biểu đồ cột giúp so sánh giá trị giữa các tháng; biểu đồ đường cũng có thể hữu ích khi nhấn mạnh xu hướng."
           }
         ]
       }

@@ -187,11 +187,25 @@ omit answer keys from the shipped curriculum bundle and learner API response.
 
 ### Starter content and references
 
-The starter catalogue now has 60 playable topics across 14 subject areas,
+The starter catalogue now has 100 playable topics across 14 subject areas,
 including three additional topics per subject compared with the initial
 catalogue; Mathematics and Science have six topics each, while the other
-subjects have four. Every topic has an original five-question quiz and matching
-game.
+subjects have four before the grade-specific additions. Every topic has an original
+five-question quiz and matching game. Ten additional topics labelled **Lớp 6**
+provide 50 questions across Mathematics (natural numbers, integers, geometry),
+Science (measurement/materials, cells), Vietnamese literature/language,
+English, History, Geography, and Informatics. Ten topics labelled **Lớp 7**
+provide another 50 questions across Mathematics (rational numbers,
+proportionality, angles/triangles), Science (speed/sound, plant metabolism),
+Vietnamese literature/language, English, medieval History, continents in
+Geography, and spreadsheets in Informatics. Ten topics labelled **Lớp 8**
+add 50 questions on polynomials, equations/functions, geometry, chemical
+reactions, pressure/human biology, literature, English, modern History,
+Vietnamese Geography, and algorithms/digital information. Ten topics labelled
+**Lớp 9** add 50 questions on roots, equations/systems, circles,
+electricity/energy, genetics, literature, English, twentieth-century History,
+Vietnamese population/economy, and digital problem-solving. These are introductory
+practice sets, not complete grade-6–9 curricula or textbook-specific sequences.
 The questions and explanations are original practice material informed by the
 curriculum and reference materials below; they are not a replacement for the
 current grade-specific textbooks or teacher guidance.

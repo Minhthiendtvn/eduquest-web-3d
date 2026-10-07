@@ -71,11 +71,29 @@ test("covers the core subjects offered to secondary students", () => {
 
 test("adds a playable starter topic to every subject", () => {
   const topics = subjects.flatMap((subject) => subject.topics);
-  assert.equal(topics.length, 60);
+  assert.equal(topics.length, 100);
   for (const topicId of addedTopicIds) {
     assert.ok(topics.some((topic) => topic.id === topicId), `${topicId} exists`);
   }
 });
+
+for (const grade of [6, 7, 8, 9]) {
+  test(`grade ${grade} has ten clearly labelled topics and fifty original questions`, () => {
+    const topics = subjects.flatMap((subject) => subject.topics)
+      .filter((topic) => topic.id.startsWith(`grade-${grade}-`));
+    assert.equal(topics.length, 10);
+    assert.equal(topics.reduce((total, topic) => total + topic.questions.length, 0), 50);
+    for (const topic of topics) {
+      assert.equal(topic.level, `LỚP ${grade}`);
+      assert.ok(topic.title.startsWith(`Lớp ${grade} · `));
+    }
+    assert.deepEqual(
+      subjects.filter((subject) => subject.topics.some((topic) => topic.id.startsWith(`grade-${grade}-`)))
+        .map((subject) => subject.id),
+      ["math", "science", "literature", "english", "history", "geography", "informatics"],
+    );
+  });
+}
 
 test("MySQL installer curriculum stays in sync with the starter content", () => {
   const mysqlCurriculum = JSON.parse(

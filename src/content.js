@@ -802,6 +802,374 @@ const curriculumExtensions = {
   ],
 };
 
+const gradeSixTopics = {
+  math: [
+    createStarterTopic("grade-6-natural-numbers", "Lớp 6 · Số tự nhiên", "Lũy thừa, thứ tự phép tính và tính chia hết", ["6", "∑", "÷"], [
+      ["Giá trị của 2³ là bao nhiêu?", "8", ["6", "9", "16"], "2³ = 2 × 2 × 2 = 8, không phải 2 × 3."],
+      ["Tính 18 − 6 ÷ 3.", "16", ["4", "12", "6"], "Thực hiện phép chia trước: 6 ÷ 3 = 2, rồi tính 18 − 2 = 16."],
+      ["Trong các số sau, số nào chia hết cho cả 2 và 5?", "120", ["125", "122", "123"], "Số chia hết cho cả 2 và 5 có chữ số tận cùng là 0."],
+      ["Số nào sau đây là số nguyên tố?", "13", ["1", "9", "15"], "13 chỉ có hai ước dương là 1 và 13. Số 1 không phải số nguyên tố."],
+      ["Ước chung lớn nhất của 12 và 18 là bao nhiêu?", "6", ["3", "12", "36"], "Các ước chung dương là 1, 2, 3, 6; lớn nhất là 6."],
+    ]),
+    createStarterTopic("grade-6-integers", "Lớp 6 · Số nguyên", "So sánh số âm và tính toán trên trục số", ["−", "0", "+"], [
+      ["Số đối của −7 là số nào?", "7", ["−7", "0", "1/7"], "Hai số đối nhau có tổng bằng 0: −7 + 7 = 0."],
+      ["Trong các số sau, số nào lớn nhất?", "2", ["−8", "−1", "0"], "Trên trục số, 2 nằm bên phải các số −8, −1 và 0 nên lớn nhất."],
+      ["Tính (−4) + 9.", "5", ["−5", "13", "−13"], "Hai số khác dấu: lấy 9 − 4 = 5, kết quả mang dấu của số có giá trị tuyệt đối lớn hơn."],
+      ["Nhiệt độ từ −2°C tăng thêm 6°C. Nhiệt độ mới là bao nhiêu?", "4°C", ["−8°C", "8°C", "−4°C"], "Nhiệt độ mới là −2 + 6 = 4°C."],
+      ["Tính (−3) × (−5).", "15", ["−15", "−8", "8"], "Tích hai số nguyên âm là số dương; 3 × 5 = 15."],
+    ]),
+    createStarterTopic("grade-6-geometry", "Lớp 6 · Hình học cơ bản", "Chu vi, diện tích và những hình quen thuộc", ["□", "△", "6"], [
+      ["Hình chữ nhật dài 8 cm, rộng 3 cm có diện tích bao nhiêu?", "24 cm²", ["11 cm²", "22 cm²", "48 cm²"], "Diện tích hình chữ nhật bằng chiều dài nhân chiều rộng: 8 × 3 = 24 cm²."],
+      ["Hình vuông cạnh 5 cm có chu vi bao nhiêu?", "20 cm", ["10 cm", "25 cm", "15 cm"], "Chu vi hình vuông bằng 4 lần cạnh: 4 × 5 = 20 cm."],
+      ["Tam giác đều có đặc điểm nào?", "Ba cạnh bằng nhau", ["Chỉ hai cạnh bằng nhau", "Có bốn cạnh", "Luôn có một góc vuông"], "Tam giác đều có ba cạnh bằng nhau và ba góc bằng nhau."],
+      ["Đoạn thẳng AB dài 10 cm. M là trung điểm của AB. AM dài bao nhiêu?", "5 cm", ["10 cm", "20 cm", "2 cm"], "Trung điểm nằm giữa hai đầu mút và chia đoạn thẳng thành hai phần bằng nhau: AM = 10 ÷ 2 = 5 cm."],
+      ["Hình bình hành có đáy 7 cm và chiều cao tương ứng 4 cm. Diện tích là bao nhiêu?", "28 cm²", ["11 cm²", "22 cm²", "14 cm²"], "Diện tích hình bình hành bằng đáy nhân chiều cao tương ứng: 7 × 4 = 28 cm²."],
+    ]),
+  ],
+  science: [
+    createStarterTopic("grade-6-measurement", "Lớp 6 · Đo lường và chất", "Dụng cụ đo, các thể của chất và hỗn hợp", ["🌡", "⚖", "💧"], [
+      ["Dụng cụ nào dùng để đo nhiệt độ?", "Nhiệt kế", ["Thước kẻ", "Đồng hồ bấm giây", "Cân"], "Nhiệt kế dùng để đo nhiệt độ; cần chọn loại phù hợp với vật cần đo."],
+      ["Đơn vị khối lượng trong hệ SI là gì?", "Kilôgam (kg)", ["Mét (m)", "Giây (s)", "Lít (L)"], "Kilôgam là đơn vị khối lượng trong hệ SI; mét đo chiều dài và giây đo thời gian."],
+      ["Nước đá chuyển thành nước lỏng là hiện tượng gì?", "Nóng chảy", ["Đông đặc", "Ngưng tụ", "Sôi"], "Nóng chảy là quá trình chất chuyển từ thể rắn sang thể lỏng."],
+      ["Cách nào phù hợp để tách cát không tan khỏi nước?", "Lọc", ["Dùng nam châm", "Khuấy liên tục", "Thêm nước"], "Giấy lọc giữ lại hạt cát, còn nước đi qua; cách này tách chất rắn không tan khỏi chất lỏng."],
+      ["Khi hòa tan hoàn toàn muối ăn trong nước, ta thu được gì?", "Dung dịch muối", ["Chất tinh khiết", "Hỗn hợp cát và nước", "Muối ở thể khí"], "Dung dịch muối là hỗn hợp đồng nhất gồm muối hòa tan và nước, không phải chất tinh khiết."],
+    ]),
+    createStarterTopic("grade-6-cells", "Lớp 6 · Tế bào và sự sống", "Khám phá tế bào và tổ chức cơ thể", ["🌱", "🔬", "6"], [
+      ["Đơn vị cấu tạo và chức năng cơ bản của cơ thể sống là gì?", "Tế bào", ["Cơ quan", "Hệ cơ quan", "Bộ xương"], "Tế bào là đơn vị cấu tạo và chức năng cơ bản của cơ thể sống."],
+      ["Dụng cụ nào giúp quan sát nhiều loại tế bào rất nhỏ?", "Kính hiển vi", ["La bàn", "Kính thiên văn", "Cân điện tử"], "Kính hiển vi phóng đại hình ảnh, giúp quan sát những tế bào không nhìn rõ bằng mắt thường."],
+      ["Cấu trúc nào bao bọc tế bào và kiểm soát sự trao đổi chất với môi trường?", "Màng tế bào", ["Lục lạp", "Nhân tế bào", "Không bào"], "Màng tế bào bao bọc tế bào và tham gia kiểm soát các chất đi vào, đi ra."],
+      ["Ở tế bào lá cây xanh, bào quan nào thực hiện quang hợp?", "Lục lạp", ["Nhân", "Màng tế bào", "Không bào"], "Lục lạp chứa diệp lục và là nơi thực hiện quang hợp trong tế bào lá cây xanh."],
+      ["Nhóm tế bào cùng thực hiện một chức năng tạo thành cấp tổ chức nào?", "Mô", ["Cơ thể", "Hệ cơ quan", "Quần thể"], "Ở cơ thể đa bào, các tế bào cùng thực hiện một chức năng tạo thành mô; các mô phối hợp tạo cơ quan."],
+    ]),
+  ],
+  literature: [
+    createStarterTopic("grade-6-literature", "Lớp 6 · Đọc hiểu và tiếng Việt", "Truyện dân gian, từ ngữ và biện pháp tu từ", ["📖", "✎", "6"], [
+      ["Truyện kể về nhân vật và sự kiện lịch sử, thường có yếu tố kì ảo, thuộc thể loại nào?", "Truyền thuyết", ["Bản tin", "Văn bản hướng dẫn", "Thơ tự do"], "Truyền thuyết thường kể về nhân vật, sự kiện liên quan đến lịch sử và thể hiện cách nhìn của nhân dân qua yếu tố kì ảo."],
+      ["Người kể xưng “tôi” và tham gia câu chuyện đang kể ở ngôi nào?", "Ngôi thứ nhất", ["Ngôi thứ ba", "Không có ngôi kể", "Ngôi thứ hai"], "Ở ngôi thứ nhất, người kể thường xưng tôi và kể từ trải nghiệm, hiểu biết của mình."],
+      ["Trong câu “Mặt hồ như một tấm gương”, biện pháp tu từ nổi bật là gì?", "So sánh", ["Nhân hóa", "Điệp ngữ", "Nói giảm nói tránh"], "Từ “như” nối hai hình ảnh mặt hồ và tấm gương để làm nổi bật sự tương đồng."],
+      ["Câu nào sử dụng nhân hóa?", "Chú mèo đang suy nghĩ về bữa tối", ["Con mèo có bộ lông vàng", "Con mèo nặng ba kilôgam", "Con mèo nằm dưới bàn"], "Gọi mèo là “chú” và gán hành động suy nghĩ về bữa tối như con người là nhân hóa."],
+      ["Từ nào sau đây là từ láy?", "Lấp lánh", ["Bàn ghế", "Sách vở", "Quần áo"], "“Lấp lánh” có sự lặp lại âm đầu; các từ còn lại được tạo bởi những tiếng có nghĩa kết hợp với nhau."],
+    ]),
+  ],
+  english: [
+    createStarterTopic("grade-6-english", "Lớp 6 · English everyday", "Hiện tại đơn, đồ vật và sinh hoạt hằng ngày", ["ABC", "🏫", "6"], [
+      ["Điền từ: She ___ to school every day.", "goes", ["go", "going", "are"], "Ở hiện tại đơn, chủ ngữ she đi với động từ goes."],
+      ["Điền từ: There ___ two books on the desk.", "are", ["is", "am", "be"], "Two books là danh từ số nhiều nên dùng there are."],
+      ["Từ nào chỉ đồ dùng để viết?", "pencil", ["window", "chair", "door"], "Pencil nghĩa là bút chì; window là cửa sổ, chair là ghế và door là cửa ra vào."],
+      ["Điền từ: We ___ football now.", "are playing", ["plays", "play yesterday", "is playing"], "Now cho biết hành động đang diễn ra; với chủ ngữ we, dùng are + động từ thêm -ing."],
+      ["Câu hỏi nào dùng để hỏi giờ?", "What time is it?", ["What is your name?", "Where do you live?", "How old are you?"], "What time is it? nghĩa là Mấy giờ rồi? Các câu còn lại hỏi tên, nơi ở và tuổi."],
+    ]),
+  ],
+  history: [
+    createStarterTopic("grade-6-ancient-history", "Lớp 6 · Thế giới cổ đại", "Tư liệu lịch sử và những nền văn minh đầu tiên", ["🏺", "📜", "6"], [
+      ["Một chiếc trống đồng cổ là loại tư liệu nào?", "Tư liệu hiện vật", ["Tư liệu truyền miệng", "Bản dự báo thời tiết", "Tư liệu chữ viết"], "Trống đồng là vật còn lưu lại từ quá khứ, thuộc tư liệu hiện vật."],
+      ["Một thế kỉ có bao nhiêu năm?", "100 năm", ["10 năm", "50 năm", "1.000 năm"], "Một thế kỉ bằng 100 năm; một thiên niên kỉ bằng 1.000 năm."],
+      ["Nền văn minh Ai Cập cổ đại hình thành gắn với con sông nào?", "Sông Nin", ["Sông Hồng", "Sông Hoàng Hà", "Sông Mê Công"], "Sông Nin cung cấp nước và phù sa, tạo điều kiện cho nông nghiệp và văn minh Ai Cập cổ đại."],
+      ["Lưỡng Hà cổ đại nằm giữa hai con sông nào?", "Ti-grơ và Ơ-phrat", ["Nin và Hồng", "Ấn và Hằng", "Hoàng Hà và Trường Giang"], "Tên Lưỡng Hà có nghĩa là vùng đất giữa hai sông, ở đây là Ti-grơ và Ơ-phrat."],
+      ["Người đứng đầu nhà nước Văn Lang được gọi là gì?", "Hùng Vương", ["Pharaon", "Hoàng đế La Mã", "Tổng thống"], "Theo truyền thống lịch sử, người đứng đầu nhà nước Văn Lang được gọi là Hùng Vương."],
+    ]),
+  ],
+  geography: [
+    createStarterTopic("grade-6-earth-and-maps", "Lớp 6 · Trái Đất và bản đồ", "Phương hướng, tọa độ và chuyển động Trái Đất", ["🌍", "🧭", "6"], [
+      ["Đường chia Trái Đất thành bán cầu Bắc và bán cầu Nam là gì?", "Xích đạo", ["Kinh tuyến gốc", "Chí tuyến Bắc", "Vòng cực Nam"], "Xích đạo là vĩ tuyến 0°, chia Trái Đất thành bán cầu Bắc và bán cầu Nam."],
+      ["Kinh tuyến gốc có giá trị kinh độ bao nhiêu?", "0°", ["90° Bắc", "180°", "90° Nam"], "Kinh tuyến gốc có kinh độ 0° và đi qua Greenwich; kinh độ biểu thị vị trí về phía đông hoặc tây."],
+      ["Trái Đất tự quay quanh trục theo hướng nào?", "Từ tây sang đông", ["Từ đông sang tây", "Từ bắc xuống nam", "Từ nam lên bắc"], "Trái Đất tự quay từ tây sang đông, nên ta thấy Mặt Trời có chuyển động biểu kiến từ đông sang tây."],
+      ["Trái Đất hoàn thành một vòng tự quay quanh trục trong khoảng bao lâu?", "24 giờ", ["12 giờ", "30 ngày", "365 ngày"], "Một vòng tự quay của Trái Đất kéo dài khoảng 24 giờ, tạo nhịp ngày và đêm."],
+      ["Bản đồ tỉ lệ 1:100.000 có khoảng cách 1 cm. Khoảng cách thực tế là bao nhiêu?", "1 km", ["100 m", "10 km", "100 km"], "1 cm trên bản đồ ứng với 100.000 cm ngoài thực tế, tức 1.000 m hay 1 km."],
+    ]),
+  ],
+  informatics: [
+    createStarterTopic("grade-6-digital-basics", "Lớp 6 · Thông tin và máy tính", "Dữ liệu, thiết bị và tìm kiếm thông tin", ["💻", "01", "6"], [
+      ["Máy tính biểu diễn dữ liệu bằng các kí hiệu nào?", "0 và 1", ["Chỉ chữ A", "Chỉ số 9", "Chỉ dấu cộng"], "Dữ liệu trong máy tính được biểu diễn bằng dãy bit, mỗi bit có giá trị 0 hoặc 1."],
+      ["Thiết bị nào chủ yếu dùng để nhập kí tự vào máy tính?", "Bàn phím", ["Màn hình", "Máy in", "Loa"], "Bàn phím là thiết bị vào, dùng để nhập chữ, số và lệnh."],
+      ["Thiết bị nào xuất hình ảnh từ máy tính để người dùng xem?", "Màn hình", ["Chuột", "Bàn phím", "Máy quét"], "Màn hình là thiết bị ra, hiển thị hình ảnh và kết quả xử lí."],
+      ["Để tìm thông tin về các hành tinh, từ khóa nào phù hợp nhất?", "các hành tinh trong hệ Mặt Trời", ["bài hay", "mọi thứ", "trang đẹp"], "Từ khóa cụ thể, liên quan trực tiếp đến điều cần tìm giúp thu hẹp kết quả tìm kiếm."],
+      ["Các tệp liên quan đến cùng một bài học nên được tổ chức thế nào?", "Lưu trong thư mục có tên rõ ràng", ["Đặt tất cả cùng một tên", "Xóa phần mở rộng của mọi tệp", "Lưu ngẫu nhiên không cần nhớ vị trí"], "Thư mục có tên rõ ràng giúp nhóm tệp theo nội dung và tìm lại dễ dàng."],
+    ]),
+  ],
+};
+
+const gradeSevenTopics = {
+  math: [
+    createStarterTopic("grade-7-rational-numbers", "Lớp 7 · Số hữu tỉ", "Phân số, số thập phân và giá trị tuyệt đối", ["½", "±", "7"], [
+      ["Tính −1/2 + 3/4.", "1/4", ["−1/4", "1/2", "5/4"], "Quy đồng −1/2 = −2/4, nên −2/4 + 3/4 = 1/4."],
+      ["Giá trị tuyệt đối của −2,5 là bao nhiêu?", "2,5", ["−2,5", "0", "5"], "Giá trị tuyệt đối là khoảng cách từ điểm biểu diễn số đó đến 0 trên trục số, nên luôn không âm."],
+      ["Tính (−2/3) × (3/4).", "−1/2", ["1/2", "−2/7", "−3/2"], "Nhân tử với tử, mẫu với mẫu: −6/12 = −1/2."],
+      ["Viết 0,75 dưới dạng phân số tối giản.", "3/4", ["7/5", "1/4", "3/5"], "0,75 = 75/100; chia cả tử và mẫu cho 25 được 3/4."],
+      ["Tính (−3)².", "9", ["−9", "−6", "6"], "Bình phương cả số −3: (−3) × (−3) = 9."],
+    ]),
+    createStarterTopic("grade-7-proportionality", "Lớp 7 · Đại lượng tỉ lệ", "Tỉ lệ thuận, tỉ lệ nghịch và bài toán thực tế", ["↗", "∝", "7"], [
+      ["Nếu y = 3x thì y tỉ lệ thuận với x theo hệ số nào?", "3", ["1/3", "0", "−3"], "Công thức y = kx biểu thị tỉ lệ thuận; ở đây k = 3."],
+      ["Bốn quyển vở cùng loại giá 28.000đ. Sáu quyển giá bao nhiêu?", "42.000đ", ["36.000đ", "48.000đ", "56.000đ"], "Một quyển giá 28.000 ÷ 4 = 7.000đ; sáu quyển giá 6 × 7.000 = 42.000đ."],
+      ["Nếu xy = 12 và x = 3 thì y bằng bao nhiêu?", "4", ["9", "15", "36"], "Thay x = 3 vào xy = 12: 3y = 12 nên y = 4."],
+      ["Hai người làm xong việc trong 6 giờ. Bốn người có năng suất như nhau làm việc đó trong bao lâu, nếu không cản trở nhau?", "3 giờ", ["12 giờ", "6 giờ", "2 giờ"], "Khối lượng việc không đổi: 2 × 6 = 12 giờ-người; chia cho 4 người được 3 giờ."],
+      ["Cho a/2 = b/3 và a + b = 20. Giá trị của a là bao nhiêu?", "8", ["12", "10", "4"], "Đặt a = 2k, b = 3k thì 5k = 20, nên k = 4 và a = 8."],
+    ]),
+    createStarterTopic("grade-7-angles-and-triangles", "Lớp 7 · Góc và tam giác", "Góc đối đỉnh, đường song song và tam giác cân", ["△", "∠", "7"], [
+      ["Hai góc đối đỉnh, một góc bằng 65°. Góc còn lại bằng bao nhiêu?", "65°", ["115°", "25°", "130°"], "Hai góc đối đỉnh có số đo bằng nhau."],
+      ["Hai góc kề bù, một góc bằng 120°. Góc còn lại bằng bao nhiêu?", "60°", ["120°", "30°", "240°"], "Tổng hai góc kề bù bằng 180°, nên góc còn lại là 180° − 120° = 60°."],
+      ["Một tam giác có hai góc bằng 40° và 60°. Góc thứ ba bằng bao nhiêu?", "80°", ["100°", "70°", "90°"], "Tổng ba góc trong tam giác bằng 180°: 180° − 40° − 60° = 80°."],
+      ["Tam giác cân có góc ở đỉnh bằng 40°. Mỗi góc ở đáy bằng bao nhiêu?", "70°", ["40°", "140°", "80°"], "Hai góc ở đáy bằng nhau và có tổng 180° − 40° = 140°, nên mỗi góc bằng 70°."],
+      ["Một đường thẳng cắt hai đường thẳng song song. Hai góc đồng vị có quan hệ gì?", "Bằng nhau", ["Luôn bù nhau", "Luôn bằng 90°", "Luôn hơn kém nhau 10°"], "Khi một đường thẳng cắt hai đường thẳng song song, các cặp góc đồng vị bằng nhau."],
+    ]),
+  ],
+  science: [
+    createStarterTopic("grade-7-speed-and-sound", "Lớp 7 · Tốc độ và âm thanh", "Đo chuyển động và tìm hiểu nguồn âm", ["⏱", "♪", "7"], [
+      ["Một người đi 120 m trong 30 s. Tốc độ trung bình là bao nhiêu?", "4 m/s", ["40 m/s", "0,25 m/s", "150 m/s"], "Tốc độ bằng quãng đường chia thời gian: 120 ÷ 30 = 4 m/s."],
+      ["Xe đạp đi với tốc độ 12 km/h trong 2 giờ. Quãng đường là bao nhiêu?", "24 km", ["6 km", "14 km", "12 km"], "Quãng đường bằng tốc độ nhân thời gian: 12 × 2 = 24 km."],
+      ["Khi dây đàn phát ra âm thanh, dây đàn đang làm gì?", "Dao động", ["Đứng yên hoàn toàn", "Tan chảy", "Phát sáng"], "Nguồn âm là vật dao động; dây đàn dao động làm môi trường xung quanh truyền âm."],
+      ["Âm có tần số lớn hơn thường được nghe như thế nào?", "Cao hơn", ["Trầm hơn", "Luôn to hơn", "Luôn nhỏ hơn"], "Độ cao của âm phụ thuộc vào tần số: tần số càng lớn thì âm càng cao, không đồng nghĩa âm to hơn."],
+      ["Âm không truyền được trong môi trường nào?", "Chân không", ["Không khí", "Nước", "Thép"], "Âm cần môi trường vật chất để truyền; chân không không có môi trường vật chất truyền âm."],
+    ]),
+    createStarterTopic("grade-7-plant-metabolism", "Lớp 7 · Trao đổi chất ở thực vật", "Quang hợp, hô hấp và vận chuyển nước", ["🌿", "☀", "7"], [
+      ["Hai nguyên liệu chính cây sử dụng trong quang hợp là gì?", "Nước và khí cacbon điôxít", ["Ôxi và đường", "Nitơ và muối ăn", "Tinh bột và ôxi"], "Nhờ năng lượng ánh sáng và diệp lục, cây dùng nước và CO₂ để tạo chất hữu cơ, giải phóng ôxi."],
+      ["Quang hợp chuyển năng lượng ánh sáng thành dạng năng lượng nào?", "Năng lượng hóa học trong chất hữu cơ", ["Chỉ năng lượng âm thanh", "Chỉ điện năng", "Năng lượng của gió"], "Năng lượng ánh sáng được tích lũy dưới dạng năng lượng hóa học trong chất hữu cơ do quang hợp tạo ra."],
+      ["Bộ phận nào của rễ tăng diện tích tiếp xúc để hấp thụ nước và muối khoáng?", "Lông hút", ["Cánh hoa", "Quả", "Hạt phấn"], "Lông hút làm tăng diện tích tiếp xúc của rễ với đất, hỗ trợ hấp thụ nước và muối khoáng."],
+      ["Phần lớn nước cây hấp thụ được thoát ra ngoài qua đâu?", "Khí khổng ở lá", ["Cánh hoa", "Hạt", "Vỏ quả"], "Thoát hơi nước chủ yếu diễn ra qua khí khổng ở lá, góp phần tạo lực hút nước từ rễ lên."],
+      ["Vai trò chính của hô hấp tế bào ở thực vật là gì?", "Giải phóng năng lượng từ chất hữu cơ", ["Chỉ tạo màu xanh cho lá", "Hấp thụ mọi ánh sáng", "Làm cây ngừng trao đổi chất"], "Hô hấp tế bào phân giải chất hữu cơ, giải phóng năng lượng phục vụ hoạt động sống của cây."],
+    ]),
+  ],
+  literature: [
+    createStarterTopic("grade-7-literature", "Lớp 7 · Đọc và cảm nhận", "Ngụ ngôn, thơ và cách liên kết văn bản", ["📖", "✎", "7"], [
+      ["Truyện ngụ ngôn thường hướng người đọc đến điều gì?", "Bài học về cách sống và ứng xử", ["Chỉ dẫn lắp máy", "Thông báo thời tiết", "Bảng thống kê dân số"], "Truyện ngụ ngôn thường dùng câu chuyện ngắn, đôi khi mượn chuyện loài vật, để gửi gắm bài học."],
+      ["Một dòng thơ năm chữ thường có bao nhiêu tiếng?", "Năm tiếng", ["Bốn tiếng", "Sáu tiếng", "Bảy tiếng"], "Thơ năm chữ thường có năm tiếng trong mỗi dòng; “chữ” ở đây được hiểu theo tiếng."],
+      ["Trong câu “Lan đọc sách. Bạn ấy ghi lại những ý quan trọng”, “bạn ấy” thay cho ai?", "Lan", ["Cuốn sách", "Những ý quan trọng", "Người viết sách"], "“Bạn ấy” thay cho Lan, giúp tránh lặp tên và liên kết hai câu."],
+      ["Câu “Ôi, khu vườn đẹp quá!” chủ yếu thể hiện điều gì?", "Cảm xúc ngạc nhiên, thích thú", ["Một yêu cầu", "Một câu hỏi về địa điểm", "Một phép tính"], "Từ “ôi”, “quá” và dấu chấm than thể hiện cảm xúc của người nói."],
+      ["Khi viết đoạn văn nêu cảm nhận về thơ, cách nào thuyết phục hơn?", "Nêu cảm nhận và dẫn hình ảnh, từ ngữ phù hợp trong bài", ["Chỉ chép lại toàn bài thơ", "Nhận xét không liên quan đến bài", "Chỉ nêu số dòng thơ"], "Cảm nhận nên gắn với dẫn chứng cụ thể và giải thích tác dụng của hình ảnh, từ ngữ."],
+    ]),
+  ],
+  english: [
+    createStarterTopic("grade-7-english", "Lớp 7 · English experiences", "Sở thích, quá khứ đơn và thói quen lành mạnh", ["ABC", "🎵", "7"], [
+      ["Điền từ: I enjoy ___ books in my free time.", "reading", ["read", "reads", "to reading"], "Sau enjoy, dùng động từ dạng -ing: enjoy reading."],
+      ["Điền từ: We ___ the museum yesterday.", "visited", ["visit", "visits", "visiting"], "Yesterday chỉ thời gian trong quá khứ; visit là động từ có quy tắc, thêm -ed thành visited."],
+      ["Điền từ: She ___ to school yesterday because she was ill.", "did not go", ["does not go", "did not went", "not goes"], "Phủ định quá khứ đơn dùng did not + động từ nguyên mẫu: did not go."],
+      ["Điền từ: There isn't ___ milk left in the bottle.", "any", ["many", "a", "an"], "Trong câu phủ định này dùng any với danh từ không đếm được milk; many dùng với danh từ đếm được số nhiều."],
+      ["Lời khuyên nào phù hợp với câu “I feel tired after staying up late”?", "You should get enough sleep.", ["You should stay up later.", "You should skip every meal.", "You should never rest."], "Get enough sleep nghĩa là ngủ đủ giấc, là lời khuyên phù hợp khi mệt vì thức khuya."],
+    ]),
+  ],
+  history: [
+    createStarterTopic("grade-7-medieval-history", "Lớp 7 · Lịch sử trung đại", "Tây Âu và các triều đại Việt Nam", ["🏰", "📜", "7"], [
+      ["Trong lãnh địa phong kiến Tây Âu, lực lượng lao động chủ yếu là ai?", "Nông nô", ["Lãnh chúa", "Thương nhân đường biển", "Vua"], "Nông nô là lực lượng sản xuất chủ yếu trong lãnh địa, phải thực hiện nghĩa vụ với lãnh chúa."],
+      ["Ai lên ngôi vua và lập ra triều Lý năm 1009?", "Lý Công Uẩn", ["Đinh Bộ Lĩnh", "Trần Cảnh", "Lê Lợi"], "Lý Công Uẩn lên ngôi năm 1009, mở đầu triều Lý."],
+      ["Năm 1010, Lý Công Uẩn dời đô từ Hoa Lư đến đâu?", "Đại La, đổi tên là Thăng Long", ["Phú Xuân", "Gia Định", "Lam Sơn"], "Năm 1010, nhà vua dời đô ra Đại La và đổi tên thành Thăng Long."],
+      ["Nhà Trần đã ba lần kháng chiến chống quân xâm lược nào trong thế kỉ XIII?", "Mông – Nguyên", ["Minh", "Thanh", "Tống"], "Quân dân nhà Trần chống các cuộc xâm lược Mông – Nguyên vào các năm 1258, 1285 và 1287–1288."],
+      ["Người lãnh đạo cuộc khởi nghĩa Lam Sơn là ai?", "Lê Lợi", ["Lý Thường Kiệt", "Ngô Quyền", "Quang Trung"], "Lê Lợi lãnh đạo khởi nghĩa Lam Sơn chống quân Minh, bắt đầu năm 1418."],
+    ]),
+  ],
+  geography: [
+    createStarterTopic("grade-7-continents", "Lớp 7 · Khám phá các châu lục", "Địa hình, khí hậu và tự nhiên châu Âu, châu Á, châu Phi", ["🌍", "🗺", "7"], [
+      ["Châu lục nào có diện tích đất liền lớn nhất?", "Châu Á", ["Châu Âu", "Châu Phi", "Châu Đại Dương"], "Châu Á có diện tích lớn nhất trong các châu lục."],
+      ["Dãy núi nào thường được dùng làm một phần ranh giới tự nhiên giữa châu Âu và châu Á?", "U-ran", ["An-đét", "An-pơ", "Hi-ma-lay-a"], "Dãy U-ran là một phần ranh giới quy ước giữa châu Âu và châu Á."],
+      ["Hoang mạc lớn ở phía bắc châu Phi là hoang mạc nào?", "Xa-ha-ra", ["Gô-bi", "A-ta-ca-ma", "Ca-la-ha-ri"], "Xa-ha-ra nằm ở Bắc Phi; Ca-la-ha-ri nằm ở phần phía nam châu Phi."],
+      ["Khí hậu Địa Trung Hải điển hình có mùa hạ như thế nào?", "Nóng và khô", ["Rất lạnh và nhiều tuyết", "Mưa quanh năm không đổi", "Luôn dưới 0°C"], "Khí hậu Địa Trung Hải có mùa hạ nóng, khô và mùa đông tương đối ấm, có mưa."],
+      ["Khu vực nào ở châu Phi có rừng mưa xích đạo rộng lớn?", "Lưu vực sông Công-gô", ["Trung tâm Xa-ha-ra", "Ven Bắc Băng Dương", "Đỉnh núi phủ băng quanh năm"], "Lưu vực Công-gô gần xích đạo có khí hậu nóng ẩm, thuận lợi cho rừng mưa xích đạo."],
+    ]),
+  ],
+  informatics: [
+    createStarterTopic("grade-7-spreadsheets", "Lớp 7 · Bảng tính cơ bản", "Ô dữ liệu, công thức và hàm tính toán", ["📊", "A1", "7"], [
+      ["Địa chỉ ô ở cột B, hàng 3 được viết như thế nào?", "B3", ["3B", "BB", "B:3"], "Địa chỉ ô gồm tên cột trước, số hàng sau: B3."],
+      ["Công thức trong phần mềm bảng tính thường bắt đầu bằng kí hiệu nào?", "=", ["?", "#", "!"], "Dấu bằng cho biết nội dung nhập là công thức cần tính toán."],
+      ["Ô A1 chứa 5 và A2 chứa 7. Công thức =A1+A2 cho kết quả nào?", "12", ["57", "2", "35"], "Công thức cộng giá trị hai ô: 5 + 7 = 12."],
+      ["Hàm nào tính tổng các ô từ A1 đến A3?", "SUM(A1:A3)", ["MAX(A1:A3)", "MIN(A1:A3)", "AVERAGE(A1:A3)"], "SUM tính tổng; dấu hai chấm xác định vùng ô liên tiếp từ A1 đến A3."],
+      ["Hàm AVERAGE(B1:B3) dùng để làm gì với dữ liệu số trong vùng ô?", "Tính trung bình cộng", ["Tìm số lớn nhất", "Tìm số nhỏ nhất", "Chỉ đếm ô trống"], "AVERAGE tính trung bình cộng của các giá trị số trong vùng ô được chọn."],
+    ]),
+  ],
+};
+
+const gradeEightTopics = {
+  math: [
+    createStarterTopic("grade-8-polynomials", "Lớp 8 · Đa thức và hằng đẳng thức", "Thu gọn biểu thức và phân tích đa thức", ["x²", "＝", "8"], [
+      ["Thu gọn 3x + 2x − x.", "4x", ["6x", "5x", "4x²"], "Các hạng tử đồng dạng có hệ số cộng được với nhau: 3 + 2 − 1 = 4."],
+      ["Khai triển (x + 2)².", "x² + 4x + 4", ["x² + 4", "x² + 2x + 4", "x² − 4x + 4"], "Bình phương một tổng bằng bình phương số thứ nhất, cộng hai lần tích, cộng bình phương số thứ hai."],
+      ["Phân tích x² − 9 thành nhân tử.", "(x − 3)(x + 3)", ["(x − 9)(x + 9)", "(x − 3)²", "x(x − 9)"], "Dùng hiệu hai bình phương: x² − 3² = (x − 3)(x + 3)."],
+      ["Phân tích 2x² + 6x bằng cách đặt nhân tử chung.", "2x(x + 3)", ["2(x + 3)", "x(2x + 3)", "2x(x + 6)"], "Hai hạng tử có nhân tử chung 2x: 2x² + 6x = 2x(x + 3)."],
+      ["Tính giá trị của x² − 2x + 1 khi x = 4.", "9", ["17", "7", "15"], "Biểu thức bằng (x − 1)²; thay x = 4 được 3² = 9."],
+    ]),
+    createStarterTopic("grade-8-linear-equations", "Lớp 8 · Phương trình và hàm số", "Giải phương trình bậc nhất và tính giá trị hàm số", ["y", "↗", "8"], [
+      ["Giải phương trình 3x − 7 = 8.", "x = 5", ["x = 1", "x = −5", "x = 15"], "Cộng 7 vào hai vế được 3x = 15; chia hai vế cho 3 được x = 5."],
+      ["Giải phương trình 2(x + 1) = x + 6.", "x = 4", ["x = 2", "x = 6", "x = 8"], "Khai triển: 2x + 2 = x + 6. Trừ x rồi trừ 2 ở hai vế được x = 4."],
+      ["Cho hàm số y = 2x + 1. Khi x = 3 thì y bằng bao nhiêu?", "7", ["6", "9", "5"], "Thay x = 3 vào công thức: y = 2 × 3 + 1 = 7."],
+      ["Điểm nào thuộc đồ thị hàm số y = x − 2?", "(3; 1)", ["(3; 2)", "(0; 2)", "(2; 2)"], "Tại x = 3, y = 3 − 2 = 1 nên điểm (3; 1) thuộc đồ thị."],
+      ["Hệ số góc của đường thẳng y = −2x + 3 là bao nhiêu?", "−2", ["3", "2", "−3"], "Đường thẳng y = ax + b có hệ số góc a; ở đây a = −2."],
+    ]),
+    createStarterTopic("grade-8-triangle-geometry", "Lớp 8 · Tam giác và tứ giác", "Định lí Pythagore, đường trung bình và hình bình hành", ["△", "□", "8"], [
+      ["Tam giác vuông có hai cạnh góc vuông dài 3 cm và 4 cm. Cạnh huyền dài bao nhiêu?", "5 cm", ["7 cm", "1 cm", "25 cm"], "Theo định lí Pythagore, bình phương cạnh huyền bằng 3² + 4² = 25, nên cạnh huyền dài 5 cm."],
+      ["Đường trung bình của tam giác song song với cạnh thứ ba dài 12 cm. Đường trung bình dài bao nhiêu?", "6 cm", ["12 cm", "24 cm", "18 cm"], "Đoạn nối trung điểm hai cạnh của tam giác song song và bằng một nửa cạnh thứ ba: 12 ÷ 2 = 6 cm."],
+      ["Tổng số đo các góc trong của một tứ giác là bao nhiêu?", "360°", ["180°", "270°", "540°"], "Một đường chéo chia tứ giác thành hai tam giác, mỗi tam giác có tổng góc 180°."],
+      ["Hai đường chéo của hình bình hành có tính chất nào?", "Cắt nhau tại trung điểm của mỗi đường", ["Luôn bằng nhau", "Luôn vuông góc", "Không bao giờ cắt nhau"], "Trong hình bình hành, hai đường chéo chia đôi nhau; chúng không nhất thiết bằng nhau hoặc vuông góc."],
+      ["Hai tam giác đồng dạng có tỉ số các cạnh tương ứng là 2:1. Tỉ số chu vi theo cùng thứ tự là bao nhiêu?", "2:1", ["4:1", "1:2", "1:1"], "Các cạnh tương ứng cùng gấp hai lần, nên tổng độ dài các cạnh cũng gấp hai lần."],
+    ]),
+  ],
+  science: [
+    createStarterTopic("grade-8-chemical-reactions", "Lớp 8 · Phản ứng hóa học", "Biến đổi chất, bảo toàn khối lượng và dung dịch", ["⚗", "→", "8"], [
+      ["Hiện tượng nào là biến đổi hóa học?", "Sắt bị gỉ", ["Nước đá tan", "Cắt giấy thành mảnh nhỏ", "Nước bay hơi"], "Sắt bị gỉ tạo chất mới; các hiện tượng còn lại không làm xuất hiện chất mới."],
+      ["Trong phản ứng hóa học xảy ra trong hệ kín, tổng khối lượng các chất thay đổi thế nào?", "Được bảo toàn", ["Luôn tăng gấp đôi", "Luôn giảm một nửa", "Luôn bằng không"], "Tổng khối lượng chất tham gia bằng tổng khối lượng sản phẩm, khi tính đầy đủ các chất trong hệ kín."],
+      ["Trong phương trình 2H₂ + O₂ → 2H₂O, hệ số đứng trước O₂ là bao nhiêu?", "1", ["2", "3", "4"], "Không ghi hệ số nghĩa là hệ số 1; hai vế đều có 4 nguyên tử H và 2 nguyên tử O."],
+      ["Hòa tan 10 g muối vào 90 g nước. Nồng độ phần trăm của dung dịch là bao nhiêu?", "10%", ["9%", "11,1%", "90%"], "Khối lượng dung dịch là 100 g; nồng độ phần trăm bằng 10 ÷ 100 × 100% = 10%."],
+      ["Chất xúc tác có tác dụng nào đối với phản ứng?", "Làm tăng tốc độ phản ứng mà không bị tiêu hao sau phản ứng", ["Luôn làm mất toàn bộ sản phẩm", "Thay thế mọi chất phản ứng", "Luôn làm phản ứng dừng lại"], "Chất xúc tác làm tăng tốc độ phản ứng và không bị tiêu hao sau phản ứng."],
+    ]),
+    createStarterTopic("grade-8-pressure-and-body", "Lớp 8 · Áp suất và cơ thể người", "Áp lực, tiêu hóa và tuần hoàn", ["⚖", "🫀", "8"], [
+      ["Áp lực 100 N tác dụng vuông góc lên diện tích 0,5 m². Áp suất là bao nhiêu?", "200 Pa", ["50 Pa", "100 Pa", "0,005 Pa"], "Áp suất bằng áp lực chia diện tích bị ép: 100 ÷ 0,5 = 200 Pa."],
+      ["Trong cùng một chất lỏng đứng yên, áp suất tăng khi nào?", "Khi độ sâu tăng", ["Khi độ sâu giảm", "Chỉ khi đổi màu chất lỏng", "Khi đổi tên bình chứa"], "Áp suất chất lỏng tăng theo độ sâu, với cùng khối lượng riêng và gia tốc trọng trường."],
+      ["Phần lớn chất dinh dưỡng được hấp thụ ở cơ quan nào?", "Ruột non", ["Thực quản", "Ruột già", "Khoang miệng"], "Ruột non có bề mặt hấp thụ lớn nhờ nếp gấp, lông ruột và vi nhung mao."],
+      ["Thành phần máu nào chủ yếu vận chuyển ôxi?", "Hồng cầu", ["Bạch cầu", "Tiểu cầu", "Chỉ nước trong huyết tương"], "Hemoglobin trong hồng cầu gắn với ôxi, giúp vận chuyển ôxi từ phổi đến mô."],
+      ["Cơ quan nào bơm máu trong hệ tuần hoàn?", "Tim", ["Dạ dày", "Gan", "Thận"], "Tim co bóp tạo lực đẩy máu đi qua các mạch máu, duy trì tuần hoàn."],
+    ]),
+  ],
+  literature: [
+    createStarterTopic("grade-8-literature", "Lớp 8 · Văn bản và lập luận", "Nhận biết luận điểm, bằng chứng và sắc thái từ ngữ", ["📖", "✎", "8"], [
+      ["Trong văn bản nghị luận, luận điểm là gì?", "Ý kiến chính người viết muốn làm rõ", ["Danh sách tên nhân vật", "Mọi dấu câu trong bài", "Chỉ tiêu đề của bài"], "Luận điểm thể hiện ý kiến hoặc quan điểm; lí lẽ và bằng chứng giúp làm rõ, thuyết phục người đọc."],
+      ["Bằng chứng nào phù hợp nhất cho luận điểm “Cần giảm rác nhựa ở trường”?", "Số liệu khảo sát lượng rác nhựa trong trường", ["Lịch chiếu phim cuối tuần", "Dự báo giá vàng", "Tên một bài hát"], "Bằng chứng phải liên quan trực tiếp đến luận điểm; số liệu cần có nguồn và cách thu thập đáng tin cậy."],
+      ["Trong câu “Bạn ấy chạy nhanh như gió”, biện pháp tu từ nổi bật là gì?", "So sánh", ["Nhân hóa", "Điệp ngữ", "Liệt kê"], "Từ “như” nối tốc độ chạy với gió, làm nổi bật sự nhanh nhẹn."],
+      ["Từ nào có sắc thái trang trọng hơn, thường dùng khi nói về người đã mất?", "Từ trần", ["Chết", "Ăn", "Chạy"], "“Từ trần” mang sắc thái trang trọng; lựa chọn từ cần phù hợp ngữ cảnh và thái độ giao tiếp."],
+      ["Khi tóm tắt một văn bản, việc nào quan trọng nhất?", "Giữ ý chính và diễn đạt ngắn gọn, trung thành với văn bản", ["Thêm chi tiết không có trong bản gốc", "Chép mọi câu nguyên văn", "Chỉ ghi cảm xúc cá nhân"], "Tóm tắt cần giữ nội dung cốt lõi, không tự thêm hoặc làm sai lệch thông tin."],
+    ]),
+  ],
+  english: [
+    createStarterTopic("grade-8-english", "Lớp 8 · English in context", "Quá khứ tiếp diễn, so sánh và câu điều kiện", ["ABC", "🌦", "8"], [
+      ["Điền từ: At 8 p.m. yesterday, I ___ my homework.", "was doing", ["am doing", "does", "were doing"], "Hành động đang diễn ra tại một thời điểm trong quá khứ dùng quá khứ tiếp diễn; I đi với was."],
+      ["Điền từ: This road is ___ than that road.", "wider", ["wide", "widest", "more wider"], "Wide là tính từ ngắn; so sánh hơn dùng wider và không thêm more."],
+      ["Điền từ: If it rains tomorrow, we ___ at home.", "will stay", ["stayed", "stays", "staying"], "Câu điều kiện loại một dùng hiện tại đơn ở mệnh đề if và will + động từ nguyên mẫu ở mệnh đề chính."],
+      ["Điền từ: He speaks English ___ than before.", "more fluently", ["fluent", "most fluent", "fluently more"], "Fluently là trạng từ; dạng so sánh hơn là more fluently."],
+      ["Điền từ: ___ she was tired, she finished her homework.", "Although", ["Because", "So", "Therefore"], "Although thể hiện tương phản: mặc dù mệt, cô ấy vẫn hoàn thành bài tập."],
+    ]),
+  ],
+  history: [
+    createStarterTopic("grade-8-modern-history", "Lớp 8 · Những chuyển biến lịch sử", "Cách mạng công nghiệp và Việt Nam thế kỉ XVIII–XIX", ["🏭", "📜", "8"], [
+      ["Cách mạng công nghiệp lần thứ nhất bắt đầu ở nước nào?", "Anh", ["Nhật Bản", "Việt Nam", "Ai Cập"], "Cách mạng công nghiệp lần thứ nhất khởi đầu ở Anh trong nửa sau thế kỉ XVIII."],
+      ["Phát minh nào gắn với việc James Watt cải tiến và thúc đẩy cơ giới hóa?", "Máy hơi nước", ["Máy tính điện tử", "Điện thoại thông minh", "Động cơ phản lực"], "James Watt cải tiến máy hơi nước, giúp nó được sử dụng hiệu quả hơn trong sản xuất và giao thông."],
+      ["Năm 1789, Quang Trung đánh bại quân xâm lược nào?", "Quân Thanh", ["Quân Minh", "Quân Tống", "Quân Mông – Nguyên"], "Chiến thắng Ngọc Hồi – Đống Đa năm 1789 đánh bại quân Thanh."],
+      ["Ai lập ra triều Nguyễn năm 1802?", "Nguyễn Ánh", ["Nguyễn Huệ", "Lê Lợi", "Lý Công Uẩn"], "Nguyễn Ánh lên ngôi năm 1802, lấy niên hiệu Gia Long và lập triều Nguyễn."],
+      ["Năm 1858, liên quân Pháp – Tây Ban Nha mở đầu cuộc tấn công Việt Nam tại đâu?", "Đà Nẵng", ["Hà Nội", "Huế", "Cần Thơ"], "Liên quân Pháp – Tây Ban Nha tấn công Đà Nẵng năm 1858, mở đầu cuộc xâm lược Việt Nam của Pháp."],
+    ]),
+  ],
+  geography: [
+    createStarterTopic("grade-8-vietnam-geography", "Lớp 8 · Thiên nhiên Việt Nam", "Địa hình, khí hậu và sông ngòi", ["🇻🇳", "🗺", "8"], [
+      ["Lãnh thổ đất liền Việt Nam nằm chủ yếu trong đới khí hậu nào?", "Nhiệt đới", ["Hàn đới", "Ôn đới lạnh", "Cực"], "Việt Nam nằm trong vùng nội chí tuyến bán cầu Bắc; khí hậu còn chịu ảnh hưởng của gió mùa và biển."],
+      ["Địa hình đồi núi chiếm khoảng bao nhiêu diện tích đất liền Việt Nam?", "Ba phần tư", ["Một phần tư", "Một phần mười", "Toàn bộ"], "Đồi núi chiếm khoảng ba phần tư diện tích đất liền, nhưng chủ yếu là đồi núi thấp."],
+      ["Khí hậu Việt Nam có đặc điểm nổi bật nào?", "Nhiệt đới ẩm gió mùa", ["Khô hạn quanh năm trên toàn lãnh thổ", "Băng giá quanh năm", "Không có sự phân hóa"], "Khí hậu nhìn chung nóng ẩm, chịu ảnh hưởng của gió mùa và phân hóa theo vùng, độ cao, mùa."],
+      ["Phần lớn các sông ở Việt Nam có chế độ nước như thế nào?", "Thay đổi theo mùa mưa và mùa khô", ["Không bao giờ thay đổi", "Chỉ có nước vào mùa đông", "Luôn đóng băng"], "Lượng mưa theo mùa làm sông thường có mùa lũ và mùa cạn, thời điểm có thể khác nhau giữa các vùng."],
+      ["Loại đất phổ biến ở vùng đồi núi nhiệt đới nước ta là gì?", "Đất feralit", ["Đất băng vĩnh cửu", "Chỉ đất phù sa mới", "Chỉ cát biển"], "Đất feralit phổ biến ở vùng đồi núi nhiệt đới; điều kiện nóng ẩm thúc đẩy phong hóa và tích lũy ôxit sắt, nhôm."],
+    ]),
+  ],
+  informatics: [
+    createStarterTopic("grade-8-algorithms", "Lớp 8 · Thuật toán và dữ liệu số", "Biến, điều kiện, vòng lặp và đánh giá thông tin", ["💻", "↻", "8"], [
+      ["Trong chương trình, biến được dùng chủ yếu để làm gì?", "Lưu giá trị có thể thay đổi khi chương trình chạy", ["Chỉ trang trí màn hình", "Thay thế toàn bộ máy tính", "Chỉ lưu một ảnh không bao giờ đổi"], "Biến có tên để lưu và truy cập giá trị; chương trình có thể cập nhật giá trị đó."],
+      ["Cấu trúc “nếu ... thì ...” thuộc loại cấu trúc nào?", "Rẽ nhánh", ["Chỉ tuần tự", "Chỉ lặp vô hạn", "Lưu trữ tệp"], "Rẽ nhánh lựa chọn thao tác dựa trên điều kiện đúng hay sai."],
+      ["Đặt tổng = 0, rồi cộng 1 vào tổng trong 5 lần lặp. Giá trị cuối là bao nhiêu?", "5", ["0", "1", "10"], "Mỗi lần tăng thêm 1; sau năm lần, tổng bằng 0 + 5 = 5."],
+      ["Để thực hiện cùng một thao tác 10 lần, cấu trúc nào phù hợp nhất?", "Vòng lặp", ["Chỉ một lệnh điều kiện", "Đổi tên tệp", "Tắt chương trình"], "Vòng lặp cho phép lặp lại một nhóm lệnh theo số lần hoặc điều kiện."],
+      ["Khi gặp thông tin gây nghi ngờ trên mạng, nên làm gì trước khi chia sẻ?", "Kiểm tra tác giả, thời điểm và đối chiếu nguồn đáng tin cậy", ["Chia sẻ ngay vì tiêu đề hấp dẫn", "Chỉ dựa vào số lượt thích", "Bỏ qua nguồn xuất bản"], "Đánh giá nguồn và kiểm chứng thông tin giúp tránh lan truyền nội dung sai hoặc đã lỗi thời."],
+    ]),
+  ],
+};
+
+const gradeNineTopics = {
+  math: [
+    createStarterTopic("grade-9-roots", "Lớp 9 · Căn thức", "Căn bậc hai, căn bậc ba và điều kiện xác định", ["√", "x", "9"], [
+      ["Căn bậc hai số học của 81 là bao nhiêu?", "9", ["−9", "18", "162"], "Căn bậc hai số học là số không âm có bình phương bằng số đã cho: 9² = 81."],
+      ["Rút gọn √50.", "5√2", ["25√2", "2√5", "5"], "50 = 25 × 2 nên √50 = √25 × √2 = 5√2."],
+      ["Biểu thức √(x − 3) xác định trong tập số thực khi nào?", "x ≥ 3", ["x > 0", "x ≤ 3", "Mọi số thực x"], "Biểu thức dưới căn bậc hai phải không âm: x − 3 ≥ 0, tức x ≥ 3."],
+      ["Tính √((-4)²).", "4", ["−4", "16", "−16"], "Căn bậc hai số học của bình phương một số bằng giá trị tuyệt đối của số đó: |−4| = 4."],
+      ["Căn bậc ba của −8 là bao nhiêu?", "−2", ["2", "−4", "4"], "Vì (−2)³ = −8 nên căn bậc ba của −8 là −2."],
+    ]),
+    createStarterTopic("grade-9-equations", "Lớp 9 · Hệ và phương trình", "Hệ hai ẩn, phương trình bậc hai và bài toán thực tế", ["x,y", "＝", "9"], [
+      ["Hệ x + y = 7 và x − y = 1 có nghiệm nào?", "x = 4, y = 3", ["x = 3, y = 4", "x = 5, y = 2", "x = 7, y = 1"], "Cộng hai phương trình được 2x = 8, nên x = 4; thay vào x + y = 7 được y = 3."],
+      ["Phương trình x² − 9 = 0 có những nghiệm nào?", "x = −3 hoặc x = 3", ["Chỉ x = 3", "Chỉ x = −3", "x = −9 hoặc x = 9"], "x² = 9 có hai nghiệm là −3 và 3, vì bình phương của cả hai đều bằng 9."],
+      ["Biệt thức của phương trình x² − 5x + 6 = 0 là bao nhiêu?", "1", ["25", "49", "−1"], "Với a = 1, b = −5, c = 6: biệt thức bằng b² − 4ac = 25 − 24 = 1."],
+      ["Nghiệm của phương trình x² − 5x + 6 = 0 là gì?", "x = 2 hoặc x = 3", ["x = −2 hoặc x = −3", "x = 1 hoặc x = 6", "x = 0 hoặc x = 5"], "Phân tích x² − 5x + 6 = (x − 2)(x − 3), nên một trong hai nhân tử phải bằng 0."],
+      ["Hai vé người lớn và một vé trẻ em giá 100.000đ. Vé trẻ em giá 20.000đ. Một vé người lớn giá bao nhiêu?", "40.000đ", ["30.000đ", "50.000đ", "80.000đ"], "Hai vé người lớn giá 100.000 − 20.000 = 80.000đ; mỗi vé giá 40.000đ."],
+    ]),
+    createStarterTopic("grade-9-circles", "Lớp 9 · Đường tròn", "Bán kính, tiếp tuyến, góc và chu vi", ["○", "π", "9"], [
+      ["Đường tròn có bán kính 5 cm. Đường kính dài bao nhiêu?", "10 cm", ["5 cm", "2,5 cm", "25 cm"], "Đường kính bằng hai lần bán kính: 2 × 5 = 10 cm."],
+      ["Tiếp tuyến của đường tròn có quan hệ gì với bán kính tại tiếp điểm?", "Vuông góc", ["Song song", "Luôn tạo góc 45°", "Trùng nhau"], "Tiếp tuyến vuông góc với bán kính đi qua tiếp điểm."],
+      ["Một góc nội tiếp chắn nửa đường tròn có số đo bao nhiêu?", "90°", ["45°", "180°", "360°"], "Góc nội tiếp bằng một nửa số đo cung bị chắn; nửa đường tròn có số đo 180°."],
+      ["Chu vi đường tròn bán kính 3 cm là bao nhiêu?", "6π cm", ["3π cm", "9π cm", "12π cm"], "Chu vi đường tròn bằng 2πr; thay r = 3 được 6π cm."],
+      ["Diện tích hình tròn bán kính 4 cm là bao nhiêu?", "16π cm²", ["8π cm²", "4π cm²", "32π cm²"], "Diện tích hình tròn bằng πr²; với r = 4, diện tích là 16π cm²."],
+    ]),
+  ],
+  science: [
+    createStarterTopic("grade-9-electricity-and-energy", "Lớp 9 · Điện và năng lượng", "Định luật Ohm, mạch điện và công suất", ["⚡", "Ω", "9"], [
+      ["Điện trở 6 Ω có hiệu điện thế 12 V giữa hai đầu. Cường độ dòng điện là bao nhiêu?", "2 A", ["0,5 A", "6 A", "72 A"], "Theo định luật Ohm: I = U/R = 12/6 = 2 A."],
+      ["Hai điện trở 3 Ω và 5 Ω mắc nối tiếp có điện trở tương đương bao nhiêu?", "8 Ω", ["2 Ω", "15 Ω", "1,875 Ω"], "Mắc nối tiếp: điện trở tương đương bằng tổng các điện trở, 3 + 5 = 8 Ω."],
+      ["Hai điện trở bằng nhau, mỗi điện trở 6 Ω, mắc song song. Điện trở tương đương là bao nhiêu?", "3 Ω", ["12 Ω", "6 Ω", "36 Ω"], "Hai điện trở bằng nhau mắc song song có điện trở tương đương bằng một nửa mỗi điện trở: 6/2 = 3 Ω."],
+      ["Thiết bị hoạt động với hiệu điện thế 12 V và dòng điện 0,5 A. Công suất điện là bao nhiêu?", "6 W", ["24 W", "12,5 W", "0,04 W"], "Công suất điện P = UI = 12 × 0,5 = 6 W."],
+      ["Thiết bị công suất 100 W hoạt động trong 2 giờ. Điện năng tiêu thụ là bao nhiêu?", "0,2 kWh", ["200 kWh", "2 kWh", "0,02 kWh"], "100 W = 0,1 kW; điện năng bằng công suất nhân thời gian: 0,1 × 2 = 0,2 kWh."],
+    ]),
+    createStarterTopic("grade-9-genetics", "Lớp 9 · Di truyền cơ bản", "DNA, gene, nhiễm sắc thể và biến dị", ["DNA", "🧬", "9"], [
+      ["Phân tử nào chủ yếu lưu giữ thông tin di truyền trong tế bào?", "DNA", ["Nước", "Tinh bột", "Chất béo dự trữ"], "Thông tin di truyền được lưu trong trình tự các nucleotide của DNA."],
+      ["Gene được hiểu là gì ở mức cơ bản?", "Một đoạn DNA mang thông tin mã hóa một sản phẩm xác định", ["Một tế bào hoàn chỉnh", "Toàn bộ cơ thể", "Chỉ một phân tử nước"], "Gene là đoạn DNA chứa thông tin để tạo sản phẩm xác định, như một chuỗi polypeptide hoặc RNA."],
+      ["Trong DNA, adenine (A) liên kết bổ sung với base nào?", "Thymine (T)", ["Guanine (G)", "Cytosine (C)", "Uracil (U)"], "Trong DNA, A liên kết với T và G liên kết với C theo nguyên tắc bổ sung."],
+      ["Tế bào sinh dưỡng người bình thường có bao nhiêu nhiễm sắc thể?", "46", ["23", "44", "48"], "Tế bào sinh dưỡng người bình thường có 46 nhiễm sắc thể, xếp thành 23 cặp."],
+      ["Sự thay đổi trong trình tự nucleotide của gene được gọi là gì?", "Đột biến gene", ["Quang hợp", "Thoát hơi nước", "Tiêu hóa"], "Đột biến gene làm thay đổi trình tự nucleotide; tác động có thể khác nhau tùy vị trí và điều kiện."],
+    ]),
+  ],
+  literature: [
+    createStarterTopic("grade-9-literature", "Lớp 9 · Đọc hiểu và nghị luận", "Luận đề, trích dẫn và lời kể", ["📖", "✎", "9"], [
+      ["Trong bài nghị luận, luận đề là gì?", "Vấn đề chính được bàn luận trong toàn bài", ["Chỉ một dấu câu", "Tên mọi nhân vật", "Một ví dụ bất kì"], "Luận đề là vấn đề bao quát; các luận điểm triển khai những khía cạnh của vấn đề đó."],
+      ["Khi trích nguyên văn lời một tác giả, cách nào phù hợp?", "Giữ đúng lời trích, đánh dấu phần trích và ghi nguồn", ["Đổi lời trích nhưng vẫn gọi là nguyên văn", "Bỏ nguồn để người đọc đoán", "Gán câu nói cho người khác"], "Trích dẫn trực tiếp cần chính xác và ghi nguồn để người đọc kiểm tra, đồng thời tôn trọng tác giả."],
+      ["Câu nào sử dụng lời dẫn trực tiếp?", "Lan nói: “Mình sẽ đến thư viện.”", ["Lan nói rằng bạn sẽ đến thư viện.", "Lan dự định đến thư viện.", "Theo Lan, thư viện rất yên tĩnh."], "Lời dẫn trực tiếp giữ nguyên lời nhân vật, thường dùng dấu hai chấm và dấu ngoặc kép."],
+      ["Chi tiết nghệ thuật có thể giúp người đọc hiểu điều gì?", "Đặc điểm nhân vật và ý nghĩa của tác phẩm", ["Chỉ số trang của sách", "Chỉ giá bán của sách", "Chỉ năm in"], "Chi tiết được lựa chọn có thể khắc họa nhân vật, tạo tình huống và góp phần thể hiện chủ đề."],
+      ["Khi phân tích một nhân vật, bằng chứng nào phù hợp?", "Lời nói, hành động và suy nghĩ được thể hiện trong văn bản", ["Tin đồn về người đọc", "Thông tin không liên quan đến truyện", "Cảm nhận không có căn cứ"], "Phân tích cần dựa vào chi tiết trong văn bản và giải thích chúng cho thấy đặc điểm nào của nhân vật."],
+    ]),
+  ],
+  english: [
+    createStarterTopic("grade-9-english", "Lớp 9 · English connections", "Mệnh đề quan hệ, câu ước và lời nói gián tiếp", ["ABC", "💬", "9"], [
+      ["Điền từ: The girl ___ won the prize is my friend.", "who", ["which", "where", "when"], "Who thay cho người và làm chủ ngữ trong mệnh đề quan hệ này."],
+      ["Điền từ: This is the book ___ I bought yesterday.", "which", ["who", "where", "when"], "Which dùng cho vật; ở đây thay cho the book trong mệnh đề quan hệ."],
+      ["Điền từ: I wish I ___ taller.", "were", ["am", "will be", "being"], "Câu ước trái với hiện tại thường dùng dạng quá khứ; were là cách dùng chuẩn trong câu này."],
+      ["Tường thuật ngay sau đó, lùi thì theo cách thông thường: He said, “I am tired.”", "He said that he was tired.", ["He said that I am tired.", "He said that he is tiring.", "He said that he were tired."], "Đổi I thành he và lùi am thành was khi tường thuật theo cách thông thường với said."],
+      ["Điền từ: If I had more free time, I ___ a new language.", "would learn", ["will learn", "learns", "learning"], "Điều kiện loại hai dùng quá khứ đơn trong mệnh đề if và would + động từ nguyên mẫu ở mệnh đề chính."],
+    ]),
+  ],
+  history: [
+    createStarterTopic("grade-9-twentieth-century", "Lớp 9 · Lịch sử thế kỉ XX", "Những mốc lịch sử thế giới và Việt Nam", ["📜", "🕊", "9"], [
+      ["Chiến tranh thế giới thứ hai diễn ra trong khoảng thời gian nào?", "1939–1945", ["1914–1918", "1929–1933", "1954–1975"], "Chiến tranh thế giới thứ hai bắt đầu năm 1939 và kết thúc năm 1945."],
+      ["Liên hợp quốc được thành lập vào năm nào?", "1945", ["1919", "1930", "1954"], "Liên hợp quốc ra đời năm 1945 nhằm góp phần duy trì hòa bình và an ninh quốc tế."],
+      ["Đảng Cộng sản Việt Nam được thành lập vào năm nào?", "1930", ["1911", "1925", "1945"], "Hội nghị hợp nhất đầu năm 1930 thành lập Đảng Cộng sản Việt Nam."],
+      ["Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập ngày nào?", "2/9/1945", ["19/8/1945", "7/5/1954", "30/4/1975"], "Ngày 2/9/1945, tại Quảng trường Ba Đình, Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập."],
+      ["Chiến thắng Điện Biên Phủ kết thúc vào ngày nào?", "7/5/1954", ["2/9/1945", "19/12/1946", "30/4/1975"], "Chiến dịch Điện Biên Phủ kết thúc thắng lợi ngày 7/5/1954."],
+    ]),
+  ],
+  geography: [
+    createStarterTopic("grade-9-vietnam-economy", "Lớp 9 · Dân cư và kinh tế Việt Nam", "Ngành kinh tế, vùng sản xuất và đô thị hóa", ["🇻🇳", "📊", "9"], [
+      ["Vùng nào là vùng sản xuất lúa lớn nhất Việt Nam?", "Đồng bằng sông Cửu Long", ["Tây Nguyên", "Bắc Trung Bộ", "Trung du và miền núi Bắc Bộ"], "Đồng bằng sông Cửu Long có diện tích canh tác rộng và điều kiện thuận lợi, là vùng sản xuất lúa lớn nhất nước."],
+      ["Cây công nghiệp nào gắn nổi bật với vùng Tây Nguyên?", "Cà phê", ["Lúa nước", "Rau ôn đới trên toàn vùng", "Cây cói"], "Tây Nguyên nổi bật về cà phê nhờ đất bazan và điều kiện khí hậu phù hợp ở nhiều khu vực."],
+      ["Hoạt động nào thuộc khu vực dịch vụ?", "Vận tải hành khách", ["Trồng lúa", "Khai thác than", "Sản xuất xi măng"], "Vận tải là dịch vụ; trồng lúa thuộc nông nghiệp, khai thác than và sản xuất xi măng thuộc công nghiệp."],
+      ["Đô thị hóa thường gắn với thay đổi nào?", "Tăng vai trò của đô thị và tỉ lệ dân cư đô thị", ["Mọi thành phố biến thành làng", "Toàn bộ dân cư chỉ làm nông", "Không thay đổi phân bố dân cư"], "Đô thị hóa gắn với sự phát triển đô thị, gia tăng dân cư đô thị và lan tỏa lối sống đô thị."],
+      ["Biện pháp nào giúp phát triển nghề cá bền vững?", "Bảo vệ nguồn lợi và không sử dụng cách đánh bắt hủy diệt", ["Đánh bắt bằng chất nổ", "Khai thác mọi cá con", "Phá rừng ngập mặn để tăng đánh bắt"], "Bảo vệ môi trường sống, tuân thủ quy định khai thác và tránh đánh bắt hủy diệt giúp duy trì nguồn lợi."],
+    ]),
+  ],
+  informatics: [
+    createStarterTopic("grade-9-digital-problem-solving", "Lớp 9 · Giải quyết vấn đề số", "Mô phỏng, kiểm thử và lựa chọn công cụ", ["💻", "✓", "9"], [
+      ["Phần mềm mô phỏng có ích khi nào?", "Khi cần quan sát mô hình của hiện tượng khó thực hiện trực tiếp", ["Khi muốn bỏ qua mọi bằng chứng", "Khi muốn đảm bảo mọi mô hình đều chính xác tuyệt đối", "Khi không cần đặt câu hỏi"], "Mô phỏng giúp thử nghiệm trên mô hình, nhưng kết quả phụ thuộc giả định và giới hạn của mô hình."],
+      ["Trước khi chọn công cụ số để làm bài tập, nên xác định điều gì?", "Mục tiêu, dữ liệu và yêu cầu của bài", ["Chỉ màu biểu tượng", "Chỉ số lượt tải", "Chỉ quảng cáo của công cụ"], "Hiểu yêu cầu giúp chọn công cụ phù hợp, thay vì dùng công cụ nổi tiếng nhưng không đáp ứng nhiệm vụ."],
+      ["Vì sao cần kiểm thử chương trình bằng nhiều trường hợp?", "Để phát hiện lỗi và kiểm tra kết quả trong các tình huống khác nhau", ["Để chứng minh chương trình không thể có lỗi", "Để thay thế việc hiểu bài toán", "Để tránh xem kết quả"], "Một trường hợp chạy đúng chưa bảo đảm mọi trường hợp đều đúng; cần thử dữ liệu điển hình và các trường hợp biên."],
+      ["Khi làm việc nhóm trên tài liệu trực tuyến, cách quản lí quyền nào phù hợp?", "Chỉ cấp quyền cần thiết cho đúng người", ["Cho mọi người trên mạng quyền sửa", "Công khai mọi dữ liệu cá nhân", "Chia sẻ mật khẩu tài khoản"], "Phân quyền phù hợp giúp cộng tác hiệu quả và hạn chế sửa đổi hoặc truy cập ngoài ý muốn."],
+      ["Muốn so sánh doanh thu các tháng, loại biểu đồ nào thường phù hợp?", "Biểu đồ cột", ["Một ảnh trang trí không có dữ liệu", "Chỉ biểu tượng cảm xúc", "Sơ đồ thư mục"], "Biểu đồ cột giúp so sánh giá trị giữa các tháng; biểu đồ đường cũng có thể hữu ích khi nhấn mạnh xu hướng."],
+    ]),
+  ],
+};
+
+for (const [subjectId, topics] of Object.entries(gradeSixTopics)) {
+  for (const topic of topics) topic.level = "LỚP 6";
+  curriculumExtensions[subjectId].push(...topics);
+}
+
+for (const [subjectId, topics] of Object.entries(gradeSevenTopics)) {
+  for (const topic of topics) topic.level = "LỚP 7";
+  curriculumExtensions[subjectId].push(...topics);
+}
+
+for (const [subjectId, topics] of Object.entries(gradeEightTopics)) {
+  for (const topic of topics) topic.level = "LỚP 8";
+  curriculumExtensions[subjectId].push(...topics);
+}
+
+for (const [subjectId, topics] of Object.entries(gradeNineTopics)) {
+  for (const topic of topics) topic.level = "LỚP 9";
+  curriculumExtensions[subjectId].push(...topics);
+}
+
 for (const [subjectId, topics] of Object.entries(curriculumExtensions)) {
   const subject = subjects.find((item) => item.id === subjectId);
   subject.topics.push(...topics);
