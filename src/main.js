@@ -2,6 +2,7 @@ import { matchSets, subjects as starterSubjects } from "./content.js";
 import { ADMIN_CONTENT_KEY, copyCurriculum, exportLearnerCsv, exportLearnerSummaryCsv, loadManagedCurriculum, renderAdmin, renderAdminQuestionCard, slugifyTopic, validateCurriculum } from "./admin.js";
 import { apiRequest, setCsrfToken } from "./api.js";
 import { calculateExperienceReward, getExperienceLevel as calculateExperienceLevel } from "./progress.js";
+import { adjustTextSize, applyTextSize, readTextSize, TEXT_SIZE_KEY, TEXT_SIZE_LEVELS } from "./text-size.js";
 import "./styles.css";
 
 const STORAGE_KEY = "eduquest-progress-v1";
@@ -169,6 +170,7 @@ const state = {
   installAvailable: false,
   installInstalled: false,
   showInstallHelp: false,
+  textSize: readTextSize(localStorage),
   adminNotice: managedCurriculum.invalid ? "Không thể đọc nội dung tùy chỉnh; đã nạp lại nội dung mẫu." : "",
   selectedSubject: "math",
   topicId: "algebra",
@@ -527,6 +529,7 @@ function renderProgress() {
 }
 
 function renderProfile() {
+  const textSizeIndex = TEXT_SIZE_LEVELS.indexOf(state.textSize);
   return `
     <section class="profile-page">
       <div class="profile-page-heading"><p class="section-overline">GÓC NHỎ CỦA BẠN</p><h1>Học theo cách của mình ✨</h1><p>Chỉnh vài lựa chọn để EduQuest đồng hành đúng với bạn hơn.</p></div>
@@ -544,6 +547,14 @@ function renderProfile() {
           <div class="profile-form-heading"><h2>Thông tin học tập</h2><p>Các thay đổi chỉ được lưu trên thiết bị này.</p></div>
           <label class="profile-field" for="display-name"><span>Tên bạn muốn hiển thị</span><input id="display-name" name="displayName" type="text" value="${escapeHtml(state.progress.displayName)}" minlength="2" maxlength="32" autocomplete="nickname" required aria-describedby="display-name-hint" /><small id="display-name-hint">Tên này sẽ xuất hiện trong lời chào và hồ sơ của bạn.</small></label>
           <label class="profile-field" for="grade"><span>Bạn đang học lớp</span><select id="grade" name="grade">${["6", "7", "8", "9", "10", "11", "12"].map((grade) => `<option value="${grade}" ${state.progress.grade === grade ? "selected" : ""}>Lớp ${grade}</option>`).join("")}</select><small>Để chúng mình điều chỉnh nội dung phù hợp hơn trong tương lai.</small></label>
+          <section class="text-size-setting" aria-labelledby="text-size-title">
+            <div><h3 id="text-size-title">Cỡ chữ nội dung</h3><p>Điều chỉnh để đọc thoải mái hơn trên thiết bị này.</p></div>
+            <div class="text-size-controls" role="group" aria-label="Điều chỉnh cỡ chữ">
+              <button class="button button--outline text-size-button" type="button" data-action="text-size" data-direction="-1" aria-label="Giảm cỡ chữ" ${textSizeIndex === 0 ? "disabled" : ""}>A−</button>
+              <output class="text-size-value" aria-live="polite">${Math.round(state.textSize * 100)}%</output>
+              <button class="button button--outline text-size-button" type="button" data-action="text-size" data-direction="1" aria-label="Tăng cỡ chữ" ${textSizeIndex === TEXT_SIZE_LEVELS.length - 1 ? "disabled" : ""}>A+</button>
+            </div>
+          </section>
           <fieldset class="goal-field"><legend>Mục tiêu thử thách mỗi ngày</legend><p>Chọn nhịp học vừa sức với bạn.</p><div class="goal-options">${[1, 2, 3, 4, 5].map((goal) => `<label class="goal-option ${state.progress.dailyGoal === goal ? "is-selected" : ""}"><input type="radio" name="dailyGoal" value="${goal}" ${state.progress.dailyGoal === goal ? "checked" : ""} /><span class="goal-number">${goal}</span><span class="goal-word">bài${goal === 1 ? "" : ""}</span></label>`).join("")}</div></fieldset>
           <div class="profile-form-actions"><button class="button button--primary" type="submit">${icon("check", 16)} Lưu lựa chọn</button><button class="button button--outline" type="button" data-action="home">Để sau</button></div>
         </form>
@@ -693,6 +704,7 @@ function renderResult() {
 }
 
 function render() {
+  applyTextSize(document.documentElement, state.textSize);
   if (state.booting) {
     app.innerHTML = `<main class="auth-screen" aria-live="polite"><div class="auth-card"><div class="brand-mark"><span>e</span><span>q</span></div><p>Đang kết nối không gian học tập…</p></div></main>`;
     return;
@@ -1311,6 +1323,15 @@ app.addEventListener("click", async (event) => {
     state.installAvailable = false;
     state.showInstallHelp = choice.outcome !== "accepted";
     render();
+  } else if (action === "text-size") {
+    const nextSize = adjustTextSize(state.textSize, Number(control.dataset.direction));
+    localStorage.setItem(TEXT_SIZE_KEY, String(nextSize));
+    state.textSize = nextSize;
+    render();
+    const focusedControl = document.querySelector(`[data-action="text-size"][data-direction="${control.dataset.direction}"]`);
+    (focusedControl?.disabled
+      ? document.querySelector('[data-action="text-size"][data-direction="-1"]')
+      : focusedControl)?.focus({ preventScroll: true });
   } else if (action === "auth-mode") {
     state.authMode = control.dataset.mode === "register" ? "register" : "login";
     state.authError = "";

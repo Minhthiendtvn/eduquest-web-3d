@@ -18,6 +18,7 @@
   --orange: #ffb556;
   --surface: #fff;
   --shadow: 0 8px 28px rgba(44, 54, 95, 0.055);
+  --text-scale: 1;
 }
 
 * { box-sizing: border-box; }
@@ -360,6 +361,13 @@ button:disabled { cursor: default; }
 .profile-field input,.profile-field select { width: 100%; min-height: 40px; padding: 0 11px; border: 1px solid #e5e8f0; border-radius: 9px; outline: none; color: #454f68; background: #fff; font: inherit; font-size: 11px; font-weight: 500; }
 .profile-field input:focus,.profile-field select:focus { border-color: #8993eb; box-shadow: 0 0 0 3px #727de51b; }
 .profile-field small { color: #a0a5b3; font-size: 8px; font-weight: 400; line-height: 1.5; }
+.text-size-setting { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 13px 14px; border: 1px solid #eceef4; border-radius: 12px; background: #fbfbff; }
+.text-size-setting h3 { margin: 0; color: #59627b; font-size: 11px; }
+.text-size-setting p { margin: 4px 0 0; color: #9298aa; font-size: 9px; line-height: 1.5; }
+.text-size-controls { display: flex; flex: none; align-items: center; gap: 8px; }
+.text-size-button { min-width: 42px; min-height: 38px; padding: 0 9px; font-size: 15px; }
+.text-size-value { min-width: 43px; color: #626bd0; font-size: 11px; font-weight: 700; text-align: center; }
+.text-size-button:disabled { opacity: .45; }
 .goal-field { min-width: 0; margin: 0; padding: 0; border: 0; }
 .goal-field legend { padding: 0; color: #59627b; font-size: 10px; font-weight: 700; }
 .goal-field > p { margin: 5px 0 9px; color: #9a9faf; font-size: 9px; }
@@ -1153,4 +1161,33 @@ button:disabled { cursor: default; }
   .admin-local-notice,.admin-panel-heading p,.admin-field { font-size: 12px; }
   .admin-field input,.admin-field select,.admin-field textarea { font-size: 13px; }
   .admin-field small { font-size: 11px; }
+}
+
+/* Scale learning content without enlarging decorative labels or controls. */
+.welcome-copy { font-size: calc(12px * var(--text-scale)); }
+.hero-copy > p { font-size: calc(11px * var(--text-scale)); }
+.section-subtitle,.progress-page-heading > div > p:last-child,.profile-page-heading > p:last-child { font-size: calc(11px * var(--text-scale)); }
+.topic-description { font-size: calc(10px * var(--text-scale)); }
+.question-content h1 { font-size: clamp(calc(21px * var(--text-scale)), calc(3vw * var(--text-scale)), calc(26px * var(--text-scale))); }
+.answer-option { font-size: calc(11px * var(--text-scale)); }
+.match-option { font-size: calc(10px * var(--text-scale)); }
+.feedback > div p,.question-footnote,.game-reassurance { font-size: calc(10px * var(--text-scale)); }
+.profile-field,.profile-field input,.profile-field select,.goal-field legend { font-size: calc(10px * var(--text-scale)); }
+.profile-field small,.goal-field > p,.text-size-setting p { font-size: calc(9px * var(--text-scale)); }
+.progress-stat-label,.result-stats strong,.result-review,.review-item { font-size: calc(10px * var(--text-scale)); }
+.text-size-setting h3,.text-size-value { font-size: calc(11px * var(--text-scale)); }
+
+@media (max-width: 620px) {
+  .welcome-copy { font-size: calc(12px * var(--text-scale)); }
+  .topic-description { font-size: calc(11px * var(--text-scale)); }
+  .answer-option { font-size: calc(13px * var(--text-scale)); }
+  .match-option { font-size: calc(12px * var(--text-scale)); }
+  .feedback > div p,.question-footnote,.game-reassurance { font-size: calc(11px * var(--text-scale)); }
+  .profile-field,.profile-field input,.profile-field select,.goal-field legend { font-size: calc(12px * var(--text-scale)); }
+  .profile-field small,.goal-field > p,.text-size-setting p { font-size: calc(11px * var(--text-scale)); }
+  .text-size-setting { align-items: flex-start; padding: 12px; }
+}
+
+@media (max-width: 370px) {
+  .answer-option { font-size: calc(9px * var(--text-scale)); }
 }

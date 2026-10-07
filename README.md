@@ -9,7 +9,8 @@ administrator workspace for managing classes, learner accounts, and curriculum.
 
 - **Quick demo / GitHub Pages:** the Vite build is a static demo. Progress and
   curriculum edits stay in that browser's local storage; it has no real
-  accounts, shared data, or secure administration.
+  accounts, shared data, or secure administration. Learners can adjust content
+  text size from **Hồ sơ**; that preference is saved separately on the device.
 - **Self-hosted app:** run the Node API and PostgreSQL using Docker Compose.
   Learner accounts, curriculum, and progress are stored in the database and
   shared across devices. The Docker build requires the API; it will show an
