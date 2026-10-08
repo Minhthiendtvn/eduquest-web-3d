@@ -168,9 +168,10 @@ database creates the initial administrator on first startup.
 
 - `src/content.js` contains the starter subjects, topics, questions, answers,
   explanations, and matching pairs.
-- `src/library-content.js` and `src/library-more/` contain 588 independently
-  authored introductory reading lessons: six per existing subject for every
-  grade from 6 through 12 (84 lessons per grade).
+- `src/library-content.js` and `src/library-more/` contain 756 independently
+  authored introductory reading lessons: nine per existing subject for grades 6
+  through 9 (126 lessons per grade) and six per subject for grades 10 through 12
+  (84 lessons per grade).
   Each lesson has core knowledge, an example, and a reflection task.
 - `src/library.js` renders **Không gian học tập → Thư viện**, with grade/subject
   filters, accent-insensitive search, reading view, and links to subject practice.

@@ -5,8 +5,8 @@ import { libraryLessons } from "../src/library-content.js";
 import { filterLibraryLessons, renderLibrary } from "../src/library.js";
 
 test("library covers all fourteen subjects for grades 6 through 12", () => {
-  assert.equal(libraryLessons.length, 588);
-  assert.equal(new Set(libraryLessons.map((lesson) => lesson.id)).size, 588);
+  assert.equal(libraryLessons.length, 756);
+  assert.equal(new Set(libraryLessons.map((lesson) => lesson.id)).size, 756);
   for (const grade of [6, 7, 8, 9, 10, 11, 12]) {
     assert.deepEqual(
       [...new Set(filterLibraryLessons({ grade, subjects }).map((lesson) => lesson.subjectId))],
@@ -21,20 +21,21 @@ test("library covers all fourteen subjects for grades 6 through 12", () => {
 });
 
 test("library filters by grade, subject, and accent-insensitive text", () => {
-  assert.equal(filterLibraryLessons({ grade: "6", subjectId: "math", subjects }).length, 6);
+  assert.equal(filterLibraryLessons({ grade: "6", subjectId: "math", subjects }).length, 9);
   assert.equal(filterLibraryLessons({ grade: 6, query: "SO NGUYEN", subjects })[0].subjectId, "math");
   assert.equal(filterLibraryLessons({ grade: 10, query: "khong-ton-tai", subjects }).length, 0);
   assert.equal(filterLibraryLessons({ grade: 6, subjects: [] }).length, 0);
-  assert.equal(filterLibraryLessons({ grade: 6, subjects: subjects.slice(0, 1) }).length, 6);
+  assert.equal(filterLibraryLessons({ grade: 6, subjects: subjects.slice(0, 1) }).length, 9);
 });
 
-test("grade 6 through 12 have six distinct lessons per subject", () => {
+test("grades 6 through 12 have the expected distinct lessons per subject", () => {
   for (const grade of [6, 7, 8, 9, 10, 11, 12]) {
-    assert.equal(filterLibraryLessons({ grade, subjects }).length, 84);
+    const expectedPerSubject = grade <= 9 ? 9 : 6;
+    assert.equal(filterLibraryLessons({ grade, subjects }).length, expectedPerSubject * 14);
     for (const subject of subjects) {
       const lessons = filterLibraryLessons({ grade, subjectId: subject.id, subjects });
-      assert.equal(lessons.length, 6, `${grade} ${subject.id}`);
-      assert.equal(new Set(lessons.map((lesson) => lesson.title)).size, 6, `${grade} ${subject.id}`);
+      assert.equal(lessons.length, expectedPerSubject, `${grade} ${subject.id}`);
+      assert.equal(new Set(lessons.map((lesson) => lesson.title)).size, expectedPerSubject, `${grade} ${subject.id}`);
     }
   }
   assert.equal(
@@ -61,7 +62,7 @@ test("grade 7 new lessons support search, reading and reference labels", () => {
   assert.ok(reading.includes('data-subject="science"'));
   assert.ok(renderLibrary({
     subjects, grade: 7, subjectId: "", query: "", lessonId: "",
-  }).includes("84 bài học phù hợp"));
+  }).includes("126 bài học phù hợp"));
 });
 
 test("grade 8 additions can be searched and opened for reading", () => {
@@ -76,7 +77,7 @@ test("grade 8 additions can be searched and opened for reading", () => {
   assert.ok(reading.includes('data-subject="science"'));
   assert.ok(renderLibrary({
     subjects, grade: 8, subjectId: "", query: "", lessonId: "",
-  }).includes("84 bài học phù hợp"));
+  }).includes("126 bài học phù hợp"));
 });
 
 test("grade 9 additions support search and reading across existing subjects", () => {
@@ -91,7 +92,7 @@ test("grade 9 additions support search and reading across existing subjects", ()
   assert.ok(reading.includes('data-subject="science"'));
   assert.ok(renderLibrary({
     subjects, grade: 9, subjectId: "", query: "", lessonId: "",
-  }).includes("84 bài học phù hợp"));
+  }).includes("126 bài học phù hợp"));
 });
 
 test("grade 10 additions support search, reading, and elective reference labels", () => {
@@ -185,7 +186,7 @@ test("expanded lessons support search, reading, and reference labels", () => {
 test("library renders reading, empty results, and safe user text", () => {
   const options = { subjects, grade: 6, subjectId: "", query: "", lessonId: "" };
   const catalogue = renderLibrary(options);
-  assert.ok(catalogue.includes("84 bài học phù hợp"));
+  assert.ok(catalogue.includes("126 bài học phù hợp"));
   const reading = renderLibrary({ ...options, lessonId: "library-math-6" });
   assert.ok(reading.includes("Kiến thức trọng tâm"));
   assert.ok(reading.includes("Ví dụ / Liên hệ"));
