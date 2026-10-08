@@ -4,7 +4,7 @@ export function setCsrfToken(token) {
   csrfToken = typeof token === "string" ? token : "";
 }
 
-export async function apiRequest(path, { method = "GET", body, csrf = false } = {}) {
+export async function apiRequest(path, { method = "GET", body, csrf = false, signal } = {}) {
   const headers = new Headers();
   if (body !== undefined) headers.set("Content-Type", "application/json");
   if (csrf) {
@@ -13,6 +13,7 @@ export async function apiRequest(path, { method = "GET", body, csrf = false } = 
   }
   const response = await fetch(`/api${path}`, {
     method,
+    signal,
     headers,
     credentials: "same-origin",
     cache: "no-store",

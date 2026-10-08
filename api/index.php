@@ -777,6 +777,13 @@ try {
 
     $session = currentSession();
 
+    if ($method === 'POST' && $path === '/app/tutor') {
+        $session = requireAuthentication($session);
+        requireCsrf($session, $body);
+        require_once __DIR__ . '/tutor.php';
+        handleTutor($body, $session);
+    }
+
     if ($method === 'GET' && $path === '/app') {
         respond(200, getAppData(requireAuthentication($session)));
     }

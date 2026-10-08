@@ -11,6 +11,7 @@ import { buildChallenge, buildReviewChallenge, evaluateChallenge } from "./chall
 import { shapeLearnerCurriculum } from "./curriculum.js";
 import { normalizeRegistrationInput, validDisplayName, validPassword, validUsername } from "./registration.js";
 import { calculateExperienceReward } from "../src/progress.js";
+import { callClaude, reserveTutorQuota, tutorSettings, validateTutorInput, TutorError } from "./tutor.js";
 import { validateCurriculum } from "../src/admin.js";
 import {
   MAX_LIBRARY_OVERRIDES,
@@ -387,6 +388,27 @@ app.patch("/api/app/profile", attachSession, requireAuthentication, requireCsrf,
     [request.session.user_id, displayName, grade, dailyGoal],
   );
   response.json({ user: shapeUser(result.rows[0]) });
+}));
+
+const tutorLimiter = rateLimit({ windowMs: 60_000, limit: 5, standardHeaders: "draft-8", legacyHeaders: false,
+  keyGenerator: (request) => request.session.user_id,
+  message: { error: "Hãy chờ một phút trước khi hỏi AI Tutor tiếp nhé." } });
+
+app.post("/api/app/tutor", attachSession, requireAuthentication, requireCsrf, tutorLimiter, asyncRoute(async (request, response) => {
+  try {
+    const input = validateTutorInput(request.body);
+    const settings = tutorSettings();
+    if (!process.env.ANTHROPIC_API_KEY) throw new TutorError(503, "AI Tutor chưa được bật. Hãy liên hệ quản trị viên.");
+    const curriculum = await pool.query("SELECT content FROM app_curriculum WHERE id = 1");
+    const subject = curriculum.rows[0]?.content.find((item) => item.id === input.subjectId);
+    const topic = subject?.topics.find((item) => item.id === input.topicId);
+    if (!topic) throw new TutorError(404, "Không tìm thấy chủ đề học tập.");
+    await reserveTutorQuota(pool, request.session.user_id, formatDate(new Date()), settings.dailyLimit);
+    response.json(await callClaude(input, { grade: request.session.grade, subject, topic }));
+  } catch (error) {
+    if (error instanceof TutorError) { response.status(error.status).json({ error: error.message }); return; }
+    throw error;
+  }
 }));
 
 app.post("/api/app/challenges", attachSession, requireAuthentication, requireCsrf, challengeCreationLimiter, asyncRoute(async (request, response) => {

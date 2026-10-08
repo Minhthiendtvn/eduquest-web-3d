@@ -164,6 +164,57 @@ variables from `.env.example`, then run `npm run dev:api` in one terminal and
 `npm run dev` in another. Vite proxies `/api` to port 8787 by default. The
 database creates the initial administrator on first startup.
 
+## Claude AI Tutor (Node and PHP hosting)
+
+The learner sidebar now includes **AI Tutor**. It sends one independent question
+to `POST /api/app/tutor` with `{ subjectId, topicId, question }`. Both backends
+require an authenticated account and the existing CSRF token. The server reads
+the learner's grade and the selected subject/topic from the database. Answers
+are rendered as escaped plain text; AI output never becomes executable HTML.
+The static demo cannot make paid Claude calls.
+
+Copy `.env.example` to `.env` locally and enter `ANTHROPIC_API_KEY` there yourself.
+Do not send the key in chat or commit it. `.env` and `.env.*` are ignored by Git
+and Docker. Never use `VITE_ANTHROPIC_API_KEY`: Vite variables are public.
+The Node start/development scripts load `.env` (Node 22 recommended).
+Docker Compose passes Claude settings only to the runtime server, not the build.
+Configure PostgreSQL and the existing admin settings, run `npm run dev:api` and
+`npm run dev`, then sign in and open **AI Tutor**.
+
+For Node hosting, set `ANTHROPIC_API_KEY` in the hosting service's server
+environment and restart the app. For cPanel/PHP, upload the updated `api/`
+directory including `tutor.php`, rebuild/upload the API-required frontend as in
+the cPanel guide, and enable PHP cURL with outbound HTTPS to `api.anthropic.com`.
+Ask the hosting provider to inject `ANTHROPIC_API_KEY` into the PHP worker
+environment (and other settings below as needed). PHP reads these with `getenv()`;
+uploading a `.env` into `public_html` does **not** configure PHP. Keep all secrets
+outside the web root. No secret is needed during frontend build or installation.
+
+Default model: `claude-haiku-4-5-20251001`, configurable through
+`ANTHROPIC_MODEL`. See the [official Claude API primer](https://platform.claude.com/docs/en/claude_api_primer)
+and [Messages API](https://platform.claude.com/docs/en/api/http/messages).
+Set `AI_TUTOR_MAX_TOKENS` (128–4096, default 1024), `AI_TUTOR_TIMEOUT_MS`
+(1000–60000, default 30000), and `AI_TUTOR_DAILY_LIMIT` (1–1000, default 20).
+There are also 5 requests/minute/account. Daily quotas persist in PostgreSQL
+(`app_tutor_quotas`, created on server startup) or the existing MySQL
+`app_rate_limits` table. Quota is reserved before calling Claude; failed attempts
+consume a slot to prevent repeated costly retries. Node's minute limiter is
+per process; deploy one Node instance or add a shared limiter for multiple replicas.
+These account limits do not replace an account-wide spending limit in Anthropic.
+
+Usage logs contain only model, input/output token counts and optional estimated
+USD cost. Set both `ANTHROPIC_INPUT_USD_PER_MILLION` and
+`ANTHROPIC_OUTPUT_USD_PER_MILLION` to the current prices for your chosen model;
+otherwise cost is `null`. Estimates are not invoices. Prompts, answers, personal
+data, provider errors and keys are never included in tutor logs.
+
+Test: log in, select a subject/topic and ask a short learning question. Confirm
+a Vietnamese explanation appears and token usage appears in server logs. Check
+missing key (503), signed-out request (401), invalid CSRF (403), empty/oversized
+question (400), unknown topic (404), quota exhaustion (429), and timeout/provider
+failure (504/502). Do not paste a key into browser tools or commands. Automated
+tests mock Claude and do not use a real key or incur API charges.
+
 ## Project structure and extending content
 
 - `src/content.js` contains the starter subjects, topics, questions, answers,

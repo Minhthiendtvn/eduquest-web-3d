@@ -58,6 +58,12 @@ const schema = `
     created_at timestamptz NOT NULL DEFAULT now()
   );
   CREATE INDEX IF NOT EXISTS app_sessions_expiry_idx ON app_sessions(expires_at);
+  CREATE TABLE IF NOT EXISTS app_tutor_quotas (
+    user_id text NOT NULL REFERENCES app_users(id) ON DELETE CASCADE,
+    usage_day date NOT NULL,
+    request_count integer NOT NULL CHECK (request_count > 0),
+    PRIMARY KEY (user_id, usage_day)
+  );
   CREATE TABLE IF NOT EXISTS app_curriculum (
     id smallint PRIMARY KEY CHECK (id = 1),
     content jsonb NOT NULL,

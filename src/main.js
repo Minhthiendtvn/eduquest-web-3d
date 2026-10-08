@@ -1,4 +1,5 @@
 import { matchSets, subjects as starterSubjects } from "./content.js";
+import { renderTutor } from "./tutor.js";
 import { ADMIN_CONTENT_KEY, copyCurriculum, exportLearnerCsv, exportLearnerSummaryCsv, loadManagedCurriculum, renderAdmin, renderAdminQuestionCard, slugifyTopic, validateCurriculum } from "./admin.js";
 import { apiRequest, setCsrfToken } from "./api.js";
 import { calculateExperienceReward, getExperienceLevel as calculateExperienceLevel } from "./progress.js";
@@ -157,6 +158,7 @@ function getCurrentStreak() {
 }
 
 const state = {
+  tutor: { subjectId: "", topicId: "", question: "", answer: "", error: "", busy: false, truncated: false },
   screen: "home",
   libraryGrade: "",
   librarySubjectId: "",
@@ -272,6 +274,7 @@ function renderSidebar() {
       </a>
       <div class="sidebar-label">KHÔNG GIAN HỌC TẬP</div>
       <nav class="side-nav">
+        <button class="nav-link ${state.screen === "tutor" ? "is-active" : ""}" type="button" data-action="tutor">${icon("sparkles")}<span>AI Tutor</span></button>
         <a class="nav-link ${state.screen === "home" ? "is-active" : ""}" href="#home" data-action="home" aria-label="Trang chủ">
           ${icon("home")}<span>Trang chủ</span>
         </a>
@@ -311,7 +314,7 @@ function renderTopbar() {
   const streak = getCurrentStreak();
   return `
     <header class="topbar">
-      <div class="breadcrumb"><span>Không gian học tập</span>${icon("chevron", 14)}<strong>${state.screen === "library" ? "Thư viện học tập" : state.screen === "play" ? "Thử thách" : state.screen === "result" ? "Kết quả" : state.screen === "progress" ? "Tiến độ của bạn" : state.screen === "profile" ? "Hồ sơ học tập" : state.screen === "admin" ? "Quản trị" : "Trang chủ"}</strong></div>
+      <div class="breadcrumb"><span>Không gian học tập</span>${icon("chevron", 14)}<strong>${state.screen === "tutor" ? "AI Tutor" : state.screen === "library" ? "Thư viện học tập" : state.screen === "play" ? "Thử thách" : state.screen === "result" ? "Kết quả" : state.screen === "progress" ? "Tiến độ của bạn" : state.screen === "profile" ? "Hồ sơ học tập" : state.screen === "admin" ? "Quản trị" : "Trang chủ"}</strong></div>
       <div class="topbar-actions">
         <div class="streak-pill" aria-label="Chuỗi ${streak} ngày học liên tiếp">
           <span aria-hidden="true">🔥</span><strong>${streak}</strong><span>${streak === 1 ? "ngày" : "ngày liên tiếp"}</span>
@@ -730,7 +733,9 @@ function render() {
     app.innerHTML = `<main class="auth-screen"><section class="auth-card"><div class="brand-mark"><span>e</span><span>q</span></div><p class="section-overline">KHÔNG KẾT NỐI ĐƯỢC</p><h1>EduQuest chưa thể tải dữ liệu</h1><p>${escapeHtml(state.authError || "Hãy thử tải lại trang sau.")}</p><button class="button button--primary" type="button" data-action="retry-connection">Thử kết nối lại</button></section></main>`;
     return;
   }
-  const screen = state.screen === "library"
+  const screen = state.screen === "tutor"
+    ? renderTutor({ subjects, tutor: state.tutor, grade: state.currentUser?.grade ?? state.progress.grade, available: apiMode && !!state.currentUser })
+    : state.screen === "library"
     ? renderLibrary({
       subjects,
       grade: state.libraryGrade || state.progress.grade,
@@ -1367,6 +1372,7 @@ async function initializeApplication() {
 window.addEventListener("eduquest:session-expired", async () => {
   if (!apiMode) return;
   state.currentUser = null;
+  state.tutor = { subjectId: "", topicId: "", question: "", answer: "", error: "", busy: false, truncated: false };
   state.authError = "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.";
   try {
     const session = await apiRequest("/auth/session");
@@ -1383,6 +1389,15 @@ app.addEventListener("click", async (event) => {
   const control = event.target.closest("[data-action]");
   if (!control) return;
   const { action } = control.dataset;
+
+  if (action === "tutor") {
+    state.screen = "tutor";
+    state.notice = "";
+    render();
+    scrollToTop();
+    document.querySelector("#tutor-title")?.focus({ preventScroll: true });
+    return;
+  }
 
   if (action === "library" || action === "library-back" || action === "library-reset" || action === "library-lesson") {
     state.screen = "library";
@@ -1440,6 +1455,7 @@ app.addEventListener("click", async (event) => {
       state.registrationEnabled = session.registrationEnabled !== false;
       state.currentUser = null;
       state.authError = "";
+      state.tutor = { subjectId: "", topicId: "", question: "", answer: "", error: "", busy: false, truncated: false };
       state.screen = "login";
     } catch (error) {
       state.authError = error.message;
@@ -1728,6 +1744,14 @@ app.addEventListener("click", async (event) => {
 });
 
 app.addEventListener("change", async (event) => {
+  if (event.target.id === "tutor-subject") {
+    state.tutor.subjectId = event.target.value;
+    state.tutor.topicId = subjects.find((subject) => subject.id === event.target.value)?.topics[0]?.id ?? "";
+    render();
+    document.querySelector("#tutor-subject")?.focus();
+    return;
+  }
+  if (event.target.id === "tutor-topic") { state.tutor.topicId = event.target.value; return; }
   if (event.target.matches("#library-grade, #library-subject")) {
     const form = document.querySelector("#library-filter-form");
     const data = new FormData(form);
@@ -1892,6 +1916,7 @@ app.addEventListener("change", async (event) => {
 });
 
 app.addEventListener("input", (event) => {
+  if (event.target.id === "tutor-question") state.tutor.question = event.target.value;
   if (event.target.id === "display-name") event.target.setCustomValidity("");
   if (event.target.matches('#admin-topic-form [name="answer"]')) {
     const card = event.target.closest(".admin-question-card");
@@ -1902,6 +1927,34 @@ app.addEventListener("input", (event) => {
 });
 
 app.addEventListener("submit", async (event) => {
+  if (event.target.id === "tutor-form") {
+    event.preventDefault();
+    if (!apiMode || !state.currentUser || state.tutor.busy) return;
+    const data = new FormData(event.target);
+    const tutor = state.tutor;
+    const userId = state.currentUser.id;
+    tutor.subjectId = String(data.get("subjectId"));
+    tutor.topicId = String(data.get("topicId"));
+    tutor.question = String(data.get("question")).trim();
+    tutor.error = "";
+    tutor.answer = "";
+    tutor.busy = true;
+    render();
+    try {
+      const result = await apiRequest("/app/tutor", { method: "POST", csrf: true,
+        signal: AbortSignal.timeout(65000), body: { subjectId: tutor.subjectId, topicId: tutor.topicId, question: tutor.question } });
+      if (state.currentUser?.id === userId && state.tutor === tutor) {
+        tutor.answer = result.answer;
+        tutor.truncated = result.truncated;
+      }
+    } catch (error) {
+      if (state.currentUser?.id === userId && state.tutor === tutor) tutor.error = error.name === "TimeoutError" ? "Đã hết thời gian chờ. Hãy thử lại sau." : error.message;
+    } finally {
+      tutor.busy = false;
+      render();
+    }
+    return;
+  }
   if (event.target.id === "library-filter-form") {
     event.preventDefault();
     const data = new FormData(event.target);

@@ -1,0 +1,27 @@
+name: EduQuest checks
+on:
+  push:
+    branches: [main, minhthiendtvn-eduquest-3d-prototype]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: npm run build
+        env:
+          VITE_REQUIRE_API: "true"
+      - name: Check PHP syntax
+        run: |
+          for file in api/*.php database/*.php installer/*.php; do
+            php -l "$file" || exit 1
+          done

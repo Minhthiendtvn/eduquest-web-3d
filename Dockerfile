@@ -5,6 +5,8 @@ RUN npm ci
 COPY index.html vite.config.js ./
 COPY src ./src
 COPY public ./public
+COPY installer ./installer
+COPY database ./database
 RUN VITE_REQUIRE_API=true npm run build
 
 FROM node:22-alpine AS runtime
