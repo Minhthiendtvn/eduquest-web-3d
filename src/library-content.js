@@ -1,3 +1,11 @@
+import { gradeSixMoreLessons } from "./library-more/grade-6.js";
+import { gradeSevenMoreLessons } from "./library-more/grade-7.js";
+import { gradeEightMoreLessons } from "./library-more/grade-8.js";
+import { gradeNineMoreLessons } from "./library-more/grade-9.js";
+import { gradeTenMoreLessons } from "./library-more/grade-10.js";
+import { gradeElevenMoreLessons } from "./library-more/grade-11.js";
+import { gradeTwelveMoreLessons } from "./library-more/grade-12.js";
+
 const lessonOutlines = {
   math: [
     ["Số nguyên và tính chia hết", "Số nguyên gồm số âm, số 0 và số dương. Trên trục số, số nằm bên phải lớn hơn. Số chia hết cho 2 có chữ số cuối chẵn; chia hết cho 5 có chữ số cuối 0 hoặc 5.", "−3 < 2. Số 120 chia hết cho cả 2 và 5.", "So sánh −5 và −2, rồi giải thích bằng trục số."],
@@ -643,4 +651,31 @@ libraryLessons.push(...Object.entries(gradeTwelveExtensions).flatMap(([subjectId
     reflection,
     referenceOnly: ["music", "visual-arts", "civics"].includes(subjectId),
   })),
+));
+
+const moreLessonsByGrade = {
+  6: gradeSixMoreLessons,
+  7: gradeSevenMoreLessons,
+  8: gradeEightMoreLessons,
+  9: gradeNineMoreLessons,
+  10: gradeTenMoreLessons,
+  11: gradeElevenMoreLessons,
+  12: gradeTwelveMoreLessons,
+};
+
+libraryLessons.push(...Object.entries(moreLessonsByGrade).flatMap(([grade, subjectsLessons]) =>
+  Object.entries(subjectsLessons).flatMap(([subjectId, lessons]) =>
+    lessons.map(([slug, title, knowledge, example, reflection]) => ({
+      id: `library-${subjectId}-${grade}-${slug}`,
+      subjectId,
+      grade: Number(grade),
+      title,
+      knowledge,
+      example,
+      reflection,
+      referenceOnly: Number(grade) < 10
+        ? subjectId === "national-defense"
+        : ["music", "visual-arts", "civics"].includes(subjectId),
+    })),
+  ),
 ));
