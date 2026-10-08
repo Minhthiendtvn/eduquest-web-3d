@@ -168,10 +168,9 @@ database creates the initial administrator on first startup.
 
 - `src/content.js` contains the starter subjects, topics, questions, answers,
   explanations, and matching pairs.
-- `src/library-content.js` and `src/library-more/` contain 756 independently
-  authored introductory reading lessons: nine per existing subject for grades 6
-  through 9 (126 lessons per grade) and six per subject for grades 10 through 12
-  (84 lessons per grade).
+- `src/library-content.js` and `src/library-more/` contain 882 independently
+  authored introductory reading lessons: nine per existing subject for every
+  grade from 6 through 12 (126 lessons per grade).
   Each lesson has core knowledge, an example, and a reflection task.
 - `src/library.js` renders **Không gian học tập → Thư viện**, with grade/subject
   filters, accent-insensitive search, reading view, and links to subject practice.
@@ -210,12 +209,12 @@ Science groups Physics, Chemistry, and Biology; Civics includes introductory
 Economics and Law at THPT. Match the material to classroom requirements with
 a teacher before using it as a formal course.
 
-The starter catalogue now has 298 playable topics across 14 subject areas,
+The starter catalogue now has 424 playable topics across 14 subject areas,
 including three additional topics per subject compared with the initial
 catalogue; Mathematics and Science have six topics each, while the other
 subjects have four before the grade-specific additions. Every topic has an original
-five-question quiz and matching game (1,490 questions in total).
-Grades 6–9 each have 52 labelled topics (260 questions) across all 14 subjects:
+five-question quiz and matching game (2,120 questions in total).
+Grades 6–12 each have 52 labelled topics (260 questions) across all 14 subjects:
 the original ten per grade plus 42 new practice topics (three per subject) that
 mirror the supplementary library lessons added for those grades. Ten additional topics labelled **Lớp 6**
 provide 50 questions across Mathematics (natural numbers, integers, geometry),

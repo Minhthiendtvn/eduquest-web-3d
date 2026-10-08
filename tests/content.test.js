@@ -71,7 +71,7 @@ test("covers the core subjects offered to secondary students", () => {
 
 test("adds a playable starter topic to every subject", () => {
   const topics = subjects.flatMap((subject) => subject.topics);
-  assert.equal(topics.length, 298);
+  assert.equal(topics.length, 424);
   for (const topicId of addedTopicIds) {
     assert.ok(topics.some((topic) => topic.id === topicId), `${topicId} exists`);
   }
@@ -94,7 +94,7 @@ const allSubjectIds = [
   "career-experience",
 ];
 
-for (const grade of [6, 7, 8, 9]) {
+for (const grade of [6, 7, 8, 9, 10, 11, 12]) {
   test(`grade ${grade} has 52 clearly labelled topics and 260 original questions`, () => {
     const topics = subjects.flatMap((subject) => subject.topics)
       .filter((topic) => topic.id.startsWith(`grade-${grade}-`));
@@ -108,24 +108,6 @@ for (const grade of [6, 7, 8, 9]) {
       subjects.filter((subject) => subject.topics.some((topic) => topic.id.startsWith(`grade-${grade}-`)))
         .map((subject) => subject.id),
       allSubjectIds,
-    );
-  });
-}
-
-for (const grade of [10, 11, 12]) {
-  test(`grade ${grade} has ten clearly labelled topics and fifty original questions`, () => {
-    const topics = subjects.flatMap((subject) => subject.topics)
-      .filter((topic) => topic.id.startsWith(`grade-${grade}-`));
-    assert.equal(topics.length, 10);
-    assert.equal(topics.reduce((total, topic) => total + topic.questions.length, 0), 50);
-    for (const topic of topics) {
-      assert.equal(topic.level, `LỚP ${grade}`);
-      assert.ok(topic.title.startsWith(`Lớp ${grade} · `));
-    }
-    assert.deepEqual(
-      subjects.filter((subject) => subject.topics.some((topic) => topic.id.startsWith(`grade-${grade}-`)))
-        .map((subject) => subject.id),
-      ["math", "science", "literature", "english", "history", "geography", "informatics"],
     );
   });
 }

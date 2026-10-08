@@ -5,8 +5,8 @@ import { libraryLessons } from "../src/library-content.js";
 import { filterLibraryLessons, renderLibrary } from "../src/library.js";
 
 test("library covers all fourteen subjects for grades 6 through 12", () => {
-  assert.equal(libraryLessons.length, 756);
-  assert.equal(new Set(libraryLessons.map((lesson) => lesson.id)).size, 756);
+  assert.equal(libraryLessons.length, 882);
+  assert.equal(new Set(libraryLessons.map((lesson) => lesson.id)).size, 882);
   for (const grade of [6, 7, 8, 9, 10, 11, 12]) {
     assert.deepEqual(
       [...new Set(filterLibraryLessons({ grade, subjects }).map((lesson) => lesson.subjectId))],
@@ -30,7 +30,7 @@ test("library filters by grade, subject, and accent-insensitive text", () => {
 
 test("grades 6 through 12 have the expected distinct lessons per subject", () => {
   for (const grade of [6, 7, 8, 9, 10, 11, 12]) {
-    const expectedPerSubject = grade <= 9 ? 9 : 6;
+    const expectedPerSubject = 9;
     assert.equal(filterLibraryLessons({ grade, subjects }).length, expectedPerSubject * 14);
     for (const subject of subjects) {
       const lessons = filterLibraryLessons({ grade, subjectId: subject.id, subjects });
@@ -109,7 +109,7 @@ test("grade 10 additions support search, reading, and elective reference labels"
   assert.ok(reading.includes('data-subject="science"'));
   assert.ok(renderLibrary({
     subjects, grade: 10, subjectId: "", query: "", lessonId: "",
-  }).includes("84 bài học phù hợp"));
+  }).includes("126 bài học phù hợp"));
   assert.ok(renderLibrary({
     subjects, grade: 10, subjectId: "civics", query: "", lessonId: "library-civics-10-market-mechanism",
   }).includes("không khẳng định thuộc môn học chính khóa ở lớp này"));
@@ -129,7 +129,7 @@ test("grade 11 additions support search, reading, and elective reference labels"
   assert.ok(reading.includes('data-subject="informatics"'));
   assert.ok(renderLibrary({
     subjects, grade: 11, subjectId: "", query: "", lessonId: "",
-  }).includes("84 bài học phù hợp"));
+  }).includes("126 bài học phù hợp"));
   assert.ok(renderLibrary({
     subjects, grade: 11, subjectId: "music", query: "", lessonId: "library-music-11-harmony-melody",
   }).includes("không khẳng định thuộc môn học chính khóa ở lớp này"));
@@ -149,7 +149,7 @@ test("grade 12 additions support search, reading, and elective reference labels"
   assert.ok(reading.includes('data-subject="informatics"'));
   assert.ok(renderLibrary({
     subjects, grade: 12, subjectId: "", query: "", lessonId: "",
-  }).includes("84 bài học phù hợp"));
+  }).includes("126 bài học phù hợp"));
   assert.ok(renderLibrary({
     subjects, grade: 12, subjectId: "visual-arts", query: "", lessonId: "library-visual-arts-12-accessible-design",
   }).includes("không khẳng định thuộc môn học chính khóa ở lớp này"));

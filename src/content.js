@@ -2766,6 +2766,1001 @@ for (const [subjectId, topics] of Object.entries(gradeNineExtraPractice)) {
   curriculumExtensions[subjectId].push(...topics);
 }
 
+
+// --- Extra practice topics for grades 10-12 (126 topics, 630 questions) ---
+const gradeTenExtraPractice = {
+  math: [
+    createStarterTopic("grade-10-vector-operations", "Lớp 10 · Phép toán vectơ", "Cộng, trừ vectơ và nhân vectơ với một số", ["10", "→", "∑"], [
+      ["Vectơ có đặc điểm nào?", "Có hướng và độ dài", ["Chỉ có độ dài", "Chỉ có hướng", "Không có hướng"], "Vectơ là đoạn thẳng có hướng, đặc trưng bởi hướng và độ dài."],
+      ["Tổng của hai vectơ cùng hướng được tính thế nào?", "Cộng độ dài, giữ nguyên hướng", ["Trừ độ dài", "Nhân độ dài", "Đổi hướng"], "Hai vectơ cùng hướng thì vectơ tổng có độ dài bằng tổng độ dài và cùng hướng."],
+      ["Nhân vectơ a với số −2 thì vectơ mới thế nào?", "Dài gấp đôi và ngược hướng", ["Dài gấp đôi, cùng hướng", "Ngắn đi một nửa", "Không đổi"], "Nhân với số âm thì đổi hướng; |−2| = 2 nên độ dài gấp đôi."],
+      ["Hiệu a − b bằng gì?", "a + (−b)", ["b − a", "a + b", "−a − b"], "Trừ vectơ b nghĩa là cộng với vectơ đối của b."],
+      ["Hợp lực của lực 3 N hướng đông và lực 4 N hướng bắc là bao nhiêu?", "5 N", ["7 N", "1 N", "12 N"], "Hai lực vuông góc nên độ lớn hợp lực = √(3² + 4²) = 5 N."],
+    ]),
+    createStarterTopic("grade-10-inequalities", "Lớp 10 · Bất đẳng thức", "Biến đổi bất đẳng thức và bất đẳng thức Cô-si", ["10", "≥", "≤"], [
+      ["Nhân cả hai vế của bất đẳng thức với −3 thì sao?", "Đổi chiều bất đẳng thức", ["Giữ nguyên chiều", "Bất đẳng thức vô nghiệm", "Thành đẳng thức"], "Nhân hoặc chia cả hai vế với số âm thì phải đổi chiều bất đẳng thức."],
+      ["Nghiệm của bất phương trình 2x − 3 < 7 là gì?", "x < 5", ["x > 5", "x < 2", "x > 2"], "Chuyển vế: 2x < 10 nên x < 5."],
+      ["|x| < 3 tương đương với điều gì?", "−3 < x < 3", ["x < −3 hoặc x > 3", "x > 3", "x < 3"], "Giá trị tuyệt đối nhỏ hơn 3 nghĩa là x nằm giữa −3 và 3."],
+      ["Bất đẳng thức Cô-si cho a, b ≥ 0 phát biểu thế nào?", "a + b ≥ 2√(ab)", ["a + b ≤ √(ab)", "ab ≥ 2(a + b)", "a − b ≥ 2√(ab)"], "Với a, b ≥ 0: a + b ≥ 2√(ab), dấu bằng xảy ra khi a = b."],
+      ["Cộng cùng một số vào hai vế của bất đẳng thức thì sao?", "Không đổi chiều", ["Đổi chiều", "Mất nghiệm", "Thành đẳng thức"], "Cộng hoặc trừ cùng một số vào hai vế không làm đổi chiều bất đẳng thức."],
+    ]),
+    createStarterTopic("grade-10-probability-basics", "Lớp 10 · Xác suất cơ bản", "Định nghĩa cổ điển và tính chất của xác suất", ["10", "🎲", "%"], [
+      ["Gieo một xúc xắc cân đối, xác suất ra mặt 6 chấm là bao nhiêu?", "1/6", ["1/3", "1/2", "1"], "Có 1 kết quả thuận lợi trong 6 kết quả đồng khả năng."],
+      ["Xác suất của biến cố chắc chắn bằng bao nhiêu?", "1", ["0", "1/2", "Không xác định"], "Biến cố chắc chắn luôn xảy ra nên có xác suất bằng 1."],
+      ["Rút ngẫu nhiên một lá từ bộ bài 52 lá, xác suất được lá Át là bao nhiêu?", "1/13", ["1/52", "1/4", "4/13"], "Có 4 lá Át trong 52 lá: 4/52 = 1/13."],
+      ["Hai biến cố xung khắc là hai biến cố thế nào?", "Không thể cùng xảy ra", ["Luôn cùng xảy ra", "Độc lập với nhau", "Có xác suất bằng nhau"], "Xung khắc nghĩa là không thể đồng thời xảy ra trong một phép thử."],
+      ["Tung một đồng xu 3 lần, xác suất cả 3 lần đều ra ngửa là bao nhiêu?", "1/8", ["1/6", "1/4", "3/8"], "Mỗi lần xác suất ngửa là 1/2; ba lần độc lập: (1/2)³ = 1/8."],
+    ]),
+  ],
+  science: [
+    createStarterTopic("grade-10-waves-intro", "Lớp 10 · Sóng cơ bản", "Sóng ngang, sóng dọc và công thức v = λf", ["10", "〜", "λ"], [
+      ["Sóng ngang có đặc điểm gì?", "Phương dao động vuông góc phương truyền sóng", ["Phương dao động trùng phương truyền", "Không có phương dao động", "Dao động theo vòng tròn"], "Sóng ngang: dao động vuông góc phương truyền; sóng dọc: dao động trùng phương truyền."],
+      ["Công thức liên hệ tốc độ, bước sóng và tần số là gì?", "v = λf", ["v = λ/f", "v = f/λ", "v = λ + f"], "Tốc độ truyền sóng bằng bước sóng nhân với tần số."],
+      ["Sóng âm trong không khí là loại sóng nào?", "Sóng dọc", ["Sóng ngang", "Sóng điện từ", "Sóng dừng"], "Sóng âm là sóng cơ dọc: phân tử không khí dao động dọc theo phương truyền sóng."],
+      ["Tần số của sóng cho biết điều gì?", "Số dao động toàn phần trong một giây", ["Quãng đường sóng đi được", "Độ cao của sóng", "Thời gian của một dao động"], "Tần số f là số dao động toàn phần trong một giây, đơn vị héc (Hz)."],
+      ["Vì sao âm thanh không truyền được trong chân không?", "Không có môi trường vật chất để dao động lan truyền", ["Âm thanh bị hấp thụ hết", "Chân không quá lạnh", "Sóng âm quá yếu"], "Sóng cơ cần môi trường vật chất; chân không không có phân tử nào để truyền dao động."],
+    ]),
+    createStarterTopic("grade-10-periodic-table-intro", "Lớp 10 · Bảng tuần hoàn", "Nhóm, chu kì và dự đoán tính chất nguyên tố", ["10", "⚗", "⊞"], [
+      ["Các nguyên tố trong bảng tuần hoàn được sắp xếp theo gì?", "Số hiệu nguyên tử tăng dần", ["Khối lượng giảm dần", "Tên gọi", "Màu sắc"], "Bảng tuần hoàn hiện đại sắp xếp theo số hiệu nguyên tử (số proton) tăng dần."],
+      ["Các nguyên tố cùng một nhóm có điểm chung gì?", "Tính chất hóa học tương tự nhau", ["Cùng khối lượng", "Cùng màu sắc", "Cùng trạng thái"], "Cùng nhóm thì cùng số electron lớp ngoài cùng nên tính chất hóa học tương tự."],
+      ["Na và K cùng nhóm IA nên có tính chất nào?", "Đều là kim loại kiềm, dễ nhường 1 electron", ["Đều là khí hiếm", "Đều khó phản ứng", "Đều nhận 1 electron"], "Kim loại kiềm có 1 electron lớp ngoài cùng, dễ nhường để đạt cấu hình bền vững."],
+      ["Số thứ tự chu kì cho biết điều gì về nguyên tử?", "Số lớp electron", ["Số proton", "Số neutron", "Hóa trị"], "Số thứ tự của chu kì bằng số lớp electron của nguyên tử nguyên tố đó."],
+      ["Nguyên tố nào sau đây là khí hiếm?", "Neon (Ne)", ["Natri (Na)", "Clo (Cl)", "Sắt (Fe)"], "Neon thuộc nhóm khí hiếm, lớp electron ngoài cùng đã bão hòa nên rất khó phản ứng."],
+    ]),
+    createStarterTopic("grade-10-genetics-mendel", "Lớp 10 · Di truyền Mendel", "Quy luật phân li và tỉ lệ 3 : 1", ["10", "🧬", "🌱"], [
+      ["Mendel làm thí nghiệm di truyền trên đối tượng nào?", "Đậu Hà Lan", ["Ruồi giấm", "Cây ngô", "Chuột bạch"], "Mendel chọn đậu Hà Lan vì có nhiều tính trạng tương phản rõ rệt và dễ lai tạo."],
+      ["Kiểu gen nào cho kiểu hình lặn?", "aa", ["AA", "Aa", "Cả AA và Aa"], "Tính trạng lặn chỉ biểu hiện ở thể đồng hợp lặn aa."],
+      ["Phép lai Aa × Aa cho tỉ lệ kiểu hình nào?", "3 trội : 1 lặn", ["1 trội : 1 lặn", "1 trội : 3 lặn", "Toàn trội"], "Kiểu gen thu được 1AA : 2Aa : 1aa nên kiểu hình là 3 trội : 1 lặn."],
+      ["Quy luật phân li nói về điều gì?", "Cặp nhân tố di truyền phân li khi tạo giao tử", ["Các gen luôn đi cùng nhau", "Tính trạng trội át tính trạng lặn", "Con giống hệt bố mẹ"], "Mỗi giao tử chỉ nhận một nhân tố trong cặp nhân tố di truyền của bố hoặc mẹ."],
+      ["Vì sao bố mẹ mắt nâu vẫn có thể sinh con mắt xanh?", "Bố mẹ đều mang gen lặn, con nhận được aa", ["Gen bị đột biến", "Môi trường thay đổi", "Con nhận gen trội"], "Nếu cả hai bố mẹ đều có kiểu gen Aa (mắt nâu), con có thể nhận aa và biểu hiện mắt xanh."],
+    ]),
+  ],
+  literature: [
+    createStarterTopic("grade-10-nom-poetry", "Lớp 10 · Thơ chữ Nôm", "Chữ Nôm và các nhà thơ Nôm tiêu biểu", ["10", "📜", "✒"], [
+      ["Chữ Nôm được sáng tạo từ đâu?", "Từ chữ Hán để ghi tiếng Việt", ["Từ chữ Latin", "Từ chữ Phạn", "Tự nghĩ ra hoàn toàn"], "Người Việt dùng chữ Hán làm cơ sở, sáng tạo chữ Nôm để ghi âm tiếng Việt."],
+      ["“Truyện Kiều” của Nguyễn Du được viết bằng chữ gì?", "Chữ Nôm", ["Chữ Hán", "Chữ quốc ngữ", "Chữ Phạn"], "Nguyễn Du viết Truyện Kiều bằng chữ Nôm với 3.254 câu lục bát."],
+      ["Nhà thơ nào được mệnh danh là “bà chúa thơ Nôm”?", "Hồ Xuân Hương", ["Nguyễn Trãi", "Nguyễn Du", "Bà Huyện Thanh Quan"], "Hồ Xuân Hương nổi tiếng với thơ Nôm trào phúng sắc sảo, táo bạo."],
+      ["Thơ Nôm mang đặc điểm nào?", "Đậm hồn Việt, gần gũi đời sống", ["Khô khan, xa rời thực tế", "Chỉ viết về vua chúa", "Không có vần điệu"], "Thơ Nôm viết về đời sống, tình cảm của người Việt nên gần gũi, đậm đà bản sắc."],
+      ["Việc sáng tạo chữ Nôm thể hiện điều gì của dân tộc?", "Tinh thần độc lập văn hóa", ["Sự lệ thuộc", "Sự bảo thủ", "Sự sao chép"], "Sáng tạo chữ riêng để ghi tiếng mẹ đẻ thể hiện ý thức độc lập về văn hóa."],
+    ]),
+    createStarterTopic("grade-10-character-analysis", "Lớp 10 · Phân tích nhân vật", "Các phương diện khắc họa và vai trò chi tiết", ["10", "👤", "📖"], [
+      ["Phân tích nhân vật cần làm rõ những yếu tố nào?", "Ngoại hình, hành động, lời nói, nội tâm", ["Chỉ ngoại hình", "Chỉ tên tuổi", "Chỉ nghề nghiệp"], "Nhân vật được khắc họa qua nhiều phương diện; cần phân tích tổng hợp, tránh phiến diện."],
+      ["Chi tiết nghệ thuật có vai trò gì?", "Góp phần thể hiện tính cách và tư tưởng tác giả", ["Chỉ để trang trí", "Không có ý nghĩa", "Để tăng số trang"], "Mỗi chi tiết đều được tác giả lựa chọn có chủ ý nghệ thuật."],
+      ["Chi tiết Chí Phèo đòi lương thiện cho thấy điều gì?", "Khát vọng làm người lương thiện", ["Sự hung dữ", "Sự giàu có", "Sự ngu dốt"], "Tiếng kêu đòi lương thiện là khát vọng chính đáng của con người bị xã hội chà đạp."],
+      ["Khi phân tích nhân vật nên tránh điều gì?", "Kể lại cốt truyện suông", ["Nêu dẫn chứng", "Phân tích chi tiết", "Liên hệ tư tưởng tác giả"], "Phân tích khác với kể chuyện; cần đi sâu vào ý nghĩa của từng chi tiết."],
+      ["Lời nói của nhân vật giúp ta hiểu điều gì?", "Tính cách, suy nghĩ và quan hệ", ["Tuổi tác chính xác", "Quê quán", "Thu nhập"], "Cách nói năng bộc lộ tính cách, trình độ, tâm trạng và mối quan hệ của nhân vật."],
+    ]),
+    createStarterTopic("grade-10-essay-structure", "Lớp 10 · Bố cục bài văn", "Mở bài, thân bài, kết bài và cách dùng dẫn chứng", ["10", "📝", "📑"], [
+      ["Bài văn nghị luận gồm mấy phần?", "Ba phần: mở bài, thân bài, kết bài", ["Một phần", "Hai phần", "Bốn phần"], "Mở bài nêu vấn đề, thân bài triển khai luận điểm, kết bài khái quát và mở rộng."],
+      ["Luận điểm trong bài văn cần có đặc điểm gì?", "Rõ ràng, có lí lẽ và dẫn chứng", ["Mơ hồ", "Không cần chứng minh", "Càng dài càng tốt"], "Mỗi luận điểm phải rõ ràng và được làm sáng tỏ bằng lí lẽ, dẫn chứng."],
+      ["Dẫn chứng trong bài văn phải thế nào?", "Tiêu biểu và được phân tích", ["Càng nhiều càng tốt", "Liệt kê suông", "Bịa đặt"], "Dẫn chứng cần tiêu biểu, phù hợp và phải được phân tích chứ không liệt kê suông."],
+      ["Mở bài có thể bắt đầu bằng gì?", "Câu chuyện hoặc nhận định rồi dẫn đến vấn đề", ["Kết luận", "Lời chào", "Danh sách"], "Mở bài dẫn dắt tự nhiên từ câu chuyện, nhận định đến vấn đề nghị luận."],
+      ["Kết bài nên làm gì?", "Khái quát và mở rộng vấn đề", ["Lặp lại mở bài", "Nêu vấn đề mới", "Kết thúc đột ngột"], "Kết bài khái quát ý chính, có thể mở rộng và liên hệ thực tế."],
+    ]),
+  ],
+  english: [
+    createStarterTopic("grade-10-reported-speech", "Lớp 10 · Câu tường thuật", "Lùi thì, đổi đại từ và câu hỏi tường thuật", ["10", "ABC", "💬"], [
+      ["Chuyển: “I am tired,” she said.", "She said she was tired.", ["She said she is tired.", "She says she was tired.", "She said I was tired."], "Lùi thì hiện tại đơn thành quá khứ đơn, đổi I thành she."],
+      ["Câu hỏi Yes/No trong câu tường thuật dùng từ nào?", "if/whether", ["that", "what", "because"], "Câu hỏi Yes/No chuyển thành mệnh đề phụ thuộc với if hoặc whether."],
+      ["Trạng từ “tomorrow” trong câu tường thuật đổi thành gì?", "the next day", ["yesterday", "today", "now"], "tomorrow → the next day; yesterday → the day before; now → then."],
+      ["Chuyển: “Where do you live?” he asked.", "He asked where I lived.", ["He asked where do I live.", "He asked where I live.", "He asked me where did I live."], "Câu hỏi có từ để hỏi giữ nguyên từ để hỏi, lùi thì và bỏ trợ động từ do."],
+      ["Chuyển: “I will help you,” Lan said.", "Lan said she would help me.", ["Lan said she will help me.", "Lan says she would help me.", "Lan said she helps me."], "will lùi thành would; you đổi thành me tùy theo người nghe."],
+    ]),
+    createStarterTopic("grade-10-wish-clauses", "Lớp 10 · Câu ước với wish", "Wish ở hiện tại, quá khứ và tương lai", ["10", "ABC", "🌠"], [
+      ["Ước muốn trái với hiện tại dùng cấu trúc nào?", "wish + quá khứ đơn", ["wish + hiện tại đơn", "wish + tương lai đơn", "wish + hiện tại hoàn thành"], "Ví dụ: I wish I had more time (thực tế tôi không có nhiều thời gian)."],
+      ["Diễn tả sự tiếc nuối về quá khứ dùng cấu trúc nào?", "wish + quá khứ hoàn thành", ["wish + quá khứ đơn", "wish + hiện tại đơn", "wish + will"], "Ví dụ: I wish I had studied harder (tiếc vì đã không học chăm)."],
+      ["“If only” khác “wish” ở điểm nào?", "Nhấn mạnh cảm xúc hơn", ["Nghĩa hoàn toàn khác", "Không dùng được", "Chỉ dùng cho tương lai"], "If only nghĩa là “giá mà”, diễn đạt ước muốn với cảm xúc mạnh mẽ hơn wish."],
+      ["Điền từ: I wish it ___ raining. (trời đang mưa, tôi muốn tạnh)", "would stop", ["stops", "will stop", "has stopped"], "wish + would diễn tả mong muốn điều gì đó thay đổi trong tương lai gần."],
+      ["Câu nào diễn tả ước muốn trái với hiện tại?", "I wish I were taller.", ["I wish I am taller.", "I wish I will be taller.", "I wish I have been taller."], "Trong câu ước trang trọng, were dùng cho mọi chủ ngữ; văn nói cũng chấp nhận was."],
+    ]),
+    createStarterTopic("grade-10-phrasal-verbs", "Lớp 10 · Cụm động từ", "Nghĩa cụm động từ và tính tách được", ["10", "ABC", "🔗"], [
+      ["“give up” có nghĩa là gì?", "Từ bỏ", ["Tiếp tục", "Nhận lấy", "Trì hoãn"], "give up = từ bỏ (một thói quen, một cố gắng)."],
+      ["“look after” có nghĩa là gì?", "Chăm sóc", ["Tìm kiếm", "Nhìn qua", "Bỏ qua"], "look after = chăm sóc; còn look for mới là tìm kiếm."],
+      ["Cụm động từ nào TÁCH ĐƯỢC tân ngữ ở giữa?", "turn off", ["look after", "run into", "get over"], "turn off the light hay turn the light off đều đúng; look after và run into không tách được."],
+      ["“put off” có nghĩa là gì?", "Trì hoãn", ["Mặc vào", "Dập tắt", "Nổi bật"], "put off = trì hoãn; put on = mặc vào; put out = dập tắt."],
+      ["“take off” khi nói về máy bay có nghĩa là gì?", "Cất cánh", ["Hạ cánh", "Chuyển hướng", "Gặp sự cố"], "take off = cất cánh (máy bay); ngoài ra còn có nghĩa là cởi (quần áo)."],
+    ]),
+  ],
+  history: [
+    createStarterTopic("grade-10-ly-tran-dynasties", "Lớp 10 · Nhà Lý – Trần", "Thăng Long, khoa thi và kháng chiến Nguyên – Mông", ["10", "🏛", "⚔"], [
+      ["Nhà Lý dời đô về Thăng Long năm nào?", "1010", ["1009", "1075", "1225"], "Lý Thái Tổ dời đô từ Hoa Lư về Đại La (đặt tên Thăng Long) năm 1010."],
+      ["Khoa thi đầu tiên của Đại Việt được tổ chức năm nào?", "1075", ["1010", "1070", "1226"], "Khoa thi đầu tiên tổ chức năm 1075 dưới thời vua Lý Nhân Tông."],
+      ["Nhà Trần đã mấy lần đánh thắng quân Nguyên – Mông?", "Ba lần", ["Một lần", "Hai lần", "Bốn lần"], "Ba lần kháng chiến thắng lợi vào các năm 1258, 1285 và 1287–1288."],
+      ["Hội nghị Diên Hồng đã triệu tập những ai?", "Các bô lão", ["Các tướng lĩnh", "Các quan văn", "Sứ thần"], "Trần Nhân Tông triệu tập hội nghị Diên Hồng để hỏi ý các bô lão về chủ trương đánh hay hòa."],
+      ["Chiến thắng Bạch Đằng năm 1288 do ai chỉ huy?", "Trần Hưng Đạo", ["Trần Quang Khải", "Trần Khánh Dư", "Phạm Ngũ Lão"], "Trần Hưng Đạo (Trần Quốc Tuấn) chỉ huy trận Bạch Đằng 1288, dùng cọc gỗ đánh đắm thuyền giặc."],
+    ]),
+    createStarterTopic("grade-10-nguyen-lords", "Lớp 10 · Chúa Nguyễn – Đàng Trong", "Mở cõi phương Nam và thương cảng Hội An", ["10", "⛵", "🗺"], [
+      ["Các chúa Nguyễn cát cứ vùng nào?", "Đàng Trong", ["Đàng Ngoài", "Bắc Bộ", "Tây Nguyên"], "Từ thế kỉ XVI, chúa Nguyễn cát cứ Đàng Trong, từ sông Gianh trở vào Nam."],
+      ["Nguyễn Hữu Cảnh lập phủ Gia Định năm nào?", "1698", ["1598", "1798", "1699"], "Năm 1698, Nguyễn Hữu Cảnh vào Nam lập phủ Gia Định, đặt nền móng cho vùng đất Sài Gòn sau này."],
+      ["Thương cảng quốc tế sầm uất của Đàng Trong là gì?", "Hội An", ["Phố Hiến", "Vân Đồn", "Cửa Lò"], "Hội An là thương cảng quốc tế sầm uất, tàu thuyền Nhật Bản, Trung Quốc và phương Tây tấp nập."],
+      ["Chúa Nguyễn mở rộng lãnh thổ chủ yếu về hướng nào?", "Phương Nam", ["Phương Bắc", "Phương Tây", "Phương Đông"], "Công cuộc Nam tiến từng bước mở rộng đến tận Hà Tiên, Phú Quốc."],
+      ["Ranh giới giữa Đàng Trong và Đàng Ngoài là ở đâu?", "Sông Gianh", ["Sông Hồng", "Sông Lam", "Sông Hương"], "Sông Gianh (Quảng Bình) là ranh giới thời Trịnh – Nguyễn phân tranh."],
+    ]),
+    createStarterTopic("grade-10-french-invasion", "Lớp 10 · Pháp xâm lược Việt Nam", "Từ Đà Nẵng 1858 đến hiệp ước 1884", ["10", "📜", "🔥"], [
+      ["Pháp nổ súng tấn công Đà Nẵng năm nào?", "1858", ["1859", "1884", "1885"], "Ngày 1/9/1858, Pháp tấn công Đà Nẵng, mở đầu cuộc xâm lược Việt Nam."],
+      ["Hiệp ước Pa-tơ-nốt năm 1884 đánh dấu điều gì?", "Việt Nam hoàn toàn rơi vào tay Pháp", ["Pháp rút quân", "Triều Nguyễn thắng lớn", "Kí hòa ước bình đẳng"], "Sau hiệp ước 1884, Việt Nam trở thành nước thuộc địa, nửa phong kiến."],
+      ["Nghĩa quân Trương Định kháng chiến ở đâu?", "Gò Công", ["Ba Đình", "Bãi Sậy", "Yên Thế"], "Trương Định kháng chiến ở Gò Công, không tuân theo lệnh bãi binh của triều đình."],
+      ["Nguyên nhân sâu xa khiến triều Nguyễn thất bại là gì?", "Bảo thủ, không chịu cải cách đất nước", ["Thiếu tướng tài", "Nhân dân không đoàn kết", "Địa hình bất lợi"], "Triều Nguyễn bảo thủ, bạc nhược, không chịu cải cách để tăng cường sức mạnh đất nước."],
+      ["Phong trào kháng chiến của nhân dân có đặc điểm gì?", "Nổ ra khắp nơi nhưng thiếu lãnh đạo thống nhất", ["Do triều đình lãnh đạo", "Nhanh chóng thắng lợi", "Không ai tham gia"], "Nhân dân khắp nơi anh dũng đứng lên nhưng thiếu sự lãnh đạo thống nhất nên đều thất bại."],
+    ]),
+  ],
+  geography: [
+    createStarterTopic("grade-10-atmosphere-climate", "Lớp 10 · Khí quyển và khí hậu", "Các tầng khí quyển và quy luật nhiệt độ", ["10", "🌡", "☁"], [
+      ["Mọi hiện tượng thời tiết diễn ra chủ yếu ở tầng khí quyển nào?", "Tầng đối lưu", ["Tầng bình lưu", "Tầng trung lưu", "Tầng nhiệt"], "Tầng đối lưu là tầng thấp nhất của khí quyển, nơi diễn ra mọi hiện tượng thời tiết."],
+      ["Tầng ôzôn nằm ở tầng khí quyển nào?", "Tầng bình lưu", ["Tầng đối lưu", "Tầng trung lưu", "Tầng ngoài"], "Tầng bình lưu chứa tầng ôzôn có tác dụng hấp thụ tia cực tím từ Mặt Trời."],
+      ["Nhiệt độ giảm bao nhiêu khi lên cao 100 m?", "0,6°C", ["1°C", "0,1°C", "6°C"], "Trung bình nhiệt độ giảm 0,6°C mỗi khi lên cao thêm 100 m."],
+      ["Khí hậu khác thời tiết ở điểm nào?", "Là chế độ thời tiết trung bình trong nhiều năm", ["Thay đổi từng giờ", "Chỉ nói về mưa", "Không liên quan nhiệt độ"], "Khí hậu là quy luật thời tiết trung bình trong thời gian dài của một vùng."],
+      ["Vì sao Sa Pa mát mẻ quanh năm dù nằm trong vùng nhiệt đới?", "Vì ở độ cao lớn", ["Vì gần biển", "Vì nhiều rừng", "Vì gần xích đạo"], "Sa Pa ở độ cao khoảng 1.500 m nên nhiệt độ thấp dù nằm trong vùng nhiệt đới."],
+    ]),
+    createStarterTopic("grade-10-soil-biomes", "Lớp 10 · Đất và sinh vật", "Sự hình thành đất và các vành đai sinh vật", ["10", "🌍", "🌿"], [
+      ["Đất được hình thành từ những yếu tố nào?", "Đá mẹ, khí hậu, sinh vật, địa hình, thời gian", ["Chỉ từ đá", "Chỉ từ nước", "Chỉ từ con người"], "Đất là kết quả tác động lâu dài của đá mẹ, khí hậu, sinh vật, địa hình và thời gian."],
+      ["Vành đai sinh vật nào đa dạng sinh học nhất?", "Rừng nhiệt đới", ["Hoang mạc", "Đài nguyên", "Thảo nguyên"], "Rừng nhiệt đới nóng ẩm quanh năm, tầng tán nhiều lớp, đa dạng sinh học cao nhất hành tinh."],
+      ["Xa van có đặc điểm gì?", "Đồng cỏ với cây bụi, cây gỗ thưa", ["Rừng rậm rạp", "Băng tuyết phủ", "Toàn cát"], "Xa van là đồng cỏ nhiệt đới với cây bụi và cây gỗ mọc thưa."],
+      ["Hoang mạc hình thành chủ yếu do đâu?", "Lượng mưa rất ít", ["Quá lạnh", "Nhiều gió", "Đất xấu"], "Hoang mạc là vùng khô hạn, lượng mưa rất ít nên thực vật thưa thớt."],
+      ["Mối quan hệ giữa khí hậu, đất và thực vật là gì?", "Tác động qua lại lẫn nhau", ["Độc lập với nhau", "Tác động một chiều", "Không liên quan"], "Khí hậu ảnh hưởng đến đất và thực vật; thực vật cũng góp phần tạo đất và điều hòa khí hậu."],
+    ]),
+    createStarterTopic("grade-10-agriculture-industry", "Lớp 10 · Nông nghiệp và công nghiệp", "Chuỗi giá trị từ đồng ruộng đến xuất khẩu", ["10", "🌾", "🏭"], [
+      ["Nông nghiệp phụ thuộc chủ yếu vào yếu tố nào?", "Đất đai và khí hậu", ["Máy móc", "Điện năng", "Vốn lớn"], "Nông nghiệp gắn chặt với điều kiện tự nhiên: đất đai, nước và khí hậu."],
+      ["Công nghiệp có vai trò gì đối với nông sản?", "Chế biến để nâng cao giá trị", ["Thay thế nông nghiệp", "Làm giảm giá trị", "Không liên quan"], "Công nghiệp chế biến giúp nông sản bảo quản lâu hơn và nâng cao giá trị."],
+      ["Khu công nghiệp thường tập trung ở đâu?", "Gần đô thị, giao thông thuận lợi", ["Vùng núi cao", "Hải đảo xa", "Nơi hoang vắng"], "Khu công nghiệp cần gần nguồn lao động, giao thông thuận lợi và thị trường tiêu thụ."],
+      ["Chuỗi giá trị của hạt lúa gạo gồm những khâu nào?", "Trồng – xay xát – đóng gói – xuất khẩu", ["Chỉ trồng", "Chỉ xuất khẩu", "Trồng rồi ăn ngay"], "Từ đồng ruộng qua chế biến đến tiêu thụ tạo thành chuỗi giá trị hoàn chỉnh."],
+      ["Vì sao công nghiệp chế biến nông sản quan trọng với Việt Nam?", "Nông sản dồi dào, cần nâng giá trị xuất khẩu", ["Việt Nam thiếu nông sản", "Không cần thiết", "Chỉ để tiêu dùng nội địa"], "Việt Nam là nước nông nghiệp; chế biến sâu giúp tăng giá trị và sức cạnh tranh của nông sản."],
+    ]),
+  ],
+  informatics: [
+    createStarterTopic("grade-10-python-loops", "Lớp 10 · Vòng lặp trong Python", "for, while, break và continue", ["10", "🔁", "🐍"], [
+      ["for i in range(5): print(i) sẽ in ra gì?", "0 1 2 3 4", ["1 2 3 4 5", "0 1 2 3 4 5", "5 4 3 2 1"], "range(5) tạo ra dãy số từ 0 đến 4."],
+      ["Khi nào nên dùng vòng lặp while thay vì for?", "Khi chưa biết trước số lần lặp", ["Khi biết trước số lần lặp", "Không bao giờ", "Chỉ khi duyệt list"], "while lặp chừng nào điều kiện còn đúng; for dùng khi biết trước số lần hoặc duyệt dãy."],
+      ["Lệnh break có tác dụng gì?", "Thoát khỏi vòng lặp ngay lập tức", ["Bỏ qua lần lặp hiện tại", "Dừng chương trình", "Lặp lại từ đầu"], "break thoát hẳn khỏi vòng lặp; continue chỉ bỏ qua phần còn lại của lần lặp hiện tại."],
+      ["Nguy cơ lớn nhất khi dùng vòng lặp while là gì?", "Vòng lặp vô hạn nếu điều kiện luôn đúng", ["Chạy quá nhanh", "Tốn nhiều bộ nhớ", "Không lặp được"], "Nếu điều kiện của while không bao giờ sai, vòng lặp sẽ chạy mãi không dừng."],
+      ["continue khác break ở điểm nào?", "continue chỉ bỏ qua lần lặp hiện tại, break thoát hẳn", ["Hai lệnh giống nhau", "continue thoát hẳn vòng lặp", "break chỉ bỏ qua một lần lặp"], "continue nhảy sang lần lặp tiếp theo; break kết thúc toàn bộ vòng lặp."],
+    ]),
+    createStarterTopic("grade-10-python-dict", "Lớp 10 · Từ điển trong Python", "Cặp khóa – giá trị và các phương thức", ["10", "📖", "🐍"], [
+      ["Dict trong Python lưu trữ dữ liệu dưới dạng gì?", "Các cặp khóa – giá trị", ["Danh sách các số", "Xâu kí tự", "Tập hợp"], "Dict lưu cặp key–value, cho phép truy xuất rất nhanh thông qua khóa."],
+      ["hs = {“ten”: “An”, “diem”: 9}. Giá trị của hs[“diem”] là gì?", "9", ["“An”", "“ten”", "Báo lỗi"], "Truy xuất giá trị thông qua khóa “diem” được kết quả là 9."],
+      ["Khóa của dict phải có đặc điểm gì?", "Duy nhất và không thay đổi được", ["Được trùng nhau", "Phải là số", "Thay đổi tùy ý"], "Mỗi khóa trong dict là duy nhất; thường dùng số, xâu kí tự hoặc tuple (kiểu bất biến)."],
+      ["Phương thức nào lấy ra tất cả các khóa của dict?", "keys()", ["values()", "get()", "add()"], "keys() lấy các khóa; values() lấy các giá trị; items() lấy từng cặp khóa – giá trị."],
+      ["Khi nào nên dùng dict thay vì list?", "Khi cần tra cứu nhanh theo tên hoặc khóa", ["Khi cần giữ thứ tự", "Khi dữ liệu ít", "Luôn dùng list"], "Dict tra cứu theo khóa rất nhanh; list phù hợp khi cần thứ tự và truy xuất theo chỉ số."],
+    ]),
+    createStarterTopic("grade-10-file-handling", "Lớp 10 · Tệp trong Python", "open, các chế độ và with", ["10", "📁", "🐍"], [
+      ["Mở tệp với chế độ “w” có nghĩa là gì?", "Ghi mới, xóa nội dung cũ", ["Chỉ đọc", "Ghi thêm vào cuối", "Không làm gì"], "“w” (write) ghi đè và xóa nội dung cũ; “a” ghi thêm; “r” chỉ đọc."],
+      ["Vì sao nên dùng cấu trúc with open(...)?", "Tệp tự động đóng, tránh bị quên", ["Chạy nhanh hơn", "Tệp to hơn", "Không cần thiết"], "with đảm bảo tệp được đóng ngay cả khi chương trình gặp lỗi giữa chừng."],
+      ["Phương thức readline() làm gì?", "Đọc một dòng của tệp", ["Đọc toàn bộ tệp", "Ghi một dòng", "Xóa một dòng"], "readline() đọc một dòng; read() đọc toàn bộ; readlines() đọc tất cả các dòng thành list."],
+      ["Muốn ghi thêm vào cuối tệp mà không xóa nội dung cũ, dùng chế độ nào?", "“a”", ["“w”", "“r”", "“x”"], "“a” (append) ghi thêm vào cuối tệp, giữ nguyên nội dung cũ."],
+      ["Gọi open() mà không chỉ rõ chế độ thì mặc định là gì?", "“r” (chỉ đọc)", ["“w”", "“a”", "Báo lỗi"], "Mặc định open() mở tệp ở chế độ đọc “r”."],
+    ]),
+  ],
+  technology: [
+    createStarterTopic("grade-10-hand-tools", "Lớp 10 · Dụng cụ cầm tay", "Chọn đúng dụng cụ và an toàn lao động", ["10", "🔨", "🪛"], [
+      ["Chọn đúng dụng cụ cho công việc mang lại lợi ích gì?", "An toàn và hiệu quả", ["Nhanh hỏng dụng cụ", "Tốn nhiều sức", "Không quan trọng"], "Đúng dụng cụ giúp làm việc an toàn, hiệu quả và giữ dụng cụ bền lâu."],
+      ["Dùng kìm cắt dây điện cần chú ý điều gì?", "Đảm bảo đã ngắt nguồn điện", ["Cắt thật nhanh", "Dùng tay trần", "Không cần chú ý"], "Phải ngắt nguồn điện trước khi thao tác để tránh bị giật điện."],
+      ["Bảo quản dụng cụ kim loại thế nào cho bền?", "Giữ sạch sẽ, khô ráo", ["Để ngoài mưa", "Ngâm trong nước", "Để rỉ sét"], "Giữ dụng cụ sạch, khô ráo để tránh rỉ sét; có thể tra dầu định kì."],
+      ["Khi cưa hoặc khoan cần đeo gì để bảo vệ mắt?", "Kính bảo hộ", ["Găng tay len", "Khẩu trang vải", "Không cần gì"], "Kính bảo hộ giúp tránh mạt cưa và bụi bắn vào mắt."],
+      ["Tua vít dùng để làm gì?", "Vặn ốc vít", ["Đóng đinh", "Cắt dây điện", "Đo đạc"], "Tua vít dùng để vặn ốc vít; búa dùng đóng đinh; kìm dùng cắt và giữ."],
+    ]),
+    createStarterTopic("grade-10-irrigation-systems", "Lớp 10 · Hệ thống tưới", "Các kiểu tưới và tưới tự động", ["10", "💧", "🌱"], [
+      ["Kiểu tưới nào tiết kiệm nước nhất?", "Tưới nhỏ giọt", ["Tưới tràn", "Tưới phun mưa", "Tưới bằng xô"], "Tưới nhỏ giọt đưa nước trực tiếp đến gốc cây, giảm thất thoát do bốc hơi tối đa."],
+      ["Ưu điểm nổi bật của tưới nhỏ giọt là gì?", "Đưa nước trực tiếp đến gốc cây", ["Tưới được diện tích lớn rất nhanh", "Không cần ống dẫn", "Chi phí rẻ nhất"], "Nước đến trực tiếp gốc cây nên hầu như không bị thất thoát."],
+      ["Hệ thống tưới tự động dùng gì để biết khi nào cần tưới?", "Cảm biến độ ẩm đất", ["Đồng hồ treo tường", "Nhiệt kế", "Đoán mò"], "Cảm biến đo độ ẩm đất, kết hợp van hẹn giờ để tưới đúng lúc, đúng lượng."],
+      ["Tưới tràn có nhược điểm gì?", "Tốn nước và dễ gây úng rễ", ["Tiết kiệm nước", "Tốn ít công sức", "Tốt cho mọi loại cây"], "Tưới tràn thất thoát nhiều do bốc hơi và thấm sâu; nước đọng dễ gây úng rễ."],
+      ["Thiết kế hệ thống tưới cho vườn rau gia đình cần những gì?", "Nguồn nước, ống dẫn và béc tưới phù hợp", ["Máy bơm công nghiệp", "Hệ thống điều khiển lớn", "Không cần gì"], "Vườn rau nhỏ chỉ cần nguồn nước, ống dẫn và béc tưới đơn giản với chi phí thấp."],
+    ]),
+    createStarterTopic("grade-10-food-preservation", "Lớp 10 · Bảo quản thực phẩm", "Nguyên nhân hỏng và các phương pháp bảo quản", ["10", "🥫", "❄"], [
+      ["Thực phẩm bị hỏng chủ yếu do đâu?", "Vi sinh vật, enzyme và quá trình ôxi hóa", ["Nhiệt độ thấp", "Thiếu ánh sáng", "Để yên không động"], "Vi khuẩn, nấm mốc, enzyme và ôxi hóa làm thực phẩm biến chất, mất an toàn."],
+      ["Muối dưa chua là cách bảo quản dựa trên nguyên lí nào?", "Tạo môi trường ức chế vi sinh vật có hại", ["Làm lạnh", "Sấy khô", "Hút chân không"], "Muối tạo môi trường ức chế vi khuẩn gây hỏng; đây là cách bảo quản truyền thống của người Việt."],
+      ["Bảo quản đông lạnh có tiêu diệt hết vi khuẩn không?", "Không, chỉ làm chậm hoạt động của chúng", ["Có, giết hết", "Không, còn làm tăng", "Tùy loại thực phẩm"], "Nhiệt độ thấp chỉ làm vi sinh vật ngừng hoặc chậm phát triển chứ không tiêu diệt hết."],
+      ["Ưu điểm của phương pháp sấy khô là gì?", "Bảo quản lâu, nhẹ và dễ vận chuyển", ["Giữ nguyên vị tươi", "Thực hiện nhanh chóng", "Không tốn công sức"], "Sấy khô loại bỏ nước nên thực phẩm nhẹ, để được lâu và dễ vận chuyển."],
+      ["So sánh bảo quản lạnh với đóng hộp?", "Lạnh giữ vị tươi ngắn hạn; đóng hộp để được lâu", ["Hai cách giống nhau", "Lạnh để được lâu hơn", "Đóng hộp không an toàn"], "Bảo quản lạnh giữ vị tươi nhưng thời gian ngắn; đóng hộp tiệt trùng thì để được rất lâu."],
+    ]),
+  ],
+  civics: [
+    createStarterTopic("grade-10-consumer-rights", "Lớp 10 · Quyền người tiêu dùng", "Các quyền cơ bản và cách khiếu nại", ["10", "🛒", "⚖"], [
+      ["Người tiêu dùng có những quyền cơ bản nào?", "Được thông tin trung thực, an toàn và khiếu nại", ["Được miễn phí mọi thứ", "Được đổi ý tùy thích", "Không có quyền gì"], "Quyền được thông tin đầy đủ, hàng hóa an toàn, được lựa chọn và được khiếu nại, bồi thường."],
+      ["Mua điện thoại bị lỗi trong thời gian bảo hành thì làm gì?", "Yêu cầu sửa chữa hoặc đổi sản phẩm mới", ["Chịu thiệt", "Vứt đi", "Tự sửa chữa"], "Trong thời gian bảo hành, người mua được quyền yêu cầu sửa chữa hoặc đổi mới theo cam kết."],
+      ["Vì sao cần giữ lại hóa đơn khi mua hàng?", "Làm bằng chứng khi khiếu nại hoặc bảo hành", ["Để khoe với bạn", "Không cần thiết", "Để trang trí"], "Hóa đơn chứng minh giao dịch đã diễn ra, là căn cứ để khiếu nại và bảo hành."],
+      ["Phát hiện mua phải hàng giả, hàng kém chất lượng nên làm gì?", "Khiếu nại người bán và báo cơ quan chức năng", ["Im lặng cho qua", "Bán lại cho người khác", "Tiếp tục sử dụng"], "Khiếu nại để được bồi thường; báo cơ quan chức năng để xử lí hành vi vi phạm."],
+      ["Quảng cáo sai sự thật vi phạm quyền nào của người tiêu dùng?", "Quyền được cung cấp thông tin trung thực", ["Quyền sở hữu", "Quyền tự do", "Không vi phạm quyền nào"], "Người tiêu dùng có quyền được thông tin đúng về hàng hóa, dịch vụ mình mua."],
+    ]),
+    createStarterTopic("grade-10-labor-rights", "Lớp 10 · Quyền lao động", "Giờ làm việc, tiền lương và bảo hiểm", ["10", "👷", "📋"], [
+      ["Giờ làm việc tiêu chuẩn mỗi ngày là bao nhiêu?", "Không quá 8 giờ", ["12 giờ", "Không giới hạn", "4 giờ"], "Giờ làm việc không quá 8 giờ mỗi ngày; làm thêm giờ phải được trả lương cao hơn."],
+      ["Trẻ em dưới 15 tuổi có được làm công việc nặng nhọc không?", "Không, pháp luật nghiêm cấm", ["Được", "Tùy ý chủ sử dụng", "Được nếu trả lương cao"], "Pháp luật nghiêm cấm sử dụng lao động dưới 15 tuổi vào công việc nặng nhọc, nguy hiểm."],
+      ["Người lao động có quyền nào về tiền lương?", "Hưởng lương xứng đáng, không thấp hơn lương tối thiểu", ["Nhận bao nhiêu cũng được", "Không có quyền gì", "Tùy chủ quyết định"], "Tiền lương không được thấp hơn mức lương tối thiểu do nhà nước quy định."],
+      ["Bảo hiểm xã hội mang lại gì cho người lao động?", "Hỗ trợ khi ốm đau, thai sản và lúc về hưu", ["Không có ích gì", "Chỉ có lợi cho chủ", "Tốn tiền vô ích"], "Bảo hiểm xã hội chi trả khi ốm đau, thai sản, tai nạn lao động và chế độ hưu trí."],
+      ["Đảm bảo an toàn lao động là trách nhiệm của ai?", "Cả người sử dụng và người lao động", ["Chỉ người lao động", "Không ai cả", "Chỉ nhà nước"], "Chủ sử dụng phải đảm bảo điều kiện an toàn; người lao động phải tuân thủ quy định an toàn."],
+    ]),
+    createStarterTopic("grade-10-environmental-law", "Lớp 10 · Luật bảo vệ môi trường", "Trách nhiệm và xử phạt vi phạm", ["10", "🌱", "⚖"], [
+      ["Ai phải chịu trách nhiệm khi gây ô nhiễm môi trường?", "Người gây ô nhiễm phải khắc phục hậu quả", ["Không ai cả", "Nhà nước chịu", "Người dân chịu"], "Theo nguyên tắc “người gây ô nhiễm phải trả tiền”, ai gây ô nhiễm phải khắc phục."],
+      ["Hành vi nào vi phạm luật bảo vệ môi trường?", "Xả thải vượt chuẩn ra sông", ["Trồng cây xanh", "Phân loại rác", "Tiết kiệm nước"], "Xả thải vượt quy chuẩn, phá rừng, săn bắt động vật hoang dã đều bị xử phạt."],
+      ["Nhà máy xả nước thải chưa xử lí ra sông sẽ bị gì?", "Phạt tiền và buộc khắc phục", ["Khen thưởng", "Không sao cả", "Được hỗ trợ"], "Hành vi vi phạm bị phạt hành chính, buộc khắc phục hậu quả, thậm chí đình chỉ hoạt động."],
+      ["Luật Bảo vệ môi trường quy định trách nhiệm cho ai?", "Mọi tổ chức và cá nhân", ["Chỉ các nhà máy", "Chỉ chính quyền", "Không ai cả"], "Bảo vệ môi trường là trách nhiệm của mọi tổ chức và cá nhân trong xã hội."],
+      ["Là học sinh, em có thể bảo vệ môi trường bằng cách nào?", "Không xả rác, tiết kiệm và tuyên truyền", ["Không liên quan đến mình", "Chờ người lớn làm", "Chỉ cần học bài"], "Học sinh có thể không xả rác bừa bãi, tiết kiệm điện nước, tham gia trồng cây và tuyên truyền."],
+    ]),
+  ],
+  "physical-education": [
+    createStarterTopic("grade-10-warm-up", "Lớp 10 · Khởi động trước khi tập", "Khởi động chung, chuyên môn và phòng chấn thương", ["10", "🏃", "💪"], [
+      ["Khởi động có tác dụng gì?", "Làm nóng cơ thể, tăng linh hoạt khớp", ["Làm mệt trước khi tập", "Không cần thiết", "Giảm sức mạnh"], "Khởi động tăng nhịp tim, nhiệt độ cơ và độ linh hoạt, giảm nguy cơ chấn thương."],
+      ["Khởi động gồm những loại nào?", "Khởi động chung và khởi động chuyên môn", ["Một loại duy nhất", "Ba loại", "Không phân loại"], "Khởi động chung như chạy nhẹ toàn thân; khởi động chuyên môn mô phỏng kĩ thuật sắp tập."],
+      ["Không khởi động kĩ trước khi vận động mạnh dễ bị gì?", "Chấn thương cơ và khớp", ["Khỏe hơn", "Nhanh hơn", "Không sao cả"], "Cơ và khớp chưa sẵn sàng mà vận động mạnh dễ bị căng cơ, bong gân."],
+      ["Xoay khớp cổ tay, cổ chân, gối thuộc loại khởi động nào?", "Khởi động chung", ["Khởi động chuyên môn", "Thả lỏng", "Không phải khởi động"], "Xoay các khớp là khởi động chung, chuẩn bị cho toàn bộ cơ thể."],
+      ["Vì sao vận động viên chuyên nghiệp luôn khởi động rất kĩ?", "Để đạt phong độ tốt nhất và tránh chấn thương", ["Cho đẹp mắt", "Theo thói quen", "Để tốn thời gian"], "Khởi động kĩ giúp cơ thể đạt trạng thái tốt nhất và phòng tránh chấn thương."],
+    ]),
+    createStarterTopic("grade-10-badminton-basics", "Lớp 10 · Cầu lông cơ bản", "Cầm vợt, di chuyển và các cú đánh", ["10", "🏸", "🎯"], [
+      ["Cầm vợt cầu lông đúng cách thế nào?", "Như bắt tay", ["Nắm chặt cả cán vợt", "Cầm đầu vợt", "Cầm bằng hai tay"], "Cầm vợt như bắt tay giúp cổ tay linh hoạt, điều khiển cầu tốt."],
+      ["Các kĩ thuật cơ bản của cầu lông gồm gì?", "Phát cầu, đánh cao sâu, bỏ nhỏ, đập cầu", ["Chỉ phát cầu", "Chỉ đập cầu", "Chạy bộ"], "Các kĩ thuật cơ bản tạo nền tảng vững chắc cho lối chơi."],
+      ["Khi đánh cầu cần quan sát điều gì?", "Vị trí đối thủ để chọn điểm đánh", ["Khán giả", "Trọng tài", "Đồng hồ"], "Quan sát đối thủ để đánh vào chỗ trống, tạo sự bất ngờ."],
+      ["Di chuyển trong cầu lông cần nguyên tắc gì?", "Chân linh hoạt, luôn về vị trí trung tâm", ["Đứng yên một chỗ", "Chạy lung tung", "Nhảy liên tục"], "Di chuyển nhanh gọn và trở về vị trí trung tâm sau mỗi pha cầu."],
+      ["Luyện phát cầu 20 lần liên tiếp để làm gì?", "Rèn độ chính xác và ổn định", ["Cho vui", "Tốn thời gian", "Không có ích"], "Luyện tập lặp lại giúp động tác chuẩn xác và ổn định dần."],
+    ]),
+    createStarterTopic("grade-10-sleep-recovery", "Lớp 10 · Giấc ngủ và phục hồi", "Vai trò của giấc ngủ với vận động", ["10", "😴", "🔋"], [
+      ["Thanh thiếu niên cần ngủ bao nhiêu giờ mỗi đêm?", "8–10 giờ", ["4–5 giờ", "12 giờ", "Càng ít càng tốt"], "Tuổi teen cần 8–10 giờ ngủ mỗi đêm để phát triển thể chất và trí não."],
+      ["Giấc ngủ giúp gì cho người tập thể thao?", "Phục hồi cơ bắp và củng cố trí nhớ", ["Không có tác dụng", "Làm yếu cơ", "Gây mệt mỏi"], "Khi ngủ, cơ thể tiết hormone tăng trưởng giúp phục hồi cơ; não củng cố kĩ năng đã học."],
+      ["Thiếu ngủ ảnh hưởng thế nào khi vận động?", "Giảm tập trung và dễ chấn thương", ["Tăng sức mạnh", "Nhanh nhẹn hơn", "Không ảnh hưởng"], "Thiếu ngủ làm phản xạ chậm, mất tập trung nên dễ gặp chấn thương."],
+      ["Muốn buổi tập sáng hôm sau hiệu quả, tối hôm trước nên làm gì?", "Đi ngủ đúng giờ, đủ giấc", ["Thức khuya", "Ngủ bù vào sáng", "Uống cà phê"], "Ngủ đúng giờ và đủ giấc giúp cơ thể phục hồi tốt nhất."],
+      ["Dấu hiệu nào cho thấy em đang thiếu ngủ?", "Mệt mỏi, khó tập trung vào ban ngày", ["Tỉnh táo", "Học giỏi hơn", "Khỏe mạnh"], "Mệt mỏi, buồn ngủ và khó tập trung vào ban ngày là dấu hiệu thiếu ngủ."],
+    ]),
+  ],
+  music: [
+    createStarterTopic("grade-10-vietnamese-folk", "Lớp 10 · Dân ca Việt Nam", "Các làn điệu dân ca ba miền", ["10", "🎵", "🏮"], [
+      ["Dân ca là gì?", "Bài hát dân gian truyền miệng", ["Nhạc hiện đại", "Nhạc nước ngoài", "Nhạc cung đình"], "Dân ca là sáng tác dân gian, được truyền miệng qua nhiều thế hệ."],
+      ["Quan họ là dân ca của vùng nào?", "Bắc Ninh", ["Nghệ Tĩnh", "Nam Bộ", "Tây Nguyên"], "Quan họ Bắc Ninh được UNESCO công nhận là di sản văn hóa phi vật thể."],
+      ["Ví, dặm là dân ca của vùng nào?", "Nghệ Tĩnh", ["Bắc Bộ", "Nam Bộ", "Tây Bắc"], "Ví, dặm là làn điệu dân ca Nghệ Tĩnh, cũng được UNESCO công nhận."],
+      ["“Trống cơm” là làn điệu dân ca của vùng nào?", "Đồng bằng Bắc Bộ", ["Nam Bộ", "Tây Nguyên", "Miền Trung"], "Trống cơm là điệu dân ca vui nhộn của vùng đồng bằng Bắc Bộ."],
+      ["Dân ca phản ánh điều gì?", "Đời sống và tình cảm của nhân dân lao động", ["Đời sống cung đình", "Chiến tranh", "Thương mại"], "Dân ca ra đời từ lao động và sinh hoạt nên phản ánh đời sống của nhân dân."],
+    ]),
+    createStarterTopic("grade-10-rhythm-reading", "Lớp 10 · Đọc nhịp trong âm nhạc", "Số chỉ nhịp và tiết tấu", ["10", "🥁", "🎼"], [
+      ["Số chỉ nhịp 3/4 có nghĩa là gì?", "Mỗi ô nhịp có 3 phách", ["Mỗi phách dài 3 giây", "Có 3 ô nhịp", "Tốc độ bằng 3"], "Số ở trên là số phách trong một ô nhịp; số ở dưới cho biết loại nốt tính là một phách."],
+      ["Nhịp 3/4 thường được dùng trong điệu nhạc nào?", "Valse", ["March", "Rock", "Rap"], "Điệu valse có 3 phách với phách đầu mạnh và hai phách sau nhẹ."],
+      ["Sự xen kẽ phách mạnh – nhẹ tạo nên yếu tố nào của âm nhạc?", "Tiết tấu", ["Cao độ", "Âm sắc", "Cường độ"], "Sự xen kẽ phách mạnh và phách nhẹ tạo nên tiết tấu cho bản nhạc."],
+      ["Đọc nhịp kết hợp vỗ tay có tác dụng gì?", "Giữ đúng tốc độ của bài hát", ["Hát to hơn", "Nhớ lời nhanh", "Không có ích"], "Vỗ tay theo phách giúp cảm nhận nhịp và giữ tốc độ chính xác."],
+      ["Nhịp 2/4 khác nhịp 4/4 ở điểm nào?", "Số phách trong mỗi ô nhịp", ["Tốc độ", "Cao độ", "Nhạc cụ"], "Nhịp 2/4 có 2 phách mỗi ô nhịp; nhịp 4/4 có 4 phách mỗi ô nhịp."],
+    ]),
+    createStarterTopic("grade-10-music-emotions", "Lớp 10 · Âm nhạc và cảm xúc", "Nhịp độ, giọng nhạc và tâm trạng", ["10", "🎧", "💛"], [
+      ["Nhạc nhịp nhanh kết hợp giọng trưởng thường tạo cảm giác gì?", "Vui tươi, sôi động", ["Buồn bã", "Sợ hãi", "Buồn ngủ"], "Nhịp nhanh cùng giọng trưởng gợi cảm xúc tích cực, vui tươi."],
+      ["Nhạc nhịp chậm với giọng thứ thường gợi cảm giác gì?", "Buồn và sâu lắng", ["Vui vẻ", "Hào hứng", "Tức giận"], "Nhịp chậm, giọng thứ thường diễn tả nỗi buồn và sự suy tư."],
+      ["Nghe nhạc phù hợp có tác dụng gì?", "Thư giãn và giảm căng thẳng", ["Tăng căng thẳng", "Gây mất ngủ", "Không có tác dụng"], "Âm nhạc tác động đến cảm xúc; nhạc phù hợp giúp thư giãn sau giờ học mệt mỏi."],
+      ["Khi cần tập trung học bài nên nghe nhạc thế nào?", "Nhạc nhẹ, không lời", ["Nhạc rap nhanh", "Nhạc dance sôi động", "Mở thật to"], "Nhạc nhẹ không lời ít gây xao nhãng, hỗ trợ sự tập trung tốt hơn."],
+      ["Yếu tố nào của âm nhạc ảnh hưởng đến cảm xúc mạnh nhất?", "Nhịp độ và giọng trưởng hay thứ", ["Tên bài hát", "Ca sĩ thể hiện", "Năm sáng tác"], "Nhịp độ nhanh hay chậm và giọng trưởng hay thứ quyết định sắc thái cảm xúc chính."],
+    ]),
+  ],
+  "visual-arts": [
+    createStarterTopic("grade-10-color-theory-adv", "Lớp 10 · Màu sắc nâng cao", "Vòng tròn màu, tương phản và tương đồng", ["10", "🎨", "🔴"], [
+      ["Ba màu bậc một là những màu nào?", "Đỏ, vàng, lam", ["Cam, lục, tím", "Đen, trắng, xám", "Hồng, nâu, be"], "Đỏ, vàng, lam là ba màu gốc; pha trộn chúng tạo ra màu bậc hai và bậc ba."],
+      ["Cặp màu tương phản là gì?", "Hai màu đối nhau trên vòng tròn màu", ["Hai màu cạnh nhau", "Hai màu giống nhau", "Màu đen và trắng"], "Hai màu đối nhau đặt cạnh nhau sẽ tạo ấn tượng mạnh mẽ, nổi bật."],
+      ["Đỏ – lục là cặp màu gì?", "Màu tương phản", ["Màu tương đồng", "Màu trung tính", "Màu đơn sắc"], "Đỏ và lục đối nhau trên vòng tròn màu nên là cặp màu tương phản."],
+      ["Nhóm màu tương đồng tạo cảm giác gì?", "Hài hòa và dễ chịu", ["Chói chang", "Lộn xộn", "Buồn bã"], "Các màu cạnh nhau như cam – vàng – đỏ tạo sự hài hòa, dễ chịu."],
+      ["Sắc độ và cường độ của màu ảnh hưởng đến điều gì?", "Cảm xúc của bức tranh", ["Kích thước tranh", "Giá bán tranh", "Tuổi thọ tranh"], "Màu tươi rực gợi sự vui tươi; màu trầm và nhạt gợi cảm giác dịu dàng, buồn."],
+    ]),
+    createStarterTopic("grade-10-logo-design", "Lớp 10 · Thiết kế logo", "Nguyên tắc và quy trình thiết kế", ["10", "✏", "©"], [
+      ["Một logo tốt cần có đặc điểm gì?", "Đơn giản, dễ nhớ và đặc trưng", ["Càng phức tạp càng tốt", "Nhiều chi tiết", "Khó hiểu"], "Logo đơn giản mới dễ nhận diện và ghi nhớ lâu dài."],
+      ["Thiết kế logo nên bắt đầu từ bước nào?", "Tìm hiểu về thương hiệu", ["Vẽ ngay lập tức", "Sao chép mẫu có sẵn", "Chọn màu trước"], "Phải hiểu thương hiệu (ngành nghề, đối tượng) rồi mới phác thảo ý tưởng."],
+      ["Vì sao không nên sao chép logo có sẵn?", "Vi phạm bản quyền và thiếu đặc trưng", ["Nhanh hơn", "Đẹp hơn", "Không sao cả"], "Sao chép vừa vi phạm bản quyền vừa làm mất bản sắc riêng của thương hiệu."],
+      ["Logo của Apple có đặc điểm gì?", "Đơn giản, ai cũng nhận ra", ["Phức tạp", "Nhiều màu sắc", "Khó nhớ"], "Logo quả táo cắn dở cực kì đơn giản nhưng có độ nhận diện toàn cầu."],
+      ["Phác thảo nhiều ý tưởng logo để làm gì?", "Chọn được phương án tốt nhất", ["Tốn thời gian", "Khoe kĩ năng", "Không cần thiết"], "Càng nhiều ý tưởng càng dễ chọn được thiết kế độc đáo và phù hợp."],
+    ]),
+    createStarterTopic("grade-10-art-critique", "Lớp 10 · Thưởng thức nghệ thuật", "Bốn bước cảm nhận một bức tranh", ["10", "🖼", "👁"], [
+      ["Thưởng thức một bức tranh gồm mấy bước?", "Bốn bước: mô tả, phân tích, diễn giải, đánh giá", ["Một bước", "Hai bước", "Không cần bước nào"], "Mô tả những gì thấy → phân tích bố cục, màu sắc → diễn giải ý nghĩa → đánh giá."],
+      ["Bước phân tích trong thưởng thức tranh làm gì?", "Xem xét bố cục, màu sắc và đường nét", ["Kể tên họa sĩ", "Đoán giá tranh", "Chụp ảnh lại"], "Phân tích các yếu tố tạo hình: bố cục, màu sắc, đường nét và ánh sáng."],
+      ["Đánh giá một bức tranh nên dựa vào điều gì?", "Cảm nhận chân thành và có lí lẽ", ["Giá bán của tranh", "Ý kiến của số đông", "Tuổi tác họa sĩ"], "Không có đáp án đúng duy nhất; quan trọng là cảm nhận chân thành và có lí lẽ thuyết phục."],
+      ["Bức “Thiếu nữ bên hoa huệ” là của họa sĩ nào?", "Tô Ngọc Vân", ["Nguyễn Gia Trí", "Bùi Xuân Phái", "Trần Văn Cẩn"], "Đây là tác phẩm nổi tiếng của Tô Ngọc Vân với vẻ đẹp dịu dàng trong gam màu nhẹ nhàng."],
+      ["Vì sao cùng một bức tranh mà mỗi người cảm nhận khác nhau?", "Trải nghiệm và góc nhìn mỗi người khác nhau", ["Tranh bị lỗi", "Mọi người đều sai", "Tranh quá khó hiểu"], "Cảm nhận nghệ thuật mang tính chủ quan, phụ thuộc vào trải nghiệm của mỗi người."],
+    ]),
+  ],
+  "national-defense": [
+    createStarterTopic("grade-10-map-reading", "Lớp 10 · Đọc bản đồ địa hình", "Tỉ lệ, kí hiệu và đường đồng mức", ["10", "🗺", "🧭"], [
+      ["Bản đồ thể hiện địa hình bằng những yếu tố nào?", "Kí hiệu, tỉ lệ và hướng", ["Màu sắc tùy thích", "Chữ viết", "Hình ảnh thật"], "Bản đồ dùng hệ thống kí hiệu chuẩn, tỉ lệ thu nhỏ và hướng bắc."],
+      ["Đường đồng mức càng gần nhau cho biết điều gì?", "Địa hình càng dốc", ["Địa hình bằng phẳng", "Có sông chảy qua", "Có đường đi"], "Đường đồng mức càng gần nhau thì độ dốc địa hình càng lớn."],
+      ["Bản đồ tỉ lệ 1:25.000, 1 cm trên bản đồ bằng bao nhiêu mét thực tế?", "250 m", ["25 m", "2,5 km", "25 km"], "1 cm × 25.000 = 25.000 cm = 250 m thực tế."],
+      ["Đọc bản đồ thành thạo giúp ích gì?", "Xác định vị trí, khoảng cách và đường đi", ["Dự báo thời tiết", "Đếm dân số", "Không có ích"], "Đọc bản đồ giúp định vị, ước tính khoảng cách và lựa chọn đường đi hợp lí."],
+      ["Kí hiệu trên bản đồ có đặc điểm gì?", "Thống nhất theo quy ước chung", ["Tùy người vẽ", "Thay đổi liên tục", "Không cần học"], "Kí hiệu bản đồ được quy ước thống nhất để ai cũng đọc hiểu được."],
+    ]),
+    createStarterTopic("grade-10-camouflage", "Lớp 10 · Ngụy trang trong quân sự", "Nguyên lí ngụy trang trong quân sự và tự nhiên", ["10", "🦎", "🌿"], [
+      ["Ngụy trang là gì?", "Che giấu để hòa lẫn với môi trường xung quanh", ["Trang điểm cho đẹp", "Mặc đồ mới", "Tập thể dục"], "Ngụy trang dùng màu sắc và vật liệu để hòa lẫn vào xung quanh, khó bị phát hiện."],
+      ["Tắc kè hoa ngụy trang bằng cách nào?", "Đổi màu da theo môi trường", ["Chạy thật nhanh", "Bay đi chỗ khác", "Kêu thật to"], "Tắc kè hoa đổi màu da để lẫn vào cành cây, vừa rình mồi vừa tránh kẻ thù."],
+      ["Ngụy trang trong quân sự có tác dụng gì?", "Ẩn nấp và tạo yếu tố bất ngờ", ["Trang trí", "Diễu hành", "Tập luyện"], "Ngụy trang giúp ẩn nấp an toàn và tiếp cận mục tiêu một cách bất ngờ."],
+      ["Động vật ngụy trang để làm gì?", "Săn mồi hiệu quả hoặc tránh kẻ thù", ["Làm đẹp", "Giao tiếp", "Di cư"], "Ngụy trang giúp động vật săn mồi hiệu quả hơn và tránh bị kẻ thù phát hiện."],
+      ["Ngụy trang thường tận dụng yếu tố nào?", "Màu sắc và vật liệu tự nhiên", ["Âm thanh lớn", "Ánh sáng mạnh", "Mùi thơm"], "Dùng màu sắc, lá cây, bùn đất để hòa lẫn với môi trường xung quanh."],
+    ]),
+    createStarterTopic("grade-10-disaster-first-response", "Lớp 10 · Ứng phó thiên tai", "Xử lí khi bão lũ và ba lô khẩn cấp", ["10", "⛑", "🌊"], [
+      ["Khi thiên tai xảy ra, điều đầu tiên cần làm là gì?", "Bình tĩnh và làm theo hướng dẫn", ["Hoảng loạn", "Chạy lung tung", "Quay video"], "Giữ bình tĩnh và làm theo hướng dẫn của người lớn, lực lượng cứu hộ."],
+      ["Ba lô khẩn cấp của gia đình nên có những gì?", "Nước, đồ ăn khô, đèn pin, thuốc men", ["Quần áo đẹp", "Đồ chơi", "Sách vở"], "Chuẩn bị sẵn nước uống, đồ ăn khô, đèn pin, thuốc men và giấy tờ quan trọng."],
+      ["Khi lũ lên, cần xử lí hệ thống điện thế nào?", "Tắt nguồn điện, tránh xa vùng ngập nước", ["Bật thêm đèn", "Sờ vào ổ điện", "Không quan tâm"], "Nước dẫn điện nên phải tắt nguồn điện và tránh xa khu vực ngập nước."],
+      ["Bị cô lập do lũ, nên làm gì?", "Di chuyển lên nơi cao và gọi cứu hộ", ["Bơi qua dòng lũ", "Ở yên chỗ thấp", "Tự đi bộ trong nước"], "Di chuyển lên nơi cao ráo, gọi số cứu hộ, tuyệt đối không tự bơi qua dòng nước xiết."],
+      ["Sau thiên tai cần đề phòng những nguy hiểm nào?", "Điện rò rỉ, nước bẩn, nhà cửa hư hỏng", ["Đi chơi ngay", "Ăn uống thoải mái", "Không cần đề phòng"], "Sau thiên tai cần đề phòng điện rò rỉ, nguồn nước ô nhiễm và công trình hư hỏng."],
+    ]),
+  ],
+  "career-experience": [
+    createStarterTopic("grade-10-note-taking", "Lớp 10 · Ghi chép hiệu quả", "Phương pháp Cornell và sơ đồ tư duy", ["10", "📓", "✎"], [
+      ["Ghi chép tốt mang lại lợi ích gì?", "Nhớ lâu và ôn tập nhanh", ["Không cần học nữa", "Mất thời gian", "Quên nhanh hơn"], "Ghi chép bằng lời của mình giúp hiểu sâu, nhớ lâu và ôn tập hiệu quả."],
+      ["Phương pháp Cornell chia trang giấy thành mấy phần?", "Ba phần: ghi chú, từ khóa, tóm tắt", ["Một phần", "Hai phần", "Năm phần"], "Cột ghi chú chính, cột từ khóa bên trái và phần tóm tắt ở dưới cùng."],
+      ["Khi nghe giảng nên ghi chép thế nào?", "Chỉ ghi ý chính và ví dụ", ["Chép từng chữ", "Không ghi gì", "Vẽ tranh"], "Chép từng chữ thì không kịp hiểu bài; ghi ý chính giúp vừa nghe vừa tư duy."],
+      ["Sau khi ghi chép nên làm gì?", "Xem lại trong vòng 24 giờ", ["Bỏ xó", "Xé đi", "Để đó"], "Ôn lại trong 24 giờ giúp chuyển kiến thức vào trí nhớ dài hạn."],
+      ["Nên dùng sơ đồ tư duy trong trường hợp nào?", "Khi kiến thức phức tạp, nhiều ý nhánh", ["Mọi lúc", "Không bao giờ", "Chỉ khi vẽ đẹp"], "Sơ đồ tư duy phù hợp với kiến thức có nhiều ý nhánh liên hệ với nhau."],
+    ]),
+    createStarterTopic("grade-10-presentation-skills", "Lớp 10 · Thuyết trình", "Chuẩn bị, trình bày và trả lời câu hỏi", ["10", "🎤", "📊"], [
+      ["Mở đầu bài thuyết trình thế nào để gây chú ý?", "Bằng câu hỏi hoặc câu chuyện", ["Đọc slide", "Im lặng", "Xin lỗi khán giả"], "Câu hỏi hay câu chuyện khơi gợi tò mò tốt hơn đọc slide khô khan."],
+      ["Slide thuyết trình nên được thiết kế thế nào?", "Đơn giản và ít chữ", ["Đầy chữ", "Nhiều hiệu ứng", "Không cần slide"], "Slide chỉ là dàn ý gợi nhớ; nhiều chữ khiến khán giả đọc slide thay vì nghe nói."],
+      ["Khi thuyết trình nên nhìn vào đâu?", "Nhìn khán giả", ["Nhìn sàn nhà", "Nhìn chằm chằm slide", "Nhắm mắt"], "Giao tiếp bằng mắt với khán giả tạo sự kết nối và tự tin."],
+      ["Được hỏi điều mình chưa biết, nên xử lí thế nào?", "Thừa nhận và hứa tìm hiểu thêm", ["Bịa ra đáp án", "Lảng tránh", "Cãi lại"], "Thành thật thừa nhận và hứa tìm hiểu thêm thể hiện sự chuyên nghiệp."],
+      ["Tốc độ nói khi thuyết trình nên thế nào?", "Vừa phải và rõ ràng", ["Thật nhanh", "Thật chậm", "Tùy hứng"], "Nói vừa phải, rõ ràng và nhấn nhá đúng chỗ giúp khán giả dễ theo dõi."],
+    ]),
+    createStarterTopic("grade-10-mentoring", "Lớp 10 · Học hỏi từ người đi trước", "Cách hỏi, lắng nghe và biết ơn", ["10", "🤝", "🌟"], [
+      ["Người đi trước có thể giúp gì cho em?", "Chia sẻ kinh nghiệm quý giá từ thực tế", ["Làm bài hộ", "Cho tiền", "Không giúp được gì"], "Người đi trước đã trải qua nên có kinh nghiệm và lời khuyên thực tế."],
+      ["Khi được người đi trước chia sẻ, em nên làm gì?", "Lắng nghe chăm chú và ghi chép", ["Ngắt lời", "Bỏ ngoài tai", "Chê bai"], "Lắng nghe chăm chú và ghi chép thể hiện sự tôn trọng, đồng thời giúp nhớ lâu."],
+      ["Muốn hỏi về cách ôn thi hiệu quả, nên hỏi ai?", "Anh chị khóa trên và thầy cô", ["Người lạ", "Không hỏi ai", "Tự đoán mò"], "Anh chị khóa trên và thầy cô có kinh nghiệm thực tế và phù hợp nhất."],
+      ["Thái độ đúng đắn với người đã giúp đỡ mình là gì?", "Biết ơn và giữ liên lạc", ["Quên ngay", "Vô ơn", "Lợi dụng"], "Biết ơn, giữ liên lạc và sau này giúp lại người khác là đạo lí tốt đẹp."],
+      ["Trước khi gặp gỡ người thành công để học hỏi, nên chuẩn bị gì?", "Liệt kê các câu hỏi cụ thể", ["Không chuẩn bị gì", "Hỏi lung tung", "Chỉ ngồi nghe"], "Chuẩn bị câu hỏi cụ thể giúp buổi trò chuyện hiệu quả, không lãng phí thời gian."],
+    ]),
+  ],
+};
+for (const [subjectId, topics] of Object.entries(gradeTenExtraPractice)) {
+  for (const topic of topics) topic.level = "LỚP 10";
+  curriculumExtensions[subjectId].push(...topics);
+}
+
+const gradeElevenExtraPractice = {
+  math: [
+    createStarterTopic("grade-11-derivatives-applications", "Lớp 11 · Ứng dụng đạo hàm", "Cực trị, tính đơn điệu và bài toán tối ưu", ["11", "ƒ′", "📈"], [
+      ["Đạo hàm của hàm số y = x³ là gì?", "3x²", ["x²", "3x", "x³/3"], "Áp dụng công thức (x^n)' = n·x^(n−1): (x³)' = 3x²."],
+      ["Hàm số y = x² − 4x + 3 đạt cực tiểu tại x bằng bao nhiêu?", "2", ["0", "4", "−2"], "y' = 2x − 4 = 0 cho x = 2; y'' = 2 > 0 nên đây là điểm cực tiểu."],
+      ["Hàm số nào đồng biến trên ℝ?", "y = x³", ["y = −x³", "y = x²", "y = −x"], "y = x³ có y' = 3x² ≥ 0 với mọi x nên đồng biến trên ℝ."],
+      ["Giá trị lớn nhất của y = −x² + 4x + 1 là bao nhiêu?", "5", ["1", "4", "9"], "Parabol bề lõm xuống, đỉnh tại x = 2; giá trị lớn nhất y(2) = −4 + 8 + 1 = 5."],
+      ["Đạo hàm của y = sin x là gì?", "cos x", ["−cos x", "−sin x", "tan x"], "(sin x)' = cos x."],
+    ]),
+    createStarterTopic("grade-11-integrals-intro", "Lớp 11 · Nguyên hàm cơ bản", "Họ nguyên hàm và các công thức cơ bản", ["11", "∫", "dx"], [
+      ["Nguyên hàm của f(x) = 2x là gì?", "x² + C", ["2x² + C", "x + C", "2 + C"], "∫2x dx = 2·x²/2 + C = x² + C."],
+      ["∫x³ dx bằng gì?", "x⁴/4 + C", ["3x² + C", "x⁴ + C", "4x³ + C"], "∫x^n dx = x^(n+1)/(n+1) + C nên ∫x³ dx = x⁴/4 + C."],
+      ["Vì sao họ nguyên hàm có hằng số C?", "Vì đạo hàm của hằng số bằng 0", ["Vì tích phân luôn dương", "Vì C là biến số", "Vì công thức yêu cầu"], "Nhiều hàm chỉ khác nhau ở hằng số có cùng đạo hàm, nên họ nguyên hàm gồm F(x) + C."],
+      ["Nguyên hàm của e^x là gì?", "e^x + C", ["x·e^x + C", "e^(x+1) + C", "ln x + C"], "∫e^x dx = e^x + C."],
+      ["Đạo hàm của F(x) = x² + 5 là gì?", "2x", ["x²", "2x + 5", "5"], "F'(x) = 2x; hằng số 5 có đạo hàm bằng 0."],
+    ]),
+    createStarterTopic("grade-11-complex-numbers", "Lớp 11 · Số phức và phép toán", "Dạng a+bi, môđun và các phép toán", ["11", "i", "ℂ"], [
+      ["i² bằng bao nhiêu?", "−1", ["1", "0", "i"], "Theo định nghĩa đơn vị ảo, i² = −1."],
+      ["Môđun của số phức z = 3 + 4i là bao nhiêu?", "5", ["7", "25", "12"], "|z| = √(3² + 4²) = √25 = 5."],
+      ["Số phức liên hợp của 2 − 5i là gì?", "2 + 5i", ["−2 + 5i", "2 − 5i", "−2 − 5i"], "Số phức liên hợp đổi dấu phần ảo: z̄ = 2 + 5i."],
+      ["(1 + 2i) + (3 − i) bằng bao nhiêu?", "4 + i", ["4 + 3i", "2 + i", "4 − i"], "Cộng phần thực với phần thực, phần ảo với phần ảo: (1+3) + (2−1)i = 4 + i."],
+      ["Nghiệm của phương trình x² + 9 = 0 trên tập số phức là gì?", "x = ±3i", ["x = ±3", "Vô nghiệm", "x = 9i"], "x² = −9 nên x = ±3i."],
+    ]),
+  ],
+  science: [
+    createStarterTopic("grade-11-magnetism", "Lớp 11 · Từ trường và lực từ", "Nam châm, đường sức từ và ứng dụng", ["11", "🧲", "🧭"], [
+      ["Đường sức từ đi ra từ cực nào của nam châm?", "Cực Bắc", ["Cực Nam", "Cả hai cực", "Không cực nào"], "Đường sức từ là đường cong khép kín đi ra từ cực Bắc, đi vào cực Nam."],
+      ["Nơi nào từ trường mạnh nhất quanh nam châm thẳng?", "Gần hai cực", ["Ở giữa thanh", "Xa nam châm", "Mọi nơi như nhau"], "Nơi đường sức từ mau (gần các cực) thì từ trường mạnh."],
+      ["Kim la bàn chỉ hướng Bắc – Nam vì sao?", "Do từ trường Trái Đất", ["Do gió thổi", "Do trọng lực", "Do ánh sáng Mặt Trời"], "Trái Đất có từ trường như một nam châm khổng lồ, kim la bàn định hướng theo nó."],
+      ["Thiết bị nào hoạt động dựa trên lực từ?", "Động cơ điện", ["Bóng đèn sợi đốt", "Ấm đun nước", "Bàn là"], "Động cơ điện biến điện năng thành cơ năng nhờ lực từ tác dụng lên dòng điện."],
+      ["Vật liệu nào bị nam châm hút mạnh?", "Sắt", ["Đồng", "Nhôm", "Nhựa"], "Sắt là vật liệu từ, bị nam châm hút mạnh; đồng và nhôm hầu như không bị hút."],
+    ]),
+    createStarterTopic("grade-11-organic-chemistry", "Lớp 11 · Hóa hữu cơ cơ bản", "Hiđrocacbon và các nhóm chức", ["11", "⚗", "🧪"], [
+      ["Hợp chất hữu cơ là hợp chất của nguyên tố nào?", "Carbon", ["Oxygen", "Nitrogen", "Hydrogen"], "Hợp chất hữu cơ là hợp chất của carbon (trừ CO, CO₂ và muối carbonate)."],
+      ["Công thức phân tử chung của ankan là gì?", "CₙH₂ₙ₊₂", ["CₙH₂ₙ", "CₙH₂ₙ₋₂", "CₙHₙ"], "Ankan chỉ có liên kết đơn, công thức chung là CₙH₂ₙ₊₂."],
+      ["Metan có công thức phân tử là gì?", "CH₄", ["C₂H₆", "CH₂", "CO₂"], "Metan là ankan đơn giản nhất với công thức CH₄."],
+      ["Nhóm chức −OH đặc trưng cho loại hợp chất nào?", "Alcohol", ["Acid carboxylic", "Aldehyde", "Ester"], "Nhóm −OH là nhóm chức đặc trưng của alcohol."],
+      ["Chất nào sau đây là hiđrocacbon?", "C₂H₄", ["C₂H₅OH", "CH₃COOH", "CO₂"], "Hiđrocacbon chỉ gồm C và H; các chất còn lại đều chứa oxygen."],
+    ]),
+    createStarterTopic("grade-11-human-nervous", "Lớp 11 · Hệ thần kinh", "Nơron, não bộ và cung phản xạ", ["11", "🧠", "⚡"], [
+      ["Đơn vị cấu tạo của hệ thần kinh là gì?", "Nơron", ["Tế bào cơ", "Hồng cầu", "Tế bào xương"], "Nơron là đơn vị cấu tạo và chức năng của hệ thần kinh."],
+      ["Hệ thần kinh trung ương gồm những bộ phận nào?", "Não và tủy sống", ["Dây thần kinh và hạch", "Não và dây thần kinh", "Tủy sống và cơ"], "Hệ thần kinh trung ương gồm não và tủy sống."],
+      ["Phản xạ rụt tay khi chạm vật nóng do bộ phận nào xử lí chủ yếu?", "Tủy sống", ["Đại não", "Tiểu não", "Dây thần kinh thị giác"], "Phản xạ diễn ra qua cung phản xạ, tủy sống xử lí mà não chưa kịp tham gia."],
+      ["Xung thần kinh truyền theo chiều nào trên nơron?", "Một chiều", ["Hai chiều", "Ngẫu nhiên", "Không truyền"], "Xung thần kinh truyền theo một chiều, từ sợi nhánh qua thân đến sợi trục."],
+      ["Bộ phận nào giữ thăng bằng cho cơ thể?", "Tiểu não", ["Đại não", "Tủy sống", "Hành não"], "Tiểu não phối hợp vận động và giữ thăng bằng cơ thể."],
+    ]),
+  ],
+  literature: [
+    createStarterTopic("grade-11-novel-analysis", "Lớp 11 · Tiểu thuyết", "Cốt truyện, nhân vật và điểm nhìn", ["11", "📖", "✒"], [
+      ["Khi phân tích tiểu thuyết cần chú ý những yếu tố nào?", "Tình huống truyện, nhân vật, điểm nhìn trần thuật", ["Số trang sách", "Giá bìa", "Năm tái bản"], "Phân tích tiểu thuyết chú ý tình huống truyện, tính cách nhân vật và điểm nhìn trần thuật."],
+      ["“Tắt đèn” của Ngô Tất Tố khắc họa nhân vật nào?", "Chị Dậu", ["Chí Phèo", "Xuân Tóc Đỏ", "Lão Hạc"], "“Tắt đèn” khắc họa bi kịch người nông dân qua nhân vật chị Dậu."],
+      ["Tính cách nhân vật tiểu thuyết được thể hiện qua đâu?", "Hành động, lời nói, nội tâm", ["Lời giới thiệu sách", "Ảnh bìa", "Lời tựa"], "Tính cách nhân vật bộc lộ qua hành động, lời nói và diễn biến nội tâm."],
+      ["Điểm nhìn trần thuật là gì?", "Vị trí người kể quan sát và kể câu chuyện", ["Nơi in sách", "Giá bán sách", "Số chương"], "Điểm nhìn là vị trí người kể quan sát, ảnh hưởng đến cách câu chuyện được kể."],
+      ["Chủ đề của tác phẩm thường được gửi gắm qua đâu?", "Toàn bộ tác phẩm", ["Nhan đề", "Một câu văn", "Lời bạt"], "Chủ đề, tư tưởng được gửi gắm qua toàn bộ tác phẩm chứ không chỉ một chi tiết."],
+    ]),
+    createStarterTopic("grade-11-satire", "Lớp 11 · Văn học trào phúng", "Nghệ thuật châm biếm trong văn học", ["11", "🎭", "😏"], [
+      ["Trào phúng khác với hài hước thuần túy ở điểm nào?", "Mang thái độ phê phán rõ rệt", ["Không gây cười", "Không có nhân vật", "Luôn bi thảm"], "Trào phúng dùng tiếng cười để phê phán thói hư tật xấu."],
+      ["Thủ pháp nào thường được dùng trong văn trào phúng?", "Phóng đại, giễu nhại", ["Miêu tả chân thực", "Kể lể dài dòng", "Tránh né vấn đề"], "Trào phúng dùng phóng đại, giễu nhại, nghịch lí để châm biếm."],
+      ["“Số đỏ” của Vũ Trọng Phụng trào phúng đối tượng nào?", "Xã hội thượng lưu giả dối", ["Người nông dân", "Công nhân", "Học sinh"], "“Số đỏ” châm biếm xã hội thượng lưu giả dối qua nhân vật Xuân Tóc Đỏ."],
+      ["Chi tiết đám ma cụ cố Hồng trong “Số đỏ” có ý nghĩa gì?", "Đám tang biến thành dịp khoe mẽ", ["Đám tang rất trang nghiêm", "Mọi người đều đau buồn", "Không có ý nghĩa"], "Đám ma biến thành dịp khoe mẽ, châm biếm thói giả dối của giới thượng lưu."],
+      ["Đọc văn trào phúng cần nhận ra điều gì?", "Đối tượng bị châm biếm và thông điệp", ["Tên tác giả", "Số trang sách", "Năm xuất bản"], "Cần nhận ra đối tượng bị châm biếm và thông điệp phía sau tiếng cười."],
+    ]),
+    createStarterTopic("grade-11-memoir-writing", "Lớp 11 · Viết hồi kí", "Ghi chép chân thực về người thật việc thật", ["11", "📝", "📜"], [
+      ["Hồi kí khác tự truyện ở điểm nào?", "Hồi kí có thể chỉ tập trung một giai đoạn, sự kiện", ["Hồi kí viết về người khác", "Hồi kí là hư cấu", "Tự truyện ngắn hơn"], "Hồi kí có thể chỉ tập trung vào một giai đoạn hay sự kiện đáng nhớ."],
+      ["Hồi kí thường được kể ở ngôi nào?", "Ngôi thứ nhất", ["Ngôi thứ ba", "Ngôi thứ hai", "Không có ngôi"], "Hồi kí thường kể ở ngôi thứ nhất, từ góc nhìn của người trong cuộc."],
+      ["Giá trị cốt lõi của hồi kí là gì?", "Tính chân thực và góc nhìn riêng", ["Cốt truyện gay cấn", "Nhân vật hư cấu", "Ngôn ngữ hoa mĩ"], "Giá trị của hồi kí nằm ở tính chân thực và góc nhìn riêng của người trong cuộc."],
+      ["“Những ngày thơ ấu” của Nguyên Hồng thuộc thể loại nào?", "Hồi kí", ["Tiểu thuyết", "Thơ", "Kịch"], "“Những ngày thơ ấu” là hồi kí về tuổi thơ cay đắng của tác giả."],
+      ["Khi viết hồi kí cần chú ý điều gì?", "Kể trung thực, bộc lộ cảm xúc chân thành", ["Bịa thêm cho hấp dẫn", "Viết thật dài", "Tránh bộc lộ cảm xúc"], "Cần chọn sự việc tiêu biểu, kể trung thực và bộc lộ cảm xúc chân thành."],
+    ]),
+  ],
+  english: [
+    createStarterTopic("grade-11-participle-clauses", "Lớp 11 · Mệnh đề phân từ", "Rút gọn mệnh đề bằng V-ing và V3", ["11", "ABC", "📝"], [
+      ["Rút gọn: The boy who is standing there is my brother.", "The boy standing there is my brother.", ["The boy stands there is my brother.", "The boy stood there is my brother.", "The boy to stand there is my brother."], "Mệnh đề quan hệ mang nghĩa chủ động rút gọn bằng V-ing."],
+      ["Rút gọn: The road which was built last year is wide.", "The road built last year is wide.", ["The road building last year is wide.", "The road builds last year is wide.", "The road to build last year is wide."], "Mệnh đề quan hệ mang nghĩa bị động rút gọn bằng V3."],
+      ["Trong câu “Having finished homework, she went out”, cụm “having finished” nhấn mạnh điều gì?", "Hành động xảy ra trước", ["Hành động đang diễn ra", "Hành động sẽ xảy ra", "Hành động bị động"], "Dạng hoàn thành having + V3 nhấn mạnh hành động xảy ra trước hành động chính."],
+      ["Câu nào mắc lỗi treo phân từ?", "Walking home, the rain started.", ["Walking home, I got wet.", "Tired, she went to bed.", "Built in 1900, the house is old."], "Chủ ngữ “the rain” không thể thực hiện hành động “walking home” — đây là lỗi treo phân từ."],
+      ["V-ing trong mệnh đề phân từ diễn tả nghĩa gì?", "Chủ động", ["Bị động", "Hoàn thành", "Tương lai"], "V-ing diễn tả nghĩa chủ động; V3 diễn tả nghĩa bị động."],
+    ]),
+    createStarterTopic("grade-11-inversion-emphasis", "Lớp 11 · Đảo ngữ nhấn mạnh", "Nhấn mạnh với Never, Not only, Hardly", ["11", "ABC", "🔄"], [
+      ["Viết lại dùng đảo ngữ: I have never seen such a beautiful view.", "Never have I seen such a beautiful view.", ["Never I have seen such a beautiful view.", "Never have seen I such a beautiful view.", "I never have seen such a beautiful view."], "Sau Never đứng đầu câu, đảo trợ động từ ra trước chủ ngữ."],
+      ["Điền dạng đúng: No sooner ___ than it started to rain.", "had she arrived", ["she had arrived", "she arrives", "did she arrived"], "Cấu trúc cố định: No sooner + had + S + V3 + than..."],
+      ["Điền từ: Not only did he sing ___ he also danced.", "but", ["and", "or", "so"], "Cấu trúc cố định: Not only... but also..."],
+      ["Viết lại dùng đảo ngữ: If I had known the truth, I would have helped.", "Had I known the truth, I would have helped.", ["If had I known the truth, I would have helped.", "Had known I the truth, I would have helped.", "I had known the truth, I would have helped."], "Câu điều kiện loại 3 đảo “had” ra trước chủ ngữ và bỏ “if”."],
+      ["Đảo ngữ thường được dùng trong văn phong nào?", "Văn viết trang trọng", ["Tin nhắn với bạn bè", "Lời nói đùa", "Ghi chú nhanh"], "Đảo ngữ tạo sắc thái trang trọng, thường gặp trong văn viết."],
+    ]),
+    createStarterTopic("grade-11-collocations", "Lớp 11 · Cụm từ cố định", "Kết hợp từ tự nhiên như người bản ngữ", ["11", "ABC", "🧩"], [
+      ["Cụm từ nào đúng?", "make a decision", ["do a decision", "take a decision making", "have a decision to do"], "Người bản ngữ nói “make a decision”, không dùng “do” trong cụm này."],
+      ["Điền từ: pay ___ to", "attention", ["mind", "care", "look"], "Cụm cố định: pay attention to (chú ý tới điều gì)."],
+      ["Động từ nào kết hợp với “photo”?", "take", ["make", "do", "have"], "Take a photo là collocation chuẩn của người bản ngữ."],
+      ["“Succeed ___” đi với giới từ nào?", "in", ["on", "at", "for"], "Cụm cố định: succeed in (thành công trong lĩnh vực nào đó)."],
+      ["Vì sao nên học collocation theo cụm?", "Giúp nói viết tự nhiên, tránh lỗi dịch từng từ", ["Để thuộc nhiều từ đơn lẻ", "Để làm bài trắc nghiệm", "Không mang lại lợi ích"], "Học theo cụm giúp diễn đạt tự nhiên như người bản ngữ."],
+    ]),
+  ],
+  history: [
+    createStarterTopic("grade-11-wwi-aftermath", "Lớp 11 · Sau Thế chiến I", "Hòa ước Versailles và trật tự thế giới mới", ["11", "🕊", "📜"], [
+      ["Thế chiến I kết thúc năm nào?", "1918", ["1914", "1919", "1939"], "Thế chiến I (1914–1918) kết thúc năm 1918 với thất bại của phe Liên minh."],
+      ["Hòa ước Versailles (1919) áp đặt điều khoản nặng nề lên nước nào?", "Đức", ["Pháp", "Anh", "Nga"], "Hòa ước Versailles áp đặt điều khoản nặng nề lên Đức, gieo mầm bất mãn."],
+      ["Hội Quốc Liên ra đời nhằm mục đích gì?", "Gìn giữ hòa bình thế giới", ["Phát động chiến tranh", "Buôn bán vũ khí", "Chia thuộc địa"], "Hội Quốc Liên ra đời nhằm gìn giữ hòa bình nhưng hoạt động thiếu hiệu quả."],
+      ["Vì sao Hội Quốc Liên hoạt động thiếu hiệu quả?", "Mỹ không tham gia", ["Quá nhiều thành viên", "Thiếu kinh phí", "Không có trụ sở"], "Mỹ không tham gia khiến Hội Quốc Liên thiếu sức mạnh thực thi."],
+      ["Một hậu quả lớn của Thế chiến I là gì?", "Hàng chục triệu người chết, kinh tế châu Âu suy sụp", ["Dân số tăng nhanh", "Kinh tế phát triển mạnh", "Hòa bình vĩnh viễn"], "Chiến tranh để lại hàng chục triệu người chết và kinh tế châu Âu suy sụp."],
+    ]),
+    createStarterTopic("grade-11-vietnam-1930-1945", "Lớp 11 · Việt Nam 1930–1945", "Từ thành lập Đảng đến Cách mạng tháng Tám", ["11", "🇻🇳", "⭐"], [
+      ["Đảng Cộng sản Việt Nam được thành lập năm nào?", "1930", ["1925", "1935", "1945"], "Năm 1930, Đảng Cộng sản Việt Nam ra đời."],
+      ["Phong trào Xô viết Nghệ Tĩnh diễn ra trong thời gian nào?", "1930–1931", ["1936–1939", "1939–1945", "1945–1946"], "Phong trào Xô viết Nghệ Tĩnh (1930–1931) do Đảng lãnh đạo."],
+      ["Mặt trận Việt Minh được thành lập khi nào?", "Tháng 5/1941", ["Tháng 8/1945", "Năm 1930", "Năm 1954"], "Tháng 5/1941, Mặt trận Việt Minh được thành lập."],
+      ["Tổng khởi nghĩa tháng Tám thắng lợi năm nào?", "1945", ["1930", "1954", "1975"], "Tháng 8/1945, chớp thời cơ Nhật đầu hàng, Tổng khởi nghĩa thắng lợi."],
+      ["Ngày 2/9/1945 diễn ra sự kiện trọng đại nào?", "Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập", ["Thành lập Đảng", "Giải phóng miền Nam", "Kí hiệp định Genève"], "Ngày 2/9/1945, Tuyên ngôn Độc lập khai sinh nước Việt Nam Dân chủ Cộng hòa."],
+    ]),
+    createStarterTopic("grade-11-cold-war", "Lớp 11 · Chiến tranh lạnh", "Đối đầu Xô – Mỹ và thế giới hai cực", ["11", "🌍", "⚔"], [
+      ["Chiến tranh lạnh diễn ra trong khoảng thời gian nào?", "1947–1991", ["1914–1918", "1939–1945", "1991–2000"], "Chiến tranh lạnh (1947–1991) là cuộc đối đầu giữa Mỹ và Liên Xô."],
+      ["Khối quân sự của phe do Mỹ đứng đầu là gì?", "NATO", ["Warszawa", "SEATO", "CENTO"], "NATO (1949) là khối quân sự của phe Mỹ; khối Warszawa (1955) của phe Liên Xô."],
+      ["Cuộc khủng hoảng nào năm 1962 suýt gây chiến tranh hạt nhân?", "Khủng hoảng tên lửa Cuba", ["Khủng hoảng Berlin", "Chiến tranh Triều Tiên", "Khủng hoảng Suez"], "Khủng hoảng tên lửa Cuba năm 1962 là đỉnh điểm căng thẳng của Chiến tranh lạnh."],
+      ["Chiến tranh lạnh kết thúc khi nào?", "Liên Xô tan rã năm 1991", ["Năm 1945", "Năm 1975", "Năm 2001"], "Chiến tranh lạnh kết thúc khi Liên Xô tan rã năm 1991."],
+      ["Đặc điểm nổi bật của Chiến tranh lạnh là gì?", "Đối đầu căng thẳng nhưng không chiến tranh trực tiếp", ["Hai bên đánh nhau trực tiếp", "Chỉ cạnh tranh kinh tế", "Hợp tác toàn diện"], "Hai siêu cường đối đầu mọi mặt nhưng tránh chiến tranh trực tiếp với nhau."],
+    ]),
+  ],
+  geography: [
+    createStarterTopic("grade-11-eu-economy", "Lớp 11 · Kinh tế Liên minh châu Âu", "Thị trường chung và đồng euro", ["11", "🇪🇺", "💶"], [
+      ["EU hiện có bao nhiêu quốc gia thành viên?", "27", ["28", "25", "30"], "EU có 27 thành viên sau khi Anh rời đi năm 2020."],
+      ["Thị trường chung EU cho phép tự do lưu chuyển những yếu tố nào?", "Hàng hóa, dịch vụ, vốn và lao động", ["Chỉ hàng hóa", "Chỉ vốn", "Không yếu tố nào"], "Thị trường chung cho phép tự do lưu chuyển cả bốn yếu tố."],
+      ["Đồng tiền chung của đa số nước EU là gì?", "Đồng euro", ["Đồng đô la", "Đồng bảng Anh", "Đồng yên"], "Đồng euro là tiền tệ chung của đa số thành viên EU."],
+      ["EU mạnh về những lĩnh vực kinh tế nào?", "Công nghiệp công nghệ cao, dịch vụ tài chính", ["Khai thác dầu mỏ", "Đánh bắt cá", "Khai khoáng"], "EU mạnh về công nghiệp công nghệ cao, dịch vụ tài chính và thương mại."],
+      ["Chính sách nông nghiệp chung của EU nhằm mục đích gì?", "Hỗ trợ nông dân", ["Cấm sản xuất nông nghiệp", "Xuất khẩu vũ khí", "Tăng thuế nông sản"], "Chính sách nông nghiệp chung hỗ trợ nông dân các nước thành viên."],
+    ]),
+    createStarterTopic("grade-11-china-economy", "Lớp 11 · Kinh tế Trung Quốc", "Cải cách mở cửa và công xưởng thế giới", ["11", "🇨🇳", "🏭"], [
+      ["Trung Quốc bắt đầu cải cách mở cửa năm nào?", "1978", ["1949", "1997", "2001"], "Từ cải cách mở cửa năm 1978, kinh tế Trung Quốc tăng trưởng nhanh nhiều thập kỉ."],
+      ["Vì sao Trung Quốc được gọi là “công xưởng thế giới”?", "Lao động dồi dào, thu hút đầu tư nước ngoài", ["Tài nguyên vô hạn", "Dân số ít", "Không có công nghiệp"], "Lực lượng lao động dồi dào giúp Trung Quốc thu hút đầu tư, trở thành công xưởng thế giới."],
+      ["Hiện nay Trung Quốc vươn lên trong những lĩnh vực nào?", "Công nghệ cao: 5G, xe điện", ["Khai thác than", "Đánh bắt cá", "Nông nghiệp lạc hậu"], "Trung Quốc vươn lên trong 5G, xe điện và thương mại điện tử."],
+      ["Sáng kiến Vành đai và Con đường nhằm mục đích gì?", "Mở rộng ảnh hưởng kinh tế toàn cầu", ["Bảo vệ môi trường", "Hạn chế thương mại", "Xây tường biên giới"], "Sáng kiến này mở rộng ảnh hưởng kinh tế của Trung Quốc trên toàn cầu."],
+      ["Thâm Quyến là ví dụ cho điều gì?", "Từ làng chài thành trung tâm công nghệ", ["Từ thành phố thành làng quê", "Không phát triển", "Chỉ làm nông nghiệp"], "Thâm Quyến từ làng chài trở thành trung tâm công nghệ chỉ trong vài thập kỉ."],
+    ]),
+    createStarterTopic("grade-11-middle-east", "Lớp 11 · Khu vực Trung Đông", "Dầu mỏ, vị trí chiến lược và OPEC", ["11", "🛢", "🗺"], [
+      ["Trung Đông có trữ lượng lớn nhất thế giới về tài nguyên nào?", "Dầu mỏ", ["Than đá", "Vàng", "Kim cương"], "Trung Đông có trữ lượng dầu mỏ lớn nhất thế giới."],
+      ["OPEC là tổ chức gì?", "Tổ chức các nước xuất khẩu dầu mỏ", ["Tổ chức y tế", "Tổ chức giáo dục", "Tổ chức du lịch"], "OPEC là tổ chức các nước xuất khẩu dầu mỏ, chi phối thị trường năng lượng."],
+      ["Kênh đào Suez có ý nghĩa gì?", "Rút ngắn hải trình Á – Âu", ["Nối hai đại dương ở châu Mỹ", "Chỉ phục vụ du lịch", "Không có ý nghĩa"], "Kênh đào Suez rút ngắn hải trình Á – Âu, có ý nghĩa chiến lược rất lớn."],
+      ["Kinh tế nhiều nước Trung Đông phụ thuộc chủ yếu vào gì?", "Xuất khẩu dầu mỏ", ["Du lịch", "Công nghệ", "Nông nghiệp"], "Kinh tế nhiều nước phụ thuộc vào xuất khẩu dầu mỏ, đang đa dạng hóa sang du lịch, tài chính."],
+      ["Nguyên nhân chính gây bất ổn ở Trung Đông là gì?", "Xung đột sắc tộc, tôn giáo kéo dài", ["Thiên tai", "Dân số quá ít", "Thiếu nước ngọt"], "Xung đột sắc tộc, tôn giáo kéo dài gây bất ổn cho khu vực."],
+    ]),
+  ],
+  informatics: [
+    createStarterTopic("grade-11-recursion", "Lớp 11 · Đệ quy trong lập trình", "Hàm gọi lại chính nó và điều kiện dừng", ["11", "🔁", "💻"], [
+      ["Đệ quy là gì?", "Hàm gọi lại chính nó", ["Vòng lặp for", "Hàm không có tham số", "Biến toàn cục"], "Đệ quy là kĩ thuật trong đó hàm gọi lại chính nó để giải bài toán nhỏ hơn cùng dạng."],
+      ["Điều gì bắt buộc phải có trong hàm đệ quy?", "Điều kiện dừng", ["Biến toàn cục", "Vòng lặp", "Mảng"], "Hàm đệ quy phải có điều kiện dừng, nếu không sẽ lặp vô hạn gây tràn ngăn xếp."],
+      ["4! bằng bao nhiêu?", "24", ["12", "16", "10"], "4! = 4 × 3 × 2 × 1 = 24."],
+      ["0! bằng bao nhiêu?", "1", ["0", "Không xác định", "Vô hạn"], "Theo quy ước 0! = 1; đây là điều kiện dừng của đệ quy tính giai thừa."],
+      ["Nhược điểm của đệ quy so với vòng lặp là gì?", "Có thể tốn bộ nhớ hơn", ["Code luôn dài hơn", "Chạy luôn nhanh hơn", "Không có nhược điểm"], "Đệ quy giúp code ngắn gọn nhưng có thể tốn bộ nhớ hơn vòng lặp."],
+    ]),
+    createStarterTopic("grade-11-sql-basics", "Lớp 11 · Truy vấn SQL", "SELECT, WHERE và JOIN cơ bản", ["11", "🗄", "🔍"], [
+      ["Mệnh đề nào trong SQL dùng để lọc bản ghi?", "WHERE", ["SELECT", "FROM", "ORDER"], "WHERE dùng để lọc bản ghi theo điều kiện."],
+      ["Câu lệnh nào lấy tên và điểm của học sinh từ 8 điểm trở lên, sắp xếp giảm dần?", "SELECT name, score FROM students WHERE score >= 8 ORDER BY score DESC", ["SELECT * FROM students", "DELETE FROM students", "UPDATE students SET score = 8"], "Cần SELECT đúng cột, WHERE lọc điều kiện và ORDER BY ... DESC để sắp giảm dần."],
+      ["ORDER BY trong SQL dùng để làm gì?", "Sắp xếp kết quả truy vấn", ["Lọc bản ghi", "Xóa bảng", "Tạo bảng mới"], "ORDER BY dùng để sắp xếp kết quả truy vấn."],
+      ["JOIN trong SQL dùng để làm gì?", "Kết hợp dữ liệu từ nhiều bảng", ["Xóa dữ liệu", "Tạo cơ sở dữ liệu", "Sao lưu dữ liệu"], "JOIN kết hợp dữ liệu từ nhiều bảng thông qua khóa liên kết."],
+      ["Câu lệnh SELECT COUNT(*) FROM students WHERE class = '11A1'; cho kết quả gì?", "Số học sinh của lớp 11A1", ["Danh sách tên học sinh", "Điểm trung bình", "Xóa dữ liệu lớp 11A1"], "COUNT(*) đếm số bản ghi thỏa mãn điều kiện WHERE."],
+    ]),
+    createStarterTopic("grade-11-networks", "Lớp 11 · Mạng máy tính", "LAN, WAN và mô hình client-server", ["11", "🌐", "🔗"], [
+      ["LAN là loại mạng nào?", "Mạng cục bộ trong một tòa nhà hay trường học", ["Mạng toàn cầu", "Mạng vệ tinh", "Mạng điện thoại"], "LAN là mạng cục bộ; WAN phủ phạm vi rộng, điển hình là Internet."],
+      ["Trong mô hình client – server, máy chủ có vai trò gì?", "Cung cấp dịch vụ", ["Gửi yêu cầu dịch vụ", "Ngắt kết nối", "Tắt nguồn"], "Máy chủ cung cấp dịch vụ, máy khách gửi yêu cầu tới máy chủ."],
+      ["Địa chỉ IP dùng để làm gì?", "Định danh thiết bị trên mạng", ["Lưu trữ dữ liệu", "Tăng tốc độ mạng", "Chặn virus"], "Địa chỉ IP định danh mỗi thiết bị trên mạng."],
+      ["Giao thức chuẩn của Internet là gì?", "TCP/IP", ["HTTP", "FTP", "SMTP"], "TCP/IP là chuẩn giao tiếp của Internet."],
+      ["Biện pháp nào giúp bảo mật mạng?", "Tường lửa và mã hóa", ["Tắt máy tính", "Không dùng mạng", "Chia sẻ mật khẩu"], "Bảo mật mạng gồm tường lửa, mã hóa và phân quyền truy cập."],
+    ]),
+  ],
+  technology: [
+    createStarterTopic("grade-11-renewable-tech", "Lớp 11 · Công nghệ năng lượng tái tạo", "Pin mặt trời, tuabin gió và lưu trữ", ["11", "☀", "🌬"], [
+      ["Pin mặt trời chuyển dạng năng lượng nào thành điện năng?", "Quang năng", ["Nhiệt năng", "Hóa năng", "Cơ năng"], "Pin mặt trời chuyển quang năng thành điện năng."],
+      ["Thách thức lớn của năng lượng tái tạo là gì?", "Phụ thuộc thời tiết, cần hệ thống lưu trữ", ["Giá quá rẻ", "Không bao giờ cạn", "Không cần bảo trì"], "Hiệu suất và tính phụ thuộc thời tiết là thách thức; pin lưu trữ giúp khắc phục."],
+      ["Tuabin gió chuyển dạng năng lượng nào thành điện?", "Động năng của gió", ["Quang năng", "Hóa năng", "Nhiệt năng"], "Tuabin gió chuyển động năng của gió thành điện năng."],
+      ["Việt Nam có tiềm năng lớn về những loại năng lượng tái tạo nào?", "Điện mặt trời và điện gió", ["Địa nhiệt", "Thủy triều", "Năng lượng sóng"], "Việt Nam có tiềm năng lớn về điện mặt trời và điện gió."],
+      ["Ưu điểm nổi bật của năng lượng tái tạo là gì?", "Không cạn kiệt, ít phát thải", ["Rẻ hơn mọi nguồn khác", "Ổn định tuyệt đối", "Không cần đầu tư"], "Năng lượng tái tạo không cạn kiệt và ít phát thải khí nhà kính."],
+    ]),
+    createStarterTopic("grade-11-robotics-intro", "Lớp 11 · Robot cơ bản", "Cảm biến, điều khiển và chấp hành", ["11", "🤖", "⚙"], [
+      ["Robot gồm ba bộ phận chính nào?", "Cảm biến, bộ điều khiển, cơ cấu chấp hành", ["Pin, dây điện, vỏ máy", "Màn hình, loa, micro", "Bánh xe, tay, chân"], "Ba bộ phận: cảm biến thu nhận thông tin, bộ điều khiển ra quyết định, cơ cấu chấp hành hành động."],
+      ["Cảm biến của robot có chức năng gì?", "Thu nhận thông tin môi trường", ["Thực hiện hành động", "Lưu trữ dữ liệu", "Phát nhạc"], "Cảm biến thu nhận thông tin môi trường như khoảng cách hay ánh sáng."],
+      ["Robot hút bụi tránh được vật cản nhờ bộ phận nào?", "Cảm biến", ["Người điều khiển", "Sự may mắn", "Dây dẫn"], "Robot hút bụi dùng cảm biến phát hiện và tránh vật cản khi di chuyển."],
+      ["Robot hoạt động dựa trên cơ sở nào?", "Chương trình được lập trình", ["Cảm xúc", "Sự ngẫu nhiên", "Ý muốn riêng"], "Robot hoạt động theo chương trình được lập trình sẵn hoặc trí tuệ nhân tạo."],
+      ["Ứng dụng nào sau đây của robot trong y tế?", "Phẫu thuật", ["Nấu ăn", "Dạy học", "Chơi game"], "Robot được dùng trong phẫu thuật nhờ độ chính xác cao."],
+    ]),
+    createStarterTopic("grade-11-3d-printing", "Lớp 11 · Công nghệ in 3D", "Nguyên lí đắp lớp và ứng dụng", ["11", "🖨", "📦"], [
+      ["Nguyên lí cơ bản của in 3D là gì?", "Đắp từng lớp vật liệu theo mô hình số", ["Cắt gọt khối vật liệu", "Đúc trong khuôn", "Nung chảy kim loại"], "In 3D đắp từng lớp vật liệu theo mô hình số, ngược với gia công cắt gọt."],
+      ["Vật liệu phổ biến trong in 3D là gì?", "Nhựa PLA, ABS", ["Gỗ tự nhiên", "Vải", "Giấy"], "Vật liệu phổ biến là nhựa PLA, ABS; kim loại dùng cho công nghiệp."],
+      ["Ưu điểm nổi bật của in 3D là gì?", "Tạo hình phức tạp, ít phế liệu", ["Sản xuất hàng loạt rất nhanh", "Rẻ hơn mọi phương pháp", "Không cần thiết kế"], "In 3D tạo được hình phức tạp, sản xuất đơn chiếc nhanh và ít phế liệu."],
+      ["Ứng dụng của in 3D trong y tế là gì?", "In mô hình xương phục vụ phẫu thuật", ["Sản xuất thuốc uống", "Khám bệnh", "Tiêm chủng"], "Bác sĩ in mô hình 3D xương của bệnh nhân để lập kế hoạch phẫu thuật."],
+      ["Hạn chế của in 3D là gì?", "Chậm khi sản xuất hàng loạt", ["Không tạo được hình phức tạp", "Tốn nhiều phế liệu", "Chỉ in được trên giấy"], "In 3D chậm với sản xuất hàng loạt và độ bền vật liệu còn hạn chế."],
+    ]),
+  ],
+  civics: [
+    createStarterTopic("grade-11-civil-contracts", "Lớp 11 · Hợp đồng dân sự", "Điều kiện hiệu lực và trách nhiệm", ["11", "📄", "✍"], [
+      ["Hợp đồng dân sự là gì?", "Sự thỏa thuận về quyền và nghĩa vụ giữa các bên", ["Mệnh lệnh của tòa án", "Giấy khen", "Đơn xin việc"], "Hợp đồng dân sự là sự thỏa thuận xác lập, thay đổi hoặc chấm dứt quyền và nghĩa vụ."],
+      ["Điều kiện nào để hợp đồng dân sự có hiệu lực?", "Tự nguyện, nội dung không vi phạm pháp luật", ["Bị ép buộc", "Nội dung trái luật", "Chữ kí giả mạo"], "Cần: chủ thể có năng lực pháp luật, hoàn toàn tự nguyện, nội dung hợp pháp, hình thức phù hợp."],
+      ["Bên vi phạm hợp đồng phải làm gì?", "Bồi thường thiệt hại", ["Không phải làm gì", "Bỏ trốn", "Đổ lỗi cho bên kia"], "Bên vi phạm hợp đồng phải bồi thường thiệt hại cho bên kia."],
+      ["Trước khi kí hợp đồng nên làm gì?", "Đọc kĩ các điều khoản", ["Kí ngay lập tức", "Nhờ người khác kí hộ", "Không cần đọc"], "Đọc kĩ các điều khoản trước khi kí giúp tránh tranh chấp về sau."],
+      ["Hợp đồng mua bán xe máy nên ghi rõ những gì?", "Giá, thời hạn giao xe, bảo hành", ["Màu sắc yêu thích", "Biển số đẹp", "Quê quán người bán"], "Hợp đồng mua bán cần ghi rõ giá, thời hạn giao xe và điều kiện bảo hành."],
+    ]),
+    createStarterTopic("grade-11-intellectual-property", "Lớp 11 · Sở hữu trí tuệ", "Bản quyền, nhãn hiệu và sáng chế", ["11", "©", "💡"], [
+      ["Bản quyền bảo hộ đối tượng nào?", "Tác phẩm văn học, nghệ thuật, phần mềm", ["Ý tưởng chung chung", "Tên riêng của người", "Món ăn"], "Bản quyền bảo hộ tác phẩm văn học, nghệ thuật và phần mềm máy tính."],
+      ["Tải phần mềm crack về dùng là hành vi gì?", "Xâm phạm bản quyền", ["Hoàn toàn hợp pháp", "Được khuyến khích", "Không vi phạm gì"], "Tải phần mềm crack về dùng là hành vi xâm phạm bản quyền."],
+      ["Đăng kí bảo hộ sở hữu trí tuệ có tác dụng gì?", "Độc quyền khai thác và xử lí hành vi xâm phạm", ["Được miễn thuế", "Trở nên nổi tiếng", "Không có tác dụng"], "Đăng kí giúp chủ sở hữu độc quyền khai thác và xử lí hành vi xâm phạm."],
+      ["Học sinh tôn trọng bản quyền bằng cách nào?", "Không sao chép lậu, trích dẫn nguồn", ["Chia sẻ đề thi lậu", "Tải nhạc lậu", "Photo sách lậu"], "Không sao chép lậu và trích dẫn nguồn khi sử dụng tài liệu của người khác."],
+      ["Vi phạm sở hữu trí tuệ có thể bị xử lí thế nào?", "Xử phạt hành chính hoặc truy cứu hình sự", ["Được khen thưởng", "Không bị xử lí", "Được bỏ qua"], "Vi phạm sở hữu trí tuệ có thể bị xử phạt hành chính hoặc truy cứu hình sự."],
+    ]),
+    createStarterTopic("grade-11-civic-participation", "Lớp 11 · Tham gia xã hội", "Bầu cử, tình nguyện và trách nhiệm công dân", ["11", "🤝", "🗳"], [
+      ["Tham gia xã hội gồm những hoạt động nào?", "Bầu cử, tình nguyện, góp ý chính sách", ["Trốn học", "Phá hoại tài sản", "Không quan tâm"], "Tham gia xã hội: bầu cử, hoạt động tình nguyện, góp ý chính sách, bảo vệ môi trường."],
+      ["Thanh niên có thể tham gia xã hội qua kênh nào?", "Đoàn, Hội, chiến dịch tình nguyện", ["Hoạt động một mình", "Không có kênh nào", "Bỏ học"], "Thanh niên tham gia qua tổ chức Đoàn, Hội và các chiến dịch tình nguyện."],
+      ["Tham gia xã hội mang lại lợi ích gì?", "Kĩ năng, quan hệ và trách nhiệm công dân", ["Mất thời gian vô ích", "Không có lợi ích", "Bị xử phạt"], "Tham gia xã hội giúp rèn kĩ năng, mở rộng quan hệ và thể hiện trách nhiệm công dân."],
+      ["Ví dụ nào sau đây là hoạt động tình nguyện của thanh niên?", "Chiến dịch Mùa hè xanh", ["Đi chơi xa", "Nghỉ hè ở nhà", "Xem phim"], "Chiến dịch Mùa hè xanh là hoạt động tình nguyện tiêu biểu của thanh niên."],
+      ["Tham gia các hoạt động xã hội cần tuân thủ điều gì?", "Pháp luật và tôn trọng người khác", ["Tùy ý thích", "Bất chấp quy định", "Gây rối"], "Mọi hình thức tham gia xã hội đều cần tuân thủ pháp luật và tôn trọng người khác."],
+    ]),
+  ],
+  "physical-education": [
+    createStarterTopic("grade-11-soccer-basics", "Lớp 11 · Bóng đá cơ bản", "Kĩ thuật đá, chuyền và luật việt vị", ["11", "⚽", "🥅"], [
+      ["Chuyền bóng ngắn chính xác nên dùng bộ phận nào của bàn chân?", "Lòng trong", ["Mũi chân", "Gót chân", "Đầu gối"], "Chuyền bóng bằng lòng trong cho độ chính xác cao ở cự li gần."],
+      ["Luật việt vị được tính tại thời điểm nào?", "Khi đồng đội chuyền bóng cho cầu thủ tấn công đứng sau hậu vệ cuối", ["Khi thủ môn bắt bóng", "Khi đá phạt góc", "Khi bóng ra ngoài biên"], "Việt vị khi cầu thủ tấn công đứng phía sau hậu vệ cuối cùng (trừ thủ môn) lúc đồng đội chuyền bóng."],
+      ["Đá bóng mạnh thường dùng bộ phận nào?", "Mu trong", ["Lòng trong", "Gót chân", "Đầu"], "Đá bóng bằng mu trong tạo ra lực mạnh."],
+      ["Chơi bóng đá cần những phẩm chất nào?", "Phối hợp đồng đội và fair play", ["Chơi cá nhân", "Phạm lỗi đối phương", "Tranh cãi với trọng tài"], "Bóng đá cần phối hợp đồng đội, tuân thủ luật và tinh thần fair play."],
+      ["Trước khi thi đấu bóng đá nên làm gì?", "Khởi động kĩ", ["Ăn thật no", "Đi ngủ", "Không cần chuẩn bị"], "Khởi động kĩ trước trận giúp phòng tránh chấn thương."],
+    ]),
+    createStarterTopic("grade-11-swimming-strokes", "Lớp 11 · Các kiểu bơi", "Bơi sải, ếch, ngửa, bướm và an toàn", ["11", "🏊", "🌊"], [
+      ["Kiểu bơi nào nhanh nhất trong thi đấu?", "Bơi sải", ["Bơi ếch", "Bơi ngửa", "Bơi bướm"], "Bơi sải là kiểu bơi nhanh nhất trong các nội dung thi đấu."],
+      ["Kiểu bơi nào có kĩ thuật khó nhất?", "Bơi bướm", ["Bơi ếch", "Bơi ngửa", "Bơi sải"], "Bơi bướm đòi hỏi phối hợp toàn thân nên kĩ thuật khó nhất."],
+      ["Bơi ếch phù hợp với mục đích nào?", "Bơi đường dài, tiết kiệm sức", ["Bơi tốc độ", "Lặn sâu", "Nhảy cầu"], "Bơi ếch tiết kiệm sức, phù hợp bơi đường dài."],
+      ["Quy tắc an toàn nào quan trọng khi đi bơi?", "Không bơi một mình ở nơi vắng", ["Bơi ngay sau khi ăn no", "Nhảy xuống vùng nước lạ", "Bơi thật xa bờ"], "Không bơi một mình ở nơi vắng và tuân thủ nội quy hồ bơi."],
+      ["Trước khi xuống nước nên làm gì?", "Khởi động kĩ", ["Ăn thật no", "Uống nước lạnh", "Chạy nước rút"], "Khởi động kĩ trước khi bơi giúp phòng tránh chuột rút."],
+    ]),
+    createStarterTopic("grade-11-yoga-stretching", "Lớp 11 · Giãn cơ yoga", "Tư thế, hít thở và thư giãn", ["11", "🧘", "🌿"], [
+      ["Giãn cơ yoga kết hợp những yếu tố nào?", "Tư thế, hít thở sâu và thư giãn", ["Chạy nhanh", "Nâng tạ nặng", "Đấm bốc"], "Yoga kết hợp các tư thế với hít thở sâu và thư giãn."],
+      ["Nguyên tắc quan trọng khi tập yoga là gì?", "Từ dễ đến khó, không cố quá sức", ["Cố chịu đau", "Tập thật nhanh", "Nhịn thở"], "Thực hiện từ dễ đến khó, giữ tư thế ổn định, hít thở đều, không cố quá sức gây đau."],
+      ["Tư thế em bé có tác dụng gì?", "Thư giãn lưng", ["Tăng chiều cao nhanh", "Giảm cân cấp tốc", "Chữa bách bệnh"], "Tư thế em bé giúp thư giãn lưng sau giờ ngồi học lâu."],
+      ["Tập yoga đều đặn mang lại lợi ích gì?", "Dẻo dai, giảm căng thẳng, ngủ ngon", ["Mệt mỏi kéo dài", "Đau nhức", "Không có tác dụng"], "Tập đều đặn giúp cải thiện độ dẻo dai, tư thế và giấc ngủ."],
+      ["Khi tập yoga nên hít thở thế nào?", "Đều và sâu", ["Nhanh và gấp", "Nhịn thở lâu", "Thở bằng miệng"], "Hít thở đều và sâu là nguyên tắc quan trọng của yoga."],
+    ]),
+  ],
+  music: [
+    createStarterTopic("grade-11-vietnamese-instruments", "Lớp 11 · Nhạc cụ dân tộc", "Đàn bầu, đàn tranh, sáo trúc", ["11", "🎶", "🪕"], [
+      ["Đàn bầu có đặc điểm gì nổi bật?", "Chỉ có một dây", ["Có 16 dây", "Không có dây", "Có 36 dây"], "Đàn bầu chỉ có một dây nhưng diễn tả được nhiều cung bậc cảm xúc."],
+      ["Đàn tranh có bao nhiêu dây?", "16 dây", ["1 dây", "4 dây", "6 dây"], "Đàn tranh có 16 dây."],
+      ["Đàn tính gắn với loại hình nghệ thuật nào?", "Hát Then", ["Ca trù", "Quan họ", "Chèo"], "Đàn tính gắn với hát Then của người Tày, Nùng, Thái."],
+      ["Cồng chiêng gắn với lễ hội của vùng nào?", "Tây Nguyên", ["Đồng bằng sông Hồng", "Đồng bằng sông Cửu Long", "Đông Bắc"], "Cồng chiêng Tây Nguyên gắn với lễ hội, được UNESCO ghi danh di sản."],
+      ["Bảo tồn nhạc cụ dân tộc có ý nghĩa gì?", "Giữ gìn bản sắc văn hóa", ["Không có ý nghĩa", "Tốn kém vô ích", "Lạc hậu"], "Bảo tồn nhạc cụ dân tộc là giữ gìn bản sắc văn hóa Việt Nam."],
+    ]),
+    createStarterTopic("grade-11-song-structure", "Lớp 11 · Cấu trúc bài hát", "Verse, chorus, bridge trong nhạc pop", ["11", "🎵", "🎤"], [
+      ["Phần nào của bài hát thường là cao trào và được lặp lại?", "Chorus (điệp khúc)", ["Verse", "Intro", "Outro"], "Chorus là điệp khúc, lời lặp lại, thường là cao trào của bài hát."],
+      ["Verse trong bài hát có đặc điểm gì?", "Kể chuyện, lời thay đổi mỗi lần xuất hiện", ["Lời lặp lại", "Không có lời", "Chỉ có nhạc"], "Verse là đoạn kể chuyện, lời ca thay đổi mỗi lần xuất hiện."],
+      ["Bridge trong bài hát có vai trò gì?", "Tạo sự mới lạ, làm đoạn chuyển", ["Mở đầu bài hát", "Kết thúc bài hát", "Lặp lại điệp khúc"], "Bridge là đoạn chuyển, tạo sự mới lạ trước khi trở lại điệp khúc."],
+      ["Phần nào của bài hát khán giả thường nhớ nhất và hát theo?", "Điệp khúc", ["Intro", "Verse", "Outro"], "Điệp khúc thường là phần khán giả nhớ nhất và hát theo."],
+      ["Hiểu cấu trúc bài hát giúp ích gì?", "Hát đúng, nhớ lời nhanh, sáng tác có bố cục", ["Không giúp ích gì", "Chỉ để đi thi", "Làm khó nhớ hơn"], "Hiểu cấu trúc giúp hát đúng, nhớ lời nhanh và sáng tác có bố cục."],
+    ]),
+    createStarterTopic("grade-11-film-music", "Lớp 11 · Âm nhạc trong phim", "Vai trò nhạc nền và leitmotif", ["11", "🎬", "🎼"], [
+      ["Nhạc phim có vai trò gì?", "Tạo cảm xúc, khắc họa nhân vật, dẫn dắt câu chuyện", ["Gây ồn ào", "Không có vai trò", "Chỉ để lấp chỗ trống"], "Nhạc phim tạo cảm xúc, khắc họa nhân vật và dẫn dắt câu chuyện."],
+      ["Leitmotif là gì?", "Mô-típ âm nhạc gắn với nhân vật hoặc ý tưởng", ["Một loại nhạc cụ", "Một ca sĩ", "Một rạp chiếu phim"], "Leitmotif là mô-típ âm nhạc gắn với nhân vật hay ý tưởng, lặp lại để gợi nhớ."],
+      ["Nhạc phim có thể tồn tại dưới những dạng nào?", "Ca khúc hoặc nhạc nền không lời", ["Chỉ ca khúc", "Chỉ nhạc không lời", "Không dạng nào"], "Nhạc phim có thể là ca khúc hoặc nhạc nền không lời."],
+      ["Khi xem phim nên chú ý gì về phần nhạc?", "Nhạc thay đổi theo diễn biến tâm lí nhân vật", ["Tắt nhạc đi", "Không để ý", "Chỉ nghe lời hát"], "Hãy chú ý cách nhạc nền thay đổi theo diễn biến tâm lí nhân vật."],
+      ["Nhiều bản nhạc phim có đặc điểm gì đặc biệt?", "Nổi tiếng độc lập với bộ phim", ["Không ai nhớ đến", "Chỉ nghe một lần", "Không có giá trị"], "Nhiều bản nhạc phim trở nên nổi tiếng độc lập với bộ phim."],
+    ]),
+  ],
+  "visual-arts": [
+    createStarterTopic("grade-11-typography", "Lớp 11 · Chữ trong thiết kế", "Phông chữ và thứ bậc thông tin", ["11", "🔤", "✏"], [
+      ["Phông chữ serif có đặc điểm gì?", "Có chân, trang trọng, cổ điển", ["Không có chân", "Hiện đại", "Chỉ dùng trên web"], "Phông serif có chân, tạo cảm giác trang trọng và cổ điển."],
+      ["Phông sans-serif phù hợp sử dụng ở đâu?", "Màn hình, phong cách hiện đại, dễ đọc", ["Sách cổ", "Văn bản luật", "Thiệp cưới"], "Phông sans-serif không chân, hiện đại và dễ đọc trên màn hình."],
+      ["Thứ bậc thông tin trong thiết kế được tạo bằng gì?", "Kích cỡ, độ đậm, màu sắc và vị trí", ["Chỉ màu sắc", "Chỉ kích cỡ", "Sắp xếp ngẫu nhiên"], "Thứ bậc thông tin được tạo bằng kích thước, độ đậm, màu sắc và vị trí."],
+      ["Khoảng cách dòng và chữ ảnh hưởng đến điều gì?", "Độ dễ đọc của văn bản", ["Màu sắc", "Loại phông", "Không ảnh hưởng gì"], "Khoảng cách dòng và khoảng cách chữ ảnh hưởng trực tiếp đến độ dễ đọc."],
+      ["Tiêu đề báo thường được thiết kế thế nào?", "Chữ đậm, cỡ lớn", ["Chữ nhỏ, mờ nhạt", "Không có tiêu đề", "Chữ nghiêng"], "Tiêu đề báo thường dùng chữ đậm, cỡ lớn để thu hút sự chú ý."],
+    ]),
+    createStarterTopic("grade-11-packaging-design", "Lớp 11 · Thiết kế bao bì", "Chức năng, thương hiệu và thông tin", ["11", "📦", "🎨"], [
+      ["Bao bì có những chức năng nào?", "Bảo vệ, cung cấp thông tin, thu hút người mua", ["Chỉ để trang trí", "Chỉ để đựng", "Không có chức năng"], "Bao bì bảo vệ sản phẩm, cung cấp thông tin và thu hút người mua."],
+      ["Thiết kế bao bì thể hiện thương hiệu qua những gì?", "Màu sắc, logo, hình ảnh nhất quán", ["Giá bán rẻ", "Kích thước lớn", "Chữ thật nhỏ"], "Thiết kế thể hiện thương hiệu qua màu sắc, logo và hình ảnh nhất quán."],
+      ["Thông tin bắt buộc trên bao bì thực phẩm là gì?", "Tên, thành phần, hạn sử dụng", ["Giá cổ phiếu", "Tiểu sử tác giả", "Truyện cười"], "Bao bì cần ghi: tên sản phẩm, thành phần, hạn sử dụng, hướng dẫn bảo quản."],
+      ["Xu hướng bao bì hiện nay là gì?", "Thân thiện với môi trường", ["Dùng nhiều nhựa", "Dùng một lần", "Bỏ bao bì"], "Bao bì thân thiện môi trường (ít nhựa, tái chế được) là xu hướng hiện nay."],
+      ["Thiết kế bao bì cần trung thực về điều gì?", "Không gây hiểu lầm về sản phẩm", ["Phóng đại sự thật", "Che giấu thông tin", "Nói sai sự thật"], "Thiết kế đẹp nhưng phải trung thực, không gây hiểu lầm về sản phẩm."],
+    ]),
+    createStarterTopic("grade-11-mural-art", "Lớp 11 · Tranh tường", "Tranh công cộng và nghệ thuật bích họa", ["11", "🧱", "🖌"], [
+      ["Tranh tường có đặc điểm gì?", "Vẽ trực tiếp lên tường, kích thước lớn", ["Vẽ trên giấy nhỏ", "Chỉ vẽ trong nhà", "Không dùng màu"], "Tranh tường vẽ trực tiếp lên tường trong nhà hoặc ngoài trời, kích thước thường lớn."],
+      ["Vật liệu nào phù hợp vẽ tranh tường ngoài trời?", "Sơn acrylic bền màu", ["Màu nước", "Bút chì", "Phấn viết bảng"], "Sơn acrylic bền màu được dùng cho tranh tường ngoài trời."],
+      ["Tranh tường công cộng thường mang thông điệp gì?", "Văn hóa, môi trường, lịch sử địa phương", ["Quảng cáo sản phẩm", "Chính trị", "Không có thông điệp"], "Tranh tường công cộng thường mang thông điệp văn hóa, môi trường hoặc lịch sử địa phương."],
+      ["Làng bích họa nổi tiếng ở Quảng Nam là đâu?", "Tam Thanh", ["Hội An", "Mỹ Sơn", "Cù Lao Chàm"], "Làng bích họa Tam Thanh (Quảng Nam) nổi tiếng với những bức tranh tường rực rỡ."],
+      ["Vẽ tranh tường cần thực hiện bước nào trước tiên?", "Phác thảo ý tưởng", ["Vẽ ngay lên tường", "Không cần chuẩn bị", "Thuê người khác vẽ"], "Vẽ tranh tường cần phác thảo ý tưởng, chia lưới phóng to hình và phối hợp nhóm."],
+    ]),
+  ],
+  "national-defense": [
+    createStarterTopic("grade-11-border-defense", "Lớp 11 · Bảo vệ biên giới", "Cột mốc và bảo vệ chủ quyền lãnh thổ", ["11", "🗺", "🚩"], [
+      ["Biên giới quốc gia gồm những bộ phận nào?", "Trên bộ, trên biển và trên không", ["Chỉ trên bộ", "Chỉ trên biển", "Không có bộ phận"], "Biên giới quốc gia gồm biên giới trên bộ, trên biển và trên không."],
+      ["Cột mốc biên giới có tác dụng gì?", "Đánh dấu đường biên giới trên bộ", ["Trang trí cảnh quan", "Chắn gió", "Làm nhà"], "Cột mốc biên giới đánh dấu đường biên giới trên bộ."],
+      ["Việt Nam có đường biên giới đất liền với những nước nào?", "Trung Quốc, Lào, Campuchia", ["Thái Lan, Myanmar", "Chỉ Trung Quốc", "Không có nước nào"], "Việt Nam có đường biên giới đất liền với Trung Quốc, Lào và Campuchia."],
+      ["Lực lượng nòng cốt bảo vệ biên giới là ai?", "Bộ đội biên phòng", ["Công an xã", "Dân quân tự vệ", "Học sinh"], "Bộ đội biên phòng là lực lượng nòng cốt bảo vệ biên giới."],
+      ["Công dân góp phần bảo vệ biên giới bằng cách nào?", "Không tự ý qua lại, báo khi phát hiện vi phạm", ["Tự ý vượt biên", "Phá hoại cột mốc", "Không quan tâm"], "Công dân không tự ý qua lại biên giới; phát hiện dấu hiệu vi phạm thì báo cơ quan chức năng."],
+    ]),
+    createStarterTopic("grade-11-cybersecurity-basics", "Lớp 11 · An ninh mạng cơ bản", "Mật khẩu, phishing và bảo vệ dữ liệu", ["11", "🔒", "💻"], [
+      ["Mật khẩu an toàn nên được đặt thế nào?", "Mạnh và khác nhau cho từng tài khoản", ["Dễ nhớ, dùng chung mọi nơi", "Thật ngắn", "Ghi ra giấy dán màn hình"], "Dùng mật khẩu mạnh, khác nhau cho từng tài khoản và bật xác thực hai lớp."],
+      ["Phishing là hình thức tấn công nào?", "Lừa đảo giả danh để chiếm đoạt thông tin", ["Câu cá giải trí", "Chơi game", "Mua sắm trực tuyến"], "Phishing giả danh ngân hàng hay cơ quan để chiếm đoạt thông tin, mật khẩu."],
+      ["Email giả danh ngân hàng yêu cầu nhập mật khẩu là gì?", "Lừa đảo phishing", ["Email thật", "Chương trình khuyến mãi", "Thông báo thường"], "Đó là chiêu lừa đảo phishing; tuyệt đối không nhập thông tin."],
+      ["Khi nghi ngờ bị tấn công mạng nên làm gì?", "Đổi mật khẩu ngay và báo quản trị viên", ["Mặc kệ", "Xóa hết dữ liệu", "Tắt máy vĩnh viễn"], "Đổi mật khẩu ngay và báo quản trị viên khi nghi bị tấn công."],
+      ["Học sinh cần bảo vệ những gì trên mạng?", "Tài khoản học tập và thông tin cá nhân", ["Không cần bảo vệ gì", "Chỉ tài khoản game", "Chỉ phim ảnh"], "Học sinh cần bảo vệ tài khoản học tập và thông tin cá nhân."],
+    ]),
+    createStarterTopic("grade-11-survival-skills", "Lớp 11 · Kĩ năng sinh tồn", "Ứng phó khi gặp tình huống nguy hiểm", ["11", "🏕", "🧭"], [
+      ["Khi gặp tình huống nguy hiểm, ưu tiên đầu tiên là gì?", "Giữ bình tĩnh", ["Hoảng loạn", "Chạy lung tung", "Khóc lóc"], "Giữ bình tĩnh là ưu tiên đầu tiên khi gặp tình huống nguy hiểm."],
+      ["Tín hiệu cầu cứu quốc tế bằng còi là gì?", "Thổi còi ba hồi liên tiếp", ["Thổi một hồi", "Không thổi còi", "Thổi liên tục"], "Thổi còi ba hồi liên tiếp là tín hiệu cầu cứu được công nhận quốc tế."],
+      ["Cách nào tạo tín hiệu cầu cứu bằng vật liệu tự nhiên?", "Xếp đá thành chữ SOS", ["Nằm im một chỗ", "Trốn vào hang", "Không làm gì"], "Xếp đá thành chữ SOS hoặc dùng gương phản chiếu ánh sáng để cầu cứu."],
+      ["Bộ sinh tồn mini khi đi dã ngoại nên có gì?", "Nước, đèn pin, còi, băng cá nhân", ["Đồ chơi", "Mỹ phẩm", "Sách truyện"], "Nên mang theo: nước, đèn pin, còi và băng cá nhân khi đi dã ngoại."],
+      ["Khi bị lạc trong rừng nên ưu tiên tìm gì?", "Nơi trú ẩn và nước sạch", ["Thức ăn ngon", "Chỗ đẹp để chụp ảnh", "Đường tắt"], "Ưu tiên hàng đầu: tìm nơi trú ẩn, nước sạch và giữ ấm cơ thể."],
+    ]),
+  ],
+  "career-experience": [
+    createStarterTopic("grade-11-freelancing", "Lớp 11 · Làm việc tự do", "Ưu điểm và thách thức của freelancer", ["11", "💼", "🏠"], [
+      ["Freelancer là người như thế nào?", "Làm việc tự do, nhận dự án từ nhiều khách hàng", ["Nhân viên công ty", "Chủ doanh nghiệp", "Người thất nghiệp"], "Freelancer làm việc tự do, nhận dự án từ nhiều khách hàng thay vì một công ty."],
+      ["Ưu điểm của làm việc tự do là gì?", "Chủ động thời gian và địa điểm", ["Lương cao cố định", "Được nghỉ phép năm", "Có bảo hiểm đầy đủ"], "Ưu điểm: chủ động về thời gian và địa điểm làm việc."],
+      ["Thách thức lớn của freelancer là gì?", "Thu nhập không ổn định, tự lo bảo hiểm", ["Công việc quá nhàn", "Không cần kĩ năng", "Luôn ổn định"], "Nhược điểm: thu nhập không ổn định, tự lo bảo hiểm và thuế."],
+      ["Những lĩnh vực nào phổ biến với freelancer?", "Thiết kế, viết lách, lập trình", ["Khai thác mỏ", "Lái máy bay", "Phẫu thuật"], "Các lĩnh vực phổ biến: thiết kế đồ họa, viết lách, lập trình, dịch thuật."],
+      ["Muốn làm freelancer cần chuẩn bị gì?", "Kĩ năng chuyên môn vững và quản lí tài chính", ["Không cần chuẩn bị gì", "Chỉ cần máy tính", "Chờ việc tự đến"], "Cần kĩ năng chuyên môn vững, kĩ năng tìm khách hàng và quản lí tài chính cá nhân."],
+    ]),
+    createStarterTopic("grade-11-startup-basics", "Lớp 11 · Khởi nghiệp", "Ý tưởng, MVP và gọi vốn", ["11", "🚀", "💡"], [
+      ["Khởi nghiệp là gì?", "Xây dựng mô hình kinh doanh mới từ ý tưởng", ["Đi xin việc", "Đi làm thuê", "Nghỉ hưu sớm"], "Khởi nghiệp là xây dựng mô hình kinh doanh mới từ một ý tưởng, thường bắt đầu nhỏ."],
+      ["MVP trong khởi nghiệp có nghĩa là gì?", "Sản phẩm thử nghiệm tối thiểu", ["Máy tính đắt tiền", "Văn phòng sang trọng", "Logo thật đẹp"], "MVP là sản phẩm thử nghiệm tối thiểu để thử nghiệm thị trường."],
+      ["Bước quan trọng đầu tiên khi khởi nghiệp là gì?", "Xác định vấn đề của khách hàng", ["Thuê văn phòng đẹp", "In danh thiếp", "Tổ chức tiệc"], "Bước đầu: xác định vấn đề của khách hàng, tạo MVP rồi thử thị trường."],
+      ["Thất bại trong khởi nghiệp có ý nghĩa gì?", "Bài học để thử lại tốt hơn", ["Dấu chấm hết", "Điều xấu hổ", "Vô ích"], "Thất bại là bài học phổ biến; nhiều startup thành công sau nhiều lần thử."],
+      ["Học sinh có thể tập khởi nghiệp bằng cách nào?", "Thực hiện dự án nhỏ ở trường", ["Chờ đến khi tốt nghiệp", "Vay vốn lớn", "Không thể thực hiện"], "Học sinh có thể tập khởi nghiệp qua dự án nhỏ ở trường để rèn tư duy."],
+    ]),
+    createStarterTopic("grade-11-work-life-balance", "Lớp 11 · Cân bằng công việc", "Quản lí thời gian và sức khỏe", ["11", "⚖", "🌿"], [
+      ["Cân bằng công việc – cuộc sống là gì?", "Phân bổ hợp lí thời gian cho công việc, gia đình, sức khỏe", ["Chỉ tập trung làm việc", "Chỉ nghỉ ngơi", "Không cần quan tâm"], "Là phân bổ hợp lí thời gian cho công việc, gia đình, sức khỏe và sở thích cá nhân."],
+      ["Làm việc quá sức kéo dài gây hậu quả gì?", "Kiệt sức, ảnh hưởng sức khỏe", ["Thăng tiến nhanh", "Khỏe mạnh hơn", "Luôn vui vẻ"], "Làm việc quá sức kéo dài gây kiệt sức, ảnh hưởng nghiêm trọng đến sức khỏe."],
+      ["Biện pháp nào giúp cân bằng hiệu quả?", "Lập kế hoạch, ưu tiên việc quan trọng", ["Làm mọi thứ cùng lúc", "Thức khuya triền miên", "Bỏ qua nghỉ ngơi"], "Lập kế hoạch, ưu tiên việc quan trọng, dành thời gian nghỉ ngơi và vận động."],
+      ["Với học sinh, cân bằng giữa học và chơi giúp gì?", "Học hiệu quả, tinh thần thoải mái", ["Học kém đi", "Mệt mỏi hơn", "Không có tác dụng"], "Cân bằng giữa học tập và vui chơi giúp học hiệu quả hơn, tinh thần thoải mái."],
+      ["Thói quen nào tốt cho sự cân bằng mỗi ngày?", "Dành 30 phút thể thao", ["Thức đến 2 giờ sáng", "Bỏ bữa sáng", "Ngồi lì một chỗ"], "Dành 30 phút thể thao mỗi ngày giúp học tập tập trung hơn."],
+    ]),
+  ],
+};
+for (const [subjectId, topics] of Object.entries(gradeElevenExtraPractice)) {
+  for (const topic of topics) topic.level = "LỚP 11";
+  curriculumExtensions[subjectId].push(...topics);
+}
+
+const pracA1 = {
+  math: [
+    createStarterTopic("grade-12-sphere-oxyz", "Lớp 12 · Mặt cầu Oxyz", "Phương trình mặt cầu, tâm, bán kính và điều kiện tồn tại", ["12", "◯", "📐"], [
+      ["Mặt cầu (x − 1)² + (y + 2)² + z² = 9 có tâm và bán kính là gì?", "I(1; −2; 0) và R = 3", ["I(−1; 2; 0) và R = 3", "I(1; −2; 0) và R = 9", "I(1; −2; 0) và R = √3"], "Tâm lấy số đối của hệ số trong ngoặc: I(1; −2; 0); bán kính R = √9 = 3, nhiều bạn nhầm R = 9."],
+      ["Bán kính của mặt cầu x² + y² + z² − 4x + 6y − 4z + 4 = 0 bằng bao nhiêu?", "√13", ["√17", "13", "√21"], "So với dạng tổng quát: a = 2, b = −3, c = 2, d = 4; R² = a² + b² + c² − d = 4 + 9 + 4 − 4 = 13."],
+      ["Điều kiện để phương trình x² + y² + z² − 2ax − 2by − 2cz + d = 0 là một mặt cầu là gì?", "a² + b² + c² > d", ["d > a² + b² + c²", "a² + b² + c² = d", "a, b, c, d đều dương"], "Vì R² = a² + b² + c² − d phải dương nên cần a² + b² + c² > d; khi bằng nhau chỉ còn một điểm."],
+      ["Điểm nào sau đây thuộc mặt cầu tâm O bán kính 2?", "(2; 0; 0)", ["(1; 1; 1)", "(0; 2; 2)", "(2; 2; 0)"], "Mặt cầu là x² + y² + z² = 4; chỉ điểm (2; 0; 0) thỏa 4 + 0 + 0 = 4, các điểm còn lại cho tổng lớn hơn 4."],
+      ["Phương trình của mặt cầu tâm I(0; 0; 1), bán kính 5 là gì?", "x² + y² + (z − 1)² = 25", ["x² + y² + (z − 1)² = 5", "x² + y² + (z + 1)² = 25", "(x − 1)² + y² + z² = 25"], "Thay tâm vào (x − 0)² + (y − 0)² + (z − 1)² = 5²; chú ý vế phải là R² = 25 chứ không phải R."],
+    ]),
+    createStarterTopic("grade-12-statistics-inference", "Lớp 12 · Thống kê suy luận", "Ước lượng, khoảng tin cậy và kiểm định giả thuyết", ["12", "📊", "🎯"], [
+      ["Thống kê suy luận khác thống kê mô tả ở điểm nào?", "Suy luận dùng mẫu để kết luận về tổng thể, mô tả chỉ tóm tắt dữ liệu đang có", ["Mô tả dùng mẫu để dự đoán tổng thể", "Suy luận chỉ vẽ biểu đồ minh họa", "Hai cách gọi khác nhau của cùng một việc"], "Thống kê mô tả dừng ở bảng biểu, số đặc trưng của tập dữ liệu; suy luận đi xa hơn: từ mẫu suy ra quy luật của cả tổng thể."],
+      ["Khoảng tin cậy 95% cho chiều cao trung bình là 160–170 cm có nghĩa là gì?", "Nếu lặp lại việc lấy mẫu nhiều lần, khoảng 95% các khoảng tính được sẽ chứa chiều cao trung bình thật", ["95% học sinh có chiều cao từ 160 đến 170 cm", "Chắc chắn 100% giá trị thật nằm trong khoảng này", "Chiều cao trung bình của mẫu đúng bằng 165 cm"], "Khoảng tin cậy nói về độ tin cậy của quy trình ước lượng, không phải tỉ lệ cá thể trong khoảng; đừng nhầm với “95% học sinh”."],
+      ["Mức ý nghĩa α = 0,05 trong kiểm định giả thuyết nghĩa là gì?", "Chấp nhận tối đa 5% khả năng bác bỏ nhầm một giả thuyết H₀ đúng", ["Xác suất giả thuyết H₀ đúng là 5%", "Kết quả kiểm định luôn đúng 95%", "Phải thu thập đúng 5% tổng thể làm mẫu"], "α là ngưỡng rủi ro sai lầm loại I mà ta chấp nhận: kết luận có hiệu ứng trong khi thực ra không có."],
+      ["Muốn thu hẹp khoảng tin cậy mà vẫn giữ nguyên độ tin cậy, cách hiệu quả nhất là gì?", "Tăng cỡ mẫu", ["Giảm cỡ mẫu", "Tăng độ tin cậy lên 99%", "Đổi đơn vị đo của dữ liệu"], "Sai số chuẩn tỉ lệ nghịch với √n nên mẫu càng lớn, ước lượng càng chính xác và khoảng càng hẹp."],
+      ["Trong một kiểm định, p-value = 0,03 với mức ý nghĩa α = 0,05 thì kết luận nào đúng?", "Bác bỏ H₀", ["Không bác bỏ H₀", "Chưa đủ thông tin để kết luận", "H₀ chắc chắn sai hoàn toàn"], "Vì p-value = 0,03 < α = 0,05 nên bác bỏ H₀; lưu ý “bác bỏ” khác với “chứng minh H₀ sai hoàn toàn”."],
+    ]),
+    createStarterTopic("grade-12-optimization", "Lớp 12 · Bài toán tối ưu hóa", "Cực trị bằng đạo hàm và bài toán thực tế", ["12", "📈", "⚙"], [
+      ["Để tìm giá trị lớn nhất của hàm f trên đoạn [a; b], bước nào KHÔNG thể bỏ qua?", "So sánh giá trị tại các điểm tới hạn với giá trị tại hai đầu mút", ["Chỉ cần giải f′(x) = 0", "Chỉ cần tính f(a) và f(b)", "Chỉ cần tìm điểm mà f(x) = 0"], "Cực trị trên đoạn đóng có thể rơi đúng vào đầu mút; bỏ qua bước so sánh là lỗi phổ biến nhất."],
+      ["Hàm số f(x) = x³ − 3x² đạt cực đại tại điểm nào?", "x = 0", ["x = 2", "x = 1", "x = 3"], "f′(x) = 3x² − 6x = 0 cho x = 0 hoặc x = 2; f′ đổi dấu từ dương sang âm tại x = 0 nên đó là điểm cực đại."],
+      ["Giá trị lớn nhất của f(x) = −x² + 4x + 1 trên đoạn [0; 3] bằng bao nhiêu?", "5", ["4", "1", "9"], "Đỉnh parabol tại x = 2 cho f(2) = 5; so với f(0) = 1 và f(3) = 4 nên giá trị lớn nhất là 5."],
+      ["Dấu hiệu nhận biết điểm cực tiểu qua đạo hàm cấp một là gì?", "f′ đổi dấu từ âm sang dương khi qua điểm đó", ["f′ đổi dấu từ dương sang âm khi qua điểm đó", "Chỉ cần f′ = 0 tại điểm đó là đủ", "f′ luôn dương ở cả hai phía"], "f′ = 0 mới chỉ là điểm tới hạn; phải có sự đổi dấu từ âm sang dương mới khẳng định là cực tiểu."],
+      ["Một công ty muốn dùng ít vật liệu nhất để làm chiếc hộp kín có thể tích cho trước; đây là bài toán gì?", "Bài toán tối ưu: cực tiểu hóa diện tích với ràng buộc thể tích", ["Bài toán xác suất thống kê", "Bài toán đếm của tổ hợp", "Bài toán giải phương trình bậc hai"], "Đặt một cạnh là x, biểu diễn diện tích toàn phần theo x rồi tìm giá trị nhỏ nhất trên miền x > 0."],
+    ]),
+  ],
+  science: [
+    createStarterTopic("grade-12-quantum-intro", "Lớp 12 · Lượng tử cơ bản", "Planck, quang điện, lưỡng tính sóng – hạt và bất định", ["12", "⚛", "💡"], [
+      ["Công thức Planck E = hf cho biết điều gì?", "Năng lượng của một photon tỉ lệ thuận với tần số của ánh sáng", ["Năng lượng tỉ lệ nghịch với tần số", "Mọi photon đều có năng lượng bằng nhau", "Tần số càng cao thì năng lượng càng thấp"], "h = 6,626×10⁻³⁴ J·s là hằng số; f càng lớn thì mỗi “gói” năng lượng càng lớn."],
+      ["Hiện tượng quang điện chứng tỏ ánh sáng có tính chất gì?", "Tính hạt: ánh sáng tồn tại dưới dạng các photon", ["Chỉ có tính sóng", "Là dòng electron phát ra từ kim loại", "Không mang theo năng lượng"], "Electron chỉ bật ra khi tần số ánh sáng đủ lớn, bất kể cường độ — điều thuyết sóng cổ điển không giải thích được."],
+      ["Nguyên lý bất định Heisenberg phát biểu điều gì?", "Không thể đồng thời xác định chính xác cả vị trí và động lượng của hạt vi mô", ["Mọi phép đo ở cấp vi mô đều hoàn toàn chính xác", "Nguyên lý chỉ áp dụng cho vật vĩ mô", "Năng lượng của hạt vi mô luôn bằng 0"], "Việc đo vị trí càng chính xác thì càng làm nhiễu động lượng của hạt, và ngược lại."],
+      ["Thí nghiệm nhiễu xạ của electron chứng tỏ điều gì?", "Hạt vi mô như electron cũng có tính sóng (lưỡng tính sóng – hạt)", ["Electron chỉ là hạt cổ điển", "Sóng ánh sáng không có tính hạt", "Electron nặng hơn proton"], "Chùm electron qua khe hẹp tạo vân nhiễu xạ như sóng; giả thuyết de Broglie được thực nghiệm xác nhận."],
+      ["Trong các bức xạ sau, photon của bức xạ nào mang năng lượng lớn nhất?", "Tia tử ngoại", ["Ánh sáng đỏ", "Tia hồng ngoại", "Sóng vô tuyến"], "Theo E = hf, tần số càng cao năng lượng càng lớn: tử ngoại > ánh sáng nhìn thấy > hồng ngoại > sóng vô tuyến."],
+    ]),
+    createStarterTopic("grade-12-electrochemistry", "Lớp 12 · Điện hóa và pin", "Pin Galvani, điện phân và dãy điện hóa", ["12", "🔋", "⚗"], [
+      ["Trong pin Galvani Zn–Cu, điện cực kẽm (Zn) đóng vai trò gì?", "Cực âm, nơi xảy ra quá trình oxi hóa", ["Cực dương, nơi xảy ra quá trình khử", "Cực dương, nơi xảy ra quá trình oxi hóa", "Điện cực không tham gia phản ứng"], "Zn → Zn²⁺ + 2e: Zn nhường electron nên bị oxi hóa và là cực âm của pin."],
+      ["Sức điện động chuẩn của pin Zn–Cu bằng bao nhiêu?", "1,10 V", ["0,76 V", "0,34 V", "1,86 V"], "E° = E°(cathode) − E°(anode) = 0,34 − (−0,76) = 1,10 V; đừng lấy riêng một nửa pin."],
+      ["Khi điện phân nước, khí H₂ thoát ra ở điện cực nào?", "Cathode (cực âm)", ["Anode (cực dương)", "Cả hai điện cực", "Không có khí nào thoát ra"], "Ở cathode xảy ra quá trình khử: 2H₂O + 2e → H₂ + 2OH⁻; ở anode thoát ra O₂."],
+      ["Dãy điện hóa của kim loại cho phép dự đoán điều gì?", "Chiều của phản ứng oxi hóa – khử và sức điện động của pin", ["Màu sắc của mọi dung dịch", "Tốc độ của mọi phản ứng hóa học", "Nhiệt độ nóng chảy của kim loại"], "Kim loại đứng trước đẩy được ion kim loại đứng sau ra khỏi dung dịch muối của nó."],
+      ["Vì sao khi điện phân dung dịch CuSO₄ với điện cực trơ, đồng bám vào cathode?", "Ion Cu²⁺ nhận electron và bị khử thành Cu kim loại", ["Ion Cu²⁺ bị oxi hóa thành Cu", "Nước bị khử tạo ra đồng", "CuSO₄ tự phân hủy khi có dòng điện"], "Tại cathode: Cu²⁺ + 2e → Cu; đó là quá trình khử, không phải oxi hóa."],
+    ]),
+    createStarterTopic("grade-12-ecology-systems", "Lớp 12 · Hệ sinh thái", "Chuỗi thức ăn, tháp sinh thái và diễn thế", ["12", "🌿", "🦁"], [
+      ["Vì sao chuỗi thức ăn thường không vượt quá 5–6 bậc dinh dưỡng?", "Mỗi bậc chỉ giữ lại khoảng 10% năng lượng của bậc ngay dưới", ["Năng lượng được cộng thêm ở mỗi bậc dinh dưỡng", "Sinh vật bậc cao không cần ăn sinh vật bậc thấp", "Số bậc không liên quan gì đến năng lượng"], "Phần lớn năng lượng mất đi qua hô hấp và chất thải nên càng lên cao năng lượng càng cạn kiệt."],
+      ["Sinh vật nào sau đây thuộc nhóm phân giải?", "Nấm và vi khuẩn hoại sinh", ["Cây xanh quang hợp", "Châu chấu ăn cỏ", "Rắn ăn ếch"], "Sinh vật phân giải phân hủy xác sinh vật thành chất vô cơ, khép kín chu trình vật chất."],
+      ["Diễn thế nguyên sinh bắt đầu từ môi trường nào?", "Môi trường chưa từng có sinh vật, như đảo núi lửa mới hay bãi đá trần", ["Khu rừng bị chặt phá nhưng còn đất và hạt", "Ruộng bỏ hoang nhiều năm", "Ao hồ bị ô nhiễm rồi phục hồi"], "Diễn thế nguyên sinh khởi đầu từ nơi trống trơn; còn nơi từng có sinh vật là diễn thế thứ sinh, diễn ra nhanh hơn."],
+      ["Loại tháp sinh thái nào luôn có dạng chuẩn (đáy rộng, đỉnh hẹp)?", "Tháp năng lượng", ["Tháp số lượng", "Tháp sinh khối", "Mọi loại tháp sinh thái"], "Tháp số lượng và sinh khối có thể bị lộn ngược (ví dụ sinh vật ký sinh, hệ đại dương), chỉ tháp năng lượng luôn chuẩn."],
+      ["Nếu thuốc trừ sâu tích lũy qua chuỗi thức ăn, sinh vật nào bị nhiễm độc nặng nhất?", "Sinh vật ở đỉnh chuỗi (bậc dinh dưỡng cao nhất)", ["Cây trồng bị phun thuốc", "Côn trùng ăn lá", "Sinh vật phân giải"], "Hiện tượng khuếch đại sinh học: chất độc khó phân giải tích lũy dần và đậm đặc nhất ở bậc cao nhất."],
+    ]),
+  ],
+  literature: [
+    createStarterTopic("grade-12-wartime-prose", "Lớp 12 · Văn xuôi kháng chiến", "Nguyễn Thi, Anh Đức và khuynh hướng sử thi", ["12", "📖", "🔥"], [
+      ["Truyện ngắn “Người mẹ cầm súng” của Nguyễn Thi khắc họa nhân vật nào?", "Má Út Tịch", ["Chị Sứ", "Chị Dậu", "Chị Chiến"], "Má Út Tịch là hình tượng người mẹ Nam Bộ vừa tần tảo vừa anh dũng; chị Sứ thuộc về “Hòn Đất” của Anh Đức."],
+      ["Câu nói “Còn cái lai quần cũng đánh” thể hiện điều gì ở má Út Tịch?", "Quyết tâm đánh giặc đến cùng, không chịu đầu hàng", ["Sự giàu có của gia đình bà", "Nỗi sợ hãi trước chiến tranh", "Mong muốn hòa bình bằng mọi giá"], "Câu nói mộc mạc mà đanh thép, kết tinh tinh thần quật khởi của người nông dân Nam Bộ."],
+      ["Tiểu thuyết “Hòn Đất” của Anh Đức viết về nhân vật nào?", "Chị Sứ", ["Má Út Tịch", "Chị Dậu", "Anh hùng Núp"], "Chị Sứ kiên cường bám đất, giữ làng Hòn Đất (Kiên Giang) trong kháng chiến chống Mỹ."],
+      ["Khuynh hướng nổi bật của văn xuôi Việt Nam giai đoạn 1945–1975 là gì?", "Khuynh hướng sử thi, ngợi ca con người anh hùng", ["Chủ nghĩa hiện thực phê phán", "Khuynh hướng lãng mạn thoát ly", "Văn học phi lý, hiện sinh"], "Văn học thời kỳ này lấy cái ta cộng đồng, số phận dân tộc làm trung tâm thay vì cái tôi cá nhân."],
+      ["Chi tiết má Út Tịch đếm số giặc đã diệt bằng ngón tay có ý nghĩa gì?", "Niềm tin chiến thắng giản dị, chắc chắn của người nông dân", ["Bà không biết đếm những số lớn", "Bà thích khoe chiến tích với mọi người", "Bà sợ quên nên phải đếm cho nhớ"], "Cách đếm mộc mạc cho thấy với bà, đánh giặc là việc chắc chắn làm được, như đếm việc nhà."],
+    ]),
+    createStarterTopic("grade-12-postwar-poetry", "Lớp 12 · Thơ sau 1975", "Hữu Thỉnh, Thanh Thảo và cảm hứng đời thường", ["12", "🍂", "🖋"], [
+      ["Bài “Sang thu” của Hữu Thỉnh nhận ra mùa thu qua những tín hiệu nào?", "Hương ổi phả trong gió se, sương chùng chình qua ngõ", ["Lá vàng rơi đầy sân", "Tiếng ve sầu râm ran", "Hoa đào nở rộ"], "Bài thơ cảm nhận giao mùa bằng khứu giác và thị giác tinh tế, không dùng hình ảnh ước lệ."],
+      ["Thanh Thảo được nhắc đến nhiều nhất với bài thơ nào?", "“Đàn ghi-ta của Lor-ca”", ["“Sang thu”", "“Tây Tiến”", "“Đất nước”"], "Bài thơ viết năm 1979 về nhà thơ Tây Ban Nha Lor-ca, tiêu biểu cho hướng thơ hiện đại giàu liên tưởng."],
+      ["Điểm mới của thơ sau 1975 so với thơ thời kháng chiến là gì?", "Hướng vào đời sống thường nhật, chiêm nghiệm cá nhân về hòa bình", ["Hoàn toàn quay lại thơ Đường luật", "Chỉ viết về đề tài chiến tranh", "Bỏ hẳn hình ảnh thiên nhiên"], "Con người trở về với đời sống bình dị nên thơ cũng chuyển từ cảm hứng sử thi sang thế sự, đời tư."],
+      ["Hình ảnh “sương chùng chình qua ngõ” gợi cảm giác gì?", "Sự giao mùa chậm rãi, dùng dằng nửa ở nửa đi", ["Cơn bão lớn sắp ập đến", "Mùa đông đã về hẳn", "Trời đang nắng gắt"], "Từ láy “chùng chình” nhân hóa làn sương như còn lưu luyến, chưa muốn rời đi."],
+      ["Vì sao thơ sau 1975 chuộng những hình ảnh đời thường?", "Con người trở về với cuộc sống bình dị sau những năm chiến tranh", ["Nhà thơ đã cạn vốn từ ngữ", "Chiến tranh bị cấm nhắc đến", "Thơ ca không còn độc giả"], "Hòa bình đưa con người về với mái nhà, cánh đồng, góc phố — chất liệu gần gũi nhất của đời sống."],
+    ]),
+    createStarterTopic("grade-12-author-ho-chi-minh", "Lớp 12 · Phong cách Hồ Chí Minh", "Giản dị, dân tộc – hiện đại qua các tác phẩm", ["12", "📜", "⭐"], [
+      ["Đặc điểm nổi bật nhất trong phong cách văn chính luận của Hồ Chí Minh là gì?", "Giản dị, trong sáng, lập luận chặt chẽ, dễ hiểu", ["Cầu kỳ, hoa mỹ, khó hiểu", "Dài dòng, lan man", "Chỉ dùng từ Hán Việt cổ"], "Người viết cho quần chúng nên câu văn ngắn gọn, hình ảnh gần gũi mà lý lẽ sắc bén."],
+      ["“Tuyên ngôn Độc lập” (1945) mở đầu bằng cách nào?", "Trích dẫn Tuyên ngôn Độc lập của Mỹ (1776) và Tuyên ngôn Nhân quyền của Pháp (1791)", ["Tường thuật trận Điện Biên Phủ", "Đọc một bài thơ chúc Tết", "Kể lại chuyện đời mình"], "Dùng chính lời lẽ của đối phương để buộc họ phải thừa nhận quyền độc lập của dân tộc ta — nghệ thuật “gậy ông đập lưng ông”."],
+      ["“Nhật kí trong tù” được sáng tác trong hoàn cảnh nào?", "Khi Người bị chính quyền Tưởng Giới Thạch giam giữ ở Trung Quốc (1942–1943)", ["Khi Người hoạt động ở Pháp năm 1920", "Khi Người về thăm quê Nghệ An", "Sau ngày độc lập 1945"], "Tập thơ chữ Hán khoảng 133 bài, ghi lại tâm thế ung dung, lạc quan ngay trong ngục tù."],
+      ["Câu “Không có gì quý hơn độc lập tự do” xuất hiện trong văn kiện nào?", "Lời kêu gọi chống Mỹ ngày 17/7/1966", ["Tuyên ngôn Độc lập 1945", "Di chúc 1969", "“Nhật kí trong tù”"], "Nhiều bạn nhầm câu này với Tuyên ngôn Độc lập; thực ra nó thuộc Lời kêu gọi đồng bào cả nước kháng chiến chống Mỹ."],
+      ["Phong cách Hồ Chí Minh là sự kết hợp của hai yếu tố nào?", "Truyền thống dân tộc và tinh thần hiện đại", ["Cổ điển phương Đông và lãng mạn Pháp", "Thuần Việt và bài ngoại", "Học theo hoàn toàn văn phong phương Tây"], "Văn của Người vừa đậm đà bản sắc dân tộc vừa tiếp thu tinh hoa nhân loại, hướng tới quần chúng."],
+    ]),
+  ],
+  english: [
+    createStarterTopic("grade-12-academic-writing", "Lớp 12 · Viết học thuật", "Cấu trúc bài luận, thesis statement và văn phong trang trọng", ["12", "🎓", "✍"], [
+      ["Câu nào sau đây phù hợp với văn phong học thuật?", "Pollution poses a serious threat to public health.", ["I think pollution is really bad, you know?", "Lots of people hate pollution a lot.", "Pollution is bad. It is very very bad."], "Văn học thuật dùng từ ngữ trang trọng, chính xác; tránh đại từ ngôi thứ nhất, từ cảm thán và lặp từ."],
+      ["Thesis statement (luận điểm) thường nằm ở vị trí nào trong bài luận?", "Cuối đoạn mở bài", ["Đầu đoạn mở bài", "Giữa đoạn thân bài", "Cuối đoạn kết bài"], "Sau khi giới thiệu chủ đề, câu cuối mở bài nêu rõ quan điểm mà toàn bài sẽ chứng minh."],
+      ["Từ nào thể hiện cách diễn đạt thận trọng (hedging) trong viết học thuật?", "suggests", ["definitely", "obviously", "everybody knows"], "Hedging dùng các từ như may, might, suggests, indicates để tránh khẳng định tuyệt đối khi chưa đủ bằng chứng."],
+      ["Vì sao không nên dùng đại từ “I” và dạng viết tắt như “don’t” trong bài học thuật?", "Vì văn phong học thuật yêu cầu trang trọng và khách quan", ["Vì bài luận sẽ bị trừ hết điểm ngay lập tức", "Vì tiếng Anh học thuật cấm mọi loại đại từ", "Vì viết tắt làm cho bài luận dài dòng hơn"], "Viết đầy đủ “do not”, dùng cấu trúc bị động hoặc chủ ngữ chung giúp bài viết khách quan hơn."],
+      ["Câu chủ đề (topic sentence) có vai trò gì trong đoạn văn?", "Nêu ý chính của đoạn, các câu sau triển khai ý đó", ["Tóm tắt toàn bộ bài luận", "Đặt câu hỏi cho độc giả", "Liệt kê tài liệu tham khảo"], "Mỗi đoạn thân bài chỉ trình bày một ý chính, mở đầu bằng topic sentence rồi giải thích, dẫn chứng."],
+    ]),
+    createStarterTopic("grade-12-idioms-advanced", "Lớp 12 · Thành ngữ nâng cao", "Nghĩa bóng và cách dùng thành ngữ thông dụng", ["12", "💬", "🌟"], [
+      ["Thành ngữ “break the ice” có nghĩa là gì?", "Phá tan sự ngượng ngùng, bắt đầu trò chuyện", ["Đập vỡ tảng băng", "Làm lạnh đồ uống", "Trượt băng nghệ thuật"], "Đừng dịch từng từ: thành ngữ chỉ việc làm quen, mở đầu cuộc trò chuyện trong buổi gặp gỡ."],
+      ["“A blessing in disguise” có nghĩa là gì?", "Điều tưởng xui hóa ra lại may (trong họa có phúc)", ["Món quà được gói kín", "Lời chúc phúc trong lễ cưới", "Sự ngụy trang hoàn hảo"], "Ví dụ: mất việc nhưng nhờ đó tìm được công việc tốt hơn — điều xui đội lốt điều may."],
+      ["“Hit the nail on the head” có nghĩa là gì?", "Nói trúng phóc, chạm đúng vấn đề", ["Đóng đinh vào tường", "Bị đau đầu dữ dội", "Là thợ mộc lành nghề"], "Hình ảnh búa đóng trúng đầu đinh diễn tả sự chính xác tuyệt đối trong nhận xét."],
+      ["Trong cuộc họp bế tắc, ai đó nói “The ball is in your court” — ý họ là gì?", "Đến lượt bạn phải hành động hoặc quyết định", ["Mời bạn chơi bóng rổ", "Quả bóng đang ở sân của bạn", "Họ muốn nghỉ giải lao"], "Mượn hình ảnh tennis: bóng sang sân ai thì người đó phải đánh trả, tức phải chịu trách nhiệm tiếp theo."],
+      ["Vì sao không nên dịch thành ngữ theo nghĩa từng từ?", "Vì nghĩa của thành ngữ không suy ra từ nghĩa các từ riêng lẻ", ["Vì thành ngữ nào cũng chứa từ khó", "Vì từ điển không hề có thành ngữ", "Vì thành ngữ chỉ dùng trong văn nói"], "Phải học cả cụm như một đơn vị nghĩa độc lập và ghi nhớ qua ví dụ cụ thể."],
+    ]),
+    createStarterTopic("grade-12-debate-english", "Lớp 12 · Tranh biện tiếng Anh", "Motion, phe ủng hộ – phản đối và phản biện", ["12", "🎤", "⚖"], [
+      ["Trong tranh biện, “motion” là gì?", "Kiến nghị mà hai phe sẽ tranh luận ủng hộ hoặc phản đối", ["Chuyển động cơ thể của diễn giả", "Cảm xúc của khán giả", "Tốc độ nói của thí sinh"], "Ví dụ: “This house believes that homework should be abolished” — cả cuộc tranh biện xoay quanh kiến nghị này."],
+      ["Phe proposition trong tranh biện có nhiệm vụ gì?", "Ủng hộ và bảo vệ motion", ["Phản đối motion", "Làm trọng tài chấm điểm", "Đặt câu hỏi cho khán giả"], "Phe proposition đưa luận cứ chứng minh motion đúng; phe opposition làm điều ngược lại."],
+      ["Cụm từ nào phù hợp để phản biện một cách lịch sự?", "I see your point; however, …", ["You are completely wrong!", "Shut up and listen!", "That is so stupid."], "Phản biện hay là ghi nhận ý đối thủ trước rồi mới đưa luận cứ bác bỏ, giữ thái độ tôn trọng."],
+      ["Câu nào là cách mở bài tranh biện tốt?", "Today we strongly believe that school uniforms limit students’ self-expression.", ["Um, I do not know what to say.", "Hello everyone, I like pizza.", "I will talk about something important maybe."], "Mở bài tốt nêu rõ lập trường của phe mình về motion ngay từ đầu, dùng ngôn ngữ chắc chắn."],
+      ["“Rebuttal” trong tranh biện nghĩa là gì?", "Phần bác bỏ luận cứ của phe đối thủ", ["Phần chào hỏi khán giả", "Phần đọc lại bài đã chuẩn bị", "Phần bỏ cuộc giữa chừng"], "Rebuttal hiệu quả chỉ ra điểm yếu trong lập luận đối phương rồi đưa bằng chứng phản bác."],
+    ]),
+  ],
+};
+
+const pracA2 = {
+  history: [
+    createStarterTopic("grade-12-august-revolution-1945", "Lớp 12 · Cách mạng tháng Tám 1945", "19/8, Tuyên ngôn Độc lập và ý nghĩa lịch sử", ["12", "🇻🇳", "✊"], [
+      ["Ngày 19/8/1945 diễn ra sự kiện lịch sử nào?", "Khởi nghĩa giành chính quyền thắng lợi ở Hà Nội", ["Đọc Tuyên ngôn Độc lập", "Thành lập Đảng Cộng sản", "Chiến thắng Điện Biên Phủ"], "Từ Hà Nội, khởi nghĩa lan nhanh ra cả nước; 19/8 trở thành ngày truyền thống của lực lượng công an."],
+      ["Ngày 2/9/1945, Chủ tịch Hồ Chí Minh đã làm gì tại Quảng trường Ba Đình?", "Đọc Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa", ["Tuyên bố kháng chiến chống Pháp", "Ký hiệp định với Pháp", "Đọc thơ chúc Tết"], "Bản Tuyên ngôn khẳng định quyền độc lập của dân tộc và sự ra đời của nhà nước Việt Nam mới."],
+      ["Thời cơ của Cách mạng tháng Tám được tạo ra bởi sự kiện nào?", "Nhật đầu hàng Đồng minh, chính quyền tay sai rệu rã", ["Mỹ ném bom nguyên tử xuống Hà Nội", "Pháp tự nguyện trao trả độc lập", "Liên Xô đưa quân vào Việt Nam"], "Nhật đầu hàng ngày 15/8/1945 tạo khoảng trống quyền lực — thời cơ “ngàn năm có một” mà Đảng đã chớp lấy."],
+      ["Ý nghĩa lớn nhất của Cách mạng tháng Tám 1945 là gì?", "Giành độc lập dân tộc, lập nên nhà nước dân chủ nhân dân đầu tiên ở Đông Nam Á", ["Chỉ thay đổi chính quyền ở Hà Nội", "Giúp Pháp quay lại cai trị", "Kết thúc hoàn toàn chiến tranh thế giới"], "Lần đầu tiên trong lịch sử, người Việt Nam làm chủ vận mệnh đất nước mình."],
+      ["Lực lượng nào lãnh đạo Cách mạng tháng Tám thành công?", "Đảng Cộng sản Đông Dương", ["Chính phủ Pháp", "Phát xít Nhật", "Một đảng phái lưu vong"], "Đảng đã chuẩn bị lực lượng, căn cứ và chớp đúng thời cơ; không có lãnh đạo đúng đắn thì thời cơ cũng trôi qua."],
+    ]),
+    createStarterTopic("grade-12-vietnam-war", "Lớp 12 · Kháng chiến chống Mỹ", "Điện Biên Phủ trên không, Paris 1973 và 30/4/1975", ["12", "🕊", "📅"], [
+      ["Chiến thắng “Điện Biên Phủ trên không” diễn ra khi nào?", "Tháng 12/1972", ["Tháng 5/1954", "Tháng 1/1973", "Tháng 4/1975"], "Trong 12 ngày đêm cuối năm 1972, quân dân miền Bắc đánh bại cuộc tập kích B-52 của Mỹ; đừng nhầm với Điện Biên Phủ 1954."],
+      ["Hiệp định Paris về Việt Nam được ký vào ngày nào?", "27/1/1973", ["27/1/1972", "30/4/1975", "2/9/1945"], "Hiệp định buộc Mỹ rút hết quân khỏi miền Nam — mốc ghi nhớ: tháng 1 năm 1973."],
+      ["Nội dung cốt lõi của Hiệp định Paris 1973 là gì?", "Mỹ rút hết quân khỏi miền Nam, tôn trọng độc lập, chủ quyền của Việt Nam", ["Việt Nam bị chia cắt vĩnh viễn", "Mỹ được ở lại miền Nam", "Miền Bắc phải giải giáp quân đội"], "Đây là thắng lợi buộc Mỹ “cút” khỏi miền Nam, tạo điều kiện cho tổng tiến công giải phóng hoàn toàn."],
+      ["Chiến dịch Hồ Chí Minh kết thúc thắng lợi vào thời điểm nào?", "30/4/1975, giải phóng Sài Gòn", ["30/4/1974", "27/1/1973", "19/8/1945"], "Xe tăng tiến vào Dinh Độc Lập trưa 30/4/1975 đánh dấu miền Nam hoàn toàn giải phóng."],
+      ["Vì sao thắng lợi 30/4/1975 có ý nghĩa lịch sử trọng đại?", "Kết thúc 30 năm chiến tranh, non sông thu về một mối", ["Chỉ giải phóng được một thành phố", "Mở đầu một cuộc kháng chiến mới", "Việt Nam gia nhập Liên hợp quốc ngay hôm sau"], "Từ đây đất nước thống nhất, cả nước đi lên xây dựng chủ nghĩa xã hội; Việt Nam gia nhập Liên hợp quốc năm 1977."],
+    ]),
+    createStarterTopic("grade-12-asean-vietnam", "Lớp 12 · Việt Nam và ASEAN", "Gia nhập 1995, hội nhập và vai trò của Việt Nam", ["12", "🤝", "🌏"], [
+      ["ASEAN được thành lập khi nào và ở đâu?", "8/8/1967 tại Bangkok", ["28/7/1995 tại Hà Nội", "8/8/1976 tại Jakarta", "15/12/2008 tại Singapore"], "5 nước sáng lập: Indonesia, Malaysia, Philippines, Singapore, Thái Lan; mốc 8/8/1967 cần nhớ chính xác."],
+      ["Việt Nam gia nhập ASEAN vào thời điểm nào?", "28/7/1995, trở thành thành viên thứ bảy", ["8/8/1967", "28/7/1997", "31/12/2015"], "Sau Việt Nam còn Lào, Myanmar (1997) và Campuchia (1999); đừng nhầm năm gia nhập với năm thành lập."],
+      ["Việc gia nhập ASEAN năm 1995 có ý nghĩa gì với Việt Nam?", "Phá thế bao vây, cấm vận và mở ra thời kỳ hội nhập khu vực", ["Rời khỏi Liên hợp quốc", "Chấm dứt quan hệ với các nước ngoài ASEAN", "Chỉ để tham dự SEA Games"], "Đây là bước ngoặt đưa Việt Nam từ đối đầu sang hội nhập, đa phương hóa quan hệ quốc tế."],
+      ["Hiến chương ASEAN có hiệu lực vào năm nào?", "2008", ["1967", "1995", "2015"], "Hiến chương tạo nền tảng pháp lý cho ASEAN; năm 2015 là mốc hình thành Cộng đồng ASEAN."],
+      ["Việt Nam đã đảm nhiệm vai trò nào trong ASEAN?", "Chủ tịch luân phiên ASEAN các năm 1998, 2010 và 2020", ["Tổng thư ký thường trực", "Thành viên sáng lập", "Quan sát viên"], "Vai trò Chủ tịch luân phiên cho thấy vị thế và đóng góp chủ động của Việt Nam trong khu vực."],
+    ]),
+  ],
+  geography: [
+    createStarterTopic("grade-12-mekong-economy", "Lớp 12 · Kinh tế Đồng bằng sông Cửu Long", "Vựa lúa, cá tra và thích ứng với biến đổi", ["12", "🌾", "🐟"], [
+      ["Đồng bằng sông Cửu Long được mệnh danh là gì?", "Vựa lúa lớn nhất của cả nước", ["Vựa cà phê của cả nước", "Thủ phủ công nghiệp nặng", "Trung tâm tài chính quốc gia"], "Vùng cung cấp phần lớn sản lượng lúa gạo xuất khẩu của Việt Nam; cà phê là thế mạnh của Tây Nguyên."],
+      ["Mặt hàng thủy sản xuất khẩu chủ lực của Đồng bằng sông Cửu Long là gì?", "Cá tra, cá basa", ["Cá ngừ đại dương", "Tôm hùm", "Cá hồi"], "Cá tra nuôi lồng bè dọc sông Tiền, sông Hậu rồi chế biến xuất khẩu đi khắp thế giới."],
+      ["Thách thức lớn nhất với nông nghiệp ven biển Đồng bằng sông Cửu Long hiện nay là gì?", "Xâm nhập mặn và sạt lở bờ sông", ["Thiếu ánh nắng mặt trời", "Đất quá cao so với mực nước biển", "Không có sông ngòi"], "Nước biển dâng và đập thượng nguồn làm mặn lấn sâu vào nội đồng mỗi mùa khô."],
+      ["Mô hình “lúa – tôm” giúp nông dân thích ứng với xâm nhập mặn như thế nào?", "Luân canh theo mùa: mùa khô nước mặn nuôi tôm, mùa mưa nước ngọt trồng lúa", ["Trồng lúa trên nước mặn quanh năm", "Nuôi tôm trong ruộng lúa cùng một lúc", "Bỏ lúa, chỉ nuôi tôm quanh năm"], "Mô hình thuận theo chu kỳ mặn – ngọt tự nhiên thay vì cố ngăn mặn tuyệt đối."],
+      ["Hướng phát triển “thuận thiên” ở Đồng bằng sông Cửu Long nghĩa là gì?", "Phát triển phù hợp với điều kiện tự nhiên thay vì chống lại nó", ["Xây đê bao kín toàn vùng", "Ngăn mặn tuyệt đối bằng mọi giá", "Chuyển hết đất nông nghiệp sang công nghiệp"], "Nghị quyết 120 của Chính phủ định hướng phát triển bền vững, thích ứng với biến đổi khí hậu."],
+    ]),
+    createStarterTopic("grade-12-climate-resilience", "Lớp 12 · Thích ứng biến đổi khí hậu", "Thích ứng – giảm nhẹ và giải pháp của Việt Nam", ["12", "🌊", "🌱"], [
+      ["“Thích ứng” biến đổi khí hậu khác “giảm nhẹ” ở điểm nào?", "Thích ứng là điều chỉnh để sống chung và giảm thiệt hại; giảm nhẹ là cắt giảm phát thải", ["Hai khái niệm hoàn toàn giống nhau", "Thích ứng là tăng phát thải khí nhà kính", "Giảm nhẹ là bỏ mặc thiên nhiên"], "Ví dụ: trồng rừng ngập mặn là thích ứng; chuyển sang năng lượng mặt trời là giảm nhẹ."],
+      ["Vì sao Việt Nam được xếp vào nhóm dễ tổn thương trước biến đổi khí hậu?", "Bờ biển dài, đồng bằng thấp, dân cư đông ở ven biển", ["Vì nằm gần xích đạo nên không có bão", "Vì không có sông ngòi lớn", "Vì khí hậu quá lạnh"], "Nước biển dâng đe dọa trực tiếp đồng bằng sông Cửu Long và dải ven biển miền Trung."],
+      ["Trồng và bảo vệ rừng ngập mặn mang lại lợi ích nào?", "Chắn sóng, chống xói lở và là nơi ươm nuôi thủy sản", ["Lấy gỗ xuất khẩu là chính", "Làm nước biển dâng nhanh hơn", "Ngăn tàu thuyền ra khơi"], "Rừng ngập mặn Cần Giờ là “lá chắn xanh” đồng thời lưu trữ carbon rất hiệu quả."],
+      ["Biện pháp thích ứng nào phù hợp với nông dân vùng nhiễm mặn?", "Dùng giống lúa chịu mặn và chuyển đổi cơ cấu mùa vụ", ["Tưới thêm nước mặn cho lúa", "Bón thật nhiều phân đạm", "Trồng lúa 3 vụ liên tục"], "Các giống lúa chịu mặn và mô hình lúa – tôm giúp duy trì thu nhập khi mặn xâm nhập."],
+      ["Hệ thống cảnh báo sớm thiên tai có tác dụng gì?", "Giúp người dân sơ tán và bảo vệ tài sản kịp thời", ["Ngăn không cho bão hình thành", "Làm bão đổi hướng đi", "Thay thế hoàn toàn hệ thống đê điều"], "Cảnh báo sớm không ngăn được thiên tai nhưng giảm đáng kể thiệt hại về người."],
+    ]),
+    createStarterTopic("grade-12-global-supply", "Lớp 12 · Chuỗi cung ứng toàn cầu", "Phân công sản xuất, vị thế Việt Nam và rủi ro đứt gãy", ["12", "🚢", "🏭"], [
+      ["Chuỗi cung ứng toàn cầu là gì?", "Hệ thống phân công các công đoạn sản xuất qua nhiều quốc gia", ["Một công ty bán hàng online", "Đường dây buôn lậu xuyên quốc gia", "Hệ thống kho của một siêu thị"], "Mỗi nước đảm nhận công đoạn mình có lợi thế để tối ưu chi phí toàn chuỗi."],
+      ["Việt Nam tham gia chuỗi cung ứng toàn cầu mạnh nhất ở khâu nào?", "Lắp ráp điện tử, dệt may, da giày", ["Thiết kế chip bán dẫn", "Sản xuất máy bay", "Khai thác dầu khí"], "Nguồn lao động và thu hút FDI giúp Việt Nam trở thành công xưởng lắp ráp của nhiều tập đoàn."],
+      ["Đại dịch COVID-19 cho thấy rủi ro nào của chuỗi cung ứng toàn cầu?", "Phụ thuộc vào một nguồn cung dễ bị đứt gãy khi có biến động", ["Chuỗi cung ứng không bao giờ gián đoạn", "Vận tải biển luôn rẻ và ổn định", "Mọi nước đều tự cung tự cấp được"], "Thiếu chip, tắc cảng biển năm 2021 cho thấy chỉ một mắt xích trục trặc cả chuỗi lao đao."],
+      ["Xu hướng “nearshoring” (sản xuất gần bờ) nghĩa là gì?", "Chuyển sản xuất về gần thị trường tiêu thụ để giảm rủi ro", ["Đóng cửa mọi nhà máy trên thế giới", "Mỗi nước chỉ sản xuất cho mình", "Tăng phụ thuộc vào một quốc gia"], "Doanh nghiệp chấp nhận chi phí cao hơn để đổi lấy chuỗi cung ứng bền vững, ít đứt gãy."],
+      ["Lợi thế cạnh tranh của Việt Nam trong chuỗi cung ứng toàn cầu là gì?", "Lao động dồi dào, chi phí hợp lý, vị trí gần các trung tâm sản xuất châu Á", ["Trữ lượng dầu mỏ vô tận", "Không cần đầu tư hạ tầng", "Đã tự động hóa 100%"], "Muốn tiến sâu hơn vào chuỗi giá trị, Việt Nam cần nâng chất lượng lao động và công nghiệp hỗ trợ."],
+    ]),
+  ],
+  informatics: [
+    createStarterTopic("grade-12-javascript-basics", "Lớp 12 · JavaScript cơ bản", "let/const, arrow function và thao tác DOM", ["12", "💻", "⚡"], [
+      ["Điểm khác nhau cơ bản giữa let và const là gì?", "let cho phép gán lại giá trị, const không cho gán lại sau khi khởi tạo", ["const cho phép gán lại còn let thì không", "let chỉ dùng cho số, const chỉ dùng cho chuỗi", "Hai từ khóa hoàn toàn giống nhau"], "Dùng const cho giá trị cố định như const PI = 3.14; nhầm ngược hai từ khóa là lỗi rất phổ biến."],
+      ["Cách viết hàm mũi tên (arrow function) nào sau đây là đúng?", "const cong = (a, b) => a + b;", ["function cong(a, b) = a + b;", "const cong => (a, b) a + b;", "cong(a, b) -> a + b;"], "Cú pháp chuẩn: tên hàm = (tham số) => biểu thức; thiếu dấu => hoặc sai vị trí ngoặc đều sai."],
+      ["Lệnh document.querySelector(‘#nut’) dùng để làm gì?", "Lấy phần tử có id là nut trên trang để thao tác", ["Tạo ra một nút bấm mới", "Xóa toàn bộ nội dung trang web", "Tải lại trang web"], "Đây là cách truy cập DOM bằng bộ chọn CSS: #nut nghĩa là phần tử có id = nut."],
+      ["Đoạn code nào gắn xử lý sự kiện khi người dùng bấm vào nút?", "nut.addEventListener(‘click’, () => alert(‘Xin chào’));", ["nut.onClick = ‘click’;", "addEventListener(nut);", "nut.click == true;"], "addEventListener nhận tên sự kiện và hàm xử lý; hàm mũi tên giúp code gọn khi xử lý đơn giản."],
+      ["Khi mở một trang web thông thường, code JavaScript chạy ở đâu?", "Trong trình duyệt của người dùng (phía client)", ["Trên máy chủ của Google", "Bên trong file CSS", "Chỉ chạy khi có kết nối internet"], "Trình duyệt có sẵn JavaScript engine nên code chạy ngay trên máy người dùng, không cần cài thêm."],
+    ]),
+    createStarterTopic("grade-12-cybersecurity-intro", "Lớp 12 · An toàn thông tin", "Bộ ba CIA, phishing, ransomware và biện pháp bảo vệ", ["12", "🔒", "🛡"], [
+      ["Ba yếu tố CIA trong an toàn thông tin là gì?", "Bảo mật, toàn vẹn, sẵn sàng", ["Máy tính, Internet, Antivirus", "Tên đăng nhập, mật khẩu, email", "Phần cứng, phần mềm, mạng máy tính"], "Confidentiality – Integrity – Availability: chỉ người được phép mới đọc, dữ liệu không bị sửa trái phép, hệ thống hoạt động khi cần."],
+      ["Email giả mạo ngân hàng yêu cầu nhập mã OTP là hình thức tấn công nào?", "Phishing (lừa đảo)", ["Virus máy tính", "Tấn công từ chối dịch vụ", "Sao lưu dữ liệu"], "Ngân hàng thật không bao giờ hỏi OTP hay mật khẩu qua email; luôn kiểm tra địa chỉ người gửi."],
+      ["Biện pháp nào giúp bảo vệ tài khoản tốt nhất?", "Mật khẩu mạnh kết hợp xác thực hai lớp (2FA)", ["Dùng một mật khẩu chung cho mọi tài khoản", "Ghi mật khẩu rồi dán lên màn hình", "Tắt hết các bản cập nhật phần mềm"], "Mật khẩu mạnh (dài, đủ loại ký tự) cộng 2FA khiến kẻ xấu khó chiếm tài khoản dù lộ mật khẩu."],
+      ["Ransomware gây hại bằng cách nào?", "Mã hóa dữ liệu của nạn nhân rồi đòi tiền chuộc", ["Xóa hết ảnh trên điện thoại", "Làm cho máy tính chạy nhanh hơn", "Gửi email chúc mừng nạn nhân"], "Khi đã bị mã hóa mà không có bản sao lưu, nạn nhân gần như mất trắng dữ liệu."],
+      ["Vì sao cần sao lưu (backup) dữ liệu định kỳ?", "Để khôi phục khi bị mất, hỏng thiết bị hoặc mã độc tấn công", ["Để máy tính chạy nhanh hơn", "Để tăng dung lượng ổ cứng", "Để chia sẻ dữ liệu cho nhiều người"], "Quy tắc 3-2-1: 3 bản sao, 2 loại phương tiện khác nhau, 1 bản ở nơi khác."],
+    ]),
+    createStarterTopic("grade-12-data-visualization", "Lớp 12 · Trực quan hóa dữ liệu", "Chọn biểu đồ đúng và tránh gây hiểu lầm", ["12", "📊", "🎨"], [
+      ["Muốn so sánh doanh thu của 4 quý trong năm, nên dùng biểu đồ nào?", "Biểu đồ cột", ["Biểu đồ tròn", "Biểu đồ phân tán", "Sơ đồ tư duy"], "Biểu đồ cột giúp so sánh trực quan độ lớn giữa các nhóm độc lập như các quý."],
+      ["Biểu đồ đường phù hợp nhất để thể hiện điều gì?", "Xu hướng thay đổi của dữ liệu theo thời gian", ["Tỉ lệ thành phần tại một thời điểm", "So sánh hai nhóm độc lập", "Danh sách các công việc"], "Đường nối các điểm theo trục thời gian làm nổi bật xu hướng tăng, giảm hay dao động."],
+      ["Muốn thể hiện tỉ lệ các hệ điều hành điện thoại đang dùng, chọn biểu đồ nào?", "Biểu đồ tròn", ["Biểu đồ đường", "Biểu đồ cột 3D nhiều lớp", "Bảng số liệu thô"], "Biểu đồ tròn thể hiện các phần của một tổng thể 100%, mỗi lát cắt là một tỉ lệ."],
+      ["Thủ thuật nào sau đây khiến biểu đồ gây hiểu lầm?", "Trục tung không bắt đầu từ 0, phóng đại chênh lệch nhỏ", ["Dùng màu sắc hài hòa, dễ nhìn", "Ghi chú thích và đơn vị rõ ràng", "Sắp xếp các cột theo thứ tự"], "Chênh lệch 2% có thể trông như gấp đôi nếu trục tung bị cắt ngắn — luôn kiểm tra gốc trục."],
+      ["Trước khi vẽ biểu đồ, việc quan trọng nhất là gì?", "Xác định thông điệp muốn truyền tải rồi chọn loại biểu đồ phù hợp", ["Chọn màu sắc đẹp nhất", "Thêm càng nhiều hiệu ứng 3D càng tốt", "Vẽ xong rồi mới nghĩ thông điệp"], "Biểu đồ đẹp mà sai loại sẽ truyền đạt sai thông điệp; mục đích luôn đi trước hình thức."],
+    ]),
+  ],
+};
+const pracB1 = {
+  technology: [
+    createStarterTopic("grade-12-smart-home", "Lớp 12 · Nhà thông minh", "IoT, cảm biến và kịch bản tự động trong nhà", ["12", "🏠", "📡"], [
+      ["Thiết bị nào sau đây là ví dụ về cảm biến trong nhà thông minh?", "Cảm biến chuyển động tự bật đèn khi có người", ["Bóng đèn dây tóc thông thường", "Công tắc bật tắt thủ công", "Ổ cắm hẹn giờ cơ học"], "Cảm biến chuyển động nhận biết sự hiện diện của người và ra lệnh bật đèn; các thiết bị còn lại không có khả năng cảm nhận môi trường."],
+      ["IoT trong nhà thông minh có nghĩa là gì?", "Các thiết bị kết nối Internet và trao đổi dữ liệu với nhau", ["Điện thoại điều khiển tivi bằng hồng ngoại", "Camera ghi hình lưu vào thẻ nhớ, không cần mạng", "Máy tính nối mạng để học online"], "IoT là mạng lưới thiết bị kết nối Internet, trao đổi dữ liệu với nhau; điều khiển hồng ngoại hay camera offline không phải IoT."],
+      ["“Kịch bản” trong nhà thông minh hoạt động như thế nào?", "Cảm biến nhận biết điều kiện rồi tự động điều khiển thiết bị", ["Người dùng phải bấm nút cho từng thiết bị", "Thiết bị tự hoạt động ngẫu nhiên không theo quy tắc", "Chỉ hoạt động khi điện thoại ở trong nhà"], "Kịch bản là quy tắc “nếu – thì”: cảm biến đo điều kiện môi trường, hệ thống tự điều khiển thiết bị theo quy tắc đã đặt."],
+      ["Rủi ro lớn nhất khi dùng nhiều thiết bị thông minh là gì?", "Bị kẻ xấu xâm nhập qua mạng nếu bảo mật kém", ["Thiết bị tiêu thụ điện nhiều hơn hẳn đồ thường", "Thiết bị nhanh hỏng hơn đồ cơ học", "Phải thay toàn bộ dây điện trong nhà"], "Thiết bị IoT kết nối mạng nên có thể bị tấn công; cần đổi mật khẩu mặc định, cập nhật phần mềm và dùng mạng an toàn."],
+      ["Muốn đèn sân tự bật khi trời tối, cần kết hợp những gì?", "Cảm biến ánh sáng và công tắc thông minh", ["Camera an ninh và loa thông minh", "Điều hòa và cảm biến nhiệt độ", "Rèm tự động và micro thu âm"], "Cảm biến ánh sáng đo độ tối, công tắc thông minh nhận tín hiệu và bật đèn; các cặp còn lại không liên quan đến việc bật đèn theo ánh sáng."],
+    ]),
+    createStarterTopic("grade-12-ev-technology", "Lớp 12 · Công nghệ xe điện", "Pin lithium-ion, sạc và phanh tái tạo", ["12", "🚗", "🔋"], [
+      ["Loại pin phổ biến nhất trên xe điện hiện nay là gì?", "Pin lithium-ion", ["Ắc quy chì-axit", "Pin kiềm dùng một lần", "Tấm pin mặt trời"], "Pin lithium-ion có mật độ năng lượng cao, nhẹ và sạc lại được nhiều lần; ắc quy chì quá nặng, tấm pin mặt trời không phải pin tích trữ."],
+      ["Phanh tái tạo trên xe điện có tác dụng chính là gì?", "Chuyển động năng khi phanh thành điện nạp lại pin", ["Giúp má phanh không bao giờ bị mòn", "Tăng tốc xe nhanh hơn khi đạp ga", "Giảm tiếng ồn của mô-tơ điện"], "Khi phanh, mô-tơ hoạt động như máy phát, thu hồi một phần động năng thành điện; giảm mòn má phanh chỉ là tác dụng phụ."],
+      ["Mức độ thân thiện môi trường của xe điện còn phụ thuộc vào yếu tố nào?", "Nguồn điện dùng để sạc pin", ["Loại lốp xe sử dụng", "Hãng sản xuất xe", "Tốc độ sạc pin"], "Xe điện không xả khí thải tại chỗ, nhưng nếu điện sạc từ nhiệt điện than thì dấu chân carbon vẫn lớn; sạc bằng điện tái tạo mới thật sự sạch."],
+      ["Ưu điểm nổi bật của xe điện khi chạy trong phố là gì?", "Không xả khí thải tại chỗ và vận hành êm", ["Sạc đầy nhanh hơn đổ xăng", "Giá mua ban đầu luôn rẻ hơn xe xăng", "Không bao giờ cần bảo dưỡng"], "Xe điện giúp giảm ô nhiễm không khí đô thị và tiếng ồn; sạc vẫn lâu hơn đổ xăng, giá mua ban đầu thường cao hơn."],
+      ["Vì sao pin dung lượng lớn cũng có mặt trái?", "Pin lớn nặng hơn và cần thời gian sạc lâu hơn", ["Pin lớn làm xe chạy chậm hơn hẳn", "Pin lớn gây ồn khi vận hành", "Pin lớn không dùng được sạc nhanh"], "Dung lượng lớn đồng nghĩa khối lượng lớn và thời gian nạp đầy lâu hơn; đây là sự đánh đổi khi thiết kế xe điện."],
+    ]),
+    createStarterTopic("grade-12-biotech-intro", "Lớp 12 · Công nghệ sinh học", "DNA tái tổ hợp, CRISPR và ứng dụng", ["12", "🧬", "🔬"], [
+      ["Kỹ thuật DNA tái tổ hợp là gì?", "Đưa gene mong muốn vào sinh vật để tạo sản phẩm mới", ["Nhân bản toàn bộ cơ thể sinh vật", "Ghép hai loài khác nhau thành một loài mới", "Gây đột biến gene ngẫu nhiên bằng hóa chất"], "DNA tái tổ hợp cắt, nối đoạn gene mong muốn vào hệ gene vật chủ; khác với nhân bản vô tính hay đột biến ngẫu nhiên."],
+      ["Insulin chữa tiểu đường hiện nay được sản xuất bằng cách nào?", "Vi khuẩn mang gene người tổng hợp insulin", ["Chiết xuất từ tuyến tụy của lợn", "Tổng hợp hoàn toàn bằng phản ứng hóa học", "Chiết xuất từ cây thuốc nam"], "Trước đây insulin chiết từ tụy lợn, nay dùng vi khuẩn E. coli mang gene người cho sản lượng lớn và ít gây dị ứng hơn."],
+      ["Công nghệ CRISPR nổi bật ở điểm nào?", "Chỉnh sửa gene với độ chính xác cao", ["Tạo ra sinh vật hoàn toàn mới từ đầu", "Sao chép toàn bộ bộ gene của sinh vật", "Đọc trình tự gene nhanh nhất"], "CRISPR cắt DNA đúng vị trí mong muốn như “kéo phân tử”, cho phép sửa gene bệnh chính xác hơn các kỹ thuật cũ."],
+      ["Ứng dụng nào sau đây thuộc công nghệ sinh học?", "Giống lúa chịu hạn, kháng sâu bệnh", ["Máy gặt đập liên hợp", "Phân bón hóa học NPK", "Hệ thống tưới nhỏ giọt"], "Tạo giống bằng can thiệp gene là công nghệ sinh học; máy móc, phân bón, hệ thống tưới thuộc kỹ thuật nông nghiệp cơ khí, hóa học."],
+      ["Vấn đề đạo đức lớn nhất của chỉnh sửa gene người là gì?", "Thay đổi di truyền có thể truyền cho thế hệ sau ngoài ý muốn", ["Chi phí nghiên cứu quá cao", "Kỹ thuật thực hiện quá phức tạp", "Thiếu nhân lực phòng thí nghiệm"], "Sửa gene dòng mầm ảnh hưởng con cháu mà họ không được lựa chọn; chi phí hay độ phức tạp chỉ là khó khăn kỹ thuật."],
+    ]),
+  ],
+  civics: [
+    createStarterTopic("grade-12-voting-rights", "Lớp 12 · Quyền bầu cử", "Tuổi bầu cử, ứng cử và nguyên tắc bầu cử", ["12", "🗳", "⚖"], [
+      ["Theo Hiến pháp 2013, công dân từ bao nhiêu tuổi có quyền bầu cử?", "Đủ 18 tuổi", ["Đủ 16 tuổi", "Đủ 20 tuổi", "Đủ 21 tuổi"], "Đủ 18 tuổi được bầu cử; đủ 21 tuổi mới được ứng cử. Nhiều bạn nhầm hai độ tuổi này với nhau."],
+      ["Công dân từ bao nhiêu tuổi có quyền ứng cử đại biểu Quốc hội?", "Đủ 21 tuổi trở lên", ["Đủ 18 tuổi trở lên", "Đủ 25 tuổi trở lên", "Đủ 30 tuổi trở lên"], "Hiến pháp quy định quyền ứng cử từ đủ 21 tuổi, cao hơn tuổi bầu cử (18 tuổi)."],
+      ["Nhiệm kỳ mỗi khóa Quốc hội là bao lâu?", "5 năm", ["4 năm", "6 năm", "3 năm"], "Hiến pháp 2013 quy định nhiệm kỳ mỗi khóa Quốc hội là 5 năm."],
+      ["Nguyên tắc nào KHÔNG đúng về bầu cử ở Việt Nam?", "Bỏ phiếu công khai trước cử tri", ["Phổ thông", "Bình đẳng", "Trực tiếp và bỏ phiếu kín"], "Bầu cử phải bỏ phiếu kín để cử tri tự do thể hiện ý chí; bỏ phiếu công khai vi phạm nguyên tắc này."],
+      ["Mỗi cử tri được ghi tên vào bao nhiêu danh sách cử tri?", "Một danh sách ở nơi cư trú", ["Hai danh sách: quê quán và nơi ở", "Không giới hạn số danh sách", "Danh sách của đơn vị công tác"], "Mỗi cử tri chỉ ghi tên một danh sách cử tri nơi cư trú để bảo đảm nguyên tắc bình đẳng, một người một phiếu."],
+    ]),
+    createStarterTopic("grade-12-consumer-protection", "Lớp 12 · Bảo vệ người tiêu dùng", "Quyền lợi, đổi trả và khiếu nại", ["12", "🛒", "🧾"], [
+      ["Luật Bảo vệ quyền lợi người tiêu dùng hiện hành được ban hành năm nào?", "Năm 2023", ["Năm 2010", "Năm 2018", "Năm 2020"], "Luật năm 2010 đã được thay thế bằng Luật Bảo vệ quyền lợi người tiêu dùng năm 2023 với nhiều quy định mới, nhất là về mua bán online."],
+      ["Mua điện thoại bị lỗi phần cứng trong thời gian bảo hành, bạn có quyền gì?", "Yêu cầu sửa chữa hoặc đổi máy theo chính sách bảo hành", ["Được hoàn tiền trong mọi trường hợp", "Tự sửa ở cửa hàng khác rồi đòi tiền hãng", "Đổi sang mẫu đắt tiền hơn miễn phí"], "Người tiêu dùng được đổi, trả, bảo hành theo cam kết của người bán; hoàn tiền mọi trường hợp hay đổi mẫu đắt hơn không phải quyền mặc định."],
+      ["Khi khiếu nại, chứng từ quan trọng nhất cần giữ là gì?", "Hóa đơn, chứng từ mua hàng", ["Ảnh chụp mặt tiền cửa hàng", "Tin nhắn chào hàng của shop", "Danh thiếp nhân viên bán hàng"], "Hóa đơn chứng minh giao dịch mua bán, là căn cứ pháp lý khi khiếu nại; các thứ còn lại chỉ mang tính tham khảo."],
+      ["Quyền nào sau đây của người tiêu dùng được luật quy định?", "Được cung cấp thông tin đầy đủ, trung thực về hàng hóa", ["Được mua hàng rẻ hơn giá niêm yết", "Được đổi trả hàng trong mọi trường hợp", "Được miễn phí vận chuyển khi mua online"], "Người bán phải cung cấp thông tin trung thực; đổi trả, miễn phí vận chuyển tùy chính sách từng nơi, không phải quyền đương nhiên."],
+      ["Khi quyền lợi bị xâm phạm, người tiêu dùng có thể làm gì?", "Khiếu nại, hòa giải hoặc khởi kiện theo quy định", ["Đăng tin vu khống người bán trên mạng", "Tự ý lấy hàng khác của cửa hàng", "Chặn mọi liên lạc với người bán"], "Pháp luật cho người tiêu dùng nhiều kênh bảo vệ quyền lợi; vu khống hay tự ý lấy hàng là hành vi vi phạm pháp luật."],
+    ]),
+    createStarterTopic("grade-12-anti-corruption", "Lớp 12 · Phòng chống tham nhũng", "Luật PCTN 2018, kê khai tài sản, tố giác", ["12", "⚖", "🛡"], [
+      ["Tham nhũng là hành vi của đối tượng nào?", "Người có chức vụ, quyền hạn lợi dụng chức vụ vì vụ lợi", ["Bất kỳ công dân nào vi phạm pháp luật", "Doanh nghiệp trốn thuế", "Người dân không tố giác tội phạm"], "Tham nhũng gắn với người có chức vụ, quyền hạn; các hành vi còn lại là vi phạm pháp luật nhưng không phải tham nhũng."],
+      ["Luật Phòng, chống tham nhũng hiện hành được ban hành năm nào?", "Năm 2018", ["Năm 2005", "Năm 2012", "Năm 2022"], "Luật PCTN năm 2005 đã được thay thế bằng Luật Phòng, chống tham nhũng năm 2018."],
+      ["Việc kê khai tài sản, thu nhập của cán bộ nhằm mục đích gì?", "Giám sát, phát hiện tài sản bất minh", ["Tính thuế thu nhập cá nhân", "Xếp hạng thi đua cán bộ", "Cung cấp tin cho báo chí"], "Kê khai tài sản là công cụ giám sát để phát hiện tài sản tăng bất thường, không giải trình được; khác với kê khai thuế."],
+      ["Người tố cáo hành vi tham nhũng được pháp luật đối xử thế nào?", "Được bảo vệ danh tính và các quyền lợi hợp pháp", ["Không được pháp luật bảo vệ", "Chỉ được tố cáo ẩn danh", "Bị buộc phải ra làm chứng công khai"], "Luật PCTN quy định bảo vệ người tố cáo; tố cáo có thể bằng nhiều hình thức và danh tính được giữ bí mật khi có yêu cầu."],
+      ["Hành vi nào sau đây là tham nhũng?", "Nhận tiền để “làm nhanh” thủ tục hành chính", ["Nhận quà Tết của người thân trong gia đình", "Làm thêm ngoài giờ hành chính", "Từ chối nhận quà biếu của doanh nghiệp"], "Lợi dụng chức vụ để nhận tiền làm nhanh thủ tục là tham nhũng; nhận quà của người thân hay từ chối quà biếu không vi phạm."],
+    ]),
+  ],
+  "physical-education": [
+    createStarterTopic("grade-12-tennis-basics", "Lớp 12 · Tennis cơ bản", "Giao bóng, cách tính điểm và deuce", ["12", "🎾", "🏅"], [
+      ["Khi giao bóng, người chơi phải đứng ở đâu?", "Sau đường biên ngang (baseline)", ["Trong ô giao bóng", "Ngay sát lưới", "Giữa sân"], "Người giao bóng đứng sau đường biên ngang; bóng phải rơi vào ô giao bóng chéo sân bên kia."],
+      ["Bóng giao hợp lệ phải rơi vào vị trí nào?", "Ô giao bóng chéo sân của đối thủ", ["Bất kỳ vị trí nào bên sân đối thủ", "Ô giao bóng cùng phía với người giao", "Ngay chân lưới bên sân mình"], "Luật yêu cầu bóng giao rơi vào ô chéo sân; rơi sai ô là lỗi giao bóng."],
+      ["Deuce là tỉ số nào trong một game?", "40–40", ["30–30", "15–40", "40–15"], "Khi hai bên cùng 40 điểm gọi là deuce; từ đây phải thắng cách biệt hai điểm mới thắng game."],
+      ["Muốn thắng game từ điểm deuce cần điều kiện gì?", "Thắng hai điểm liên tiếp", ["Thắng thêm một điểm", "Thắng ba điểm liên tiếp", "Chờ đối thủ tự đánh hỏng"], "Từ deuce, thắng một điểm được “lợi thế”, phải thắng thêm điểm nữa; nếu thua điểm lợi thế thì quay lại deuce."],
+      ["Muốn thắng một set tennis cần điều kiện nào?", "Thắng 6 game và hơn đối thủ ít nhất 2 game", ["Thắng 5 game là đủ", "Thắng nhiều hơn đối thủ 1 game", "Thắng 4 game liên tiếp"], "Set thường kết thúc 6–4, 6–3...; nếu 5–5 phải đánh tiếp đến khi cách biệt 2 game hoặc loạt tie-break theo điều lệ giải."],
+    ]),
+    createStarterTopic("grade-12-martial-arts-adv", "Lớp 12 · Võ thuật nâng cao", "Chuỗi đòn liên hoàn, đối kháng và võ đức", ["12", "🥋", "💪"], [
+      ["Ở trình độ nâng cao, võ sinh tập trung vào điều gì?", "Kết hợp đòn thành chuỗi liên hoàn và đối kháng có kiểm soát", ["Chỉ tập các thế đứng cơ bản", "Học thuộc tên các đòn võ", "Tập một mình không cần đối tác"], "Trình độ nâng cao là biến đòn rời rạc thành chuỗi liên hoàn và áp dụng trong đối kháng có kiểm soát."],
+      ["Ngoài kỹ thuật, yếu tố nào quyết định hiệu quả của đòn thế?", "Thể lực, tốc độ phản xạ và khả năng đọc đòn", ["Trang phục võ phục đẹp", "Chiều cao vượt trội", "Biết càng nhiều đòn càng tốt"], "Đòn đẹp mà chậm, yếu và không đọc được đối thủ thì không hiệu quả; thể lực và phản xạ là nền tảng."],
+      ["“Võ đức” trong võ thuật có nghĩa là gì?", "Kỷ luật, tôn trọng đối thủ và không dùng võ gây gổ", ["Tuyệt chiêu bí truyền của môn phái", "Nghi lễ chào trước khi thi đấu", "Cấp đai cao nhất trong võ thuật"], "Võ đức là đạo đức người học võ: kỷ luật, tôn trọng, bảo vệ kẻ yếu; tuyệt đối không dùng võ để bắt nạt."],
+      ["Khi đối kháng tập luyện, nguyên tắc an toàn quan trọng là gì?", "Kiểm soát lực đòn và dùng đồ bảo hộ", ["Đánh hết sức để quen đòn thật", "Không cần khởi động kỹ", "Cố chịu đau để tăng sức chịu đựng"], "Đối kháng tập luyện phải kiểm soát lực, đeo bảo hộ và khởi động kỹ; đánh hết sức dễ gây chấn thương cho bạn tập."],
+      ["Ví dụ nào sau đây là một chuỗi đòn liên hoàn?", "Đỡ đòn tay, xoay người đá vòng cầu, lùi về thế thủ", ["Đứng tấn 10 phút không di chuyển", "Chào đối thủ rồi kết thúc buổi tập", "Đấm một cú duy nhất thật mạnh"], "Chuỗi liên hoàn nối nhiều động tác thành một mạch: phòng thủ – phản công – trở về thế thủ an toàn."],
+    ]),
+    createStarterTopic("grade-12-athlete-nutrition", "Lớp 12 · Dinh dưỡng thể thao", "Protein, carbohydrate và bù nước", ["12", "🍎", "💧"], [
+      ["Chất nào là nhiên liệu chính cho buổi tập luyện?", "Carbohydrate", ["Protein", "Chất béo", "Vitamin"], "Carbohydrate chuyển hóa thành năng lượng nhanh nhất cho cơ bắp; protein chủ yếu để phục hồi, xây dựng cơ."],
+      ["Vận động viên cần bao nhiêu protein cho mỗi kg cân nặng mỗi ngày?", "Khoảng 1,2–2 g", ["Khoảng 0,5 g", "Khoảng 3–4 g", "Càng nhiều càng tốt"], "Nhu cầu protein của VĐV khoảng 1,2–2 g/kg/ngày; ăn quá nhiều không giúp cơ to nhanh hơn mà gây lãng phí."],
+      ["Vận động viên 60 kg tập sức bền cần khoảng bao nhiêu protein mỗi ngày?", "72–120 g", ["30–40 g", "150–200 g", "200–250 g"], "Lấy 60 kg nhân với 1,2–2 g/kg được 72–120 g protein mỗi ngày."],
+      ["Vì sao phải uống nước trước, trong và sau khi tập?", "Bù lượng nước mất qua mồ hôi, giữ sức bền", ["Để tăng cân nhanh hơn", "Để cơ bắp to ra ngay lập tức", "Để giảm cảm giác đói"], "Mất nước làm giảm sức bền, khả năng tập trung và tăng nguy cơ chuột rút, say nóng."],
+      ["Trước giờ thi đấu 1–2 giờ nên ăn như thế nào?", "Ăn nhẹ, dễ tiêu, giàu carbohydrate", ["Ăn thật no để có sức", "Nhịn ăn để người nhẹ", "Chỉ uống nước ngọt có gas"], "Bữa nhẹ giàu carbohydrate dễ tiêu cung cấp năng lượng mà không gây nặng bụng; ăn quá no hay nhịn ăn đều làm giảm phong độ."],
+    ]),
+  ],
+  music: [
+    createStarterTopic("grade-12-music-production", "Lớp 12 · Sản xuất âm nhạc", "DAW, mixing và mastering", ["12", "🎧", "🎚"], [
+      ["DAW trong sản xuất âm nhạc là gì?", "Phần mềm phòng thu số để thu âm và dựng nhạc", ["Loại micro thu âm chuyên nghiệp", "Định dạng file nhạc chất lượng cao", "Thiết bị loa kiểm âm"], "DAW (Digital Audio Workstation) như FL Studio, Cubase là phần mềm dựng nhạc; micro và loa là thiết bị phần cứng."],
+      ["Mixing (hòa âm phối khí) là công đoạn nào?", "Cân bằng âm lượng, vị trí các nhạc cụ trong bản nhạc", ["Viết giai điệu cho ca khúc", "Quay MV cho bài hát", "Đăng nhạc lên nền tảng số"], "Mixing chỉnh âm lượng, tần số, hiệu ứng của từng track để bản nhạc hài hòa; khác với sáng tác hay phát hành."],
+      ["Mastering là bước nào trong quy trình sản xuất?", "Hoàn thiện âm thanh cuối cùng trước khi phát hành", ["Thu âm giọng hát đầu tiên", "Sáng tác lời bài hát", "Chọn ca sĩ thể hiện"], "Mastering là khâu cuối: chuẩn hóa âm lượng, độ sáng để bài hát nghe tốt trên mọi thiết bị."],
+      ["Phần mềm nào sau đây là DAW?", "FL Studio", ["Spotify", "Photoshop", "PowerPoint"], "FL Studio là phần mềm dựng nhạc; Spotify là nền tảng nghe nhạc, Photoshop và PowerPoint không liên quan âm thanh."],
+      ["Vì sao cùng một bài hát, bản mix khác nhau cho cảm xúc khác nhau?", "Cách cân bằng nhạc cụ và hiệu ứng thay đổi điểm nhấn", ["Lời bài hát bị thay đổi", "Ca sĩ hát khác nhau", "Tốc độ bài hát luôn đổi"], "Mixing quyết định nhạc cụ nào nổi bật, không gian âm thanh ra sao nên cùng bản thu vẫn cho cảm xúc khác nhau."],
+    ]),
+    createStarterTopic("grade-12-vietnamese-pop", "Lớp 12 · Nhạc trẻ Việt", "V-pop, nghệ sĩ và bản quyền", ["12", "🎤", "🎶"], [
+      ["V-pop là cách gọi của dòng nhạc nào?", "Nhạc trẻ Việt Nam hiện đại", ["Nhạc dân ca Việt Nam", "Nhạc cổ điển Việt Nam", "Nhạc thiếu nhi Việt Nam"], "V-pop (Vietnamese pop) chỉ dòng nhạc trẻ Việt hiện đại, kết hợp pop, R&B, hip-hop với màu sắc dân gian."],
+      ["Dòng nhạc nào thường được kết hợp trong V-pop hiện nay?", "Pop, R&B, hip-hop cùng màu sắc dân gian", ["Chỉ nhạc thính phòng", "Chỉ nhạc giao hưởng", "Chỉ nhạc không lời"], "V-pop đặc trưng bởi sự pha trộn hiện đại và chất liệu dân gian Việt Nam."],
+      ["Cách nào thể hiện sự ủng hộ đúng đắn với nghệ sĩ V-pop?", "Nghe nhạc có bản quyền trên nền tảng hợp pháp", ["Tải nhạc lậu về máy miễn phí", "Dùng nhạc của họ làm nền video kiếm tiền không xin phép", "Chia sẻ file nhạc crack cho bạn bè"], "Lượt nghe hợp pháp mang lại thu nhập cho nghệ sĩ; dùng nhạc có bản quyền làm nền video thương mại cần xin phép."],
+      ["Điểm chung của nhiều bản hit V-pop là gì?", "Giai điệu bắt tai, dễ nhớ", ["Lời ca thật dài và khó hiểu", "Chỉ dùng một nhạc cụ duy nhất", "Không có phần điệp khúc"], "Điệp khúc bắt tai, dễ thuộc là “vũ khí” của nhạc pop; lời khó hiểu hay thiếu điệp khúc khó thành hit."],
+      ["Nghệ sĩ V-pop cần chú ý điều gì về bản quyền?", "Xin phép khi dùng nhạc của người khác", ["Cứ dùng nhạc ngoại vì không ai biết", "Bản quyền chỉ áp dụng cho nhạc nước ngoài", "Nhạc trên mạng là miễn phí bản quyền"], "Dùng beat, sample của người khác mà không xin phép là vi phạm bản quyền, có thể bị gỡ nhạc và bồi thường."],
+    ]),
+    createStarterTopic("grade-12-concert-etiquette", "Lớp 12 · Văn hóa nghe nhạc", "Ứng xử khi xem hòa nhạc, liveshow", ["12", "🎟", "🤫"], [
+      ["Vì sao nên đến xem concert sớm?", "Ổn định chỗ ngồi, không làm phiền người khác", ["Để được gặp riêng nghệ sĩ", "Để được giảm giá vé", "Để chọn bài hát biểu diễn"], "Đến sớm giúp ổn định chỗ ngồi trước giờ diễn; đến muộn chen lấn làm phiền khán giả xung quanh."],
+      ["Trước khi hòa nhạc bắt đầu, cần làm gì với điện thoại?", "Tắt hoặc để chế độ im lặng", ["Nghe máy nhanh rồi tắt", "Để chuông to cho vui", "Mở loa ngoài xem video"], "Tiếng chuông giữa buổi diễn phá vỡ không khí và thiếu tôn trọng nghệ sĩ, khán giả."],
+      ["Hành vi nào thể hiện văn hóa khi xem concert?", "Tắt chuông điện thoại, không che tầm nhìn người khác", ["Livestream toàn bộ buổi diễn lên mạng", "Bật flash chụp ảnh liên tục", "Nói chuyện to lúc nghệ sĩ biểu diễn"], "Tôn trọng bản quyền chương trình và không gian chung của khán giả là phép lịch sự cơ bản."],
+      ["Ở hòa nhạc cổ điển, khán giả thường làm gì giữa các chương nhạc?", "Giữ im lặng tuyệt đối", ["Vỗ tay thật to", "Hò reo cổ vũ", "Đứng dậy đi lại"], "Khán giả nhạc cổ điển giữ im lặng giữa các chương, chỉ vỗ tay khi tác phẩm kết thúc hoàn toàn."],
+      ["Vỗ tay đúng lúc trong concert thể hiện điều gì?", "Sự tôn trọng và cổ vũ nghệ sĩ", ["Muốn chương trình kết thúc sớm", "Muốn được nghệ sĩ chú ý riêng", "Thể hiện mình hiểu nhạc hơn người khác"], "Tràng pháo tay là cách khán giả bày tỏ sự trân trọng với phần trình diễn của nghệ sĩ."],
+    ]),
+  ],
+  "visual-arts": [
+    createStarterTopic("grade-12-digital-illustration", "Lớp 12 · Minh họa số", "Đồ họa vector, raster và bản quyền", ["12", "🎨", "🖌"], [
+      ["Ưu điểm của đồ họa vector so với raster là gì?", "Phóng to không bị vỡ hình", ["Màu sắc rực rỡ hơn", "Vẽ tay tự do hơn", "File luôn nhẹ hơn"], "Vector dùng công thức toán học nên phóng to bao nhiêu cũng sắc nét; raster phóng to quá sẽ thấy điểm ảnh."],
+      ["Đồ họa raster phù hợp với loại tranh nào?", "Tranh chi tiết, chuyển màu mượt như vẽ tay", ["Logo cần in mọi kích cỡ", "Chữ viết cần phóng to", "Biểu tượng đơn sắc"], "Raster thể hiện tốt tranh chi tiết, đổ bóng mượt; logo và biểu tượng cần phóng to thì dùng vector."],
+      ["Điểm khác biệt lớn của minh họa số so với tranh khắc gỗ Đông Hồ là gì?", "Dễ chỉnh sửa, nhân bản và chia sẻ", ["Luôn đẹp hơn tranh truyền thống", "Không cần kỹ năng vẽ", "In ra giấy dó được ngay"], "File số sửa, sao chép, gửi đi dễ dàng; tranh khắc gỗ in thủ công từng bản, mỗi bản đều tốn công."],
+      ["Dụng cụ nào dùng để vẽ minh họa số?", "Bảng vẽ và bút cảm ứng", ["Khung cửi dệt vải", "Dao khắc gỗ", "Khuôn in lụa"], "Họa sĩ số vẽ bằng bút cảm ứng trên bảng vẽ kết nối máy tính; dao khắc, khuôn in thuộc nghề thủ công truyền thống."],
+      ["Khi muốn dùng tranh của họa sĩ khác, điều đúng về bản quyền là gì?", "Xin phép hoặc dùng tranh được cấp phép", ["Cứ dùng vì trên mạng là miễn phí", "Sửa một chút là thành của mình", "Chỉ cần không in ra là được"], "Tranh đăng trên mạng vẫn có bản quyền; sửa nhỏ không xóa quyền tác giả, dùng sai mục đích vẫn vi phạm."],
+    ]),
+    createStarterTopic("grade-12-fashion-history", "Lớp 12 · Lịch sử thời trang", "Các trào lưu và bối cảnh xã hội", ["12", "👗", "📜"], [
+      ["Trang phục nào đã trở thành biểu tượng văn hóa Việt Nam?", "Áo dài", ["Quần âu", "Váy xòe phương Tây", "Comple"], "Áo dài từ trang phục thường ngày đầu thế kỷ XX trở thành biểu tượng văn hóa, được cách tân cho đời sống hiện đại."],
+      ["Thập niên 1970 ở phương Tây nổi bật với kiểu trang phục nào?", "Quần ống loe", ["Váy bút chì công sở", "Áo dài cách tân", "Comple ba mảnh"], "Quần ống loe là biểu tượng thời trang thập niên 1970, gắn với văn hóa nhạc rock và phong trào hippie."],
+      ["Chất liệu và công nghệ dệt may ảnh hưởng thời trang thế nào?", "Tạo ra kiểu dáng mới trước đây không may được", ["Không ảnh hưởng gì đến kiểu dáng", "Chỉ làm quần áo đắt hơn", "Chỉ dùng cho thời trang cao cấp"], "Vải co giãn, vải kỹ thuật mới cho phép những phom dáng mà chất liệu cũ không làm được."],
+      ["Phong cách tối giản (minimalism) thịnh hành vào thập niên nào?", "Thập niên 1990", ["Thập niên 1960", "Thập niên 1970", "Thập niên 2010"], "Thập niên 1990 nổi bật với thời trang tối giản: đường cắt gọn, màu trung tính, ít chi tiết rườm rà."],
+      ["Tìm hiểu lịch sử thời trang giúp ích gì?", "Hiểu bối cảnh xã hội đằng sau mỗi xu hướng", ["Biết cách may mọi loại trang phục", "Đoán được giá quần áo tương lai", "Trở thành nhà thiết kế ngay"], "Mỗi trào lưu thời trang đều phản ánh kinh tế, văn hóa của thời kỳ đó; hiểu bối cảnh mới hiểu vì sao xu hướng cũ quay lại."],
+    ]),
+    createStarterTopic("grade-12-public-art", "Lớp 12 · Nghệ thuật công cộng", "Tranh tường, tượng đài và không gian chung", ["12", "🖼", "🏙"], [
+      ["Nghệ thuật công cộng khác triển lãm trong bảo tàng ở điểm nào?", "Đặt ở không gian chung, mọi người xem miễn phí", ["Chỉ nghệ sĩ nổi tiếng được tham gia", "Tác phẩm luôn nhỏ hơn", "Không cần xin phép trưng bày"], "Tranh tường, tượng đài ngoài trời ai cũng thưởng thức được miễn phí; triển lãm bảo tàng thường cần vé và không gian kín."],
+      ["Tác phẩm nghệ thuật công cộng tốt cần gắn với điều gì?", "Câu chuyện, lịch sử của địa phương", ["Giá trị tiền tệ thật cao", "Kích thước càng lớn càng tốt", "Màu sắc thật lòe loẹt"], "Tác phẩm kể câu chuyện của cộng đồng nơi nó đứng thì được người dân yêu mến và giữ gìn lâu dài."],
+      ["Vì sao chất liệu của tác phẩm ngoài trời cần đặc biệt?", "Chịu được nắng mưa, thời tiết", ["Để trông đắt tiền hơn", "Để dễ di chuyển", "Để nhẹ khi treo lên"], "Tác phẩm ngoài trời phơi nắng mưa quanh năm nên cần chất liệu bền, chống ăn mòn, phai màu."],
+      ["Ví dụ nào sau đây là nghệ thuật công cộng?", "Tranh tường ở con hẻm thành phố", ["Tranh treo trong phòng khách nhà riêng", "Bộ sưu tập tem cá nhân", "Ảnh nền điện thoại"], "Tranh tường nơi công cộng mọi người cùng xem là nghệ thuật công cộng; tranh trong nhà riêng hay ảnh nền điện thoại thì không."],
+      ["Hành vi đúng với tác phẩm nghệ thuật công cộng là gì?", "Thưởng thức, giữ gìn, không vẽ bậy", ["Vẽ thêm cho đẹp hơn", "Khắc tên mình lên tác phẩm", "Mang một phần về làm kỷ niệm"], "Tác phẩm công cộng là tài sản chung; vẽ bậy, khắc tên hay lấy cắp đều là phá hoại."],
+    ]),
+  ],
+  "national-defense": [
+    createStarterTopic("grade-12-military-tech", "Lớp 12 · Công nghệ quân sự", "Drone, radar, vệ tinh và tác chiến mạng", ["12", "🛰", "🤖"], [
+      ["Drone quân sự có ưu điểm gì so với máy bay có người lái?", "Trinh sát, tấn công từ xa không gây nguy hiểm cho phi công", ["Bay nhanh hơn mọi loại máy bay", "Không bao giờ bị phát hiện", "Rẻ như đồ chơi"], "Drone do người điều khiển từ xa nên phi công không đối mặt nguy hiểm; nó vẫn có thể bị phát hiện và bắn hạ."],
+      ["Radar trong quân sự dùng để làm gì?", "Phát hiện và theo dõi mục tiêu từ xa", ["Gây nhiễu sóng điện thoại", "Liên lạc với vệ tinh", "Chụp ảnh mặt đất chi tiết"], "Radar phát sóng vô tuyến và thu tín hiệu phản xạ để xác định vị trí, tốc độ mục tiêu; liên lạc vệ tinh và chụp ảnh thuộc hệ thống khác."],
+      ["Tác chiến mạng được coi là mặt trận mới vì sao?", "Tấn công hệ thống thông tin có thể làm tê liệt hoạt động", ["Vì hacker nào cũng là quân nhân", "Vì chỉ diễn ra trên mạng xã hội", "Vì không gây thiệt hại thật"], "Đánh sập hệ thống chỉ huy, điện lưới qua mạng gây thiệt hại thật mà không cần một viên đạn."],
+      ["Vì sao quốc gia cần tự chủ công nghệ quốc phòng?", "Chủ động khi bị cấm vận, phù hợp điều kiện đất nước", ["Vì công nghệ nhập khẩu luôn lạc hậu", "Vì tự sản xuất luôn rẻ hơn", "Vì không cần hợp tác quốc tế"], "Phụ thuộc nhập khẩu thì khi bị cấm vận sẽ thiếu vũ khí; tự chủ còn giúp vũ khí phù hợp địa hình, cách đánh của mình."],
+      ["Vệ tinh hỗ trợ quân sự trong việc nào?", "Dẫn đường, liên lạc và trinh sát", ["Bắn hạ máy bay địch", "Chở quân ra chiến trường", "Thay thế hoàn toàn radar"], "Vệ tinh cung cấp định vị, liên lạc và ảnh trinh sát; nó không trực tiếp chiến đấu hay thay thế radar mặt đất."],
+    ]),
+    createStarterTopic("grade-12-peacekeeping", "Lớp 12 · Gìn giữ hòa bình", "Việt Nam tham gia lực lượng LHQ từ 2014", ["12", "🕊", "🌍"], [
+      ["Việt Nam chính thức tham gia gìn giữ hòa bình Liên Hợp Quốc từ năm nào?", "Năm 2014", ["Năm 1977", "Năm 2007", "Năm 2020"], "Năm 1977 là năm Việt Nam gia nhập LHQ; tham gia lực lượng gìn giữ hòa bình bắt đầu từ năm 2014."],
+      ["Việt Nam đã cử lực lượng nào tới Nam Sudan?", "Bệnh viện dã chiến cấp 2", ["Tàu chiến hải quân", "Phi đội tiêm kích", "Lữ đoàn xe tăng"], "Việt Nam cử bệnh viện dã chiến cấp 2 làm nhiệm vụ y tế nhân đạo tại Nam Sudan, không phải lực lượng chiến đấu."],
+      ["Đội công binh Việt Nam làm nhiệm vụ gìn giữ hòa bình ở đâu?", "Khu vực Abyei", ["Biên giới Campuchia", "Vùng Vịnh", "Châu Âu"], "Đội công binh Việt Nam triển khai tại Abyei, khu vực tranh chấp giữa Sudan và Nam Sudan."],
+      ["Nhiệm vụ chính của lực lượng gìn giữ hòa bình là gì?", "Bảo vệ dân thường, hỗ trợ ổn định và nhân đạo", ["Tham chiến cùng một phe", "Chiếm đóng lãnh thổ", "Buôn bán vũ khí"], "Lực lượng mũ nồi xanh giữ vai trò trung lập: bảo vệ dân thường, hỗ trợ nhân đạo, giúp các bên giữ hòa bình."],
+      ["Tham gia gìn giữ hòa bình mang ý nghĩa gì với Việt Nam?", "Thể hiện trách nhiệm quốc tế, nâng cao vị thế đất nước", ["Để được LHQ trả lương cao", "Để mở rộng lãnh thổ", "Để thử nghiệm vũ khí mới"], "Đóng góp cho hòa bình thế giới khẳng định Việt Nam là thành viên có trách nhiệm, nâng cao uy tín quốc tế."],
+    ]),
+    createStarterTopic("grade-12-veterans-honor", "Lớp 12 · Tri ân thương binh liệt sĩ", "Ngày 27/7 và đạo lý uống nước nhớ nguồn", ["12", "🕯", "🇻🇳"], [
+      ["Ngày Thương binh – Liệt sĩ là ngày nào?", "27/7", ["22/12", "30/4", "19/8"], "27/7 là Ngày Thương binh – Liệt sĩ; 22/12 là Ngày thành lập Quân đội nhân dân Việt Nam."],
+      ["Học sinh có thể tri ân thương binh, liệt sĩ bằng việc nào?", "Chăm sóc nghĩa trang liệt sĩ, thăm Mẹ Việt Nam anh hùng", ["Nghỉ học ở nhà để tưởng niệm", "Chỉ học thuộc ngày 27/7", "Đợi nhà trường tổ chức mới tham gia"], "Tri ân bằng việc làm cụ thể: dọn nghĩa trang, thăm hỏi gia đình chính sách, nghe kể chuyện truyền thống."],
+      ["Danh hiệu “Mẹ Việt Nam anh hùng” dành cho ai?", "Mẹ có nhiều con hy sinh vì Tổ quốc", ["Mẹ của anh hùng lao động", "Mẹ nuôi dạy con thành đạt", "Mẹ có con làm lãnh đạo"], "Danh hiệu tôn vinh những người mẹ có chồng, con hy sinh vì độc lập, tự do của Tổ quốc."],
+      ["Lễ thắp nến tri ân thường được tổ chức khi nào?", "Tối 26/7 tại các nghĩa trang liệt sĩ", ["Sáng 27/7 tại trường học", "Tối 22/12", "Ngày Tết Nguyên đán"], "Tối 26/7, các địa phương đồng loạt thắp nến tri ân tại nghĩa trang liệt sĩ trước Ngày Thương binh – Liệt sĩ."],
+      ["Tri ân thương binh, liệt sĩ đúng nghĩa là gì?", "Ghi nhớ công ơn và sống xứng đáng, không chỉ trong một ngày", ["Chỉ cần nhớ đúng ngày 27/7", "Đăng một bài viết mỗi năm", "Tặng quà một lần là đủ"], "Tri ân thật sự là sống, học tập xứng đáng với sự hy sinh của thế hệ đi trước, quanh năm chứ không chỉ dịp lễ."],
+    ]),
+  ],
+  "career-experience": [
+    createStarterTopic("grade-12-networking", "Lớp 12 · Xây dựng mối quan hệ", "Cho đi giá trị trước và duy trì lâu dài", ["12", "🤝", "🌐"], [
+      ["Nguyên tắc quan trọng nhất khi xây dựng mối quan hệ là gì?", "Cho đi giá trị trước, chân thành và giữ lời hứa", ["Kết bạn càng nhiều càng tốt", "Chỉ quan hệ với người nổi tiếng", "Nhờ vả ngay khi mới quen"], "Mối quan hệ bền vững xây trên sự cho đi và tin cậy; kết bạn ồ ạt hay nhờ vả ngay chỉ tạo quan hệ hời hợt."],
+      ["Networking khác “xin xỏ” ở điểm nào?", "Cùng hỗ trợ nhau lâu dài, hai chiều", ["Không khác gì nhau", "Networking chỉ cần gặp một lần", "Xin xỏ lịch sự hơn"], "Networking là quan hệ hai chiều, cùng có lợi và lâu dài; xin xỏ là nhờ vả một chiều, xong là hết."],
+      ["Nên bắt đầu xây dựng mối quan hệ từ đâu?", "Thầy cô, bạn bè, anh chị khóa trên", ["Người nổi tiếng trên mạng", "Lãnh đạo cấp cao", "Chỉ người giàu có"], "Mạng lưới tốt nhất bắt đầu từ những người gần gũi, tin cậy; với tới người xa lạ, nổi tiếng khi chưa có gì để cho đi thường vô ích."],
+      ["Ví dụ nào thể hiện networking tốt?", "Chia sẻ tài liệu ôn thi, sau này được giới thiệu cơ hội", ["Xin bài tập về nhà của bạn giỏi", "Nhờ người quen xin việc dù thiếu năng lực", "Kết bạn chỉ để khoe"], "Giúp đỡ chân thành hôm nay tạo niềm tin, mai sau cơ hội tự đến; lợi dụng quan hệ thì mất cả quan hệ lẫn uy tín."],
+      ["Để duy trì mối quan hệ lâu dài cần gì?", "Quan tâm thường xuyên, giữ liên lạc", ["Chỉ liên lạc khi cần nhờ vả", "Tặng quà đắt tiền", "Gặp nhau mỗi ngày"], "Hỏi thăm, chia sẻ đều đặn giữ mối quan hệ ấm; chỉ xuất hiện khi cần nhờ khiến người ta cảm thấy bị lợi dụng."],
+    ]),
+    createStarterTopic("grade-12-personal-branding", "Lớp 12 · Thương hiệu cá nhân", "Trung thực, nhất quán và giá trị thật", ["12", "⭐", "💼"], [
+      ["Thương hiệu cá nhân là gì?", "Ấn tượng người khác có về năng lực, tính cách của em", ["Logo công ty em thiết kế", "Số lượt theo dõi trên mạng", "Tên thương hiệu quần áo"], "Thương hiệu cá nhân là danh tiếng của chính em trong mắt người khác, không phải logo hay số follow."],
+      ["Nền tảng của thương hiệu cá nhân bền vững là gì?", "Trung thực và làm tốt việc của mình", ["Tô vẽ bản thân thật ấn tượng", "Mua lượt theo dõi ảo", "Nói xấu đối thủ"], "Năng lực thật và sự trung thực là gốc; tô vẽ, mua follow chỉ tạo vỏ bọc dễ vỡ."],
+      ["Vì sao không nên tô vẽ quá mức về bản thân?", "Sự thật sớm lộ ra và làm mất uy tín", ["Vì tốn thời gian chỉnh ảnh", "Vì không ai quan tâm", "Vì vi phạm pháp luật"], "Khoe khoang quá mức đến lúc bị phát hiện sẽ mất niềm tin, mà niềm tin mất đi rất khó lấy lại."],
+      ["Cách xây dựng thương hiệu cá nhân đúng đắn là gì?", "Chia sẻ kiến thức chân thành, hình ảnh nhất quán", ["Đăng thật nhiều ảnh sang chảnh", "Gây tranh cãi để nổi tiếng", "Bắt chước y hệt người nổi tiếng"], "Giá trị thật chia sẻ đều đặn tạo danh tiếng bền; nổi bằng tranh cãi hay bắt chước thì nhanh tàn."],
+      ["Thương hiệu cá nhân tốt mang lại lợi ích gì?", "Mở ra cơ hội học tập và việc làm", ["Được miễn thi đại học", "Tự động có việc lương cao", "Không cần học thêm gì nữa"], "Người có uy tín được thầy cô, nhà tuyển dụng tin tưởng và chủ động mời cơ hội; không có chuyện tự động miễn thi hay có việc."],
+    ]),
+    createStarterTopic("grade-12-gap-year", "Lớp 12 · Năm trải nghiệm", "Ưu điểm, rủi ro và kế hoạch gap year", ["12", "🧭", "🎒"], [
+      ["Gap year là gì?", "Một năm tạm dừng học chính quy để trải nghiệm có mục đích", ["Một năm nghỉ học để chơi", "Kỳ nghỉ hè kéo dài", "Năm học lại lớp 12"], "Gap year là lựa chọn chủ động: đi làm, tình nguyện, học kỹ năng với mục tiêu rõ ràng, không phải nghỉ chơi."],
+      ["Ưu điểm lớn nhất của gap year là gì?", "Trưởng thành hơn, hiểu bản thân, chọn ngành đúng hơn", ["Được miễn thi đại học", "Chắc chắn có việc làm", "Không tốn chi phí"], "Một năm trải nghiệm giúp hiểu mình hợp gì trước khi chọn ngành, tránh học sai ngành tốn 4 năm."],
+      ["Rủi ro lớn nhất của gap year là gì?", "Mất đà học tập nếu không có kế hoạch rõ ràng", ["Bị cấm thi đại học", "Không được đi làm thêm", "Mất hết bạn bè"], "Không có kế hoạch, gap year dễ thành một năm trì hoãn; quay lại học sẽ vất vả hơn bạn bè cùng lứa."],
+      ["Hoạt động nào phù hợp trong gap year?", "Tình nguyện, đi làm, học kỹ năng mới", ["Chơi game cả ngày", "Ngủ nướng cả năm", "Chờ thời gian trôi qua"], "Gap year đáng giá khi mỗi tháng đều có việc cụ thể: kỹ năng mới, trải nghiệm mới, thu nhập hoặc đóng góp."],
+      ["Gap year có ý nghĩa khi nào?", "Có mục tiêu cụ thể và kế hoạch rõ ràng", ["Khi không biết làm gì", "Khi muốn trốn học", "Khi bạn bè cũng nghỉ"], "Viết ra mục tiêu từng quý và cách đo lường, gap year mới là đầu tư; nghỉ vì không biết làm gì chỉ là trì hoãn."],
+    ]),
+  ],
+};
+const gradeTwelveExtraPractice = { ...pracA1, ...pracA2, ...pracB1 };
+for (const [subjectId, topics] of Object.entries(gradeTwelveExtraPractice)) {
+  for (const topic of topics) topic.level = "LỚP 12";
+  curriculumExtensions[subjectId].push(...topics);
+}
+
 for (const [subjectId, topics] of Object.entries(curriculumExtensions)) {
   const subject = subjects.find((item) => item.id === subjectId);
   subject.topics.push(...topics);
