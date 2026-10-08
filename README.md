@@ -175,8 +175,14 @@ database creates the initial administrator on first startup.
 - `src/library.js` renders **Không gian học tập → Thư viện**, with grade/subject
   filters, accent-insensitive search, reading view, and links to subject practice.
   Reading does not award XP. This catalogue is bundled in both demo and
-  API-required builds; it does not require a database import. Library content
-  is maintained in source, not through the quiz curriculum editor.
+  API-required builds; it does not require a database import. The starter
+  library is maintained in source.
+- **Quản trị → Thư viện** lets administrators edit, add, hide, and restore
+  library lessons. Only those changes are stored (`app_library_overrides` in
+  PostgreSQL/MySQL, or browser storage in the static demo) and are merged over
+  the starter library when learners open it. Existing PHP/MySQL installs create
+  the table automatically on first use; no reinstall is needed. Changes can be
+  exported and imported as JSON from the same screen.
 - `src/main.js` renders the responsive learner experience and orchestrates
   navigation, play, results, and progress.
 - `src/admin.js` contains curriculum validation and the local/server

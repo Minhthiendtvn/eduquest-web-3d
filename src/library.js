@@ -6,10 +6,10 @@ function normalizeSearch(value) {
     .replace(/đ/g, "d").replace(/Đ/g, "D").toLocaleLowerCase("vi-VN").trim();
 }
 
-export function filterLibraryLessons({ grade, subjectId = "", query = "", subjects }) {
+export function filterLibraryLessons({ grade, subjectId = "", query = "", subjects, lessons = libraryLessons }) {
   const availableSubjects = new Map(subjects.map((subject) => [subject.id, subject.name]));
   const search = normalizeSearch(query);
-  return libraryLessons.filter((lesson) =>
+  return lessons.filter((lesson) =>
     lesson.grade === Number(grade)
     && availableSubjects.has(lesson.subjectId)
     && (!subjectId || lesson.subjectId === subjectId)
@@ -17,12 +17,12 @@ export function filterLibraryLessons({ grade, subjectId = "", query = "", subjec
   );
 }
 
-export function renderLibrary({ subjects, grade, subjectId, query, lessonId }) {
-  const lessons = filterLibraryLessons({ subjects, grade, subjectId, query });
+export function renderLibrary({ subjects, grade, subjectId, query, lessonId, lessons: allLessons = libraryLessons }) {
+  const lessons = filterLibraryLessons({ subjects, grade, subjectId, query, lessons: allLessons });
   const selected = lessons.find((lesson) => lesson.id === lessonId);
   const subjectById = new Map(subjects.map((subject) => [subject.id, subject]));
   const availableSubjects = subjects.filter((subject) =>
-    libraryLessons.some((lesson) => lesson.subjectId === subject.id),
+    allLessons.some((lesson) => lesson.subjectId === subject.id),
   );
   const results = selected
     ? `<article class="library-reading" aria-labelledby="library-lesson-title">

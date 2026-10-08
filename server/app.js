@@ -12,6 +12,13 @@ import { shapeLearnerCurriculum } from "./curriculum.js";
 import { normalizeRegistrationInput, validDisplayName, validPassword, validUsername } from "./registration.js";
 import { calculateExperienceReward } from "../src/progress.js";
 import { validateCurriculum } from "../src/admin.js";
+import {
+  MAX_LIBRARY_OVERRIDES,
+  normalizeLibraryLesson,
+  validLibraryLessonId,
+  validateLibraryLesson,
+  validateLibraryOverrides,
+} from "../src/library-overrides.js";
 
 const app = express();
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -334,7 +341,7 @@ app.post("/api/auth/logout", attachSession, requireCsrf, asyncRoute(async (reque
 }));
 
 app.get("/api/app", attachSession, requireAuthentication, asyncRoute(async (request, response) => {
-  const [userResult, curriculumResult, sessionsResult] = await Promise.all([
+  const [userResult, curriculumResult, sessionsResult, libraryLessons] = await Promise.all([
     pool.query(
       `SELECT u.*, c.name AS class_name FROM app_users u
        LEFT JOIN app_classes c ON c.id = u.class_id WHERE u.id = $1`,
@@ -348,6 +355,7 @@ app.get("/api/app", attachSession, requireAuthentication, asyncRoute(async (requ
        FROM learning_sessions WHERE user_id = $1 ORDER BY played_at DESC LIMIT 100`,
       [request.session.user_id],
     ),
+    readLibraryOverrides(),
   ]);
   const user = userResult.rows[0];
   if (!user) {
@@ -358,6 +366,7 @@ app.get("/api/app", attachSession, requireAuthentication, asyncRoute(async (requ
     user: { ...shapeUser(user), className: user.class_name ?? null },
     progress: shapeProgress(user, sessionsResult.rows),
     subjects: shapeLearnerCurriculum(curriculumResult.rows[0]?.content ?? []),
+    libraryLessons,
   });
 }));
 
@@ -863,6 +872,85 @@ app.put("/api/admin/curriculum", attachSession, requireAuthentication, requireAd
     [JSON.stringify(request.body.subjects), request.session.user_id],
   );
   response.json({ saved: true, updatedAt: result.rows[0]?.updatedAt ?? null });
+}));
+
+async function readLibraryOverrides() {
+  const result = await pool.query(
+    "SELECT lesson_id AS id, content AS lesson FROM app_library_overrides ORDER BY lesson_id",
+  );
+  return result.rows;
+}
+
+app.get("/api/admin/library", attachSession, requireAuthentication, requireAdministrator, asyncRoute(async (request, response) => {
+  response.json({ lessons: await readLibraryOverrides() });
+}));
+
+app.put("/api/admin/library/lessons/:lessonId", attachSession, requireAuthentication, requireAdministrator, requireCsrf, asyncRoute(async (request, response) => {
+  const { lessonId } = request.params;
+  const lesson = request.body?.lesson;
+  const error = !validLibraryLessonId(lessonId)
+    ? "Mã bài học không hợp lệ."
+    : lesson === null
+      ? ""
+      : validateLibraryLesson(lesson) || (lesson.id === lessonId ? "" : "Mã bài học không khớp nội dung.");
+  if (error) {
+    response.status(400).json({ error });
+    return;
+  }
+  const count = await pool.query(
+    "SELECT count(*)::int AS total, bool_or(lesson_id = $1) AS present FROM app_library_overrides",
+    [lessonId],
+  );
+  if (!count.rows[0].present && count.rows[0].total >= MAX_LIBRARY_OVERRIDES) {
+    response.status(400).json({ error: `Thư viện chỉ lưu tối đa ${MAX_LIBRARY_OVERRIDES} thay đổi.` });
+    return;
+  }
+  await pool.query(
+    `INSERT INTO app_library_overrides (lesson_id, content, updated_by, updated_at)
+     VALUES ($1, $2::jsonb, $3, now())
+     ON CONFLICT (lesson_id) DO UPDATE SET content = EXCLUDED.content, updated_by = EXCLUDED.updated_by, updated_at = now()`,
+    [lessonId, lesson === null ? null : JSON.stringify(normalizeLibraryLesson(lesson)), request.session.user_id],
+  );
+  response.json({ saved: true });
+}));
+
+app.delete("/api/admin/library/lessons/:lessonId", attachSession, requireAuthentication, requireAdministrator, requireCsrf, asyncRoute(async (request, response) => {
+  if (!validLibraryLessonId(request.params.lessonId)) {
+    response.status(400).json({ error: "Mã bài học không hợp lệ." });
+    return;
+  }
+  await pool.query("DELETE FROM app_library_overrides WHERE lesson_id = $1", [request.params.lessonId]);
+  response.status(204).end();
+}));
+
+app.put("/api/admin/library", attachSession, requireAuthentication, requireAdministrator, requireCsrf, asyncRoute(async (request, response) => {
+  const rows = request.body?.lessons;
+  const overrides = Array.isArray(rows) ? Object.fromEntries(rows.map((row) => [row?.id, row?.lesson])) : null;
+  const error = !Array.isArray(rows) || Object.keys(overrides).length !== rows.length
+    ? "Danh sách bài thư viện không hợp lệ."
+    : validateLibraryOverrides(overrides);
+  if (error) {
+    response.status(400).json({ error });
+    return;
+  }
+  const client = await pool.connect();
+  try {
+    await client.query("BEGIN");
+    await client.query("DELETE FROM app_library_overrides");
+    for (const [lessonId, lesson] of Object.entries(overrides)) {
+      await client.query(
+        "INSERT INTO app_library_overrides (lesson_id, content, updated_by) VALUES ($1, $2::jsonb, $3)",
+        [lessonId, lesson === null ? null : JSON.stringify(normalizeLibraryLesson(lesson)), request.session.user_id],
+      );
+    }
+    await client.query("COMMIT");
+  } catch (error) {
+    await client.query("ROLLBACK");
+    throw error;
+  } finally {
+    client.release();
+  }
+  response.json({ saved: true, count: rows.length });
 }));
 
 app.get("/api/admin/learners/:learnerId/history", attachSession, requireAuthentication, requireAdministrator, asyncRoute(async (request, response) => {

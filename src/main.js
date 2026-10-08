@@ -6,12 +6,25 @@ import { adjustTextSize, applyTextSize, readTextSize, TEXT_SIZE_KEY, TEXT_SIZE_L
 import "./styles.css";
 import { escapeHtml } from "./html.js";
 import { renderLibrary } from "./library.js";
+import { libraryLessons } from "./library-content.js";
+import { renderAdminLibrary } from "./library-admin.js";
+import {
+  LIBRARY_OVERRIDES_KEY,
+  applyLibraryOverrides,
+  createLibraryLessonId,
+  loadLocalLibraryOverrides,
+  normalizeLibraryLesson,
+  overridesFromRows,
+  validateLibraryLesson,
+  validateLibraryOverrides,
+} from "./library-overrides.js";
 
 const STORAGE_KEY = "eduquest-progress-v1";
 const managedCurriculum = loadManagedCurriculum(localStorage, starterSubjects);
 let subjects = managedCurriculum.subjects;
 let hasManagedEdits = managedCurriculum.hasEdits;
 let customMatchTopicIds = new Set(managedCurriculum.customMatchTopicIds ?? []);
+let libraryOverrides = loadLocalLibraryOverrides(localStorage);
 let apiMode = false;
 let backendRequired = import.meta.env.VITE_REQUIRE_API === "true";
 const app = document.querySelector("#app");
@@ -169,6 +182,9 @@ const state = {
   adminDataLoading: false,
   gameId: "",
   adminTab: "overview",
+  adminLibraryFilters: { grade: "", subjectId: "", status: "", query: "" },
+  adminLibraryLessonId: "",
+  adminLibraryCreating: false,
   adminSubjectId: subjects[0].id,
   adminTopicId: subjects[0].topics[0]?.id ?? "",
   adminCreatingTopic: false,
@@ -721,6 +737,7 @@ function render() {
       subjectId: state.librarySubjectId,
       query: state.libraryQuery,
       lessonId: state.libraryLessonId,
+      lessons: applyLibraryOverrides(libraryLessons, libraryOverrides),
     })
     : state.screen === "play"
     ? renderPlay()
@@ -748,6 +765,16 @@ function render() {
               learnerHistory: state.adminLearnerHistory,
               selectedLearnerId: state.adminSelectedLearner,
               selectedClassId: state.selectedAdminClassId,
+              libraryPanel: state.adminTab === "library"
+                ? renderAdminLibrary({
+                  subjects,
+                  baseLessons: libraryLessons,
+                  overrides: libraryOverrides,
+                  filters: state.adminLibraryFilters,
+                  selectedLessonId: state.adminLibraryLessonId,
+                  creating: state.adminLibraryCreating,
+                })
+                : "",
             })
           : renderHome();
   app.innerHTML = `<div class="app-shell">${renderSidebar()}<main class="main-area" id="main-content" tabindex="-1"><div class="main-inner">${renderTopbar()}${renderInstallPrompt()}${screen}  <footer class="site-footer"><span>© ${new Date().getFullYear()} EduQuest</span><span>Học vui, lớn khôn mỗi ngày <span aria-hidden="true">✿</span></span></footer></div></main></div>${state.notice ? `<div class="toast" role="status">${icon("sparkles", 17)}${state.notice}</div>` : ""}`;
@@ -798,6 +825,53 @@ function createQuizQuestions(topicId) {
       explanation: question.explanation,
     };
   });
+}
+
+function storeLocalLibraryOverrides(next) {
+  try {
+    localStorage.setItem(LIBRARY_OVERRIDES_KEY, JSON.stringify(next));
+  } catch (storageError) {
+    console.error("Không thể lưu thư viện trên thiết bị này.", storageError);
+    return "Không thể lưu thư viện. Hãy kiểm tra dung lượng lưu trữ của trình duyệt.";
+  }
+  libraryOverrides = next;
+  return "";
+}
+
+// lesson === null hides a starter lesson; undefined removes the stored change.
+async function persistLibraryLesson(id, lesson) {
+  const next = { ...libraryOverrides };
+  if (lesson === undefined) delete next[id];
+  else next[id] = lesson;
+  const error = validateLibraryOverrides(next);
+  if (error) return error;
+  if (!apiMode) return storeLocalLibraryOverrides(next);
+  try {
+    await apiRequest(`/admin/library/lessons/${encodeURIComponent(id)}`, lesson === undefined
+      ? { method: "DELETE", csrf: true }
+      : { method: "PUT", csrf: true, body: { lesson } });
+    libraryOverrides = next;
+    return "";
+  } catch (saveError) {
+    return saveError.message;
+  }
+}
+
+async function replaceLibraryOverrides(next) {
+  const error = validateLibraryOverrides(next);
+  if (error) return error;
+  if (!apiMode) return storeLocalLibraryOverrides(next);
+  try {
+    await apiRequest("/admin/library", {
+      method: "PUT",
+      csrf: true,
+      body: { lessons: Object.entries(next).map(([id, lesson]) => ({ id, lesson })) },
+    });
+    libraryOverrides = next;
+    return "";
+  } catch (saveError) {
+    return saveError.message;
+  }
 }
 
 async function persistAdminCurriculum() {
@@ -1208,6 +1282,7 @@ async function loadServerApplication() {
   state.currentUser = result.user;
   state.progress = result.progress;
   subjects = result.subjects;
+  libraryOverrides = overridesFromRows(result.libraryLessons);
   state.selectedSubject = subjects.some((subject) => subject.id === state.selectedSubject)
     ? state.selectedSubject
     : subjects[0].id;
@@ -1238,6 +1313,8 @@ async function loadAdminData(tab) {
         : "";
       state.adminLearners = (await apiRequest(`/admin/learners${query}`)).learners;
       state.adminClasses = (await apiRequest("/admin/classes")).classes;
+    } else if (tab === "library") {
+      libraryOverrides = overridesFromRows((await apiRequest("/admin/library")).lessons);
     } else if (tab === "content") {
       const result = await apiRequest("/admin/curriculum");
       subjects = result.subjects;
@@ -1380,7 +1457,7 @@ app.addEventListener("click", async (event) => {
   } else if (action === "admin-tab") {
     if (apiMode && state.currentUser?.role !== "admin") return;
     state.screen = "admin";
-    state.adminTab = ["overview", "content", "classes", "learners", "administrators", "data"].includes(control.dataset.tab)
+    state.adminTab = ["overview", "content", "library", "classes", "learners", "administrators", "data"].includes(control.dataset.tab)
       ? control.dataset.tab
       : "overview";
     state.adminCreatingTopic = false;
@@ -1389,6 +1466,50 @@ app.addEventListener("click", async (event) => {
     document.querySelector(".admin-page-heading h1")?.focus({ preventScroll: true });
     scrollToTop();
     await loadAdminData(state.adminTab);
+  } else if (action === "admin-library-lesson") {
+    state.adminLibraryLessonId = control.dataset.lessonId;
+    state.adminLibraryCreating = false;
+    state.adminNotice = "";
+    render();
+    document.querySelector('#admin-library-form [name="title"]')?.focus({ preventScroll: true });
+  } else if (action === "admin-library-new") {
+    state.adminLibraryLessonId = "";
+    state.adminLibraryCreating = true;
+    state.adminNotice = "";
+    render();
+    document.querySelector('#admin-library-form [name="title"]')?.focus({ preventScroll: true });
+  } else if (["admin-library-hide", "admin-library-delete", "admin-library-restore"].includes(action)) {
+    const lessonId = control.dataset.lessonId;
+    const prompts = {
+      "admin-library-hide": "Ẩn bài này khỏi thư viện của học sinh? Bạn có thể hiện lại sau.",
+      "admin-library-delete": "Xóa vĩnh viễn bài đọc do quản trị viên thêm này?",
+      "admin-library-restore": "Bỏ thay đổi và đưa bài về bản gốc?",
+    };
+    if (!window.confirm(prompts[action])) return;
+    const error = await persistLibraryLesson(lessonId, action === "admin-library-hide" ? null : undefined);
+    if (!error && action === "admin-library-delete") state.adminLibraryLessonId = "";
+    state.adminNotice = error || {
+      "admin-library-hide": "Đã ẩn bài khỏi thư viện.",
+      "admin-library-delete": "Đã xóa bài đọc.",
+      "admin-library-restore": "Đã khôi phục bài gốc.",
+    }[action];
+    render();
+  } else if (action === "admin-library-export") {
+    const blob = new Blob([JSON.stringify({ schema: "eduquest-library-v1", overrides: libraryOverrides }, null, 2)], { type: "application/json" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `eduquest-thu-vien-${today}.json`;
+    link.click();
+    URL.revokeObjectURL(link.href);
+    state.adminNotice = `Đã tải ${Object.keys(libraryOverrides).length} thay đổi thư viện.`;
+    render();
+  } else if (action === "admin-library-reset") {
+    if (!window.confirm("Xóa mọi bài đã sửa, bài thêm mới và bỏ ẩn tất cả, đưa thư viện về bản gốc?")) return;
+    const error = await replaceLibraryOverrides({});
+    state.adminLibraryLessonId = "";
+    state.adminLibraryCreating = false;
+    state.adminNotice = error || "Đã khôi phục toàn bộ thư viện gốc.";
+    render();
   } else if (action === "admin-topic") {
     state.adminTopicId = control.dataset.topic;
     state.adminCreatingTopic = false;
@@ -1631,6 +1752,43 @@ app.addEventListener("change", async (event) => {
     document.querySelectorAll(".goal-option").forEach((option) => {
       option.classList.toggle("is-selected", option.querySelector("input") === event.target);
     });
+  }
+  if (event.target.matches("#admin-library-filter select")) {
+    const data = new FormData(event.target.form);
+    state.adminLibraryFilters = {
+      grade: String(data.get("grade")),
+      subjectId: String(data.get("subjectId")),
+      status: String(data.get("status")),
+      query: String(data.get("query")).trim(),
+    };
+    const focusedName = event.target.name;
+    render();
+    document.querySelector(`#admin-library-filter [name="${focusedName}"]`)?.focus({ preventScroll: true });
+    return;
+  }
+  if (event.target.matches('input[data-action="admin-library-import"]')) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    try {
+      if (file.size > 2 * 1024 * 1024) throw new Error("Tệp thư viện vượt quá giới hạn 2 MB.");
+      const parsed = JSON.parse(await file.text());
+      if (parsed?.schema !== "eduquest-library-v1") throw new Error("Tệp không đúng định dạng thư viện EduQuest.");
+      const error = validateLibraryOverrides(parsed.overrides);
+      if (error) throw new Error(error);
+      if (!window.confirm("Thay thế toàn bộ thay đổi thư viện hiện tại bằng tệp đã chọn?")) {
+        event.target.value = "";
+        return;
+      }
+      const saveError = await replaceLibraryOverrides(parsed.overrides);
+      if (saveError) throw new Error(saveError);
+      state.adminLibraryLessonId = "";
+      state.adminLibraryCreating = false;
+      state.adminNotice = `Đã nhập ${Object.keys(parsed.overrides).length} thay đổi thư viện.`;
+    } catch (error) {
+      state.adminNotice = error instanceof SyntaxError ? "Tệp không phải JSON hợp lệ." : error.message;
+    }
+    render();
+    return;
   }
   if (event.target.matches('select[data-action="admin-subject"]')) {
     const subject = subjects.find((item) => item.id === event.target.value);
@@ -1940,6 +2098,47 @@ app.addEventListener("submit", async (event) => {
     } catch (error) {
       state.adminNotice = error.message;
     }
+    render();
+    return;
+  }
+  if (event.target.id === "admin-library-filter") {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    state.adminLibraryFilters = {
+      grade: String(data.get("grade")),
+      subjectId: String(data.get("subjectId")),
+      status: String(data.get("status")),
+      query: String(data.get("query")).trim(),
+    };
+    render();
+    document.querySelector('#admin-library-filter [name="query"]')?.focus({ preventScroll: true });
+    return;
+  }
+  if (event.target.id === "admin-library-form") {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    const existingId = String(data.get("lessonId"));
+    const draft = {
+      subjectId: String(data.get("subjectId")),
+      grade: Number(data.get("grade")),
+      title: String(data.get("title")),
+      knowledge: String(data.get("knowledge")),
+      example: String(data.get("example")),
+      reflection: String(data.get("reflection")),
+      referenceOnly: data.get("referenceOnly") === "on",
+    };
+    const existingIds = new Set([...libraryLessons.map((lesson) => lesson.id), ...Object.keys(libraryOverrides)]);
+    const lesson = { id: existingId || createLibraryLessonId(draft, existingIds), ...draft };
+    const baseLesson = libraryLessons.find((item) => item.id === lesson.id);
+    const unchanged = baseLesson && !validateLibraryLesson(lesson)
+      && JSON.stringify(normalizeLibraryLesson(lesson)) === JSON.stringify(normalizeLibraryLesson(baseLesson));
+    const error = validateLibraryLesson(lesson)
+      || await persistLibraryLesson(lesson.id, unchanged ? undefined : normalizeLibraryLesson(lesson));
+    if (!error) {
+      state.adminLibraryLessonId = lesson.id;
+      state.adminLibraryCreating = false;
+    }
+    state.adminNotice = error || (existingId ? "Đã lưu bài đọc." : "Đã thêm bài đọc mới vào thư viện.");
     render();
     return;
   }

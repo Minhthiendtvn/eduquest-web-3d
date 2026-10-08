@@ -55,6 +55,15 @@ CREATE TABLE IF NOT EXISTS app_curriculum (
     REFERENCES app_users(id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE IF NOT EXISTS app_library_overrides (
+  lesson_id VARCHAR(120) NOT NULL PRIMARY KEY,
+  content JSON NULL,
+  updated_by CHAR(36) NULL,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT app_library_overrides_updated_by_fk FOREIGN KEY (updated_by)
+    REFERENCES app_users(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 CREATE TABLE IF NOT EXISTS learning_sessions (
   id CHAR(36) NOT NULL PRIMARY KEY,
   user_id CHAR(36) NOT NULL,

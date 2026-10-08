@@ -64,6 +64,12 @@ const schema = `
     updated_by text REFERENCES app_users(id) ON DELETE SET NULL,
     updated_at timestamptz NOT NULL DEFAULT now()
   );
+  CREATE TABLE IF NOT EXISTS app_library_overrides (
+    lesson_id text PRIMARY KEY,
+    content jsonb,
+    updated_by text REFERENCES app_users(id) ON DELETE SET NULL,
+    updated_at timestamptz NOT NULL DEFAULT now()
+  );
   CREATE TABLE IF NOT EXISTS learning_sessions (
     id text PRIMARY KEY,
     user_id text NOT NULL REFERENCES app_users(id) ON DELETE CASCADE,

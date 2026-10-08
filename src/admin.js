@@ -157,6 +157,7 @@ export function renderAdmin({
   selectedLearnerId = "",
   selectedClassId = "",
   administrators = [],
+  libraryPanel = "",
 }) {
   const topicCount = subjects.reduce((count, subject) => count + subject.topics.length, 0);
   const questionCount = subjects.reduce((count, subject) => count + subject.topics.reduce((total, topic) => total + topic.questions.length, 0), 0);
@@ -176,6 +177,7 @@ export function renderAdmin({
   const tabs = [
     ["overview", "Tổng quan"],
     ["content", "Môn học & nội dung"],
+    ["library", "Thư viện"],
     ...(apiMode ? [["classes", "Lớp học"]] : []),
     ...(apiMode ? [["learners", "Người học"]] : [["learners", "Người học"]]),
     ...(apiMode ? [["administrators", "Quản trị viên"]] : []),
@@ -187,7 +189,9 @@ export function renderAdmin({
     : `<aside class="admin-local-notice" role="note"><strong>Chế độ quản trị cục bộ</strong><span>Không có máy chủ, tài khoản xác thực hoặc dữ liệu học sinh dùng chung. Nội dung và tiến độ chỉ nằm trên thiết bị/trình duyệt này.</span></aside>`;
 
   let panel = "";
-  if (tab === "content") {
+  if (tab === "library") {
+    panel = libraryPanel;
+  } else if (tab === "content") {
     panel = `
       <section class="admin-panel" aria-labelledby="admin-content-title">
         <div class="admin-panel-heading"><div><h2 id="admin-content-title">Ngân hàng nội dung</h2><p>${subjects.length} môn · ${topicCount} chủ đề · ${questionCount} câu hỏi</p></div><span class="admin-status ${hasContentEdits ? "is-edited" : ""}">${hasContentEdits ? "Có thay đổi cục bộ" : "Nội dung mẫu"}</span></div>
@@ -259,7 +263,7 @@ export function renderAdmin({
       : popular;
     panel = `<div class="admin-stat-grid"><article class="admin-stat"><span>${apiMode ? "NGƯỜI HỌC" : "MÔN HỌC"}</span><strong>${apiMode ? statLearners : subjects.length}</strong><small>${apiMode ? `${statClasses} lớp đang quản lý` : "nhóm môn hiện có"}</small></article><article class="admin-stat"><span>CHỦ ĐỀ</span><strong>${topicCount}</strong><small>${questionCount} câu hỏi</small></article><article class="admin-stat"><span>LƯỢT HỌC</span><strong>${apiMode ? totalSessions : progress.completed}</strong><small>${apiMode ? "trên toàn hệ thống" : `${activeDays} ngày có hoạt động`}</small></article><article class="admin-stat"><span>ĐỘ CHÍNH XÁC</span><strong>${statAccuracy}%</strong><small>${apiMode ? "trung bình toàn hệ thống" : `${progress.experiencePoints} XP tích lũy`}</small></article></div>
       <div class="admin-overview-grid"><section class="admin-panel"><div class="admin-panel-heading"><div><h2>Sử dụng theo môn</h2><p>${apiMode ? "Lượt học đã lưu trên máy chủ." : "Lượt học đã lưu trong trình duyệt này."}</p></div></div><div class="admin-usage-list">${usage.map(({ subject, runs }) => `<div><span>${escapeHtml(subject.name)}</span><strong>${runs}</strong><i><span style="width:${(apiMode ? totalSessions : history.length) ? Math.max(runs / (apiMode ? totalSessions : history.length) * 100, runs ? 8 : 0) : 0}%"></span></i></div>`).join("")}</div>${!(apiMode ? totalSessions : history.length) ? `<p class="admin-empty">Biểu đồ sẽ có dữ liệu sau khi người học hoàn thành thử thách.</p>` : ""}</section>
-      <section class="admin-panel"><div class="admin-panel-heading"><div><h2>Tác vụ nhanh</h2><p>Quản lý nội dung, lớp và tài khoản.</p></div></div><div class="admin-quick-actions"><button type="button" data-action="admin-tab" data-tab="content">✎ <span><strong>Quản lý nội dung</strong><small>Sửa câu hỏi, tạo hoặc xóa chủ đề</small></span></button>${apiMode ? `<button type="button" data-action="admin-tab" data-tab="classes">▦ <span><strong>Quản lý lớp học</strong><small>Tạo lớp, sửa thông tin, cấp mã lớp</small></span></button>` : ""}<button type="button" data-action="admin-tab" data-tab="learners">◉ <span><strong>Xem tiến độ người học</strong><small>${apiMode ? "Quản lý tài khoản và lớp trên máy chủ" : "Lịch sử lưu trên thiết bị này"}</small></span></button><button type="button" data-action="admin-tab" data-tab="data">⇧ <span><strong>Sao lưu dữ liệu</strong><small>Tải xuống hoặc nhập bản sao lưu</small></span></button></div></section></div>`;
+      <section class="admin-panel"><div class="admin-panel-heading"><div><h2>Tác vụ nhanh</h2><p>Quản lý nội dung, lớp và tài khoản.</p></div></div><div class="admin-quick-actions"><button type="button" data-action="admin-tab" data-tab="content">✎ <span><strong>Quản lý nội dung</strong><small>Sửa câu hỏi, tạo hoặc xóa chủ đề</small></span></button><button type="button" data-action="admin-tab" data-tab="library">❒ <span><strong>Quản lý thư viện</strong><small>Sửa, thêm, ẩn bài đọc cho học sinh</small></span></button>${apiMode ? `<button type="button" data-action="admin-tab" data-tab="classes">▦ <span><strong>Quản lý lớp học</strong><small>Tạo lớp, sửa thông tin, cấp mã lớp</small></span></button>` : ""}<button type="button" data-action="admin-tab" data-tab="learners">◉ <span><strong>Xem tiến độ người học</strong><small>${apiMode ? "Quản lý tài khoản và lớp trên máy chủ" : "Lịch sử lưu trên thiết bị này"}</small></span></button><button type="button" data-action="admin-tab" data-tab="data">⇧ <span><strong>Sao lưu dữ liệu</strong><small>Tải xuống hoặc nhập bản sao lưu</small></span></button></div></section></div>`;
   }
 
   return `<section class="admin-page"><header class="admin-page-heading"><div><p class="section-overline">BẢNG ĐIỀU KHIỂN</p><h1 tabindex="-1">Quản trị EduQuest</h1><p>Quản lý nội dung học tập và xem tình hình sử dụng${apiMode ? " của toàn hệ thống." : " bản thử nghiệm."}</p></div><span class="admin-demo-badge">${apiMode ? "ĐÃ KẾT NỐI MÁY CHỦ" : "BẢN THỬ NGHIỆM"}</span></header>${localNotice}${tabBar}${notice ? `<p class="admin-feedback" role="status">${escapeHtml(notice)}</p>` : ""}${panel}</section>`;

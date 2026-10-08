@@ -501,6 +501,106 @@ function rewardFor(string $mode, int $correct, int $total, int $dailyCount, int 
     ];
 }
 
+const MAX_LIBRARY_OVERRIDES = 2000;
+
+function ensureLibraryTable(): void
+{
+    static $ready = false;
+    if ($ready) {
+        return;
+    }
+    db()->exec(
+        'CREATE TABLE IF NOT EXISTS app_library_overrides (
+          lesson_id VARCHAR(120) NOT NULL PRIMARY KEY,
+          content JSON NULL,
+          updated_by CHAR(36) NULL,
+          updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          CONSTRAINT app_library_overrides_updated_by_fk FOREIGN KEY (updated_by)
+            REFERENCES app_users(id) ON DELETE SET NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci'
+    );
+    $ready = true;
+}
+
+function validLibraryLessonId(mixed $id): bool
+{
+    return is_string($id) && preg_match('/^library-[a-z0-9-]{2,110}$/', $id) === 1;
+}
+
+function textLength(string $value): int
+{
+    return function_exists('mb_strlen') ? mb_strlen($value, 'UTF-8') : strlen($value);
+}
+
+function validateLibraryLesson(mixed $lesson): ?string
+{
+    if (!is_array($lesson) || array_is_list($lesson)) {
+        return 'Bài học không hợp lệ.';
+    }
+    if (!validLibraryLessonId($lesson['id'] ?? null)) {
+        return 'Mã bài học không hợp lệ.';
+    }
+    if (!is_string($lesson['subjectId'] ?? null) || !preg_match('/^[a-z0-9-]{2,60}$/', $lesson['subjectId'])) {
+        return 'Vui lòng chọn môn học hợp lệ.';
+    }
+    if (!is_int($lesson['grade'] ?? null) || $lesson['grade'] < 6 || $lesson['grade'] > 12) {
+        return 'Lớp phải từ 6 đến 12.';
+    }
+    $limits = [
+        'title' => ['Tên bài', 3, 120],
+        'knowledge' => ['Kiến thức trọng tâm', 10, 2000],
+        'example' => ['Ví dụ', 5, 1000],
+        'reflection' => ['Tự kiểm tra', 5, 1000],
+    ];
+    foreach ($limits as $field => [$label, $min, $max]) {
+        $value = $lesson[$field] ?? null;
+        if (!is_string($value) || textLength(trim($value)) < $min || textLength($value) > $max) {
+            return sprintf('%s cần từ %d đến %d ký tự.', $label, $min, $max);
+        }
+    }
+    if (!is_bool($lesson['referenceOnly'] ?? null)) {
+        return 'Nhãn tham khảo không hợp lệ.';
+    }
+    return null;
+}
+
+function normalizeLibraryLesson(array $lesson): array
+{
+    return [
+        'id' => $lesson['id'],
+        'subjectId' => $lesson['subjectId'],
+        'grade' => $lesson['grade'],
+        'title' => trim($lesson['title']),
+        'knowledge' => trim($lesson['knowledge']),
+        'example' => trim($lesson['example']),
+        'reflection' => trim($lesson['reflection']),
+        'referenceOnly' => $lesson['referenceOnly'],
+    ];
+}
+
+function readLibraryOverrides(): array
+{
+    ensureLibraryTable();
+    $rows = [];
+    foreach (query('SELECT lesson_id, content FROM app_library_overrides ORDER BY lesson_id')->fetchAll() as $row) {
+        $rows[] = [
+            'id' => $row['lesson_id'],
+            'lesson' => $row['content'] === null ? null : decodeJson($row['content']),
+        ];
+    }
+    return $rows;
+}
+
+function learnerLibraryOverrides(): array
+{
+    try {
+        return readLibraryOverrides();
+    } catch (Throwable $error) {
+        error_log('EduQuest library overrides unavailable: ' . $error->getMessage());
+        return [];
+    }
+}
+
 function getAppData(array $session): array
 {
     $userStatement = query(
@@ -550,6 +650,7 @@ function getAppData(array $session): array
             'history' => $history,
         ],
         'subjects' => shapeCurriculumForLearners($subjects),
+        'libraryLessons' => learnerLibraryOverrides(),
     ];
 }
 
@@ -1238,6 +1339,106 @@ try {
         ]);
         $updatedAt = query('SELECT updated_at FROM app_curriculum WHERE id = 1')->fetchColumn();
         respond(200, ['saved' => true, 'updatedAt' => $updatedAt]);
+    }
+
+    if ($path === '/admin/library' && $method === 'GET') {
+        requireAdministrator($session);
+        respond(200, ['lessons' => readLibraryOverrides()]);
+    }
+
+    if (preg_match('#^/admin/library/lessons/([a-z0-9-]+)$#', $path, $matches)
+        && in_array($method, ['PUT', 'DELETE'], true)) {
+        $session = requireAdministrator($session);
+        requireCsrf($session, $body);
+        $lessonId = $matches[1];
+        if (!validLibraryLessonId($lessonId)) {
+            respond(400, ['error' => 'Mã bài học không hợp lệ.']);
+        }
+        ensureLibraryTable();
+        if ($method === 'DELETE') {
+            query('DELETE FROM app_library_overrides WHERE lesson_id = ?', [$lessonId]);
+            respond(204);
+        }
+        if (!array_key_exists('lesson', $body)) {
+            respond(400, ['error' => 'Thiếu nội dung bài học.']);
+        }
+        $lesson = $body['lesson'];
+        if ($lesson !== null) {
+            $error = validateLibraryLesson($lesson);
+            if ($error === null && $lesson['id'] !== $lessonId) {
+                $error = 'Mã bài học không khớp nội dung.';
+            }
+            if ($error !== null) {
+                respond(400, ['error' => $error]);
+            }
+        }
+        $present = (bool)query('SELECT COUNT(*) FROM app_library_overrides WHERE lesson_id = ?', [$lessonId])->fetchColumn();
+        $total = (int)query('SELECT COUNT(*) FROM app_library_overrides')->fetchColumn();
+        if (!$present && $total >= MAX_LIBRARY_OVERRIDES) {
+            respond(400, ['error' => sprintf('Thư viện chỉ lưu tối đa %d thay đổi.', MAX_LIBRARY_OVERRIDES)]);
+        }
+        query(
+            'INSERT INTO app_library_overrides (lesson_id, content, updated_by, updated_at)
+             VALUES (?, ?, ?, UTC_TIMESTAMP())
+             ON DUPLICATE KEY UPDATE content = VALUES(content), updated_by = VALUES(updated_by), updated_at = UTC_TIMESTAMP()',
+            [
+                $lessonId,
+                $lesson === null ? null : json_encode(normalizeLibraryLesson($lesson), JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR),
+                $session['user_id'],
+            ],
+        );
+        respond(200, ['saved' => true]);
+    }
+
+    if ($path === '/admin/library' && $method === 'PUT') {
+        $session = requireAdministrator($session);
+        requireCsrf($session, $body);
+        $rows = $body['lessons'] ?? null;
+        if (!is_array($rows) || !array_is_list($rows) || count($rows) > MAX_LIBRARY_OVERRIDES) {
+            respond(400, ['error' => 'Danh sách bài thư viện không hợp lệ.']);
+        }
+        $overrides = [];
+        foreach ($rows as $row) {
+            $lessonId = is_array($row) ? ($row['id'] ?? null) : null;
+            if (!validLibraryLessonId($lessonId) || isset($overrides[$lessonId]) || !array_key_exists('lesson', $row)) {
+                respond(400, ['error' => 'Danh sách bài thư viện không hợp lệ.']);
+            }
+            $lesson = $row['lesson'];
+            if ($lesson !== null) {
+                $error = validateLibraryLesson($lesson);
+                if ($error === null && $lesson['id'] !== $lessonId) {
+                    $error = 'Mã bài học không khớp nội dung.';
+                }
+                if ($error !== null) {
+                    respond(400, ['error' => $error]);
+                }
+                $lesson = normalizeLibraryLesson($lesson);
+            }
+            $overrides[$lessonId] = $lesson;
+        }
+        ensureLibraryTable();
+        $connection = db();
+        $connection->beginTransaction();
+        try {
+            $connection->exec('DELETE FROM app_library_overrides');
+            $insert = $connection->prepare(
+                'INSERT INTO app_library_overrides (lesson_id, content, updated_by, updated_at) VALUES (?, ?, ?, UTC_TIMESTAMP())'
+            );
+            foreach ($overrides as $lessonId => $lesson) {
+                $insert->execute([
+                    $lessonId,
+                    $lesson === null ? null : json_encode($lesson, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR),
+                    $session['user_id'],
+                ]);
+            }
+            $connection->commit();
+        } catch (Throwable $error) {
+            if ($connection->inTransaction()) {
+                $connection->rollBack();
+            }
+            throw $error;
+        }
+        respond(200, ['saved' => true, 'count' => count($overrides)]);
     }
 
     if (str_starts_with($path, '/admin/')) {
