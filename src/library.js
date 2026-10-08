@@ -25,20 +25,20 @@ export function renderLibrary({ subjects, grade, subjectId, query, lessonId, les
     allLessons.some((lesson) => lesson.subjectId === subject.id),
   );
   const results = selected
-    ? `<article class="library-reading" aria-labelledby="library-lesson-title">
+    ? `<article class="library-reading" data-library-subject="${escapeHtml(selected.subjectId)}" aria-labelledby="library-lesson-title">
         <button type="button" class="back-link" data-action="library-back">← Danh sách bài học</button>
         <p class="section-overline">LỚP ${selected.grade} · ${escapeHtml(subjectById.get(selected.subjectId).name)}</p>
         <h2 id="library-lesson-title" tabindex="-1">${escapeHtml(selected.title)}</h2>
         ${selected.referenceOnly ? '<p class="library-reference">Bài tham khảo mở rộng; không khẳng định thuộc môn học chính khóa ở lớp này.</p>' : ""}
-        <section><h3>Kiến thức trọng tâm</h3><p>${escapeHtml(selected.knowledge)}</p></section>
+        <section class="library-knowledge"><h3>Kiến thức trọng tâm</h3><p>${escapeHtml(selected.knowledge)}</p></section>
         <section class="library-example"><h3>Ví dụ / Liên hệ</h3><p>${escapeHtml(selected.example)}</p></section>
-        <section><h3>Tự kiểm tra</h3><p>${escapeHtml(selected.reflection)}</p><small>Thử tự trả lời và trao đổi với giáo viên; hoạt động đọc không cộng XP.</small></section>
+        <section class="library-reflection"><h3>Tự kiểm tra</h3><p>${escapeHtml(selected.reflection)}</p><small>Thử tự trả lời và trao đổi với giáo viên; hoạt động đọc không cộng XP.</small></section>
         <button type="button" class="button button--primary" data-action="subject" data-subject="${escapeHtml(selected.subjectId)}">Khám phá bài luyện ${escapeHtml(subjectById.get(selected.subjectId).shortName ?? subjectById.get(selected.subjectId).name)}</button>
         <p class="library-practice-note">Mở danh sách chủ đề của môn để chọn bài luyện phù hợp; không phải mọi bài đọc đều có quiz tương ứng.</p>
       </article>`
     : `<p class="library-count" role="status">${lessons.length} bài học phù hợp</p>
        ${lessons.length
-    ? `<div class="library-grid">${lessons.map((lesson) => `<article class="library-card">
+    ? `<div class="library-grid">${lessons.map((lesson) => `<article class="library-card" data-library-subject="${escapeHtml(lesson.subjectId)}">
         <p class="section-overline">LỚP ${lesson.grade} · ${escapeHtml(subjectById.get(lesson.subjectId).name)}</p>
         <h2>${escapeHtml(lesson.title)}</h2>
         <p>${escapeHtml(lesson.knowledge)}</p>

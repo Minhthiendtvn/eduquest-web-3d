@@ -187,11 +187,15 @@ test("library renders reading, empty results, and safe user text", () => {
   const options = { subjects, grade: 6, subjectId: "", query: "", lessonId: "" };
   const catalogue = renderLibrary(options);
   assert.ok(catalogue.includes("126 bài học phù hợp"));
+  assert.ok(catalogue.includes('class="library-card" data-library-subject="math"'));
   const reading = renderLibrary({ ...options, lessonId: "library-math-6" });
   assert.ok(reading.includes("Kiến thức trọng tâm"));
   assert.ok(reading.includes("Ví dụ / Liên hệ"));
   assert.ok(reading.includes("Tự kiểm tra"));
   assert.ok(reading.includes('data-subject="math"'));
+  assert.ok(reading.includes('data-library-subject="math"'));
+  assert.ok(reading.includes('class="library-knowledge"'));
+  assert.ok(reading.includes('class="library-reflection"'));
   const empty = renderLibrary({ ...options, query: '"><script>alert(1)</script>' });
   assert.ok(empty.includes("Chưa tìm thấy bài phù hợp"));
   assert.ok(!empty.includes("<script>"));
