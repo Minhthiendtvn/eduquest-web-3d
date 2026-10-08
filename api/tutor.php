@@ -1,10 +1,12 @@
 <?php
 declare(strict_types=1);
 
-// Secrets are read only from the PHP worker environment, never from browser input.
+require_once __DIR__ . '/private-env.php';
+
+// Server environment takes precedence over the private .env outside the web root.
 function tutorSetting(string $name, int $default, int $min, int $max): int
 {
-    $raw = getenv($name);
+    $raw = tutorEnv($name);
     $value = $raw === false || $raw === '' ? $default : filter_var($raw, FILTER_VALIDATE_INT);
     if ($value === false || $value < $min || $value > $max) {
         respond(503, ['error' => 'Cấu hình AI Tutor chưa hợp lệ.']);
@@ -36,9 +38,9 @@ function handleTutor(array $body, array $session): never
         || !is_string($topicId) || !preg_match('/^[a-z0-9][a-z0-9-]{1,79}$/D', $topicId)) {
         respond(400, ['error' => 'Chọn môn, chủ đề và nhập câu hỏi từ 1 đến 2000 ký tự.']);
     }
-    $key = getenv('ANTHROPIC_API_KEY');
+    $key = tutorEnv('ANTHROPIC_API_KEY');
     if (!$key || !function_exists('curl_init')) respond(503, ['error' => 'AI Tutor chưa được bật. Hãy liên hệ quản trị viên.']);
-    $model = getenv('ANTHROPIC_MODEL') ?: 'claude-haiku-4-5-20251001';
+    $model = tutorEnv('ANTHROPIC_MODEL') ?: 'claude-haiku-4-5-20251001';
     if (!preg_match('/^[a-zA-Z0-9.-]{1,100}$/D', $model)) respond(503, ['error' => 'Cấu hình AI Tutor chưa hợp lệ.']);
     $maxTokens = tutorSetting('AI_TUTOR_MAX_TOKENS', 1024, 128, 4096);
     $timeout = tutorSetting('AI_TUTOR_TIMEOUT_MS', 30000, 1000, 60000);
@@ -91,8 +93,8 @@ function handleTutor(array $body, array $session): never
     if ($answer === '' || !is_int($input) || $input < 0 || !is_int($output) || $output < 0) {
         respond(502, ['error' => 'AI Tutor trả về dữ liệu chưa hợp lệ. Hãy thử lại sau.']);
     }
-    $inputPrice = getenv('ANTHROPIC_INPUT_USD_PER_MILLION');
-    $outputPrice = getenv('ANTHROPIC_OUTPUT_USD_PER_MILLION');
+    $inputPrice = tutorEnv('ANTHROPIC_INPUT_USD_PER_MILLION');
+    $outputPrice = tutorEnv('ANTHROPIC_OUTPUT_USD_PER_MILLION');
     $cost = is_numeric($inputPrice) && is_numeric($outputPrice) && (float)$inputPrice >= 0 && (float)$outputPrice >= 0
         ? round(($input * (float)$inputPrice + $output * (float)$outputPrice) / 1000000, 8) : null;
     $actualModel = $result['model'] ?? $model;

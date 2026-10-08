@@ -185,10 +185,20 @@ For Node hosting, set `ANTHROPIC_API_KEY` in the hosting service's server
 environment and restart the app. For cPanel/PHP, upload the updated `api/`
 directory including `tutor.php`, rebuild/upload the API-required frontend as in
 the cPanel guide, and enable PHP cURL with outbound HTTPS to `api.anthropic.com`.
-Ask the hosting provider to inject `ANTHROPIC_API_KEY` into the PHP worker
-environment (and other settings below as needed). PHP reads these with `getenv()`;
-uploading a `.env` into `public_html` does **not** configure PHP. Keep all secrets
-outside the web root. No secret is needed during frontend build or installation.
+Set `ANTHROPIC_API_KEY` in the PHP worker environment, or create a private `.env`
+beside the existing `eduquest-config.php`, one directory above the site's public
+directory. Upload `api/private-env.php` along with `api/tutor.php`. The PHP loader
+reads only Tutor settings from this file, using literal `NAME=value` lines,
+optional quotes and comments. Non-empty worker environment values take precedence.
+Never put `.env` in `public_html`, a domain's public directory, or a shared public
+directory. For example, use `/home/CPANEL_USER/.env` when the site is in
+`/home/CPANEL_USER/public_html`. In File Manager enable **Show Hidden Files**;
+restrict the file to the PHP user's readable permissions (typically 600).
+If the domain is nested below `public_html`, set `'tutor_env_file' =>
+'/home/CPANEL_USER/.env'` in the existing private `eduquest-config.php` to select
+an absolute private path. No secret is needed during build or installation.
+Missing private files leave Tutor disabled unless the worker environment has
+the key; malformed or unreadable files fail safely without logging their contents.
 
 Default model: `claude-haiku-4-5-20251001`, configurable through
 `ANTHROPIC_MODEL`. See the [official Claude API primer](https://platform.claude.com/docs/en/claude_api_primer)

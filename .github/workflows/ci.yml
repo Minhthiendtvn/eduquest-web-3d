@@ -25,3 +25,5 @@ jobs:
           for file in api/*.php database/*.php installer/*.php; do
             php -l "$file" || exit 1
           done
+      - name: Test private PHP environment loader
+        run: php tests/private-env.php
