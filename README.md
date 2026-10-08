@@ -210,11 +210,14 @@ Science groups Physics, Chemistry, and Biology; Civics includes introductory
 Economics and Law at THPT. Match the material to classroom requirements with
 a teacher before using it as a formal course.
 
-The starter catalogue now has 130 playable topics across 14 subject areas,
+The starter catalogue now has 298 playable topics across 14 subject areas,
 including three additional topics per subject compared with the initial
 catalogue; Mathematics and Science have six topics each, while the other
 subjects have four before the grade-specific additions. Every topic has an original
-five-question quiz and matching game. Ten additional topics labelled **Lớp 6**
+five-question quiz and matching game (1,490 questions in total).
+Grades 6–9 each have 52 labelled topics (260 questions) across all 14 subjects:
+the original ten per grade plus 42 new practice topics (three per subject) that
+mirror the supplementary library lessons added for those grades. Ten additional topics labelled **Lớp 6**
 provide 50 questions across Mathematics (natural numbers, integers, geometry),
 Science (measurement/materials, cells), Vietnamese literature/language,
 English, History, Geography, and Informatics. Ten topics labelled **Lớp 7**
