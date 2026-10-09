@@ -386,3 +386,16 @@ confirm the provider receives no request before login, no key appears in browser
 requests/assets, and quota exhaustion produces a friendly error. Confirm server
 logs contain token counts only. Provider calls are mocked in automated tests;
 actual Vietnamese pedagogy and model behavior need this production smoke test.
+
+
+### Admin: AI Tutor context selectors
+
+In **Quản trị → AI Tutor**, enable **Hiện lựa chọn môn học và chủ đề** and save
+to restore the selectors. They are hidden by default. This setting is stored in
+`app_tutor_settings` and shared across accounts/devices after reloading. Only
+administrators with a valid CSRF token can update it. With selectors hidden,
+the backend uses a neutral free-question context, without unrelated curriculum
+or topic scores. The question, attempt field and all support actions remain.
+Deploy frontend and both updated API files together. Node creates the settings
+table on startup; PHP creates it on first settings read (database user needs
+CREATE TABLE permission). Existing data is preserved.

@@ -18,7 +18,7 @@ export function tutorSettings(env = process.env) {
 export function validateTutorInput(body) {
   if (!body || typeof body !== "object" || Array.isArray(body)
     || typeof body.question !== "string" || !body.question.trim() || body.question.length > 2000
-    || ![body.subjectId, body.topicId].every((id) => typeof id === "string" && /^[a-z0-9][a-z0-9-]{1,79}$/.test(id))) {
+    || !((!body.subjectId && !body.topicId) || [body.subjectId, body.topicId].every((id) => typeof id === "string" && /^[a-z0-9][a-z0-9-]{1,79}$/.test(id)))) {
     throw new TutorError(400, "Chọn môn, chủ đề và nhập câu hỏi từ 1 đến 2000 ký tự.");
   }
   const mode = body.mode ?? "ask";

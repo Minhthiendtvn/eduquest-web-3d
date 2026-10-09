@@ -368,6 +368,7 @@ app.get("/api/app", attachSession, requireAuthentication, asyncRoute(async (requ
     progress: shapeProgress(user, sessionsResult.rows),
     subjects: shapeLearnerCurriculum(curriculumResult.rows[0]?.content ?? []),
     libraryLessons,
+    tutorSettings: await readTutorSettings(),
   });
 }));
 
@@ -390,6 +391,17 @@ app.patch("/api/app/profile", attachSession, requireAuthentication, requireCsrf,
   response.json({ user: shapeUser(result.rows[0]) });
 }));
 
+async function readTutorSettings() {
+  const result = await pool.query("SELECT show_context FROM app_tutor_settings WHERE id = 1");
+  return { showContext: result.rows[0]?.show_context === true };
+}
+app.put("/api/admin/tutor-settings", attachSession, requireAuthentication, requireAdministrator, requireCsrf, asyncRoute(async (request, response) => {
+  if (typeof request.body?.showContext !== "boolean") { response.status(400).json({ error: "Cài đặt chưa hợp lệ." }); return; }
+  await pool.query(`INSERT INTO app_tutor_settings (id, show_context) VALUES (1, $1)
+    ON CONFLICT (id) DO UPDATE SET show_context = EXCLUDED.show_context`, [request.body.showContext]);
+  response.json({ showContext: request.body.showContext });
+}));
+
 const tutorLimiter = rateLimit({ windowMs: 60_000, limit: 5, standardHeaders: "draft-8", legacyHeaders: false,
   keyGenerator: (request) => request.session.user_id,
   message: { error: "Hãy chờ một phút trước khi hỏi AI Tutor tiếp nhé." } });
@@ -400,13 +412,14 @@ app.post("/api/app/tutor", attachSession, requireAuthentication, requireCsrf, tu
     const settings = tutorSettings();
     if (!process.env.ANTHROPIC_API_KEY) throw new TutorError(503, "AI Tutor chưa được bật. Hãy liên hệ quản trị viên.");
     const curriculum = await pool.query("SELECT content FROM app_curriculum WHERE id = 1");
-    const subject = curriculum.rows[0]?.content.find((item) => item.id === input.subjectId);
-    const topic = subject?.topics.find((item) => item.id === input.topicId);
+    const { showContext } = await readTutorSettings();
+    const subject = showContext ? curriculum.rows[0]?.content.find((item) => item.id === input.subjectId) : { name: "Chưa xác định" };
+    const topic = showContext ? subject?.topics.find((item) => item.id === input.topicId) : { title: "Học tập tự do", description: "Xác định môn học từ câu hỏi; hỏi lại nếu thiếu dữ kiện.", questions: [] };
     if (!topic) throw new TutorError(404, "Không tìm thấy chủ đề học tập.");
     await reserveTutorQuota(pool, request.session.user_id, formatDate(new Date()), settings.dailyLimit);
-    const recent = await pool.query(`SELECT correct, total FROM learning_sessions
+    const recent = showContext ? await pool.query(`SELECT correct, total FROM learning_sessions
       WHERE user_id = $1 AND subject_id = $2 AND topic_id = $3 ORDER BY played_at DESC LIMIT 5`,
-      [request.session.user_id, input.subjectId, input.topicId]);
+      [request.session.user_id, input.subjectId, input.topicId]) : { rows: [] };
     response.json(await callClaude(input, { grade: request.session.grade, subject, topic,
       recentPerformance: recent.rows.map(({ correct, total }) => ({ correct, total })) }));
   } catch (error) {

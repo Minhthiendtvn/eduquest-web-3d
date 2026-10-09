@@ -80,6 +80,12 @@ function query(string $sql, array $params = []): PDOStatement
     return $statement;
 }
 
+function readTutorSettings(): array
+{
+    query('CREATE TABLE IF NOT EXISTS app_tutor_settings (id TINYINT PRIMARY KEY, show_context TINYINT NOT NULL DEFAULT 0)');
+    return ['showContext' => (bool)query('SELECT show_context FROM app_tutor_settings WHERE id = 1')->fetchColumn()];
+}
+
 function uuid(): string
 {
     $bytes = random_bytes(16);
@@ -651,6 +657,7 @@ function getAppData(array $session): array
         ],
         'subjects' => shapeCurriculumForLearners($subjects),
         'libraryLessons' => learnerLibraryOverrides(),
+        'tutorSettings' => readTutorSettings(),
     ];
 }
 
@@ -776,6 +783,15 @@ try {
     }
 
     $session = currentSession();
+
+    if ($method === 'PUT' && $path === '/admin/tutor-settings') {
+        $session = requireAdministrator($session);
+        requireCsrf($session, $body);
+        if (!is_bool($body['showContext'] ?? null)) respond(400, ['error' => 'Cài đặt chưa hợp lệ.']);
+        readTutorSettings();
+        query('INSERT INTO app_tutor_settings (id, show_context) VALUES (1, ?) ON DUPLICATE KEY UPDATE show_context = VALUES(show_context)', [(int)$body['showContext']]);
+        respond(200, ['showContext' => $body['showContext']]);
+    }
 
     if ($method === 'POST' && $path === '/app/tutor') {
         $session = requireAuthentication($session);

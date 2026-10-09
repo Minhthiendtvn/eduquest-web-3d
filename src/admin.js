@@ -158,6 +158,7 @@ export function renderAdmin({
   selectedClassId = "",
   administrators = [],
   libraryPanel = "",
+  tutorShowContext = false,
 }) {
   const topicCount = subjects.reduce((count, subject) => count + subject.topics.length, 0);
   const questionCount = subjects.reduce((count, subject) => count + subject.topics.reduce((total, topic) => total + topic.questions.length, 0), 0);
@@ -178,6 +179,7 @@ export function renderAdmin({
     ["overview", "Tổng quan"],
     ["content", "Môn học & nội dung"],
     ["library", "Thư viện"],
+    ...(apiMode ? [["tutor", "AI Tutor"]] : []),
     ...(apiMode ? [["classes", "Lớp học"]] : []),
     ...(apiMode ? [["learners", "Người học"]] : [["learners", "Người học"]]),
     ...(apiMode ? [["administrators", "Quản trị viên"]] : []),
@@ -189,7 +191,9 @@ export function renderAdmin({
     : `<aside class="admin-local-notice" role="note"><strong>Chế độ quản trị cục bộ</strong><span>Không có máy chủ, tài khoản xác thực hoặc dữ liệu học sinh dùng chung. Nội dung và tiến độ chỉ nằm trên thiết bị/trình duyệt này.</span></aside>`;
 
   let panel = "";
-  if (tab === "library") {
+  if (tab === "tutor" && apiMode) {
+    panel = `<section class="admin-panel"><h2>Giao diện AI Tutor</h2><form id="admin-tutor-settings"><label><input type="checkbox" name="showContext" ${tutorShowContext ? 'checked' : ''} /> Hiện lựa chọn môn học và chủ đề</label><p>Tắt để học sinh nhập câu hỏi trực tiếp. Có thể bật lại bất cứ lúc nào. Áp dụng cho toàn hệ thống sau khi tải lại trang.</p><button class="button button--primary" type="submit">Lưu cài đặt</button></form></section>`;
+  } else if (tab === "library") {
     panel = libraryPanel;
   } else if (tab === "content") {
     panel = `

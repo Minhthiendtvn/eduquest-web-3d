@@ -184,6 +184,7 @@ const state = {
   adminDataLoading: false,
   gameId: "",
   adminTab: "overview",
+  tutorShowContext: false,
   adminLibraryFilters: { grade: "", subjectId: "", status: "", query: "" },
   adminLibraryLessonId: "",
   adminLibraryCreating: false,
@@ -734,7 +735,7 @@ function render() {
     return;
   }
   const screen = state.screen === "tutor"
-    ? renderTutor({ subjects, tutor: state.tutor, grade: state.currentUser?.grade ?? state.progress.grade, available: apiMode && !!state.currentUser })
+    ? renderTutor({ subjects, tutor: state.tutor, grade: state.currentUser?.grade ?? state.progress.grade, available: apiMode && !!state.currentUser, showContext: state.tutorShowContext })
     : state.screen === "library"
     ? renderLibrary({
       subjects,
@@ -755,6 +756,7 @@ function render() {
           : state.screen === "admin"
             ? renderAdmin({
               subjects,
+              tutorShowContext: state.tutorShowContext,
               progress: state.progress,
               tab: state.adminTab,
               selectedSubjectId: state.adminSubjectId,
@@ -1287,6 +1289,7 @@ async function loadServerApplication() {
   state.currentUser = result.user;
   state.progress = result.progress;
   subjects = result.subjects;
+  state.tutorShowContext = result.tutorSettings?.showContext === true;
   libraryOverrides = overridesFromRows(result.libraryLessons);
   state.selectedSubject = subjects.some((subject) => subject.id === state.selectedSubject)
     ? state.selectedSubject
@@ -1473,7 +1476,7 @@ app.addEventListener("click", async (event) => {
   } else if (action === "admin-tab") {
     if (apiMode && state.currentUser?.role !== "admin") return;
     state.screen = "admin";
-    state.adminTab = ["overview", "content", "library", "classes", "learners", "administrators", "data"].includes(control.dataset.tab)
+    state.adminTab = ["overview", "content", "library", "tutor", "classes", "learners", "administrators", "data"].includes(control.dataset.tab)
       ? control.dataset.tab
       : "overview";
     state.adminCreatingTopic = false;
@@ -1783,7 +1786,7 @@ app.addEventListener("change", async (event) => {
     const data = new FormData(event.target.form);
     state.adminLibraryFilters = {
       grade: String(data.get("grade")),
-      subjectId: String(data.get("subjectId")),
+      subjectId: String(data.get("subjectId") ?? ""),
       status: String(data.get("status")),
       query: String(data.get("query")).trim(),
     };
@@ -1930,14 +1933,29 @@ app.addEventListener("input", (event) => {
 });
 
 app.addEventListener("submit", async (event) => {
+  if (event.target.id === "admin-tutor-settings") {
+    event.preventDefault();
+    const button = event.target.querySelector('button[type="submit"]');
+    button.disabled = true;
+    try {
+      const result = await apiRequest("/admin/tutor-settings", { method: "PUT", csrf: true,
+        body: { showContext: new FormData(event.target).has("showContext") } });
+      state.tutorShowContext = result.showContext;
+      state.tutor.hintLevel = 0;
+      state.tutor.answer = "";
+      state.adminNotice = "Đã lưu cài đặt AI Tutor.";
+    } catch (error) { state.adminNotice = error.message; }
+    render();
+    return;
+  }
   if (event.target.id === "tutor-form") {
     event.preventDefault();
     if (!apiMode || !state.currentUser || state.tutor.busy) return;
     const data = new FormData(event.target);
     const tutor = state.tutor;
     const userId = state.currentUser.id;
-    tutor.subjectId = String(data.get("subjectId"));
-    tutor.topicId = String(data.get("topicId"));
+    tutor.subjectId = String(data.get("subjectId") ?? "");
+    tutor.topicId = String(data.get("topicId") ?? "");
     tutor.question = String(data.get("question")).trim();
     tutor.attempt = String(data.get("attempt") ?? "").trim();
     const mode = event.submitter?.value || "ask";
@@ -2167,7 +2185,7 @@ app.addEventListener("submit", async (event) => {
     const data = new FormData(event.target);
     state.adminLibraryFilters = {
       grade: String(data.get("grade")),
-      subjectId: String(data.get("subjectId")),
+      subjectId: String(data.get("subjectId") ?? ""),
       status: String(data.get("status")),
       query: String(data.get("query")).trim(),
     };
@@ -2180,7 +2198,7 @@ app.addEventListener("submit", async (event) => {
     const data = new FormData(event.target);
     const existingId = String(data.get("lessonId"));
     const draft = {
-      subjectId: String(data.get("subjectId")),
+      subjectId: String(data.get("subjectId") ?? ""),
       grade: Number(data.get("grade")),
       title: String(data.get("title")),
       knowledge: String(data.get("knowledge")),

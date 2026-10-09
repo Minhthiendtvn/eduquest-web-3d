@@ -10,6 +10,7 @@ test("AI Tutor endpoint enforces authentication, CSRF, curriculum, quota and ser
   const originalLog = console.info;
   let session = null;
   let exhausted = false;
+  let showContext = true;
   let calls = 0;
   let payload;
   pool.query = async (sql) => {
@@ -18,6 +19,7 @@ test("AI Tutor endpoint enforces authentication, CSRF, curriculum, quota and ser
     if (sql.includes("FROM app_curriculum")) return { rows: [{ content: [{ id: "math", name: "Toán", topics: [
       { id: "algebra", title: "Đại số", description: "Phương trình" },
     ] }] }] };
+    if (sql.includes("app_tutor_settings")) return { rows: [{ show_context: showContext }] };
     if (sql.includes("app_tutor_quotas")) return { rowCount: exhausted ? 0 : 1 };
     if (sql.includes("FROM learning_sessions")) return { rows: [{ correct: 2, total: 5 }] };
     throw new Error("Unexpected test query");
@@ -64,6 +66,21 @@ test("AI Tutor endpoint enforces authentication, CSRF, curriculum, quota and ser
   assert.equal(response.status, 200);
   assert.equal((await response.json()).answer, "Gợi ý học tập");
   assert.equal(JSON.parse(payload.messages[0].content).grade, 8);
+  showContext = false;
+  login();
+  assert.equal((await request({ question: "Em cần hiểu phân số" })).status, 200);
+  const freeContext = JSON.parse(payload.messages[0].content);
+  assert.equal(freeContext.topic, "Học tập tự do");
+  assert.deepEqual(freeContext.references, []);
+  assert.deepEqual(freeContext.recentPerformance, []);
+  const save = () => originalFetch(url.replace("/app/tutor", "/admin/tutor-settings"), { method: "PUT",
+    headers: { "Content-Type": "application/json", "X-CSRF-Token": "valid", Cookie: "eduquest_session=test-session" },
+    body: JSON.stringify({ showContext: true }) });
+  assert.equal((await save()).status, 403);
+  session.role = "admin";
+  assert.equal((await save()).status, 200);
+  showContext = true;
+  login();
   delete process.env.ANTHROPIC_API_KEY;
   assert.equal((await request()).status, 503);
   process.env.ANTHROPIC_API_KEY = "test-only-credential";

@@ -14,6 +14,9 @@ export const pool = new Pool({
 });
 
 const schema = `
+  CREATE TABLE IF NOT EXISTS app_tutor_settings (
+    id smallint PRIMARY KEY CHECK (id = 1), show_context boolean NOT NULL DEFAULT false
+  );
   CREATE TABLE IF NOT EXISTS app_users (
     id text PRIMARY KEY,
     username text NOT NULL UNIQUE,

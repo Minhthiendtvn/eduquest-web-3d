@@ -102,3 +102,12 @@ test("v2 passes bounded curriculum and anonymized performance with Socratic inst
       return Response.json(providerResult);
     } });
 });
+
+
+test("context selectors are hidden by default and can be restored", () => {
+  const props = { subjects: [{ id: "math", name: "Toán", topics: [{ id: "algebra", title: "Đại số" }] }],
+    tutor: { question: "", busy: false }, grade: 8, available: true };
+  assert.ok(!renderTutor(props).includes('id="tutor-subject"'));
+  assert.ok(renderTutor({ ...props, showContext: true }).includes('id="tutor-subject"'));
+  assert.ok(renderTutor(props).includes('id="tutor-question"'));
+});
