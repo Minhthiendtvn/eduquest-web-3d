@@ -19,6 +19,7 @@ test("AI Tutor endpoint enforces authentication, CSRF, curriculum, quota and ser
       { id: "algebra", title: "Đại số", description: "Phương trình" },
     ] }] }] };
     if (sql.includes("app_tutor_quotas")) return { rowCount: exhausted ? 0 : 1 };
+    if (sql.includes("FROM learning_sessions")) return { rows: [{ correct: 2, total: 5 }] };
     throw new Error("Unexpected test query");
   };
   globalThis.fetch = async (url, options) => {

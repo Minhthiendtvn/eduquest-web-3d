@@ -404,7 +404,11 @@ app.post("/api/app/tutor", attachSession, requireAuthentication, requireCsrf, tu
     const topic = subject?.topics.find((item) => item.id === input.topicId);
     if (!topic) throw new TutorError(404, "Không tìm thấy chủ đề học tập.");
     await reserveTutorQuota(pool, request.session.user_id, formatDate(new Date()), settings.dailyLimit);
-    response.json(await callClaude(input, { grade: request.session.grade, subject, topic }));
+    const recent = await pool.query(`SELECT correct, total FROM learning_sessions
+      WHERE user_id = $1 AND subject_id = $2 AND topic_id = $3 ORDER BY played_at DESC LIMIT 5`,
+      [request.session.user_id, input.subjectId, input.topicId]);
+    response.json(await callClaude(input, { grade: request.session.grade, subject, topic,
+      recentPerformance: recent.rows.map(({ correct, total }) => ({ correct, total })) }));
   } catch (error) {
     if (error instanceof TutorError) { response.status(error.status).json({ error: error.message }); return; }
     throw error;

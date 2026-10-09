@@ -1745,13 +1745,15 @@ app.addEventListener("click", async (event) => {
 
 app.addEventListener("change", async (event) => {
   if (event.target.id === "tutor-subject") {
+    state.tutor.hintLevel = 0;
+    state.tutor.answer = "";
     state.tutor.subjectId = event.target.value;
     state.tutor.topicId = subjects.find((subject) => subject.id === event.target.value)?.topics[0]?.id ?? "";
     render();
     document.querySelector("#tutor-subject")?.focus();
     return;
   }
-  if (event.target.id === "tutor-topic") { state.tutor.topicId = event.target.value; return; }
+  if (event.target.id === "tutor-topic") { state.tutor.hintLevel = 0; state.tutor.answer = ""; state.tutor.topicId = event.target.value; return; }
   if (event.target.matches("#library-grade, #library-subject")) {
     const form = document.querySelector("#library-filter-form");
     const data = new FormData(form);
@@ -1916,7 +1918,8 @@ app.addEventListener("change", async (event) => {
 });
 
 app.addEventListener("input", (event) => {
-  if (event.target.id === "tutor-question") state.tutor.question = event.target.value;
+  if (event.target.id === "tutor-attempt") state.tutor.attempt = event.target.value;
+  if (event.target.id === "tutor-question") { state.tutor.question = event.target.value; state.tutor.hintLevel = 0; }
   if (event.target.id === "display-name") event.target.setCustomValidity("");
   if (event.target.matches('#admin-topic-form [name="answer"]')) {
     const card = event.target.closest(".admin-question-card");
@@ -1936,14 +1939,19 @@ app.addEventListener("submit", async (event) => {
     tutor.subjectId = String(data.get("subjectId"));
     tutor.topicId = String(data.get("topicId"));
     tutor.question = String(data.get("question")).trim();
+    tutor.attempt = String(data.get("attempt") ?? "").trim();
+    const mode = event.submitter?.value || "ask";
+    const hintLevel = mode === "hint" ? Math.min(3, (tutor.hintLevel ?? 0) + 1) : 1;
+    if (mode === "check" && !tutor.attempt) { tutor.error = "Nhập cách làm để gia sư kiểm tra nhé."; render(); return; }
     tutor.error = "";
     tutor.answer = "";
     tutor.busy = true;
     render();
     try {
       const result = await apiRequest("/app/tutor", { method: "POST", csrf: true,
-        signal: AbortSignal.timeout(65000), body: { subjectId: tutor.subjectId, topicId: tutor.topicId, question: tutor.question } });
+        signal: AbortSignal.timeout(65000), body: { subjectId: tutor.subjectId, topicId: tutor.topicId, question: tutor.question, mode, hintLevel, attempt: tutor.attempt } });
       if (state.currentUser?.id === userId && state.tutor === tutor) {
+        if (mode === "hint") tutor.hintLevel = hintLevel;
         tutor.answer = result.answer;
         tutor.truncated = result.truncated;
       }

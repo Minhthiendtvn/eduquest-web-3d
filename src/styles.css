@@ -1282,3 +1282,6 @@ button:disabled { cursor: default; }
 .tutor-answer { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.8; }
 .tutor-error { color: #b42318; }
 @media (max-width: 600px) { .tutor-selects { grid-template-columns: 1fr; } .tutor-card { padding: 16px; } }
+
+.tutor-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+@media (max-width: 600px) { .tutor-actions .button { flex: 1 1 140px; } }

@@ -356,3 +356,33 @@ On Android, open the published site over HTTPS in Chrome. Use **Cài ứng dụn
 when EduQuest offers it, or open Chrome's **⋮** menu and choose **Cài đặt ứng
 dụng** / **Thêm vào màn hình chính**. The install option requires the site to
 load successfully with its web app manifest and service worker.
+
+
+## AI Tutor v2
+
+The authenticated `/api/app/tutor` endpoint supports `mode`: `hint`, `explain`,
+`ask` (default for older clients), `check`, and `solution`; `hintLevel` is an integer
+1–3 and `attempt` is optional text up to 2000 characters (required for `check`).
+The UI advances hint level only after a successful request and resets it when
+question or curriculum selection changes. Full solutions require the explicit
+**Xem lời giải** action. This is a model instruction, not a guarantee of model behavior.
+The tutor uses the account grade, selected server curriculum, up to five bounded
+question/explanation references and scores from the last five sessions in that
+subject/topic. Scores are context, not a formal mastery diagnosis. No identity,
+raw session history, or credentials are sent to Claude or usage logs. Existing
+cookie authentication, CSRF, per-minute limits, persistent daily quotas, token
+limits and timeout handling apply to every action.
+
+Deploy both frontend and backend together: for cPanel rebuild with
+`VITE_REQUIRE_API=true`, upload the built frontend and updated `api/tutor.php`,
+and retain the private environment file outside the web root. For Docker rebuild
+the application as described above. No database migration or new secret is needed.
+GitHub Pages is a static demo and cannot run Claude requests.
+
+Production smoke test with a learner account: choose grade/subject/topic, request
+hint levels 1–3, ask for a concept explanation, submit an incorrect attempt for
+checking, then explicitly request a full solution. Check mobile layout and
+confirm the provider receives no request before login, no key appears in browser
+requests/assets, and quota exhaustion produces a friendly error. Confirm server
+logs contain token counts only. Provider calls are mocked in automated tests;
+actual Vietnamese pedagogy and model behavior need this production smoke test.

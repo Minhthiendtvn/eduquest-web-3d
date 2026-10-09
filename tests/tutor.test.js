@@ -14,7 +14,7 @@ test("tutor rejects empty, oversized and malformed input and settings", () => {
     { ...input, subjectId: {} }, { ...input, topicId: "bad/path" }]) {
     assert.throws(() => validateTutorInput(body), { status: 400 });
   }
-  assert.deepEqual(validateTutorInput({ ...input, question: "  hỏi  " }), { ...input, question: "hỏi" });
+  assert.deepEqual(validateTutorInput({ ...input, question: "  hỏi  " }), { ...input, question: "hỏi", mode: "ask", hintLevel: 1, attempt: "" });
   assert.throws(() => tutorSettings({ AI_TUTOR_MAX_TOKENS: "Infinity" }), { status: 503 });
 });
 
@@ -75,4 +75,30 @@ test("tutor escapes provider output and disables paid requests in static demo", 
   assert.ok(!html.includes('<img'));
   assert.match(html, /&lt;img/);
   assert.match(html, /type="submit" disabled/);
+});
+
+
+test("v2 validates modes, hint bounds and student attempts", () => {
+  for (const changes of [{ mode: "admin" }, { hintLevel: 0 }, { hintLevel: 4 }, { hintLevel: "2" },
+    { attempt: {} }, { attempt: "x".repeat(2001) }, { mode: "check", attempt: " " }]) {
+    assert.throws(() => validateTutorInput({ ...input, ...changes }), { status: 400 });
+  }
+  assert.equal(validateTutorInput({ ...input, mode: "solution" }).mode, "solution");
+});
+
+test("v2 passes bounded curriculum and anonymized performance with Socratic instructions", async () => {
+  await callClaude(validateTutorInput({ ...input, mode: "hint", hintLevel: 3, attempt: "Em trừ 5" }),
+    { ...context, recentPerformance: [{ correct: 1, total: 5 }], topic: { ...context.topic,
+      questions: Array.from({ length: 10 }, () => ({ prompt: "x".repeat(2000), explanation: "y".repeat(2000), secret: "hidden" })) } },
+    { env, log: () => {}, fetchImpl: async (_, options) => {
+      const payload = JSON.parse(options.body);
+      const data = JSON.parse(payload.messages[0].content);
+      assert.equal(data.mode, "hint"); assert.equal(data.hintLevel, 3);
+      assert.equal(data.attempt, "Em trừ 5"); assert.equal(data.references.length, 5);
+      assert.equal(data.references[0].prompt.length, 1000);
+      assert.ok(!options.body.includes("hidden"));
+      assert.deepEqual(data.recentPerformance, [{ correct: 1, total: 5 }]);
+      assert.match(payload.system, /Chỉ mode solution/);
+      return Response.json(providerResult);
+    } });
 });
