@@ -59,7 +59,8 @@ export default defineConfig(({ mode }) => {
     plugins: requireApi === "true" ? [apiOnlyContentPlugin(), cpanelInstallerPlugin()] : [],
     server: {
       proxy: {
-        "/api": process.env.API_SERVER_URL ?? env.API_SERVER_URL ?? "http://127.0.0.1:8787",
+        // The shared non-secret taxonomy is imported as a Vite module, not an API request.
+        "^/api/(?!curriculum-structure\\.json(?:\\?|$))": process.env.API_SERVER_URL ?? env.API_SERVER_URL ?? "http://127.0.0.1:8787",
       },
     },
   };

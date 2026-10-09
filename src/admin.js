@@ -1,3 +1,4 @@
+import { subjectsForGrade, curriculumSource } from "./curriculum-structure.js";
 export const ADMIN_CONTENT_KEY = "eduquest-admin-content-v1";
 
 export function copyCurriculum(subjects) {
@@ -178,6 +179,7 @@ export function renderAdmin({
   const tabs = [
     ["overview", "Tổng quan"],
     ["content", "Môn học & nội dung"],
+    ["curriculum", "Phân chia theo lớp"],
     ["library", "Thư viện"],
     ...(apiMode ? [["tutor", "AI Tutor"]] : []),
     ...(apiMode ? [["classes", "Lớp học"]] : []),
@@ -191,7 +193,9 @@ export function renderAdmin({
     : `<aside class="admin-local-notice" role="note"><strong>Chế độ quản trị cục bộ</strong><span>Không có máy chủ, tài khoản xác thực hoặc dữ liệu học sinh dùng chung. Nội dung và tiến độ chỉ nằm trên thiết bị/trình duyệt này.</span></aside>`;
 
   let panel = "";
-  if (tab === "tutor" && apiMode) {
+  if (tab === "curriculum") {
+    panel = `<section class="admin-panel"><h2>Danh mục học sinh theo cấp học</h2><p>THCS học tích hợp; THPT tách Vật lí, Hóa học, Sinh học và có nhóm môn lựa chọn. Danh sách dưới đây là học liệu EduQuest đang có, không phải toàn bộ chương trình.</p><p>Bài chưa gán lớp, bài liên môn và an toàn ngoài môn chính khóa có nhãn tham khảo. <a href="${curriculumSource}" target="_blank" rel="noopener noreferrer">Đối chiếu chương trình GDPT</a>.</p>${[6, 7, 8, 9, 10, 11, 12].map((grade) => `<h3>Lớp ${grade} · ${grade < 10 ? "THCS" : "THPT"}</h3><ul>${subjectsForGrade(subjects, grade).map((subject) => `<li>${escapeHtml(subject.name)} — ${escapeHtml(subject.categoryLabel)} · ${subject.topics.length} chủ đề</li>`).join("")}</ul>`).join("")}<p>Chưa có học liệu riêng cho Nội dung giáo dục của địa phương, Tiếng dân tộc thiểu số và Ngoại ngữ 2.</p></section>`;
+  } else if (tab === "tutor" && apiMode) {
     panel = `<section class="admin-panel"><h2>Giao diện AI Tutor</h2><form id="admin-tutor-settings"><label><input type="checkbox" name="showContext" ${tutorShowContext ? 'checked' : ''} /> Hiện lựa chọn môn học và chủ đề</label><p>Tắt để học sinh nhập câu hỏi trực tiếp. Có thể bật lại bất cứ lúc nào. Áp dụng cho toàn hệ thống sau khi tải lại trang.</p><button class="button button--primary" type="submit">Lưu cài đặt</button></form></section>`;
   } else if (tab === "library") {
     panel = libraryPanel;

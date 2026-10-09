@@ -1,0 +1,136 @@
+{
+  "fields": {
+    "physics": [
+      "mechanics",
+      "oscillations-and-waves",
+      "thermal-physics",
+      "waves-intro",
+      "magnetism",
+      "quantum-intro",
+      "newton-laws",
+      "mechanical-waves",
+      "ideal-gas",
+      "work-power",
+      "electric-field",
+      "radioactivity",
+      "ac-transformer"
+    ],
+    "chemistry": [
+      "atomic-chemistry",
+      "chemical-equilibrium",
+      "organic-chemistry",
+      "periodic-table",
+      "polymers",
+      "reaction-rate",
+      "periodic-table-intro",
+      "nitrogen-sulfur",
+      "electrochemistry"
+    ],
+    "biology": [
+      "genetics-mendel",
+      "human-nervous",
+      "ecology-systems",
+      "cell-structure",
+      "responses",
+      "evolution"
+    ]
+  },
+  "metadata": {
+    "math": [
+      "Toán",
+      "Toán",
+      "blue",
+      "∑"
+    ],
+    "science": [
+      "Khoa học tự nhiên",
+      "KHTN",
+      "green",
+      "⚛"
+    ],
+    "physics": [
+      "Vật lí",
+      "Lý",
+      "blue",
+      "⚡"
+    ],
+    "chemistry": [
+      "Hóa học",
+      "Hóa",
+      "violet",
+      "⚗"
+    ],
+    "biology": [
+      "Sinh học",
+      "Sinh",
+      "green",
+      "✿"
+    ],
+    "history-geography": [
+      "Lịch sử và Địa lí",
+      "Sử–Địa",
+      "orange",
+      "◎"
+    ],
+    "history": [
+      "Lịch sử",
+      "Sử",
+      "orange",
+      "⌛"
+    ],
+    "geography": [
+      "Địa lí",
+      "Địa",
+      "cyan",
+      "◎"
+    ],
+    "civics": [
+      "Giáo dục công dân",
+      "GDCD",
+      "rose",
+      "⚖"
+    ],
+    "economic-law": [
+      "Giáo dục kinh tế và pháp luật",
+      "GDKT&PL",
+      "rose",
+      "⚖"
+    ],
+    "arts": [
+      "Nghệ thuật (Âm nhạc, Mĩ thuật)",
+      "Nghệ thuật",
+      "violet",
+      "♫"
+    ],
+    "visual-arts": [
+      "Mĩ thuật",
+      "Mĩ thuật",
+      "rose",
+      "✎"
+    ],
+    "national-defense": [
+      "Giáo dục quốc phòng và an ninh",
+      "GDQP&AN",
+      "green",
+      "★"
+    ],
+    "career-experience": [
+      "Hoạt động trải nghiệm, hướng nghiệp",
+      "Trải nghiệm",
+      "orange",
+      "✦"
+    ],
+    "safety-reference": [
+      "An toàn – tham khảo",
+      "An toàn",
+      "green",
+      "★"
+    ],
+    "interdisciplinary": [
+      "Khoa học liên môn – tham khảo",
+      "Liên môn",
+      "green",
+      "⚛"
+    ]
+  }
+}

@@ -27,3 +27,6 @@ jobs:
           done
       - name: Test private PHP environment loader
         run: php tests/private-env.php
+
+      - name: Test PHP curriculum subject classification
+        run: php tests/curriculum-structure.php

@@ -399,3 +399,42 @@ or topic scores. The question, attempt field and all support actions remain.
 Deploy frontend and both updated API files together. Node creates the settings
 table on startup; PHP creates it on first settings read (database user needs
 CREATE TABLE permission). Existing data is preserved.
+
+
+## Subject organization by school level
+
+Learner navigation, home practice, library, progress labels and AI Tutor use a
+non-destructive grade-specific catalog. Admin → **Phân chia theo lớp** previews it.
+
+- Grades 6–9: ten compulsory subject groups, including **Khoa học tự nhiên**,
+  **Lịch sử và Địa lí**, and **Nghệ thuật (Âm nhạc, Mĩ thuật)**; **Giáo dục công dân**
+  keeps its own name. Safety resources are references, not a compulsory GDQP course.
+- Grades 10–12: six compulsory subjects, nine elective subjects including separate
+  **Vật lí, Hóa học, Sinh học**, and **Giáo dục kinh tế và pháp luật**. History is
+  compulsory. **Hoạt động trải nghiệm, hướng nghiệp** is an educational activity.
+- Local education content, ethnic minority languages and Foreign Language 2 have
+  no dedicated starter materials. Elective subjects are not extracurricular.
+- Grade-tagged topics are filtered to the learner's grade; ungraded topics are
+  explicitly references and follow assigned-grade topics. Mixed science summaries
+  and unknown custom science content stay in an interdisciplinary reference group
+  rather than being guessed into a discipline.
+
+Reference: [Government portal summary of the Ministry's curriculum](https://xaydungchinhsach.chinhphu.vn/10-diem-moi-cua-chuong-trinh-giao-duc-pho-thong-2018-119230206174054873.htm).
+The [2025 amendments](https://xaydungchinhsach.chinhphu.vn/thong-tu-so-17-2025-tt-bgddt-sua-doi-bo-sung-mot-so-noi-dung-trong-chuong-trinh-giao-duc-pho-thong-119250916145653739.htm)
+include updated subject content. This change organizes subjects; it does not
+certify every existing lesson against the current curriculum or a textbook series.
+
+Source subject/topic/lesson IDs, accounts, history, grades and XP stay unchanged;
+API requests use each topic's original subject ID. Existing admin content editors
+retain source groups for compatibility, while the curriculum preview shows what
+learners see. Shared discipline mappings are in `api/curriculum-structure.json`;
+Node and PHP use the same data for Claude's subject context.
+
+Deploy: build the API-required frontend and replace its public assets; upload
+`api/tutor.php`, `api/curriculum-structure.php`, and `api/curriculum-structure.json`
+together (keep the API `.htaccess` denying JSON file access). If upgrading from
+before the admin toggle, also update `api/index.php`. No data migration or
+curriculum reinstallation is needed. Docker deployments rebuild the application.
+Smoke test grade 6 and grade 10 accounts: inspect subject lists, open Physics,
+Chemistry and Biology lessons/quiz/matching activities, change library grade,
+restore AI Tutor context selectors, and inspect existing history and XP.

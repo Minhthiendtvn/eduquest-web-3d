@@ -4,12 +4,12 @@ import { subjects } from "../src/content.js";
 import { libraryLessons } from "../src/library-content.js";
 import { filterLibraryLessons, renderLibrary } from "../src/library.js";
 
-test("library covers all fourteen subjects for grades 6 through 12", () => {
+test("library preserves all fourteen source subjects for grades 6 through 12", () => {
   assert.equal(libraryLessons.length, 882);
   assert.equal(new Set(libraryLessons.map((lesson) => lesson.id)).size, 882);
   for (const grade of [6, 7, 8, 9, 10, 11, 12]) {
     assert.deepEqual(
-      [...new Set(filterLibraryLessons({ grade, subjects }).map((lesson) => lesson.subjectId))],
+      [...new Set(filterLibraryLessons({ grade, subjects }).map((lesson) => lesson.sourceSubjectId))],
       subjects.map((subject) => subject.id),
     );
   }
@@ -106,13 +106,13 @@ test("grade 10 additions support search, reading, and elective reference labels"
   assert.ok(reading.includes("Kiến thức trọng tâm"));
   assert.ok(reading.includes("Ví dụ / Liên hệ"));
   assert.ok(reading.includes("Tự kiểm tra"));
-  assert.ok(reading.includes('data-subject="science"'));
+  assert.ok(reading.includes('data-subject="physics"'));
   assert.ok(renderLibrary({
     subjects, grade: 10, subjectId: "", query: "", lessonId: "",
   }).includes("126 bài học phù hợp"));
   assert.ok(renderLibrary({
     subjects, grade: 10, subjectId: "civics", query: "", lessonId: "library-civics-10-market-mechanism",
-  }).includes("không khẳng định thuộc môn học chính khóa ở lớp này"));
+  }).includes("Môn lựa chọn"));
 });
 
 test("grade 11 additions support search, reading, and elective reference labels", () => {
@@ -132,7 +132,7 @@ test("grade 11 additions support search, reading, and elective reference labels"
   }).includes("126 bài học phù hợp"));
   assert.ok(renderLibrary({
     subjects, grade: 11, subjectId: "music", query: "", lessonId: "library-music-11-harmony-melody",
-  }).includes("không khẳng định thuộc môn học chính khóa ở lớp này"));
+  }).includes("Môn lựa chọn"));
 });
 
 test("grade 12 additions support search, reading, and elective reference labels", () => {
@@ -152,7 +152,7 @@ test("grade 12 additions support search, reading, and elective reference labels"
   }).includes("126 bài học phù hợp"));
   assert.ok(renderLibrary({
     subjects, grade: 12, subjectId: "visual-arts", query: "", lessonId: "library-visual-arts-12-accessible-design",
-  }).includes("không khẳng định thuộc môn học chính khóa ở lớp này"));
+  }).includes("Môn lựa chọn"));
 });
 
 test("optional and non-curricular resources are labelled as references", () => {
@@ -201,6 +201,6 @@ test("library renders reading, empty results, and safe user text", () => {
   assert.ok(!empty.includes("<script>"));
   assert.ok(empty.includes("&lt;script&gt;"));
   const renamed = renderLibrary({ ...options, subjects: [{ ...subjects[0], name: "<img onerror=bad>" }] });
-  assert.ok(renamed.includes("&lt;img onerror=bad&gt;"));
+  assert.ok(renamed.includes("Toán")); // official course labels replace legacy display names
   assert.ok(!renamed.includes("<img onerror=bad>"));
 });

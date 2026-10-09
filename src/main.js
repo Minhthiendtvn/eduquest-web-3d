@@ -1,3 +1,4 @@
+import { subjectsForGrade, courseId, courseInfo, topicGrade } from "./curriculum-structure.js";
 import { matchSets, subjects as starterSubjects } from "./content.js";
 import { renderTutor } from "./tutor.js";
 import { ADMIN_CONTENT_KEY, copyCurriculum, exportLearnerCsv, exportLearnerSummaryCsv, loadManagedCurriculum, renderAdmin, renderAdminQuestionCard, slugifyTopic, validateCurriculum } from "./admin.js";
@@ -198,6 +199,7 @@ const state = {
   textSize: readTextSize(localStorage),
   adminNotice: managedCurriculum.invalid ? "Không thể đọc nội dung tùy chỉnh; đã nạp lại nội dung mẫu." : "",
   selectedSubject: "math",
+  catalogSubject: "math",
   topicId: "algebra",
   mode: "quiz",
   questionIndex: 0,
@@ -237,8 +239,20 @@ const icon = (name, size = 20) => {
   return `<svg aria-hidden="true" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${paths[name] ?? ""}</svg>`;
 };
 
+function learnerSubjects() { return subjectsForGrade(subjects, state.progress.grade); }
+function catalogSubject() {
+  const list = learnerSubjects();
+  return list.find((subject) => subject.id === state.catalogSubject) ?? list[0];
+}
+
 function getSubject(id = state.selectedSubject) {
   return subjects.find((subject) => subject.id === id) ?? subjects[0];
+}
+
+function displaySubject(sourceId = state.selectedSubject, topicId = state.topicId) {
+  const raw = getSubject(sourceId);
+  const topic = raw.topics.find((item) => item.id === topicId) ?? { id: topicId };
+  return courseInfo(courseId(sourceId, topic, topicGrade(topic) ?? state.progress.grade), topicGrade(topic) ?? state.progress.grade, raw);
 }
 
 function getTopic() {
@@ -265,6 +279,7 @@ function subjectMark(subject, extraClass = "") {
 }
 
 function renderSidebar() {
+  const catalog = learnerSubjects();
   const level = getExperienceLevel();
   const canAdmin = !apiMode || state.currentUser?.role === "admin";
   return `
@@ -289,7 +304,7 @@ function renderSidebar() {
       <div class="sidebar-divider"></div>
       <div class="sidebar-label">MÔN HỌC CỦA BẠN</div>
       <div class="sidebar-subjects" tabindex="0" aria-label="Danh sách môn học">
-        ${subjects.map((subject) => `
+        ${catalog.map((subject) => `
           <button class="subject-shortcut" type="button" data-action="subject" data-subject="${subject.id}">
             ${subjectMark(subject, "subject-mark--small")}
             <span>${escapeHtml(subject.name)}</span>
@@ -370,7 +385,9 @@ function renderHome() {
   const accuracy = state.progress.completed
     ? Math.round(state.progress.correct / Math.max(state.progress.totalAnswered, 1) * 100)
     : 0;
-  const selected = getSubject();
+  const catalog = learnerSubjects();
+  const selected = catalogSubject();
+  if (!selected) return `<section class="library-empty"><h1>Chưa có chủ đề cho lớp ${escapeHtml(state.progress.grade)}</h1><p>Hãy xem thư viện hoặc liên hệ giáo viên để bổ sung nội dung phù hợp.</p><button class="button button--outline" type="button" data-action="profile">Xem khối lớp trong hồ sơ</button></section>`;
   return `
     <section class="welcome-row">
       <div>
@@ -386,7 +403,7 @@ function renderHome() {
         <span class="hero-kicker"><span class="hero-kicker-dot"></span> THỬ THÁCH HÔM NAY</span>
         <h2 id="hero-title">Sẵn sàng chinh phục<br />điều mới mẻ?</h2>
         <p>5 câu hỏi thú vị. Một phiên bản tự tin hơn của bạn.</p>
-        <button class="button button--light" type="button" data-action="start" data-subject="${selected.id}" data-topic="${selected.topics[0].id}">
+        <button class="button button--light" type="button" data-action="start" data-subject="${selected.topics[0].sourceSubjectId}" data-topic="${selected.topics[0].id}">
           Bắt đầu thử thách ${icon("arrow", 18)}
         </button>
         <span class="hero-meta">${icon("clock", 15)} Chỉ mất 5 phút <span class="hero-meta-separator">·</span> Không áp lực</span>
@@ -413,14 +430,14 @@ function renderHome() {
 
     <section class="learning-section" id="subjects" aria-labelledby="topics-title">
       <div class="section-heading">
-        <div><p class="section-overline">CHỌN ĐƯỜNG PHIÊU LƯU</p><h2 id="topics-title">Khám phá chủ đề</h2><p class="section-subtitle">Chọn môn học, rồi chọn chủ đề để bắt đầu cuộc chơi.</p></div>
+        <div><p class="section-overline">CHỌN ĐƯỜNG PHIÊU LƯU</p><h2 id="topics-title">Khám phá chủ đề</h2><p class="section-subtitle">Lớp ${escapeHtml(state.progress.grade)} · ${Number(state.progress.grade) >= 10 ? "THPT: môn bắt buộc, môn lựa chọn và hoạt động giáo dục. Chọn 4 trong 9 môn lựa chọn theo kế hoạch nhà trường." : "THCS: Khoa học tự nhiên; Lịch sử và Địa lí; Nghệ thuật gồm Âm nhạc và Mĩ thuật."}</p></div>
       </div>
       <div class="subject-picker" role="group" aria-label="Chọn môn học">
-        ${subjects.map((subject) => `
-          <button class="subject-picker-option ${state.selectedSubject === subject.id ? "is-selected" : ""}" type="button" data-action="subject-picker" data-subject="${subject.id}" data-subject-picker="${subject.id}" aria-pressed="${state.selectedSubject === subject.id}">
+        ${catalog.map((subject) => `
+          <button class="subject-picker-option ${selected.id === subject.id ? "is-selected" : ""}" type="button" data-action="subject-picker" data-subject="${subject.id}" data-subject-picker="${subject.id}" aria-pressed="${selected.id === subject.id}">
             ${subjectMark(subject, "subject-mark--small")}
             <span>${escapeHtml(subject.name)}</span>
-            <small>${subject.topics.length} chủ đề</small>
+            <small>${subject.categoryLabel} · ${subject.topics.length} chủ đề</small>
           </button>
         `).join("")}
       </div>
@@ -429,7 +446,7 @@ function renderHome() {
           <article class="topic-card topic-card--${selected.color} topic-card--variant-${index + 1}">
             <div class="topic-card-top">
               ${subjectMark(selected, "subject-mark--card")}
-              <span class="topic-level">${escapeHtml(topic.level)}</span>
+              <span class="topic-level">${topic.referenceOnly ? "THAM KHẢO / CHƯA GÁN LỚP" : escapeHtml(topic.level)}</span>
             </div>
             <div class="topic-illustration topic-illustration--${selected.color} topic-illustration--${index + 1}" aria-hidden="true">
               <span>${escapeHtml(topic.art?.[0] ?? (selected.id === "math" ? "x + 3" : "⚡"))}</span><i>${escapeHtml(topic.art?.[1] ?? "✿")}</i><b>${escapeHtml(topic.art?.[2] ?? "✦")}</b>
@@ -438,8 +455,8 @@ function renderHome() {
             <div class="topic-card-footer">
               <span>${icon("clock", 14)} ${escapeHtml(topic.duration)}</span>
               <div class="topic-actions">
-                <button type="button" class="topic-mode topic-mode--quiz" data-action="start" data-mode="quiz" data-subject="${selected.id}" data-topic="${topic.id}" aria-label="Chơi quiz ${escapeHtml(topic.title)}">Quiz ${icon("arrow", 14)}</button>
-                <button type="button" class="topic-mode topic-mode--match" data-action="start" data-mode="match" data-subject="${selected.id}" data-topic="${topic.id}" aria-label="Chơi ghép thẻ ${escapeHtml(topic.title)}">Ghép thẻ ${icon("arrow", 14)}</button>
+                <button type="button" class="topic-mode topic-mode--quiz" data-action="start" data-mode="quiz" data-subject="${topic.sourceSubjectId}" data-topic="${topic.id}" aria-label="Chơi quiz ${escapeHtml(topic.title)}">Quiz ${icon("arrow", 14)}</button>
+                <button type="button" class="topic-mode topic-mode--match" data-action="start" data-mode="match" data-subject="${topic.sourceSubjectId}" data-topic="${topic.id}" aria-label="Chơi ghép thẻ ${escapeHtml(topic.title)}">Ghép thẻ ${icon("arrow", 14)}</button>
               </div>
             </div>
           </article>
@@ -456,6 +473,8 @@ function renderHome() {
 
 function renderProgress() {
   const history = state.progress.history;
+  const historyCourses = new Map(learnerSubjects().map((subject) => [subject.id, subject]));
+  for (const entry of history) { const course = displaySubject(entry.subjectId, entry.topicId); historyCourses.set(course.id, course); }
   const level = getExperienceLevel();
   const week = Array.from({ length: 7 }, (_, index) => {
     const date = new Date();
@@ -471,7 +490,7 @@ function renderProgress() {
   });
   const peak = Math.max(...week.map((day) => day.count), 1);
   const perfectRuns = history.filter((entry) => entry.correct === entry.total).length;
-  const studiedSubjects = new Set(history.map((entry) => entry.subjectId)).size;
+  const studiedSubjects = new Set(history.map((entry) => displaySubject(entry.subjectId, entry.topicId).id)).size;
   const accuracy = state.progress.completed
     ? Math.round(state.progress.correct / Math.max(state.progress.totalAnswered, 1) * 100)
     : 0;
@@ -512,8 +531,8 @@ function renderProgress() {
         <section class="progress-panel subject-panel" aria-labelledby="subject-progress-title">
           <div class="progress-panel-heading"><div><h2 id="subject-progress-title">Môn học đã khám phá</h2><p>Những chủ đề bạn đã thử sức.</p></div></div>
           <div class="subject-progress-list">
-            ${subjects.map((subject) => {
-              const runs = history.filter((entry) => entry.subjectId === subject.id);
+            ${[...historyCourses.values()].map((subject) => {
+              const runs = history.filter((entry) => displaySubject(entry.subjectId, entry.topicId).id === subject.id);
               const topics = new Set(runs.map((entry) => entry.topicId)).size;
               const percentage = Math.round(topics / subject.topics.length * 100);
               return `<div class="subject-progress-row">${subjectMark(subject, "subject-mark--small")}<div class="subject-progress-copy"><div><strong>${escapeHtml(subject.name)}</strong><span>${topics} / ${subject.topics.length} chủ đề</span></div><div class="subject-progress-track"><span class="subject-progress-fill subject-progress-fill--${subject.color}" style="width:${percentage}%"></span></div></div></div>`;
@@ -526,7 +545,7 @@ function renderProgress() {
           <div class="progress-panel-heading"><div><h2 id="history-title">Thử thách gần đây</h2><p>Mỗi lần chơi là một bước trên hành trình.</p></div></div>
           ${history.length
             ? `<div class="history-list">${history.slice(0, 6).map((entry, index) => {
-              const subject = getSubject(entry.subjectId);
+              const subject = displaySubject(entry.subjectId, entry.topicId);
               const topic = subject?.topics.find((item) => item.id === entry.topicId);
               const score = Math.round(entry.correct / entry.total * 100);
               const date = new Date(`${entry.date}T12:00:00`).toLocaleDateString("vi-VN", { day: "numeric", month: "short" });
@@ -563,7 +582,7 @@ function renderProfile() {
         <form class="profile-form" id="profile-form">
           <div class="profile-form-heading"><h2>Thông tin học tập</h2><p>Các thay đổi chỉ được lưu trên thiết bị này.</p></div>
           <label class="profile-field" for="display-name"><span>Tên bạn muốn hiển thị</span><input id="display-name" name="displayName" type="text" value="${escapeHtml(state.progress.displayName)}" minlength="2" maxlength="32" autocomplete="nickname" required aria-describedby="display-name-hint" /><small id="display-name-hint">Tên này sẽ xuất hiện trong lời chào và hồ sơ của bạn.</small></label>
-          <label class="profile-field" for="grade"><span>Bạn đang học lớp</span><select id="grade" name="grade">${["6", "7", "8", "9", "10", "11", "12"].map((grade) => `<option value="${grade}" ${state.progress.grade === grade ? "selected" : ""}>Lớp ${grade}</option>`).join("")}</select><small>Để chúng mình điều chỉnh nội dung phù hợp hơn trong tương lai.</small></label>
+          <label class="profile-field" for="grade"><span>Bạn đang học lớp</span><select id="grade" name="grade">${["6", "7", "8", "9", "10", "11", "12"].map((grade) => `<option value="${grade}" ${state.progress.grade === grade ? "selected" : ""}>Lớp ${grade}</option>`).join("")}</select><small>Danh mục môn học và chủ đề sẽ đổi theo khối lớp của bạn.</small></label>
           <section class="text-size-setting" aria-labelledby="text-size-title">
             <div><h3 id="text-size-title">Cỡ chữ nội dung</h3><p>Điều chỉnh để đọc thoải mái hơn trên thiết bị này.</p></div>
             <div class="text-size-controls" role="group" aria-label="Điều chỉnh cỡ chữ">
@@ -582,7 +601,7 @@ function renderProfile() {
 
 function renderPlay() {
   if (state.mode === "match") return renderMatchPlay();
-  const subject = getSubject();
+  const subject = displaySubject();
   const topic = getTopic();
   const question = state.mode === "review"
     ? state.reviewQuestions[state.questionIndex]
@@ -626,7 +645,7 @@ function renderPlay() {
 }
 
 function renderMatchPlay() {
-  const subject = getSubject();
+  const subject = displaySubject();
   const topic = getTopic();
   const round = state.matchRounds[state.questionIndex];
   const chosen = state.answers[state.questionIndex];
@@ -681,7 +700,7 @@ function renderResult() {
     : correct >= 3
       ? { title: "Bạn làm tốt lắm!", detail: "Mỗi câu trả lời là một điều mới bạn vừa khám phá." }
       : { title: "Bạn đã dũng cảm thử sức!", detail: "Luyện tập thêm một chút, bạn sẽ thấy mình tiến bộ." };
-  const subject = getSubject();
+  const subject = displaySubject();
   const topic = getTopic();
   const mistakes = state.result.mistakes ?? [];
   const replayMode = state.mode === "review" ? "quiz" : state.mode;
@@ -706,7 +725,7 @@ function renderResult() {
         <div class="result-xp" role="status"><span class="result-xp-icon" aria-hidden="true">✨</span><span><strong>+${state.result.experienceEarned} XP</strong><small>${state.result.dailyRewardEarned ? "Đã gồm 20 XP hoàn thành mục tiêu hôm nay" : state.mode === "review" ? "Điểm thưởng ôn tập" : "Điểm thưởng thử thách"}</small></span><span class="result-xp-level">Cấp ${level.level} · ${level.title}</span></div>
         <p class="result-topic">${subjectMark(subject, "subject-mark--tiny")} ${escapeHtml(topic.title)} <span>·</span> ${escapeHtml(subject.name)}</p>
         <div class="result-actions">
-          <button class="button button--primary" type="button" data-action="start" data-mode="${replayMode}" data-subject="${subject.id}" data-topic="${topic.id}">Chơi lại ${icon("arrow", 17)}</button>
+          <button class="button button--primary" type="button" data-action="start" data-mode="${replayMode}" data-subject="${state.selectedSubject}" data-topic="${topic.id}">Chơi lại ${icon("arrow", 17)}</button>
           <button class="button button--outline" type="button" data-action="home">Chọn chủ đề khác</button>
         </div>
         ${mistakes.length ? `<div class="result-retry-action"><button class="button button--outline" type="button" data-action="review-mistakes" aria-label="Luyện lại ${mistakes.length} câu trả lời chưa đúng">${icon("target", 16)} Luyện lại ${mistakes.length} câu sai</button></div><section class="result-review" aria-labelledby="result-review-title">
@@ -735,7 +754,7 @@ function render() {
     return;
   }
   const screen = state.screen === "tutor"
-    ? renderTutor({ subjects, tutor: state.tutor, grade: state.currentUser?.grade ?? state.progress.grade, available: apiMode && !!state.currentUser, showContext: state.tutorShowContext })
+    ? renderTutor({ subjects: learnerSubjects(), tutor: state.tutor, grade: state.currentUser?.grade ?? state.progress.grade, available: apiMode && !!state.currentUser, showContext: state.tutorShowContext })
     : state.screen === "library"
     ? renderLibrary({
       subjects,
@@ -969,6 +988,7 @@ async function startGame(subjectId, topicId, mode = "quiz") {
       return;
     }
   }
+  state.catalogSubject = courseId(subjectId, { id: topicId }, state.progress.grade);
   state.selectedSubject = subjectId;
   state.topicId = topicId;
   state.mode = mode;
@@ -1040,6 +1060,7 @@ async function startReview(mistakes, subjectId = state.selectedSubject, topicId 
       return;
     }
   }
+  state.catalogSubject = courseId(subjectId, { id: topicId }, state.progress.grade);
   state.selectedSubject = subjectId;
   state.topicId = topicId;
   state.mode = "review";
@@ -1476,7 +1497,7 @@ app.addEventListener("click", async (event) => {
   } else if (action === "admin-tab") {
     if (apiMode && state.currentUser?.role !== "admin") return;
     state.screen = "admin";
-    state.adminTab = ["overview", "content", "library", "tutor", "classes", "learners", "administrators", "data"].includes(control.dataset.tab)
+    state.adminTab = ["overview", "content", "curriculum", "library", "tutor", "classes", "learners", "administrators", "data"].includes(control.dataset.tab)
       ? control.dataset.tab
       : "overview";
     state.adminCreatingTopic = false;
@@ -1707,19 +1728,19 @@ app.addEventListener("click", async (event) => {
       await recordGameAnswer(Number(control.dataset.answer));
     }
   } else if (action === "subject") {
-    state.selectedSubject = control.dataset.subject;
+    state.catalogSubject = control.dataset.subject;
     state.screen = "home";
     state.notice = "";
     render();
     document.querySelector('.subject-filter select')?.focus({ preventScroll: true });
     scrollToElement(document.querySelector("#subjects"));
   } else if (action === "subject-picker") {
-    state.selectedSubject = control.dataset.subject;
+    state.catalogSubject = control.dataset.subject;
     state.screen = "home";
     state.notice = "";
     render();
     const selectedOption = [...document.querySelectorAll("[data-subject-picker]")]
-      .find((option) => option.dataset.subjectPicker === state.selectedSubject);
+      .find((option) => option.dataset.subjectPicker === state.catalogSubject);
     selectedOption?.focus({ preventScroll: true });
   } else if (action === "explore") {
     state.screen = "home";
@@ -1751,7 +1772,7 @@ app.addEventListener("change", async (event) => {
     state.tutor.hintLevel = 0;
     state.tutor.answer = "";
     state.tutor.subjectId = event.target.value;
-    state.tutor.topicId = subjects.find((subject) => subject.id === event.target.value)?.topics[0]?.id ?? "";
+    state.tutor.topicId = learnerSubjects().find((subject) => subject.id === event.target.value)?.topics[0]?.id ?? "";
     render();
     document.querySelector("#tutor-subject")?.focus();
     return;
@@ -1761,7 +1782,7 @@ app.addEventListener("change", async (event) => {
     const form = document.querySelector("#library-filter-form");
     const data = new FormData(form);
     state.libraryGrade = data.get("grade");
-    state.librarySubjectId = data.get("subjectId");
+    state.librarySubjectId = event.target.id === "library-grade" ? "" : data.get("subjectId");
     state.libraryQuery = String(data.get("query")).trim();
     state.libraryLessonId = "";
     const focusedId = event.target.id;
@@ -1770,7 +1791,7 @@ app.addEventListener("change", async (event) => {
     return;
   }
   if (event.target.matches('select[data-action="subject"]')) {
-    state.selectedSubject = event.target.value;
+    state.catalogSubject = event.target.value;
     state.screen = "home";
     state.notice = "";
     render();
@@ -1954,6 +1975,8 @@ app.addEventListener("submit", async (event) => {
     const data = new FormData(event.target);
     const tutor = state.tutor;
     const userId = state.currentUser.id;
+    const selectedCourse = learnerSubjects().find((subject) => subject.id === data.get("subjectId"));
+    const selectedTutorTopic = selectedCourse?.topics.find((topic) => topic.id === data.get("topicId"));
     tutor.subjectId = String(data.get("subjectId") ?? "");
     tutor.topicId = String(data.get("topicId") ?? "");
     tutor.question = String(data.get("question")).trim();
@@ -1967,7 +1990,7 @@ app.addEventListener("submit", async (event) => {
     render();
     try {
       const result = await apiRequest("/app/tutor", { method: "POST", csrf: true,
-        signal: AbortSignal.timeout(65000), body: { subjectId: tutor.subjectId, topicId: tutor.topicId, question: tutor.question, mode, hintLevel, attempt: tutor.attempt } });
+        signal: AbortSignal.timeout(65000), body: { subjectId: selectedTutorTopic?.sourceSubjectId ?? tutor.subjectId, topicId: tutor.topicId, question: tutor.question, mode, hintLevel, attempt: tutor.attempt } });
       if (state.currentUser?.id === userId && state.tutor === tutor) {
         if (mode === "hint") tutor.hintLevel = hintLevel;
         tutor.answer = result.answer;
