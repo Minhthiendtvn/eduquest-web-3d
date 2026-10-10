@@ -803,7 +803,7 @@ function render() {
                 : "",
             })
           : renderHome();
-  app.innerHTML = `<div class="app-shell">${renderSidebar()}<main class="main-area" id="main-content" tabindex="-1"><div class="main-inner">${renderTopbar()}${renderInstallPrompt()}${screen}  <footer class="site-footer"><span>© ${new Date().getFullYear()} EduQuest</span><span>Học vui, lớn khôn mỗi ngày <span aria-hidden="true">✿</span></span></footer></div></main></div>${state.notice ? `<div class="toast" role="status">${icon("sparkles", 17)}${state.notice}</div>` : ""}`;
+  app.innerHTML = `<div class="app-shell">${renderSidebar()}<main class="main-area" id="main-content" tabindex="-1"><div class="main-inner">${renderTopbar()}${renderInstallPrompt()}${screen}  <footer class="site-footer"><span>© ${new Date().getFullYear()} <a href="https://huynhvinh.com">EduQuest — A product of Huynh Vinh</a></span><span>Học vui, lớn khôn mỗi ngày <span aria-hidden="true">✿</span></span></footer></div></main></div>${state.notice ? `<div class="toast" role="status">${icon("sparkles", 17)}${state.notice}</div>` : ""}`;
 }
 
 function shuffle(items) {
